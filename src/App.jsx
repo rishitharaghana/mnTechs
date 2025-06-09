@@ -1,22 +1,22 @@
 
-import './App.css'
-import Footer from './Components/Footer'
 
-function App() {
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Index from "./pages/Index";
+import NotFound from "./pages/NotFound";
 
 
-  return (
-    <>
-      <div>
-          <h1 class="text-3xl font-bold underline">
-    Hello world!
-  </h1>
-        MN tech landing page
-      </div>
-      <Footer/>
 
-    </>
-  )
-}
+const App = () => (
 
-export default App
+    
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Index />} />
+         
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </BrowserRouter>
+   
+);
+
+export default App;

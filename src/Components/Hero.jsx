@@ -1,12 +1,26 @@
-
+import { useState, useEffect, useRef } from 'react';
 import { Plus } from 'lucide-react';
 
 const Hero = () => {
   const features = [
-    'Dedicated Team',
-    'Developers',
-    'Designers'
+    { name: 'Dedicated Team', info: 'Our team is committed to your success with expert professionals.' },
+    { name: 'Developers', info: 'Skilled developers building scalable and efficient solutions.' },
+    { name: 'Designers', info: 'Creative designers crafting intuitive and engaging user experiences.' }
   ];
+
+  const [openTooltip, setOpenTooltip] = useState(null);
+  const containerRef = useRef(null);
+
+  // Close tooltip if clicking outside
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (containerRef.current && !containerRef.current.contains(event.target)) {
+        setOpenTooltip(null);
+      }
+    }
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
 
   return (
     <div className="relative min-h-screen bg-gray-900">
@@ -40,9 +54,9 @@ const Hero = () => {
               </div>
             </div>
 
-            <p className="text-gray-400 text-lg max-w-lg">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
-              incididunt ut labore et dolore magna aliqua.
+            <p className="text-white-400 text-lg max-w-lg">
+              MNTECHS provides end-to-end service solutions designed to optimize performance and drive growth.
+              We partner with businesses to turn complex challenges into strategic advantages.
             </p>
 
             <button className="bg-transparent border-2 border-orange-500 text-orange-500 px-8 py-3 rounded-full font-semibold hover:bg-orange-500 hover:text-white transition-all duration-300">
@@ -51,15 +65,33 @@ const Hero = () => {
           </div>
 
           {/* Right Content - Features */}
-          <div className="space-y-8">
+          <div className="space-y-8" ref={containerRef}>
             {features.map((feature, index) => (
-              <div key={feature} className="flex items-center space-x-4 group cursor-pointer">
-                <div className="w-12 h-12 border-2 border-orange-500 rounded-full flex items-center justify-center group-hover:bg-orange-500 transition-colors duration-300">
-                  <Plus className="h-6 w-6 text-orange-500 group-hover:text-white" />
+              <div key={feature.name} className="relative flex items-center space-x-4 group cursor-pointer">
+                {/* Plus icon with click handler */}
+                <div
+                  className="w-12 h-12 border-2 border-orange-500 rounded-full flex items-center justify-center group-hover:bg-orange-500 transition-colors duration-300"
+                  onClick={() => setOpenTooltip(openTooltip === index ? null : index)}
+                >
+                  <Plus
+                    className={`h-6 w-6 transition-colors duration-300 ${
+                      openTooltip === index ? 'text-white' : 'text-orange-500 group-hover:text-white'
+                    }`}
+                  />
                 </div>
-                <span className="text-white text-xl font-semibold group-hover:text-orange-500 transition-colors duration-300">
-                  {feature}
+
+                <span
+                  className={`text-white text-xl font-semibold group-hover:text-orange-500 transition-colors duration-300`}
+                >
+                  {feature.name}
                 </span>
+
+                {/* Tooltip */}
+                {openTooltip === index && (
+                  <div className="absolute top-full left-12 mt-2 w-64 p-3 bg-gray-800 rounded-md shadow-lg text-white text-sm z-20">
+                    {feature.info}
+                  </div>
+                )}
               </div>
             ))}
           </div>

@@ -12,6 +12,7 @@ import TestimonialsSection from '../../Components/TestimonialsSection';
 import ThinkingSection from '../../Components/ThinkingSection';
 import ContactWrapper from '../CompWrapper';
 import Navigation from '../../Components/Navigation';
+import Contacts from '../../Components/Contacts';
 
 export default function Index() {
   return (
@@ -24,6 +25,7 @@ export default function Index() {
    <ThinkingSection/>
    <TestimonialsSection/>
    <ClientLogos/>
+   <Contacts/>
    <Footer/>
    </>
   )

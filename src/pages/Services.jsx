@@ -4,6 +4,7 @@ import { ArrowRight } from "lucide-react";
 import map from "../assets/map.png";
 import Approach from "../Services/Approach";
 import { Link } from "react-router-dom"; 
+import Navigation from "../Components/Navigation";
 
 
 
@@ -44,7 +45,7 @@ const services = [
 const Services = () => {
   return (
     <div >
-      {/* Hero Section */}
+      <Navigation/>
       <div
       >
       {/* className="relative bg-cover bg-center bg-no-repeat hidden md:block" */}

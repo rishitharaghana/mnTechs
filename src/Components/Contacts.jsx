@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Paperclip } from 'lucide-react';
+import Navigation from './Navigation';
 
 const Contacts = () => {
   const [formData, setFormData] = useState({
@@ -25,6 +26,8 @@ const Contacts = () => {
   };
 
   return (
+    <>
+   
     <div className="bg-gray-900 text-white py-16 relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute top-0 right-0 w-64 h-64 opacity-10">
@@ -62,7 +65,7 @@ const Contacts = () => {
                 name="name"
                 value={formData.name}
                 onChange={handleInputChange}
-                className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent text-white placeholder-gray-400"
+                className="w-full px-4 py-3 bg-transparent border-b border-gray-700  focus:outline-none focus:ring-none focus:ring-orange-500 focus:border-transparent text-white placeholder-gray-400"
                 required
               />
             </div>
@@ -76,7 +79,7 @@ const Contacts = () => {
                 name="email"
                 value={formData.email}
                 onChange={handleInputChange}
-                className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent text-white placeholder-gray-400"
+                className="w-full px-4 py-3 bg-transparent border-b border-gray-700  focus:outline-none focus:ring-none focus:ring-orange-500 focus:border-transparent text-white placeholder-gray-400"
                 required
               />
             </div>
@@ -91,7 +94,7 @@ const Contacts = () => {
               name="phone"
               value={formData.phone}
               onChange={handleInputChange}
-              className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent text-white placeholder-gray-400"
+              className="w-full px-4 py-3 bg-transparent border-b border-gray-600 focus:outline-none focus:ring-none text-white placeholder-gray-400"
             />
           </div>
 
@@ -102,7 +105,7 @@ const Contacts = () => {
               value={formData.message}
               onChange={handleInputChange}
               rows={6}
-              className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent text-white placeholder-gray-400 resize-none"
+              className="w-full px-4 py-3 bg-transparent border-b border-gray-700  focus:outline-none focus:ring-none focus:ring-orange-500 focus:border-transparent text-white placeholder-gray-400 resize-none"
             />
           </div>
 
@@ -139,6 +142,7 @@ const Contacts = () => {
         </form>
       </div>
     </div>
+    </>
   );
 };
 

@@ -61,7 +61,7 @@ const Index = () => {
 
         {/* Services Grid */}
         <div className="grid lg:grid-cols-2 gap-16 max-w-6xl mx-auto">
-          {/* IT Services Column */}
+         
           <div>
             <h3 className="text-2xl font-bold text-gray-800 mb-12 text-center">IT Services</h3>
             <div className="space-y-8">

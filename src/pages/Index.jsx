@@ -4,7 +4,7 @@ import Services from "../Components/Service";
 import ClientLogos from "../Components/Clientlogo";
 import Footer from "../Components/Footer";
 import LatestProjects from "../Components/LatestProjects";
-
+import Contact from "../Components/Contact";
 
 
 const Index = () => {
@@ -15,7 +15,9 @@ const Index = () => {
       <ClientLogos />
       <Services />
       <LatestProjects/>
+      <Contact />
       <Footer />
+      
     </div>
   );
 };

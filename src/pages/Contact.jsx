@@ -27,62 +27,16 @@ const Contact = () => {
     console.log('Contact form submitted:', formData);
   };
 
-  const navItems = [
-    { name: 'Enterprise', hasDropdown: true, path: '/enterprise' },
-    { name: 'Services', hasDropdown: true, path: '/services' },
-    { name: 'Solutions', hasDropdown: true, path: '/solutions' },
-    { name: 'Contact Us', hasDropdown: false, path: '/contact' },
-  ];
+  
 
   return (
-    <div className="min-h-screen bg-gray-50 flex flex-col">
+    <>
+    <Navigation/>
+    <div className="min-h-screen w-full bg-gray-50 flex flex-col px-30">
       {/* Navigation */}
-      <nav className="bg-white border-b border-gray-200 sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between min-h-[4rem]">
-            {/* Logo */}
-            <div className="flex items-center">
-              <div className="flex items-center space-x-2">
-                <div className="w-8 h-8 bg-orange-500 rounded-full flex items-center justify-center">
-                  <div className="w-4 h-4 border-2 border-white rounded-full border-t-transparent"></div>
-                </div>
-                <span className="text-gray-900 text-xl font-bold tracking-wider">MNTECHS</span>
-              </div>
-            </div>
+       
 
-            {/* Navigation Links */}
-            <div className="hidden md:block">
-              <div className="ml-10 flex items-baseline space-x-8">
-                {navItems.map((item) => (
-                  <div key={item.name} className="relative group">
-                    <Link
-                      to={item.path}
-                      className="text-gray-700 hover:text-gray-900 px-3 py-2 text-sm font-medium flex items-center transition-colors duration-200"
-                    >
-                      {item.name}
-                      {item.hasDropdown && (
-                        <>
-                          <ChevronDown className="ml-1 h-4 w-4" />
-                          <span className="ml-1 w-2 h-2 bg-orange-500 rounded-full" />
-                        </>
-                      )}
-                    </Link>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Search Icon */}
-            <div className="ml-4 flex items-center">
-              <button className="text-gray-700 hover:text-gray-900 p-2 rounded-md transition-colors duration-200">
-                <Search className="h-5 w-5" />
-              </button>
-            </div>
-          </div>
-        </div>
-      </nav>
-
-      {/* Breadcrumb */}
+    
       <div className="bg-white border-b border-gray-200 py-2 sm:py-4">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center space-x-2 text-sm">
@@ -263,6 +217,8 @@ const Contact = () => {
       </div>
     </div>
     </>
+    
+    
   );
 };
 

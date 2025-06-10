@@ -18,13 +18,11 @@ export default function Index() {
    <>
    <Navigation/>
    <Hero/>
-   <LatestProjects/>
-   <Services/>
-   <ThinkingSection/>
    <CollaborationSection/>
+   <LatestProjects/>
    <SkillsSection/>
+   <ThinkingSection/>
    <TestimonialsSection/>
-   <ContactWrapper/>
    <ClientLogos/>
    <Footer/>
    </>

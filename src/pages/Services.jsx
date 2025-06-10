@@ -1,5 +1,4 @@
 import React from "react";
-import { CiCloud } from "react-icons/ci";
 
 const services = [
   {

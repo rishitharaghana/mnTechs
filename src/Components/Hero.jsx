@@ -9,6 +9,7 @@ const Hero = () => {
   ];
 
   const [openTooltip, setOpenTooltip] = useState(null);
+  const [hoveredTooltip, setHoveredTooltip] = useState(null);  // Added hoveredTooltip state
   const containerRef = useRef(null);
 
   // Close tooltip if clicking outside
@@ -67,27 +68,33 @@ const Hero = () => {
           {/* Right Content - Features */}
           <div className="space-y-8" ref={containerRef}>
             {features.map((feature, index) => (
-              <div key={feature.name} className="relative flex items-center space-x-4 group cursor-pointer">
-                {/* Plus icon with click handler */}
+              <div
+                key={feature.name}
+                className="relative flex items-center space-x-4 group cursor-pointer"
+                onMouseLeave={() => setHoveredTooltip(null)}  // Added to clear hover on leave
+              >
+                {/* Plus icon with click and hover handlers */}
                 <div
                   className="w-12 h-12 border-2 border-orange-500 rounded-full flex items-center justify-center group-hover:bg-orange-500 transition-colors duration-300"
                   onClick={() => setOpenTooltip(openTooltip === index ? null : index)}
+                  onMouseEnter={() => setHoveredTooltip(index)}      // Added hover enter
+                  onMouseLeave={() => setHoveredTooltip(null)}       // Added hover leave
                 >
                   <Plus
                     className={`h-6 w-6 transition-colors duration-300 ${
-                      openTooltip === index ? 'text-white' : 'text-orange-500 group-hover:text-white'
+                      openTooltip === index || hoveredTooltip === index
+                        ? 'text-white'
+                        : 'text-orange-500 group-hover:text-white'
                     }`}
                   />
                 </div>
 
-                <span
-                  className={`text-white text-xl font-semibold group-hover:text-orange-500 transition-colors duration-300`}
-                >
+                <span className="text-white text-xl font-semibold group-hover:text-orange-500 transition-colors duration-300">
                   {feature.name}
                 </span>
 
-                {/* Tooltip */}
-                {openTooltip === index && (
+                {/* Tooltip: show if clicked or hovered */}
+                {(openTooltip === index || hoveredTooltip === index) && (
                   <div className="absolute top-full left-12 mt-2 w-64 p-3 bg-gray-800 rounded-md shadow-lg text-white text-sm z-20">
                     {feature.info}
                   </div>

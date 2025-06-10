@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Search, ChevronDown } from 'lucide-react';
+import Navigation from '../Components/Navigation';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -261,6 +262,7 @@ const Contact = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

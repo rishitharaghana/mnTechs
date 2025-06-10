@@ -20,12 +20,12 @@ export default function Index() {
    <Navigation/>
    <Hero/>
    <LatestProjects/>
-   <Services/>
+   {/* <Services/> */}
    <ThinkingSection/>
    <CollaborationSection/>
    <SkillsSection/>
    <TestimonialsSection/>
-   <ContactWrapper/>
+   {/* <ContactWrapper/> */}
    <ClientLogos/>
    <Contacts/>
    <Footer/>

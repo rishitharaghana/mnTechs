@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Paperclip } from 'lucide-react';
+import Navigation from './Navigation';
 
 const Contacts = () => {
   const [formData, setFormData] = useState({
@@ -25,6 +26,8 @@ const Contacts = () => {
   };
 
   return (
+    <>
+   
     <div className="bg-gray-900 text-white py-16 relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute top-0 right-0 w-64 h-64 opacity-10">
@@ -139,6 +142,7 @@ const Contacts = () => {
         </form>
       </div>
     </div>
+    </>
   );
 };
 

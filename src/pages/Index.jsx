@@ -3,6 +3,7 @@ import Hero from "../Components/Hero";
 import Services from "../Components/Service";
 import ClientLogos from "../Components/Clientlogo";
 import Footer from "../Components/Footer";
+import LatestProjects from "../Components/LatestProjects";
 
 
 
@@ -11,8 +12,9 @@ const Index = () => {
     <div className="min-h-screen bg-gray-900">
       <Navigation />
       <Hero />
-      <Services />
       <ClientLogos />
+      <Services />
+      <LatestProjects/>
       <Footer />
     </div>
   );

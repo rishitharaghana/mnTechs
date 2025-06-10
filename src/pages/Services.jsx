@@ -3,12 +3,8 @@ import { CiCloud } from "react-icons/ci";
 import { ArrowRight } from "lucide-react";
 import map from "../assets/map.png";
 import Approach from "../Services/Approach";
-import { Link } from "react-router-dom"; 
+import { Link } from "react-router-dom";
 import Navigation from "../Components/Navigation";
-
-
-
-
 const services = [
   {
     id: "01",
@@ -41,86 +37,71 @@ const services = [
     desc: "Ensure your SaaS product stays updated, secure, and running smoothly with our ongoing support.",
   },
 ];
-
 const Services = () => {
   return (
-    <div >
-      <Navigation/>
-      <div
-      >
-      {/* className="relative bg-cover bg-center bg-no-repeat hidden md:block" */}
-     
-        <div className="absolute inset-0 bg-white bg-opacity-80"></div>
-        <div className="relative z-10 px-10 py-32"
-         style={{
-          backgroundImage: `url(${map})`,
-          backgroundColor: "rgba(0, 0, 0, 0.1)", // Equivalent to bg-red-600 opacity-10
-          // height: "150px",
-        }}
-        >
-        
-          <div className="text-sm text-gray-600 mb-4">
-  <Link to="/" className="text-black font-medium hover:underline">
-    Home
-  </Link>
-  <span className="text-orange-500 mx-2">●</span>
-  <span className="text-gray-500">Service</span>
-</div>
+    <div>
+      <Navigation />
+      <div className="relative">
+        <div className="absolute inset-0 bg-white bg-opacity-80 z-0"></div>
 
-          <h1 className="text-4xl md:text-5xl font-bold text-black">
-            SAAS DEVELOPMENT SERVICES
-          </h1>
+        <div
+          className="relative z-10 px-10 py-32"
+          style={{
+            backgroundImage: `url(${map})`,
+            backgroundColor: "rgba(0, 0, 0, 0.1)",
+            backgroundRepeat: "no-repeat",
+            backgroundSize: "cover",
+          }}
+        >
+          <div className="text-sm text-gray-600 mb-4">
+            <Link to="/" className="text-black font-medium hover:underline">
+              Home
+            </Link>
+            <span className="text-orange-500 mx-2">●</span>
+            <span className="text-gray-500">Service</span>
+          </div>
+          <div className="flex items-center gap-10 md:gap-10">
+            <h1 className="text-4xl md:text-5xl font-bold text-black">
+              SAAS DEVELOPMENT SERVICES
+            </h1>
+            <img
+              src="/deco-2.svg"
+              alt="Decoration"
+              className="w-40 md:w-50 h-auto transform rotate-90"
+            />
+          </div>
         </div>
       </div>
-
-      {/* Info Section with Icon and Button */}
       <div className="relative py-16 px-6 md:px-20 bg-white">
-        {/* Background Hexagon Graphic */}
         <img
           src={map}
-      
           alt="hexagon background"
           className="absolute right-10 top-10 opacity-10 pointer-events-none hidden md:block"
           style={{ height: "150px" }}
         />
 
         <div className="flex flex-col md:flex-row items-center justify-between gap-10 relative z-10">
-          {/* Icon + Text */}
           <div className="flex items-center gap-6 max-w-3xl">
             <div className="bg-gray-100 p-6 rounded-full text-4xl text-orange-500">
               <CiCloud />
             </div>
             <p className="text-lg text-gray-800">
-              At MnTech Services, we craft cutting-edge SaaS solutions tailored to your business needs.
-              From startup ideas to enterprise platforms — we turn innovation into scalable reality.
+              At MnTech Services, we craft cutting-edge SaaS solutions tailored
+              to your business needs. From startup ideas to enterprise platforms
+              — we turn innovation into scalable reality.
             </p>
           </div>
-
-          {/* Get in Touch Button */}
-          {/* <button className="border-2 border-orange-500 text-black font-medium py-3 px-8 rounded-full hover:bg-orange-500 hover:text-white transition">
+          <button className="border-1 border-orange-500 font-medium py-3 px-8 rounded-full hover:bg-orange-500 hover:text-orange transition">
             Get in Touch
-          </button> */}
-          {/* <button className="border-2 border-orange-500 text-white font-medium py-3 px-8 rounded-full bg-white hover:bg-orange-500 hover:text-black transition">
-  Get in Touch
-</button> */}
-<button className="border-2 border-orange-500 font-medium py-3 px-8 rounded-full hover:bg-orange-500 hover:text-orange transition">
-  Get in Touch
-</button>
-
-
+          </button>
         </div>
-
-        {/* Divider Line */}
         <div className="flex items-center mt-12">
           <div className="w-8 h-1 bg-orange-500"></div>
           <div className="flex-1 border-t border-gray-200"></div>
           <div className="w-8 h-1 bg-orange-500"></div>
         </div>
       </div>
-
-      {/* Services Grid */}
-           {/* Services Grid */}
-           <div className="px-6 md:px-20 pb-20">
+      <div className="px-6 md:px-20 pb-20">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {services.map((service, index) => (
             <div key={index} className="space-y-4">
@@ -129,95 +110,73 @@ const Services = () => {
                   {service.id}
                   <span className="absolute bottom-1 right-1 w-3 h-3 bg-orange-500 rounded-full"></span>
                 </div>
-                <h3 className="text-lg font-semibold  text-black" >{service.title}</h3>
+                <h3 className="text-lg font-semibold  text-black">
+                  {service.title}
+                </h3>
               </div>
               <p className="text-gray-500">{service.desc}</p>
             </div>
           ))}
         </div>
-
-        {/* Bottom Button and Arrow */}
         <div className="flex items-center justify-between mt-12 px-2">
           <button className="border-2 border-orange-500 text-white font-medium py-2 px-6 rounded-full hover:bg-orange-500 hover:text-white transition">
-            Tell us  about your project
+            Tell us about your project
           </button>
           <div className="text-orange-500 text-3xl hover:translate-x-1 transition-transform cursor-pointer">
             →
           </div>
-          
         </div>
-        
       </div>
-      {/* Divide line */}
       <div className="flex items-center mt-12">
-          <div className="w-8 h-1 bg-orange-500"></div>
+        <div className="w-8 h-1 bg-orange-500"></div>
+        <div className="flex-1 border-t border-gray-200"></div>
+        <div className="w-8 h-1 bg-orange-500"></div>
+      </div>
+      <section className="py-16 px-4 bg-white text-center">
+        <p className="text-orange-500 font-medium mb-2">● Safeguard Modern</p>
+        <h2 className="text-4xl font-bold text-gray-900 mb-12">
+          Ready To Take The Next Step?
+        </h2>
+        <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+          <div className="border rounded-2xl p-8 shadow-sm hover:shadow-md transition">
+            <h3 className="text-xl font-semibold mb-4">Get a Live Demo</h3>
+            <p className="text-gray-400 mb-8">
+              Dissuade ecstatic and properly saw entirely sir why laughter
+              endeavor. In on my jointure horrible margaret suitable he followed
+              speedily. Indeed vanity excuse or mr lovers of on.
+            </p>
+            <button className="flex items-center gap-2 text-black font-semibold">
+              Request a Free Demo
+              <span className="bg-gray-200 p-2 rounded-full">
+                <ArrowRight size={16} />
+              </span>
+            </button>
+          </div>
+          <div className="border rounded-2xl p-8 shadow-sm hover:shadow-md transition">
+            <h3 className="text-xl font-semibold mb-4">Start Now</h3>
+            <p className="text-gray-400 mb-8">
+              Dissuade ecstatic and properly saw entirely sir why laughter
+              endeavor. In on my jointure horrible margaret suitable he followed
+              speedily. Indeed vanity excuse or mr lovers of on.
+            </p>
+            <button className="flex items-center gap-2 text-black font-semibold">
+              Get In Touch
+              <span className="bg-gray-200 p-2 rounded-full">
+                <ArrowRight size={16} />
+              </span>
+            </button>
+          </div>
+        </div>
+      </section>
+      <div className="py-16 bg-white text-center">
+        <div className="flex items-center mt-12 px-4 md:px-20">
+          <div className="w-4 h-1 bg-orange-500"></div>
           <div className="flex-1 border-t border-gray-200"></div>
-          <div className="w-8 h-1 bg-orange-500"></div>
-        </div>
-        <section className="py-16 px-4 bg-white text-center">
-      <p className="text-orange-500 font-medium mb-2">● Safeguard Modern</p>
-      <h2 className="text-4xl font-bold text-gray-900 mb-12">
-        Ready To Take The Next Step?
-      </h2>
-
-      <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-        {/* Left Card */}
-        <div className="border rounded-2xl p-8 shadow-sm hover:shadow-md transition">
-          <h3 className="text-xl font-semibold mb-4">Get a Live Demo</h3>
-          <p className="text-gray-400 mb-8">
-            Dissuade ecstatic and properly saw entirely sir why laughter
-            endeavor. In on my jointure horrible margaret suitable he followed
-            speedily. Indeed vanity excuse or mr lovers of on.
-          </p>
-          <button className="flex items-center gap-2 text-black font-semibold">
-            Request a Free Demo
-            <span className="bg-gray-200 p-2 rounded-full">
-              <ArrowRight size={16} />
-            </span>
-          </button>
-        </div>
-
-        {/* Right Card */}
-        <div className="border rounded-2xl p-8 shadow-sm hover:shadow-md transition">
-          <h3 className="text-xl font-semibold mb-4">Start Now</h3>
-          <p className="text-gray-400 mb-8">
-            Dissuade ecstatic and properly saw entirely sir why laughter
-            endeavor. In on my jointure horrible margaret suitable he followed
-            speedily. Indeed vanity excuse or mr lovers of on.
-          </p>
-          <button className="flex items-center gap-2 text-black font-semibold">
-            Get In Touch
-            <span className="bg-gray-200 p-2 rounded-full">
-              <ArrowRight size={16} />
-            </span>
-          </button>
+          <div className="w-4 h-1 bg-orange-500"></div>
         </div>
       </div>
-    </section>
-    {/*  */}
-    {/* Partner Logos Section */}
-<div className="py-16 bg-white text-center">
-  {/* Logo Row */}
-  {/* <div className="grid grid-cols-2 md:grid-cols-6 gap-8 justify-items-center items-center px-4 md:px-20">
-    <img src={require("../assets/logos/audiojungle.png")} alt="audiojungle" className="h-10 object-contain" />
-    <img src={require("../assets/logos/codecanyon.png")} alt="codecanyon" className="h-10 object-contain" />
-    <img src={require("../assets/logos/graphicriver.png")} alt="graphicriver" className="h-10 object-contain" />
-    <img src={require("../assets/logos/photodune.png")} alt="photodune" className="h-10 object-contain" />
-    <img src={require("../assets/logos/themeforest.png")} alt="themeforest" className="h-10 object-contain" />
-    <img src={require("../assets/logos/videohive.png")} alt="videohive" className="h-10 object-contain" />
-  </div> */}
-
-  {/* Divider Line */}
-  <div className="flex items-center mt-12 px-4 md:px-20">
-    <div className="w-4 h-1 bg-orange-500"></div>
-    <div className="flex-1 border-t border-gray-200"></div>
-    <div className="w-4 h-1 bg-orange-500"></div>
-  </div>
- </div>
-    <Approach/>
-  </div>
-  
+      <Approach />
+    </div>
   );
 };
-
 export default Services;

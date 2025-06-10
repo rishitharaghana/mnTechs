@@ -1,58 +1,59 @@
-import { useState } from 'react';
-import { Search, ChevronDown } from 'lucide-react';
-import MntechImage from '../assets/mntech.png';
-import { Link } from 'react-router-dom';
-
+import { Search, ChevronDown } from "lucide-react";
+import MntechImage from "../assets/mntech.png";
+import { Link } from "react-router-dom";
 const Navigation = () => {
-  const [isSearchOpen, setIsSearchOpen] = useState(false);
-
   const navItems = [
-    { name: 'Enterprise', path: '/enterprise' },
     {
-      name: 'Services',
-      path: '/services',
+      name: "Enterprise",
+      path: "/enterprise",
       submenu: [
-        { name: 'Service1', path: '/services/service1' },
-        { name: 'Service2', path: '/services/service2' },
+        { name: "home", path: "/services/service1" },
+        { name: "hom2", path: "/services/service2" },
       ],
     },
-    { name: 'Solutions', path: '/solutions' },
-    { name: 'Contact Us', path: '/contact' },
+    {
+      name: "Services",
+      path: "/services",
+      submenu: [
+        { name: "Service1", path: "/services/service1" },
+        { name: "Service2", path: "/services/service2" },
+      ],
+    },
+    { name: "Solutions", path: "/solutions" },
+    { name: "Contact Us", path: "/contact" },
   ];
-
   return (
-    <nav className="bg-gray-900/95 backdrop-blur-sm border-b border-blue-800 sticky top-0 z-50 w-full">
-      <div className="flex items-center justify-between h-16 px-4 sm:px-6 lg:px-8 w-full">
-        {/* Left: Logo */}
+    <nav className="fixed top-0 left-0 w-full z-50 bg-black">
+      <div className="flex items-center justify-between h-20 px-4 sm:px-6 lg:px-20">
         <div className="flex items-center space-x-2">
           <img src={MntechImage} alt="Logo" className="h-10 w-auto" />
         </div>
 
-        {/* Center: Navigation Links */}
         <div className="hidden md:flex flex-1 justify-center">
-          <div className="flex items-center space-x-6">
+          <div className="flex items-center space-x-8">
             {navItems.map((item) => (
               <div key={item.name} className="relative group">
                 <Link
                   to={item.path}
-                  className="text-orange-300 hover:text-white px-2 py-2 text-sm font-medium flex items-center transition-colors duration-200"
+                  className="text-white hover:text-orange-500 px-3 py-2 text-sm font-medium flex items-center transition duration-300"
                 >
                   {item.name}
                   {item.submenu && <ChevronDown className="ml-1 h-4 w-4" />}
                 </Link>
 
-                {/* Dropdown menu */}
                 {item.submenu && (
-                  <div className="absolute left-0 top-full bg-white text-black min-w-max shadow-lg rounded-md opacity-0 group-hover:opacity-100 transform scale-95 group-hover:scale-100 transition-all duration-200 z-50">
-                    {item.submenu.map((subItem) => (
-                      <Link
-                        key={subItem.name}
-                        to={subItem.path}
-                        className="block px-4 py-2 text-sm hover:bg-gray-100"
-                      >
-                        {subItem.name}
-                      </Link>
-                    ))}
+                  <div className="absolute left-1/2 -translate-x-1/2 mt-2 bg-white text-black rounded-md shadow-lg opacity-0 scale-95 group-hover:opacity-100 group-hover:scale-100 transition-all duration-300 ease-out min-w-[160px] z-50">
+                    <div className="py-2">
+                      {item.submenu.map((subItem) => (
+                        <Link
+                          key={subItem.name}
+                          to={subItem.path}
+                          className="block px-4 py-2 text-sm font-semibold text-black hover:bg-gray-100 transition-colors duration-200"
+                        >
+                          {subItem.name}
+                        </Link>
+                      ))}
+                    </div>
                   </div>
                 )}
               </div>
@@ -60,18 +61,11 @@ const Navigation = () => {
           </div>
         </div>
 
-        {/* Right: Search Icon */}
         <div className="flex items-center">
-          <button
-            onClick={() => setIsSearchOpen(!isSearchOpen)}
-            className="text-gray-300 hover:text-white p-2 rounded-md transition-colors duration-200"
-          >
-            <Search className="h-5 w-5" />
-          </button>
+          <Search className="h-5 w-5 text-white" />
         </div>
       </div>
     </nav>
   );
 };
-
 export default Navigation;

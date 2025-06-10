@@ -8,7 +8,7 @@ export  default function Footer() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col sm:flex-row items-center justify-between pb-14 border-b border-gray-500 gap-8">
             <a  className="">
-             <img src={MntechImage} className='h-13 w-35 justify-center'/>
+             <img src={MntechImage} className='h-13 w-45 justify-center'/>
             </a>
             <div className="flex items-center gap-4">
               <Facebook color='white'/>
@@ -57,17 +57,17 @@ export  default function Footer() {
                 <h6 className="text-lg font-medium text-white mb-7 max-lg:text-center">Products</h6>
                 <ul className="flex flex-col gap-6 max-lg:items-center">
                  <li>
-  <a
-    href="https://meetowner.in/"
-    target="_blank"
-    
-    className="text-base font-normal text-gray-400 whitespace-nowrap transition-all duration-300 hover:text-amber-400 focus-within:outline-0 focus-within:text-amber-400"
-  >
-    MeetOwner
-  </a>
-</li>
+                <a
+                    href="https://meetowner.in/"
+                    target="_blank"
+                    
+                    className="text-base font-normal text-gray-400 whitespace-nowrap transition-all duration-300 hover:text-amber-400 focus-within:outline-0 focus-within:text-amber-400"
+                >
+                    MeetOwner
+                </a>
+                </li>
 
-                  <li>
+                                <li>
                     <a
                       href="https://www.marketwings.in/"
                       target='_blank'
@@ -91,63 +91,51 @@ export  default function Footer() {
               <div className="">
                 <h6 className="text-lg font-medium text-white mb-7 max-lg:text-center">Address</h6>
 
-             <div className="flex flex-row items-start gap-2">
-  <MapPin className="w-5 h-5 flex-shrink-0" />
-  <p className="text-base font-normal text-gray-400 whitespace-nowrap transition-all duration-300 hover:text-amber-400 focus-within:outline-0 focus-within:text-amber-400">
-    401, 8-3-6-5/1/1/4, Astral Hasini Residency, <br/>J.P. Nagar, Yella Reddy Guda, <br/> Hyderabad - 500073, Telangana
-  </p>
+                            <div className="flex flex-row items-start gap-2">
+                <MapPin className="w-5 h-5 flex-shrink-0" />
+                <p className="text-base font-normal text-gray-400 whitespace-nowrap transition-all duration-300 hover:text-amber-400 focus-within:outline-0 focus-within:text-amber-400">
+                    401, 8-3-6-5/1/1/4, Astral Hasini Residency, <br/>J.P. Nagar, Yella Reddy Guda, <br/> Hyderabad - 500073, Telangana.
+                </p>
+                </div>
+                            
+              </div>
+            </div>
+                    
+       <div className="w-full lg:max-w-md max-lg:mx-auto">
+  <form action="#" className="flex flex-col gap-3">
+    <div className="relative">
+      <input
+        type="text"
+        id="default-search"
+        className="block w-60 px-4 py-2 text-base font-normal shadow-xs text-gray-600 bg-white border border-gray-300 rounded-full placeholder-gray-400 focus:outline-none leading-normal mx-auto text-center"
+        placeholder="Your email address"
+        required
+      />
+    </div>
+    <div className="relative-button">
+     <button 
+     type="button"
+        id="default-search-subscribe"
+       className="block w-60 px-4 py-2 text-base font-normal shadow-xs text-white bg-blue-600 border border-gray-300 rounded-full placeholder-gray-400 focus:outline-none leading-normal mx-auto text-center"
+        placeholder="Subscribe Now"
+        required>
+       Subcribe Now
+      </button>
+    </div>
+  </form>
 </div>
-              
-              </div>
-            </div>
-            <div className="w-full lg:max-w-md max-lg:mx-auto">
-              <h6 className="text-lg font-medium text-white mb-7">Newsletter</h6>
-              <div className="bg-gray-800 rounded-3xl p-5">
-                <form action="#" className="flex flex-col gap-5">
-                  <div className="relative">
-                    <label className="flex items-center mb-2 text-gray-400 text-base font-medium">Email</label>
-                    
-                    <input
-                      type="text"
-                      id="default-search"
-                      className="block w-full px-5 py-3 text-lg font-normal shadow-xs text-white bg-transparent border border-gray-400 rounded-full placeholder-gray-400 focus:outline-none leading-relaxed focus-within:border-gray-300"
-                      placeholder="harsh@mntechs.com"
-                      required
-                    />
                   </div>
-                  <div className="flex flex-col min-[540px]:flex-row items-center justify-between gap-3">
-                    <div className="flex items-start black">
-                      <input
-                        id="checked-checkbox"
-                        type="checkbox"
-                        value=""
-                        className="w-5 h-5 aspect-square appearance-none cursor-pointer border border-gray-600 bg-transparent rounded-md mr-2 hover:border-gray-400 hover:bg-gray-900 checked:bg-no-repeat checked:bg-center checked:border-gray-400 checked:bg-gray-800"
-                        checked
-                      />
-                      <label htmlFor="checked-checkbox" className="text-sm font-normal cursor-pointer text-gray-400">
-                        I agree with <a href="javascript:;" className="text-amber-500">Privacy Policy</a> and{" "}
-                        <a href="javascript:;" className="text-amber-500">Terms of Condition</a>
-                      </label>
-                    </div>
-                    
-                    <input
-                      type="submit"
-                      value="Send"
-                      className="text-white text-base font-semibold py-3 px-7 rounded-full cursor-pointer bg-amber-500 transition-all duration-500 hover:bg-white hover:text-gray-900"
-                    />
-                    
-                  </div>
-                </form>
+               
               </div>
-            </div>
-          </div>
+           
+        
           
           <div className="flex flex-col-reverse sm:flex-row items-center justify-between gap-5 pt-7">
             <span className="text-sm font-normal text-gray-400">
               <a href=" " className="">
                 ©mntechs
               </a>{" "}
-              2025, All rights reserved.
+            2025.
             </span>
             <div className="relative text-gray-500 focus-within:text-gray-900">
               <div className="absolute inset-y-0 right-6 flex items-center pl-3 pointer-events-none">
@@ -167,7 +155,7 @@ export  default function Footer() {
               </button>
             </div>
           </div>
-        </div>
+        
       </section>
     </>
   );

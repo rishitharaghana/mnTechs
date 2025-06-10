@@ -59,7 +59,7 @@ const LatestProjects = () => {
       <div className="flex justify-between items-center mb-12">
         <div className="relative">
           <div className="absolute -top-4 left-0 w-8 h-0.5 bg-orange-500"></div>
-          <h2 className="text-4xl font-bold text-foreground">Latest Projects</h2>
+          <h2 className="text-4xl font-bold text-[#121820]">Latest Projects</h2>
         </div>
         
         {/* Custom Prev/Next Navigation */}
@@ -115,13 +115,13 @@ const LatestProjects = () => {
                     
                     {/* Project Content */}
                     <div className="p-6">
-                      <h3 className="text-xl font-bold text-foreground mb-2 leading-tight">
+                      <h3 className="text-xl font-bold text-[#121820] mb-2 leading-tight">
                         {project.title}
                       </h3>
                       <p className="text-orange-500 font-medium text-sm mb-3">
                         by: {project.author}
                       </p>
-                      <p className="text-muted-foreground text-sm leading-relaxed">
+                      <p className="text-[#121820] text-sm leading-relaxed">
                         {project.description}
                       </p>
                     </div>

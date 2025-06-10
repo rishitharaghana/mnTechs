@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
 import { Search, ChevronDown } from 'lucide-react';
 import MntechImage from '../assets/mntech.png';
+
 
 const Navigation = () => {
   const [isSearchOpen, setIsSearchOpen] = useState(false);

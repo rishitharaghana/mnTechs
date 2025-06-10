@@ -2,6 +2,8 @@ import React from "react";
 import { CiCloud } from "react-icons/ci";
 import { ArrowRight } from "lucide-react";
 import map from "../assets/map.png";
+import Approach from "../Services/Approach";
+import { Link } from "react-router-dom"; 
 
 
 
@@ -55,11 +57,15 @@ const Services = () => {
           // height: "150px",
         }}
         >
+        
           <div className="text-sm text-gray-600 mb-4">
-            <span className="text-black font-medium">Home</span>
-            <span className="text-orange-500 mx-2">●</span>
-            <span className="text-gray-500">Service</span>
-          </div>
+  <Link to="/" className="text-black font-medium hover:underline">
+    Home
+  </Link>
+  <span className="text-orange-500 mx-2">●</span>
+  <span className="text-gray-500">Service</span>
+</div>
+
           <h1 className="text-4xl md:text-5xl font-bold text-black">
             SAAS DEVELOPMENT SERVICES
           </h1>
@@ -90,9 +96,17 @@ const Services = () => {
           </div>
 
           {/* Get in Touch Button */}
-          <button className="border-2 border-orange-500 text-black font-medium py-3 px-8 rounded-full hover:bg-orange-500 hover:text-white transition">
+          {/* <button className="border-2 border-orange-500 text-black font-medium py-3 px-8 rounded-full hover:bg-orange-500 hover:text-white transition">
             Get in Touch
-          </button>
+          </button> */}
+          {/* <button className="border-2 border-orange-500 text-white font-medium py-3 px-8 rounded-full bg-white hover:bg-orange-500 hover:text-black transition">
+  Get in Touch
+</button> */}
+<button className="border-2 border-orange-500 font-medium py-3 px-8 rounded-full hover:bg-orange-500 hover:text-orange transition">
+  Get in Touch
+</button>
+
+
         </div>
 
         {/* Divider Line */}
@@ -123,7 +137,7 @@ const Services = () => {
 
         {/* Bottom Button and Arrow */}
         <div className="flex items-center justify-between mt-12 px-2">
-          <button className="border-2 border-orange-500 text-black font-medium py-2 px-6 rounded-full hover:bg-orange-500 hover:text-white transition">
+          <button className="border-2 border-orange-500 text-white font-medium py-2 px-6 rounded-full hover:bg-orange-500 hover:text-white transition">
             Tell us  about your project
           </button>
           <div className="text-orange-500 text-3xl hover:translate-x-1 transition-transform cursor-pointer">
@@ -198,79 +212,10 @@ const Services = () => {
     <div className="flex-1 border-t border-gray-200"></div>
     <div className="w-4 h-1 bg-orange-500"></div>
   </div>
-
-  {/* Feature Point */}
-  <div className="mt-8 flex items-center justify-center gap-2 text-black font-medium text-lg">
-    <span className="w-2 h-2 bg-orange-500 rounded-full"></span>
-    High Quality and Performance
+ </div>
+    <Approach/>
   </div>
-</div>
-<section className="bg-white py-20 px-6 md:px-20">
-  <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">
-    Our Approach To <span className="text-orange-500">SaaS Software</span> Development
-  </h2>
-
-  <div className="grid md:grid-cols-2 gap-16">
-    {/* Card 1 */}
-    <div className="flex gap-6">
-      <div className="flex flex-col items-center">
-        <div className="text-2xl text-orange-500 font-bold">01</div>
-        <div className="mt-2 w-12 h-12 bg-orange-500 rounded-full"></div>
-      </div>
-      <div>
-        <h3 className="text-xl font-semibold text-black mb-2">Tech Stack Choice</h3>
-        <p className="text-gray-500">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        </p>
-      </div>
-    </div>
-
-    {/* Card 2 */}
-    <div className="flex gap-6">
-      <div className="flex flex-col items-center">
-        <div className="text-2xl text-orange-500 font-bold">02</div>
-        <div className="mt-2 w-12 h-12 bg-orange-500 rounded-full"></div>
-      </div>
-      <div>
-        <h3 className="text-xl font-semibold text-black mb-2">Multi Tenant Architecture</h3>
-        <p className="text-gray-500">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        </p>
-      </div>
-    </div>
-
-    {/* Card 3 */}
-    <div className="flex gap-6">
-      <div className="flex flex-col items-center">
-        <div className="text-2xl text-orange-500 font-bold">03</div>
-        <div className="mt-2 w-12 h-12 bg-orange-500 rounded-full"></div>
-      </div>
-      <div>
-        <h3 className="text-xl font-semibold text-black mb-2">External Services Integration</h3>
-        <p className="text-gray-500">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        </p>
-      </div>
-    </div>
-
-    {/* Card 4 */}
-    <div className="flex gap-6">
-      <div className="flex flex-col items-center">
-        <div className="text-2xl text-orange-500 font-bold">04</div>
-        <div className="mt-2 w-12 h-12 bg-orange-500 rounded-full"></div>
-      </div>
-      <div>
-        <h3 className="text-xl font-semibold text-black mb-2">Scalability On Demand</h3>
-        <p className="text-gray-500">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-    </div>
+  
   );
 };
 

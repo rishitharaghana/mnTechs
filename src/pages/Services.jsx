@@ -1,5 +1,10 @@
 import React from "react";
 import { CiCloud } from "react-icons/ci";
+import { ArrowRight } from "lucide-react";
+import map from "../assets/map.png";
+
+
+
 
 const services = [
   {
@@ -36,16 +41,20 @@ const services = [
 
 const Services = () => {
   return (
-    <div className="bg-white">
+    <div >
       {/* Hero Section */}
       <div
-        className="min-h-screen bg-cover bg-center relative"
-        style={{
-          backgroundImage: "url('https://itsulu-react.netlify.app/img/deco/map.png')",
-        }}
       >
+      {/* className="relative bg-cover bg-center bg-no-repeat hidden md:block" */}
+     
         <div className="absolute inset-0 bg-white bg-opacity-80"></div>
-        <div className="relative z-10 px-10 py-32">
+        <div className="relative z-10 px-10 py-32"
+         style={{
+          backgroundImage: `url(${map})`,
+          backgroundColor: "rgba(0, 0, 0, 0.1)", // Equivalent to bg-red-600 opacity-10
+          // height: "150px",
+        }}
+        >
           <div className="text-sm text-gray-600 mb-4">
             <span className="text-black font-medium">Home</span>
             <span className="text-orange-500 mx-2">●</span>
@@ -61,7 +70,8 @@ const Services = () => {
       <div className="relative py-16 px-6 md:px-20 bg-white">
         {/* Background Hexagon Graphic */}
         <img
-          src="https://img.freepik.com/free-vector/white-abstract-background-3d-paper-style_23-2148400085.jpg?uid=R201977210&ga=GA1.1.1087874630.1733635507&semt=ais_items_boosted&w=740"
+          src={map}
+      
           alt="hexagon background"
           className="absolute right-10 top-10 opacity-10 pointer-events-none hidden md:block"
           style={{ height: "150px" }}
@@ -104,7 +114,7 @@ const Services = () => {
                   {service.id}
                   <span className="absolute bottom-1 right-1 w-3 h-3 bg-orange-500 rounded-full"></span>
                 </div>
-                <h3 className="text-xl font-semibold">{service.title}</h3>
+                <h3 className="text-lg font-semibold  text-black" >{service.title}</h3>
               </div>
               <p className="text-gray-500">{service.desc}</p>
             </div>
@@ -129,6 +139,136 @@ const Services = () => {
           <div className="flex-1 border-t border-gray-200"></div>
           <div className="w-8 h-1 bg-orange-500"></div>
         </div>
+        <section className="py-16 px-4 bg-white text-center">
+      <p className="text-orange-500 font-medium mb-2">● Safeguard Modern</p>
+      <h2 className="text-4xl font-bold text-gray-900 mb-12">
+        Ready To Take The Next Step?
+      </h2>
+
+      <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        {/* Left Card */}
+        <div className="border rounded-2xl p-8 shadow-sm hover:shadow-md transition">
+          <h3 className="text-xl font-semibold mb-4">Get a Live Demo</h3>
+          <p className="text-gray-400 mb-8">
+            Dissuade ecstatic and properly saw entirely sir why laughter
+            endeavor. In on my jointure horrible margaret suitable he followed
+            speedily. Indeed vanity excuse or mr lovers of on.
+          </p>
+          <button className="flex items-center gap-2 text-black font-semibold">
+            Request a Free Demo
+            <span className="bg-gray-200 p-2 rounded-full">
+              <ArrowRight size={16} />
+            </span>
+          </button>
+        </div>
+
+        {/* Right Card */}
+        <div className="border rounded-2xl p-8 shadow-sm hover:shadow-md transition">
+          <h3 className="text-xl font-semibold mb-4">Start Now</h3>
+          <p className="text-gray-400 mb-8">
+            Dissuade ecstatic and properly saw entirely sir why laughter
+            endeavor. In on my jointure horrible margaret suitable he followed
+            speedily. Indeed vanity excuse or mr lovers of on.
+          </p>
+          <button className="flex items-center gap-2 text-black font-semibold">
+            Get In Touch
+            <span className="bg-gray-200 p-2 rounded-full">
+              <ArrowRight size={16} />
+            </span>
+          </button>
+        </div>
+      </div>
+    </section>
+    {/*  */}
+    {/* Partner Logos Section */}
+<div className="py-16 bg-white text-center">
+  {/* Logo Row */}
+  {/* <div className="grid grid-cols-2 md:grid-cols-6 gap-8 justify-items-center items-center px-4 md:px-20">
+    <img src={require("../assets/logos/audiojungle.png")} alt="audiojungle" className="h-10 object-contain" />
+    <img src={require("../assets/logos/codecanyon.png")} alt="codecanyon" className="h-10 object-contain" />
+    <img src={require("../assets/logos/graphicriver.png")} alt="graphicriver" className="h-10 object-contain" />
+    <img src={require("../assets/logos/photodune.png")} alt="photodune" className="h-10 object-contain" />
+    <img src={require("../assets/logos/themeforest.png")} alt="themeforest" className="h-10 object-contain" />
+    <img src={require("../assets/logos/videohive.png")} alt="videohive" className="h-10 object-contain" />
+  </div> */}
+
+  {/* Divider Line */}
+  <div className="flex items-center mt-12 px-4 md:px-20">
+    <div className="w-4 h-1 bg-orange-500"></div>
+    <div className="flex-1 border-t border-gray-200"></div>
+    <div className="w-4 h-1 bg-orange-500"></div>
+  </div>
+
+  {/* Feature Point */}
+  <div className="mt-8 flex items-center justify-center gap-2 text-black font-medium text-lg">
+    <span className="w-2 h-2 bg-orange-500 rounded-full"></span>
+    High Quality and Performance
+  </div>
+</div>
+<section className="bg-white py-20 px-6 md:px-20">
+  <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">
+    Our Approach To <span className="text-orange-500">SaaS Software</span> Development
+  </h2>
+
+  <div className="grid md:grid-cols-2 gap-16">
+    {/* Card 1 */}
+    <div className="flex gap-6">
+      <div className="flex flex-col items-center">
+        <div className="text-2xl text-orange-500 font-bold">01</div>
+        <div className="mt-2 w-12 h-12 bg-orange-500 rounded-full"></div>
+      </div>
+      <div>
+        <h3 className="text-xl font-semibold text-black mb-2">Tech Stack Choice</h3>
+        <p className="text-gray-500">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </p>
+      </div>
+    </div>
+
+    {/* Card 2 */}
+    <div className="flex gap-6">
+      <div className="flex flex-col items-center">
+        <div className="text-2xl text-orange-500 font-bold">02</div>
+        <div className="mt-2 w-12 h-12 bg-orange-500 rounded-full"></div>
+      </div>
+      <div>
+        <h3 className="text-xl font-semibold text-black mb-2">Multi Tenant Architecture</h3>
+        <p className="text-gray-500">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </p>
+      </div>
+    </div>
+
+    {/* Card 3 */}
+    <div className="flex gap-6">
+      <div className="flex flex-col items-center">
+        <div className="text-2xl text-orange-500 font-bold">03</div>
+        <div className="mt-2 w-12 h-12 bg-orange-500 rounded-full"></div>
+      </div>
+      <div>
+        <h3 className="text-xl font-semibold text-black mb-2">External Services Integration</h3>
+        <p className="text-gray-500">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </p>
+      </div>
+    </div>
+
+    {/* Card 4 */}
+    <div className="flex gap-6">
+      <div className="flex flex-col items-center">
+        <div className="text-2xl text-orange-500 font-bold">04</div>
+        <div className="mt-2 w-12 h-12 bg-orange-500 rounded-full"></div>
+      </div>
+      <div>
+        <h3 className="text-xl font-semibold text-black mb-2">Scalability On Demand</h3>
+        <p className="text-gray-500">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
 
     </div>
   );

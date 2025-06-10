@@ -59,7 +59,7 @@ const ContactPage = () => {
                 <div className="w-8 h-8 bg-orange-500 rounded-full flex items-center justify-center">
                   <div className="w-4 h-4 border-2 border-white rounded-full border-t-transparent"></div>
                 </div>
-                <span className="text-gray-900 text-xl font-bold tracking-wider">ITSULU</span>
+                <span className="text-gray-900 text-xl font-bold tracking-wider">MNTECHS</span>
               </div>
             </div>
 
@@ -121,9 +121,9 @@ const ContactPage = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           {/* Page Title */}
           <div className="mb-16">
-            <h1 className="text-5xl font-bold text-gray-900 mb-4">
+            <h3 className="text-5xl font-bold text-gray-900 mb-4">
               LET'S DISCUSS YOUR OPPORTUNITY
-            </h1>
+            </h3>
           </div>
 
           {/* Contact Form Section */}
@@ -131,7 +131,8 @@ const ContactPage = () => {
             {/* Tell Us About Yourself */}
             <div>
               <div className="flex items-center space-x-2 mb-8">
-                <span className="w-3 h-3 bg-orange-500 rounded-full"></span>
+                <span className="mil-accent orange-500 ">01</span>
+
                 <h2 className="text-2xl font-bold text-gray-900">Tell Us About Yourself</h2>
               </div>
 
@@ -165,17 +166,18 @@ const ContactPage = () => {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Email
-                  </label>
-                  <input
-                    type="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleInputChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
-                  />
-                </div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Email
+                    </label>
+                    <input
+                      type="email"
+                      name="email"
+                      placeholder='John@mydomain.com'
+                      value={formData.email}
+                      onChange={handleInputChange}
+                      className="w-full px-4 py-3 border-b border-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-b-transparent"
+                    />
+                  </div>
 
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -227,30 +229,22 @@ const ContactPage = () => {
 
               <div className="bg-white p-8 rounded-lg shadow-lg">
                 <p className="text-gray-600 mb-6">
-                  Need help with an existing project or have technical questions? 
-                  Our support team is here to assist you.
+                  Our experts are ready to answer your questions.
                 </p>
 
                 <div className="space-y-4">
                   <div>
-                    <h3 className="font-semibold text-gray-900 mb-2">Email Support</h3>
-                    <p className="text-orange-500">support@itsulu.com</p>
+                    <h3 className="font-semibold text-gray-900 mb-2">Support Now</h3>
+                 <button className="w-full mt-8 bg-orange-500 hover:bg-orange-600 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200">
+                  --
+                </button>
                   </div>
 
-                  <div>
-                    <h3 className="font-semibold text-gray-900 mb-2">Phone Support</h3>
-                    <p className="text-orange-500">+1 (555) 123-4567</p>
-                  </div>
-
-                  <div>
-                    <h3 className="font-semibold text-gray-900 mb-2">Business Hours</h3>
-                    <p className="text-gray-600">Monday - Friday: 9:00 AM - 6:00 PM EST</p>
-                  </div>
+                 
+                  
                 </div>
 
-                <button className="w-full mt-8 bg-orange-500 hover:bg-orange-600 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200">
-                  Submit Support Ticket
-                </button>
+               
               </div>
             </div>
           </div>

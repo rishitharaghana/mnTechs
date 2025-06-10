@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Paperclip } from 'lucide-react';
 
-const Contact = () => {
+const Contacts = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -21,11 +21,13 @@ const Contact = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log('Contact form submitted:', formData);
+    // Handle form submission logic here
   };
 
   return (
     <div className="bg-gray-900 text-white py-16 relative overflow-hidden">
-      <div className="absolute top-0 left-0 w-64 h-64 opacity-10">
+      {/* Background decoration */}
+      <div className="absolute top-0 right-0 w-64 h-64 opacity-10">
         <svg viewBox="0 0 200 200" className="w-full h-full">
           <polygon
             points="100,20 180,60 180,140 100,180 20,140 20,60"
@@ -42,14 +44,14 @@ const Contact = () => {
         </svg>
       </div>
 
-      <div className="w-full max-w-4xl px-4 sm:px-6 lg:px-8">
-        <div className="text-left mb-12">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+        <div className="text-center mb-12">
           <h2 className="text-4xl font-bold mb-4">
             Contact <span className="text-orange-500">Us</span>
           </h2>
         </div>
 
-        <form onSubmit={handleSubmit} className="w-full max-w-2xl space-y-6">
+        <form onSubmit={handleSubmit} className="max-w-2xl mx-auto space-y-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
               <label className="block text-sm font-medium mb-2">
@@ -140,4 +142,4 @@ const Contact = () => {
   );
 };
 
-export default Contact;
+export default Contacts;

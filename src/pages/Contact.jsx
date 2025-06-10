@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Search, ChevronDown } from 'lucide-react';
+import Navigation from '../Components/Navigation';
 
 const ContactPage = () => {
   const [formData, setFormData] = useState({
@@ -26,6 +27,8 @@ const ContactPage = () => {
 
 
   return (
+    <>
+    <Navigation/>
     <div className="min-h-screen bg-gray-50">
   
 
@@ -187,6 +190,7 @@ const ContactPage = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

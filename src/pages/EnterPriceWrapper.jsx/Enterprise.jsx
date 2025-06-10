@@ -1,15 +1,12 @@
-import React from 'react'
+import React from 'react';
+import Approach from '../../Services/Approach';
 
 const Enterprise = () => {
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div>
+      <Approach/>
+    </div>
+  );
+};
 
-      <h1 className='text-black'>
-
-      Enterprise
-      </h1>
-      </div>
-  )
-}
-
-export default Enterprise
+export default Enterprise;

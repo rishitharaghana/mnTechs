@@ -4,7 +4,10 @@ import Services from "../Components/Service";
 import ClientLogos from "../Components/Clientlogo";
 import Footer from "../Components/Footer";
 import LatestProjects from "../Components/LatestProjects";
-import Contacts from "../Components/Contacts";
+import CollaborationSection from "../Components/CollaborationSection";
+import SkillsSection from "../Components/SkillsSection";
+import TestimonialsSection from "../Components/TestimonialsSection";
+import ThinkingSection from "../Components/ThinkingSection";
 
 
 
@@ -13,10 +16,13 @@ const Index = () => {
     <div className="min-h-screen bg-gray-900">
       <Navigation />
       <Hero />
-      <ClientLogos />
       <Services />
       <LatestProjects/>
-      <Contacts />
+      <CollaborationSection />
+      <SkillsSection />
+      <ThinkingSection />
+      <TestimonialsSection />
+      <ClientLogos />
       <Footer />
       
     </div>

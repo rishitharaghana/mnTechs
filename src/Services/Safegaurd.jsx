@@ -17,12 +17,14 @@ const Safeguard = () => {
             endeavor. In on my jointure horrible margaret suitable he followed
             speedily. Indeed vanity excuse or mr lovers of on.
           </p>
-          <button className="flex items-center gap-2 text-black font-semibold   hover:bg-orange-50 hover:border-orange-500
-">
+          <button className="flex items-center gap-2 text-black font-semibold   ">
             Request a Free Demo
-            <span className="bg-gray-200 p-2 rounded-full">
-              <ArrowRight size={16} />
-            </span>
+          
+<span className="bg-gray-200 p-2 rounded-full hover:bg-orange-500 hover:text-white transition-all duration-300 transform hover:translate-x-1">
+  <ArrowRight size={16} />
+</span>
+
+
           </button>
         </div>
         <div className="border rounded-2xl p-8 shadow-sm    hover:border-orange-500
@@ -35,9 +37,12 @@ hover:shadow-md transition">
           </p>
           <button className="flex items-center gap-2 text-black font-semibold">
             Get In Touch
-            <span className="bg-gray-200 p-2 rounded-full">
-              <ArrowRight size={16} />
-            </span>
+          
+<span className="bg-gray-200 p-2 rounded-full hover:bg-orange-500 hover:text-white transition-all duration-300 transform hover:translate-x-1">
+  <ArrowRight size={16} />
+</span>
+
+
           </button>
         </div>
       </div>

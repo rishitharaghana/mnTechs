@@ -1,8 +1,14 @@
 import { Plus } from "lucide-react";
+import BackgroundCarousel from "./Ui/Backgroundcarousel";
+// import bgimage from '../assets/Images/bgimage.png'
 const Hero = () => {
   return (
-    <section className="relative z-0 bg-cover bg-center bg-no-repeat h-screen text-white">
-      <div className="absolute inset-0 bg-black bg-opacity-60"></div>
+    <section className="relative bg-cover bg-center bg-no-repeat h-screen text-white"
+    
+    // style={{ backgroundImage: `url(${bgimage})` }}
+
+  ><BackgroundCarousel/>
+      <div className="absolute bg-black bg-opacity-60"></div>
       <div className="relative z-10 flex flex-col justify-center h-full px-6 md:px-20">
         <p className="text-white text-lg font-light mb-2">
           The Next <span className="text-orange-500 font-semibold">Gen</span>

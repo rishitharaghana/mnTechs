@@ -5,7 +5,8 @@ import map from "../assets/map.png";
 import Approach from "../Services/Approach";
 import { Link } from "react-router-dom";
 import Navigation from "../Components/Navigation";
-import Safegaurd from '../Services/Safegaurd'
+import Safegaurd from '../Services/Safegaurd';
+import BackgroundCarousel from '../Components/Ui/Backgroundcarousel'
 const services = [
   {
     id: "01",
@@ -42,8 +43,9 @@ const Services = () => {
   return (
     <div>
       <Navigation />
-      <div className="relative">
+      <div className="relative ">
         <div className="absolute inset-0 bg-white bg-opacity-80 z-0"></div>
+        
 
         <div
           className="relative z-10 px-10 py-32"

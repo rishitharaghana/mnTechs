@@ -54,7 +54,7 @@ const Services = () => {
           }}
         >
           <div className="text-sm text-gray-600 mb-4">
-            <Link to="/" className="text-black font-medium hover:underline">
+            <Link to="/" className="text-black font-medium hover: text-orange">
               Home
             </Link>
             <span className="text-orange-500 mx-2">●</span>
@@ -91,9 +91,11 @@ const Services = () => {
               — we turn innovation into scalable reality.
             </p>
           </div>
-          <button className="border-1 border-orange-500 font-medium py-3 px-8 rounded-full hover:bg-orange-500 hover:text-orange transition">
-            Get in Touch
-          </button>
+          <button className="px-10 py-4 border-2 border-orange-500  text-[#1a1a1a] font-medium text-lg rounded-full bg-white hover:bg-orange-500 hover:text-white transition-all duration-300">
+  Get in Touch
+</button>
+
+
         </div>
         <div className="flex items-center mt-12">
           <div className="w-8 h-1 bg-orange-500"></div>

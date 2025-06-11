@@ -25,9 +25,11 @@ const Navigation = () => {
   return (
     <nav className="fixed top-0 left-0 w-full z-50 bg-black">
       <div className="flex items-center justify-between h-20 px-4 sm:px-6 lg:px-20">
-        <div className="flex items-center space-x-2">
-          <img src={MntechImage} alt="Logo" className="h-10 w-auto" />
-        </div>
+      <div className="flex items-center space-x-2">
+  <Link to="/">
+    <img src={MntechImage} alt="Logo" className="h-10 w-auto cursor-pointer" />
+  </Link>
+</div>
 
         <div className="hidden md:flex flex-1 justify-center">
           <div className="flex items-center space-x-8">

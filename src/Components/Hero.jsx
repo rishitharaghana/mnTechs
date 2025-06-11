@@ -12,6 +12,7 @@ const Hero = () => {
         </h1>
         <h2 className="text-4xl md:text-6xl font-bold leading-tight">
           AND SOLUTIONS{" "}
+          <br />
           <span className="italic text-orange-500 font-semibold">
             To Enterprise
           </span>
@@ -20,40 +21,64 @@ const Hero = () => {
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua.
         </p>
-        <button className="mt-8 w-max px-6 py-3 border-2 border-orange-500 text-black hover:bg-orange-500 hover:text-black transition-all duration-300 rounded-full">
-          Let’s Talk
-        </button>
+        <button className="mt-8 w-max px-6 py-3 border-2 border-orange-500 text-white hover:bg-orange-500 hover:text-white  bg-or-50 transition-all duration-300 rounded-full">
+  Let’s Talk
+</button>
+
         <div className="absolute z-20 top-1/3 right-10 space-y-15 text-white text-lg font-semibold">
-          <div className="relative top-[15%] right-50 flex items-center space-x-3 group">
-            <div className="absolute bottom-full mb-2 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transform scale-95 group-hover:scale-100 transition-all duration-300 bg-white text-black text-sm rounded-md shadow-lg px-4 py-3 w-56 z-30">
-              A dedicated team ensures full focus and efficiency for your
-              project.
-            </div>
-            <div className="bg-gray-800 bg-opacity-80 rounded-full p-3">
-              <Plus />
-            </div>
-            <span>Dedicated Team</span>
-          </div>
+        <div className="relative top-[15%] right-50 flex items-center space-x-3 group">
+          
+  <div className="absolute bottom-full mb-2 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transform scale-95 group-hover:scale-100 transition-all duration-300 bg-white text-black text-sm rounded-md shadow-lg px-4 py-3 w-56 z-30">
+  <h3 className="text-black font-bold">Experts</h3>
+  
+    <div className="flex items-center mt-2">
+          <div className="w-8 h-1 bg-orange-500"></div>
+          <div className="flex-1 border-t border-gray-200"></div>
+          
+        </div><p>
+
+    A dedicated team ensures full focus and efficiency for your project.
+  </p>
+  </div>
+
+  <div className="bg-gray-800 bg-opacity-80 rounded-full p-3 transition-all duration-500 ease-in-out group-hover:shadow-[4px_4px_12px_rgba(255,165,0,0.7),-4px_-4px_12px_rgba(107,114,128,0.5)] group-hover:bg-orange-500">
+    <Plus />
+  </div>
+
+  <span className="transition-colors duration-300 group-hover:text-orange-500 "   >Dedicated Team</span>
+</div>
 
           <div className="relative top-[30%] right-15 flex items-center space-x-3 group">
             <div className="absolute top-full mt-2 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transform scale-95 group-hover:scale-100 transition-all duration-300 bg-white text-black text-sm rounded-md shadow-lg px-4 py-3 w-56 z-30">
-              Our developers are skilled in modern frameworks and scalable
-              solutions.
+            <h3 className="text-black font-bold">Experts</h3>
+            <div className="flex items-center mt-2">
+          <div className="w-8 h-1 bg-orange-500"></div>
+          <div className="flex-1 border-t border-gray-200"></div>
+          
+        </div>
+             <p>  Our developers are skilled in modern frameworks and scalable
+             solutions.</p>
             </div>
-            <div className="bg-gray-800 bg-opacity-80 rounded-full p-3">
-              <Plus />
-            </div>
-            <span>Developers</span>
+            <div className="bg-gray-800 bg-opacity-80 rounded-full p-3 transition-all duration-500 ease-in-out group-hover:shadow-[4px_4px_12px_rgba(255,165,0,0.7),-4px_-4px_12px_rgba(107,114,128,0.5)] group-hover:bg-orange-500">
+    <Plus />
+  </div>
+            <span  className="transition-colors duration-300 group-hover:text-orange-500 "  >Developers</span>
           </div>
 
           <div className="relative top-[45%] right-40 flex items-center space-x-3 group">
             <div className="absolute top-full mt-2 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transform scale-95 group-hover:scale-100 transition-all duration-300 bg-white text-black text-sm rounded-md shadow-lg px-4 py-3 w-56 z-30">
-              Designers craft visually appealing and user-friendly interfaces.
+            <h3 className="text-black font-bold">Experts</h3>
+            <div className="flex items-center mt-2">
+          <div className="w-8 h-1 bg-orange-500"></div>
+          <div className="flex-1 border-t border-gray-200"></div>
+          
+        </div>
+            <p>  Designers craft visually appealing and user-friendly interfaces.</p>
             </div>
-            <div className="bg-gray-800 bg-opacity-80 rounded-full p-3">
-              <Plus />
-            </div>
-            <span>Designers</span>
+            <div className="bg-gray-800 bg-opacity-80 rounded-full p-3 transition-all duration-500 ease-in-out group-hover:shadow-[4px_4px_12px_rgba(255,165,0,0.7),-4px_-4px_12px_rgba(107,114,128,0.5)] group-hover:bg-orange-500">
+    <Plus />
+  </div>
+            <span  className="transition-colors duration-300 group-hover:text-orange-500 "  >Designers</span>
           </div>
         </div>
       </div>

@@ -120,7 +120,7 @@ export default function Footer() {
                   <button
                     type="button"
                     id="default-search-subscribe"
-                    className="block w-60 px-4 py-2 text-base font-normal shadow-xs text-orange-500 bg-blue-600 border border-gray-300 rounded-full placeholder-gray-400 focus:outline-none leading-normal mx-auto text-center"
+                    className="block w-60 px-4 py-2 text-base font-normal shadow-xs text-black bg-orange-500 hover:bg-orange-400  border border-gray-300 rounded-full placeholder-gray-400 focus:outline-none leading-normal mx-auto text-center"
                     placeholder="Subscribe Now"
                     required
                   >

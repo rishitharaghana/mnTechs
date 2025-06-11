@@ -28,7 +28,12 @@ const CollaborationSection = () => {
   ];
 
   return (
-    <section className="py-20 px-4 bg-gray-50">
+    <section className="px-4 bg-gray-50">
+      <div className="flex items-center mb-16">
+          <div className="w-4 h-0.5 bg-orange-500"></div>
+          <div className="flex-1 h-px bg-gray-800"></div>
+          <div className="w-4 h-0.5 bg-orange-500"></div>
+      </div>
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <p className="text-orange-500 font-medium mb-4">• Discover Our Company</p>

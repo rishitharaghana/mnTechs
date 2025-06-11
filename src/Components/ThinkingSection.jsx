@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button } from './ui/button';
+import { Button } from './Ui/Button'
 import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
 
 // Move slides array outside component to avoid redeclaring on each render

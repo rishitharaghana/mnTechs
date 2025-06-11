@@ -1,7 +1,16 @@
-import { Search, ChevronDown } from "lucide-react";
+import React, { useEffect, useState } from "react";
+import { Search } from "lucide-react";
+import { Link, useLocation } from "react-router-dom";
 import MntechImage from "../assets/mntech.png";
-import { Link } from "react-router-dom";
+
 const Navigation = () => {
+  const [scrolled, setScrolled] = useState(false);
+  const location = useLocation();
+
+  const isWhiteBackgroundPage =
+    location.pathname.startsWith("/services") ||
+    location.pathname.startsWith("/contact") ||
+    location.pathname.startsWith("/enterprise");
   const navItems = [
     {
       name: "Enterprise",
@@ -22,38 +31,53 @@ const Navigation = () => {
     { name: "Solutions", path: "/solutions" },
     { name: "Contact Us", path: "/contact" },
   ];
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 10);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const isScrolledOrWhitePage = scrolled || isWhiteBackgroundPage;
+
   return (
-    <nav className="fixed bg-black top-0 left-0 w-full z-50 ">
-      <div className="flex items-center justify-between h-20 px-4 sm:px-6 lg:px-20">
-      <div className="flex items-center space-x-2">
-  <Link to="/">
-    <img src={MntechImage} alt="Logo" className="h-10 w-auto cursor-pointer" />
-  </Link>
-</div>
- 
+    <nav
+      className={`fixed top-0 left-0 w-full z-50 transition-colors duration-300 ${
+        isScrolledOrWhitePage ? "bg-white shadow-md" : "bg-transparent"
+      }`}
+    >
+      <div className="flex items-center justify-between h-20 px-4 sm:px-6 lg:px-10">
+        {/* Logo */}
+        <div className="flex items-center space-x-2">
+          <Link to="/">
+            <img
+              src={MntechImage}
+              alt="Logo"
+              className="h-10 w-auto cursor-pointer"
+            />
+          </Link>
+        </div>
+
+        {/* Nav Items */}
         <div className="hidden md:flex flex-1 justify-center">
           <div className="flex items-center space-x-8">
             {navItems.map((item) => (
               <div key={item.name} className="relative group">
-                {/* <Link
+                <Link
                   to={item.path}
-                  className="text-white hover:text-orange-500 px-3 py-2 text-sm font-medium flex items-center transition duration-300"
+                  className={`${
+                    isScrolledOrWhitePage ? "text-black" : "text-white"
+                  } hover:text-orange-500 px-3 py-2 text-sm font-medium flex items-center transition duration-300`}
                 >
                   {item.name}
-                  {item.submenu && <ChevronDown className="ml-1 h-4 w-4" />}
-                </Link> */}
-                <Link
-  to={item.path}
-  className="text-white hover:text-orange-500 px-3 py-2 text-sm font-medium flex items-center transition duration-300"
->
-  {item.name}
+                  {item.submenu && (
+                    <span className="ml-1 w-2.5 h-2.5 border-2 border-orange-500 rounded-full inline-block"></span>
+                  )}
+                </Link>
 
-  {item.submenu && (
-    <span className="ml-1 w-2.5 h-2.5 border-2 border-orange-500 rounded-full inline-block"></span>
-  )}
-</Link>
-
-
+                {/* Submenu */}
                 {item.submenu && (
                   <div className="absolute left-1/2 -translate-x-1/2 mt-2 bg-white text-black rounded-md shadow-lg opacity-0 scale-95 group-hover:opacity-100 group-hover:scale-100 transition-all duration-300 ease-out min-w-[160px] z-50">
                     <div className="py-2">
@@ -74,11 +98,17 @@ const Navigation = () => {
           </div>
         </div>
 
+        {/* Search Icon */}
         <div className="flex items-center">
-          <Search className="h-5 w-5 text-white" />
+          <Search
+            className={`h-5 w-5 transition-colors duration-300 ${
+              isScrolledOrWhitePage ? "text-black" : "text-white"
+            }`}
+          />
         </div>
       </div>
     </nav>
   );
 };
+
 export default Navigation;

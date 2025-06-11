@@ -5,8 +5,8 @@ import map from "../assets/map.png";
 import Approach from "../Services/Approach";
 import { Link } from "react-router-dom";
 import Navigation from "../Components/Navigation";
-import Safegaurd from '../Services/Safegaurd';
-import BackgroundCarousel from '../Components/Ui/Backgroundcarousel'
+import Safegaurd from "../Services/Safegaurd";
+import BackgroundCarousel from "../Components/Ui/Backgroundcarousel";
 const services = [
   {
     id: "01",
@@ -43,9 +43,8 @@ const Services = () => {
   return (
     <div>
       <Navigation />
-      <div className="relative ">
+      <div className="relative top-20">
         <div className="absolute inset-0 bg-white bg-opacity-80 z-0"></div>
-        
 
         <div
           className="relative z-10 px-10 py-32"
@@ -95,14 +94,10 @@ const Services = () => {
             </p>
           </div>
           <div className="p-10 bg-white">
-  <button className="px-10 py-4 border-2  border-orange-500 font-medium text-lg rounded-full text-black bg-white hover:bg-orange-500 hover:text-white transition-all duration-300">
-    Get in Touch
-  </button>
-</div>
-
-
-
-
+            <button className="px-10 py-4 border-2  border-orange-500 font-medium text-lg rounded-full text-black bg-white hover:bg-orange-500 hover:text-white transition-all duration-300">
+              Get in Touch
+            </button>
+          </div>
         </div>
         <div className="flex items-center mt-12">
           <div className="w-8 h-1 bg-orange-500"></div>
@@ -111,23 +106,20 @@ const Services = () => {
         </div>
 
         <div>
-        <div className="mt-8 flex   gap-2 text-black font-medium text-lg">
-        <span className="w-2 h-2 bg-orange-500 rounded-full"></span>
-        Services and Solutions
-      </div>
-      <h2 className="text-xl md:text-5xl  text-center text-black mb-16">
-        Our Saas Development Services Let You Win Big
-      </h2>
-      <p className="text-black">
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-        <br />
-         Incidunt tenetur harum rerum et quam dolorem a voluptatem nam reiciendis sit?
-      </p>
-
+          <div className="mt-8 flex   gap-2 text-black font-medium text-lg">
+            <span className="w-2 h-2 bg-orange-500 rounded-full"></span>
+            Services and Solutions
+          </div>
+          <h2 className="text-xl md:text-5xl  text-center text-black mb-16">
+            Our Saas Development Services Let You Win Big
+          </h2>
+          <p className="text-black">
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+            <br />
+            Incidunt tenetur harum rerum et quam dolorem a voluptatem nam
+            reiciendis sit?
+          </p>
         </div>
-
-
-
       </div>
       <div className="px-6 md:px-20 pb-20">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -160,8 +152,8 @@ const Services = () => {
         <div className="flex-1 border-t border-gray-200"></div>
         <div className="w-8 h-1 bg-orange-500"></div>
       </div>
-      <Safegaurd/>
-     
+      <Safegaurd />
+
       <div className="py-16 bg-white text-center">
         <div className="flex items-center mt-12 px-4 md:px-20">
           <div className="w-4 h-1 bg-orange-500"></div>

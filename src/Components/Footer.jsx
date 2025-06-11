@@ -49,6 +49,14 @@ export default function Footer() {
                       href="javascript:;"
                       className="text-base font-normal max-lg:text-center text-gray-400 whitespace-nowrap transition-all duration-300 hover:text-amber-400 focus-within:outline-0 focus-within:text-amber-400"
                     >
+                      Enterprise
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="javascript:;"
+                      className="text-base font-normal max-lg:text-center text-gray-400 whitespace-nowrap transition-all duration-300 hover:text-amber-400 focus-within:outline-0 focus-within:text-amber-400"
+                    >
                       Pricing
                     </a>
                   </li>
@@ -65,7 +73,7 @@ export default function Footer() {
                       target="_blank"
                       className="text-base font-normal text-gray-400 whitespace-nowrap transition-all duration-300 hover:text-amber-400 focus-within:outline-0 focus-within:text-amber-400"
                     >
-                      MeetOwner
+                      Payroll Management
                     </a>
                   </li>
 
@@ -75,7 +83,7 @@ export default function Footer() {
                       target="_blank"
                       className="text-base font-normal text-gray-400 whitespace-nowrap transition-all duration-300 hover:text-amber-400 focus-within:outline-0 focus-within:text-amber-400"
                     >
-                      MarketingWings
+                      HRMS
                     </a>
                   </li>
                   <li>
@@ -84,7 +92,34 @@ export default function Footer() {
                       target="_blank"
                       className="text-base font-normal text-gray-400 whitespace-nowrap transition-all duration-300 hover:text-amber-400 focus-within:outline-0 focus-within:text-amber-400"
                     >
-                      LadduPalem
+                      CRM
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="https://www.laddupallem.com/?srsltid=AfmBOor1l8lPEKiBadWviMcP_7EeFabO_jRjgH4kdXc5qFkbWiwcOjLZ"
+                      target="_blank"
+                      className="text-base font-normal text-gray-400 whitespace-nowrap transition-all duration-300 hover:text-amber-400 focus-within:outline-0 focus-within:text-amber-400"
+                    >
+                      Books 
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="https://www.laddupallem.com/?srsltid=AfmBOor1l8lPEKiBadWviMcP_7EeFabO_jRjgH4kdXc5qFkbWiwcOjLZ"
+                      target="_blank"
+                      className="text-base font-normal text-gray-400 whitespace-nowrap transition-all duration-300 hover:text-amber-400 focus-within:outline-0 focus-within:text-amber-400"
+                    >
+                      Hospital Management Software
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="https://www.laddupallem.com/?srsltid=AfmBOor1l8lPEKiBadWviMcP_7EeFabO_jRjgH4kdXc5qFkbWiwcOjLZ"
+                      target="_blank"
+                      className="text-base font-normal text-gray-400 whitespace-nowrap transition-all duration-300 hover:text-amber-400 focus-within:outline-0 focus-within:text-amber-400"
+                    >
+                      School and College Management
                     </a>
                   </li>
                 </ul>

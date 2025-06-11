@@ -89,7 +89,6 @@ const LatestProjects = () => {
       {/* Section Header */}
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-12 gap-6">
         <div className="relative">
-          <div className="absolute -top-4 left-0 w-8 h-0.5 bg-orange-500"></div>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#121820]">Latest Projects</h2>
         </div>
 
@@ -177,10 +176,13 @@ const LatestProjects = () => {
 
       {/* Bottom Action Buttons */}
       <div className="flex flex-col sm:flex-row justify-between items-center mt-12 gap-4">
-        <button className="w-full sm:w-auto border-2 border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white px-6 py-3 rounded-full transition-colors duration-300 font-medium">
-          View All Cases
+        <button className="group flex items-center gap-3">
+          <span className="font-semibold text-gray-900 text-lg">View All Cases</span>
+          <div className="w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-110 group-hover:bg-orange-600">
+            <ArrowRight className="w-5 h-5 text-white transition-transform duration-300 group-hover:translate-x-0.5" />
+          </div>
         </button>
-        <button className="w-full sm:w-auto bg-orange-500 hover:bg-orange-600 text-white px-8 py-3 rounded-full transition-colors duration-300 font-medium shadow-lg hover:shadow-xl">
+        <button className="group border-2 border-orange-500 text-orange-500 hover:bg-orange-50 px-8 py-3 rounded-full transition-all duration-300 font-medium">
           Get Started
         </button>
       </div>

@@ -2,7 +2,7 @@
 
 
 import React, { useState } from 'react';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { ArrowRight, ArrowLeft, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Button } from './Ui/Button';
 
 
@@ -84,24 +84,20 @@ const TestimonialsSection = () => {
           </div>
           
           <div className="flex items-center gap-4">
-            <Button 
-              variant="ghost" 
-              size="icon" 
-              className="rounded-full hover:bg-gray-200"
+            <button
               onClick={prevSlide}
+              className="flex items-center gap-2 px-4 py-2 bg-gray-100 border-2 border-gray-300 rounded-full text-gray-700 hover:bg-orange-500 hover:text-white hover:border-orange-500 focus:bg-orange-500 focus:text-white focus:border-orange-500 transition-all duration-300 shadow-sm"
             >
-              <ChevronLeft className="h-5 w-5" />
-            </Button>
-            <span className="text-gray-400 text-sm">Prev</span>
-            <span className="text-gray-900 font-medium text-sm">Next</span>
-            <Button 
-              variant="ghost" 
-              size="icon" 
-              className="rounded-full hover:bg-gray-200"
+              <ArrowLeft className="h-4 w-4 sm:h-5 sm:w-5" />
+              <span className="text-xs sm:text-sm font-medium hidden sm:inline">Previous</span>
+            </button>
+            <button
               onClick={nextSlide}
+              className="flex items-center gap-2 px-4 py-2 bg-gray-100 border-2 border-gray-300 rounded-full text-gray-700 hover:bg-orange-500 hover:text-white hover:border-orange-500 focus:bg-orange-500 focus:text-white focus:border-orange-500 transition-all duration-300 shadow-sm"
             >
-              <ChevronRight className="h-5 w-5" />
-            </Button>
+              <span className="text-xs sm:text-sm font-medium hidden sm:inline">Next</span>
+              <ArrowRight className="h-4 w-4 sm:h-5 sm:w-5" />
+            </button>
           </div>
         </div>
 

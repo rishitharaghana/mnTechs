@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Button } from './Ui/Button'
-import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
+import { ArrowRight, ArrowLeft, ChevronLeft, ChevronRight } from 'lucide-react';
 
 // Move slides array outside component to avoid redeclaring on each render
 const slides = [
@@ -77,25 +77,21 @@ const ThinkingSection = () => {
           </div>
 
           <div className="flex items-center gap-4">
-            <Button
-              variant="ghost"
-              size="icon"
-              className="rounded-full hover:bg-gray-200"
-              onClick={prevSlide}
-            >
-              <ChevronLeft className="h-5 w-5" />
-            </Button>
-            <span className="text-gray-400 text-sm">Prev</span>
-            <span className="text-gray-900 font-medium text-sm">Next</span>
-            <Button
-              variant="ghost"
-              size="icon"
-              className="rounded-full hover:bg-gray-200"
-              onClick={nextSlide}
-            >
-              <ChevronRight className="h-5 w-5" />
-            </Button>
-          </div>
+          <button
+            onClick={prevSlide}
+            className="flex items-center gap-2 px-4 py-2 bg-gray-100 border-2 border-gray-300 rounded-full text-gray-700 hover:bg-orange-500 hover:text-white hover:border-orange-500 focus:bg-orange-500 focus:text-white focus:border-orange-500 transition-all duration-300 shadow-sm"
+          >
+            <ArrowLeft className="h-4 w-4 sm:h-5 sm:w-5" />
+            <span className="text-xs sm:text-sm font-medium hidden sm:inline">Previous</span>
+          </button>
+          <button
+            onClick={nextSlide}
+            className="flex items-center gap-2 px-4 py-2 bg-gray-100 border-2 border-gray-300 rounded-full text-gray-700 hover:bg-orange-500 hover:text-white hover:border-orange-500 focus:bg-orange-500 focus:text-white focus:border-orange-500 transition-all duration-300 shadow-sm"
+          >
+            <span className="text-xs sm:text-sm font-medium hidden sm:inline">Next</span>
+            <ArrowRight className="h-4 w-4 sm:h-5 sm:w-5" />
+          </button>
+        </div>
         </div>
 
         {/* Carousel Grid Layout */}
@@ -175,13 +171,12 @@ const ThinkingSection = () => {
 
         {/* View More Button */}
         <div className="flex justify-start">
-          <Button
-            variant="default"
-            className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-full"
-          >
-            View More Insights
-            <ArrowRight className="ml-2 h-4 w-4" />
-          </Button>
+          <button className="group flex items-center gap-3">
+            <span className="font-semibold text-gray-900 text-lg">View More Insights</span>
+            <div className="w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-110 group-hover:bg-orange-600">
+              <ArrowRight className="w-5 h-5 text-white transition-transform duration-300 group-hover:translate-x-0.5" />
+            </div>
+        </button>
         </div>
       </div>
     </section>

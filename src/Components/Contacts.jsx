@@ -30,11 +30,11 @@ const Contacts = () => {
       <div className="bg-gray-900 text-white py-16 relative overflow-hidden">
         {/* Background decoration */}
        <div className="absolute top-0 right-0 w-64 h-64 opacity-10">
-  <img
-    src="https://itsulu-react.netlify.app/_next/static/media/deco-2.8cba2eb2.svg"
-    alt="Decorative Background"
-    className="w-full h-full object-contain"
-  />
+ <img
+              src="/deco-2.svg"
+              alt="Decoration"
+              className="w-40 md:w-50 h-auto transform "
+            />
 </div>
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 text-white">
@@ -129,7 +129,7 @@ const Contacts = () => {
                   Privacy Policy.
                 </div>
 
-                <div className="flex items-start space-x-3">
+                <div className="flex items-start space-x-3 cursor-pointer">
                   <input
                     type="checkbox"
                     name="agreeToUpdates"
@@ -137,7 +137,7 @@ const Contacts = () => {
                     onChange={handleInputChange}
                     className="mt-1 w-4 h-4 text-orange-500 bg-gray-800 border-gray-600 rounded focus:ring-orange-500 focus:ring-2"
                   />
-                  <label className="text-xs text-gray-300">
+                  <label className="text-xs text-gray-300 ">
                     I would like to be contacted with news and updates about your{' '}
                     <span className="text-orange-500">events and services</span>
                   </label>

@@ -5,7 +5,8 @@ import map from "../assets/map.png";
 import Approach from "../Services/Approach";
 import { Link } from "react-router-dom";
 import Navigation from "../Components/Navigation";
-
+import Safegaurd from '../Services/Safegaurd';
+import BackgroundCarousel from '../Components/Ui/Backgroundcarousel'
 const services = [
   {
     id: "01",
@@ -42,8 +43,9 @@ const Services = () => {
   return (
     <div>
       <Navigation />
-      <div className="relative">
+      <div className="relative ">
         <div className="absolute inset-0 bg-white bg-opacity-80 z-0"></div>
+        
 
         <div
           className="relative z-10 px-10 py-32"
@@ -92,9 +94,13 @@ const Services = () => {
               — we turn innovation into scalable reality.
             </p>
           </div>
-          <button className="px-10 py-4 border-2 border-orange-500  text-[#1a1a1a] font-medium text-lg rounded-full bg-white hover:bg-orange-500 hover:text-white transition-all duration-300">
-  Get in Touch
-</button>
+          <div className="p-10 bg-white">
+  <button className="px-10 py-4 border-2  border-orange-500 font-medium text-lg rounded-full text-black bg-white hover:bg-orange-500 hover:text-white transition-all duration-300">
+    Get in Touch
+  </button>
+</div>
+
+
 
 
         </div>
@@ -103,6 +109,25 @@ const Services = () => {
           <div className="flex-1 border-t border-gray-200"></div>
           <div className="w-8 h-1 bg-orange-500"></div>
         </div>
+
+        <div>
+        <div className="mt-8 flex   gap-2 text-black font-medium text-lg">
+        <span className="w-2 h-2 bg-orange-500 rounded-full"></span>
+        Services and Solutions
+      </div>
+      <h2 className="text-xl md:text-5xl  text-center text-black mb-16">
+        Our Saas Development Services Let You Win Big
+      </h2>
+      <p className="text-black">
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+        <br />
+         Incidunt tenetur harum rerum et quam dolorem a voluptatem nam reiciendis sit?
+      </p>
+
+        </div>
+
+
+
       </div>
       <div className="px-6 md:px-20 pb-20">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -122,11 +147,11 @@ const Services = () => {
           ))}
         </div>
         <div className="flex items-center justify-between mt-12 px-2">
-          <button className="border-2 border-orange-500 text-white font-medium py-2 px-6 rounded-full hover:bg-orange-500 hover:text-white transition">
+          <button className="border-2 border-orange-500 text-black font-medium py-2 px-6 rounded-full hover:bg-orange-500 hover:text-white transition">
             Tell us about your project
           </button>
           <div className="text-orange-500 text-3xl hover:translate-x-1 transition-transform cursor-pointer">
-            →
+            see more →
           </div>
         </div>
       </div>
@@ -135,42 +160,8 @@ const Services = () => {
         <div className="flex-1 border-t border-gray-200"></div>
         <div className="w-8 h-1 bg-orange-500"></div>
       </div>
-      <section className="py-16 px-4 bg-white text-center">
-        <p className="text-orange-500 font-medium mb-2">● Safeguard Modern</p>
-        <h2 className="text-4xl font-bold text-gray-900 mb-12">
-          Ready To Take The Next Step?
-        </h2>
-        <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-          <div className="border rounded-2xl p-8 shadow-sm hover:shadow-md transition">
-            <h3 className="text-xl font-semibold mb-4">Get a Live Demo</h3>
-            <p className="text-gray-400 mb-8">
-              Dissuade ecstatic and properly saw entirely sir why laughter
-              endeavor. In on my jointure horrible margaret suitable he followed
-              speedily. Indeed vanity excuse or mr lovers of on.
-            </p>
-            <button className="flex items-center gap-2 text-black font-semibold">
-              Request a Free Demo
-              <span className="bg-gray-200 p-2 rounded-full">
-                <ArrowRight size={16} />
-              </span>
-            </button>
-          </div>
-          <div className="border rounded-2xl p-8 shadow-sm hover:shadow-md transition">
-            <h3 className="text-xl font-semibold mb-4">Start Now</h3>
-            <p className="text-gray-400 mb-8">
-              Dissuade ecstatic and properly saw entirely sir why laughter
-              endeavor. In on my jointure horrible margaret suitable he followed
-              speedily. Indeed vanity excuse or mr lovers of on.
-            </p>
-            <button className="flex items-center gap-2 text-black font-semibold">
-              Get In Touch
-              <span className="bg-gray-200 p-2 rounded-full">
-                <ArrowRight size={16} />
-              </span>
-            </button>
-          </div>
-        </div>
-      </section>
+      <Safegaurd/>
+     
       <div className="py-16 bg-white text-center">
         <div className="flex items-center mt-12 px-4 md:px-20">
           <div className="w-4 h-1 bg-orange-500"></div>

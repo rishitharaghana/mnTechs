@@ -1,11 +1,5 @@
-
-
-
 import React from 'react';
-
-import { Button } from './Ui/Button';
 import { ArrowRight } from 'lucide-react';
-import { Progress } from './Progress';
 
 const SkillsSection = () => {
   const skills = [
@@ -21,10 +15,14 @@ const SkillsSection = () => {
   return (
     <section className="py-20 px-4 bg-white">
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+        {/* Header Section */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start mb-16">
           <div>
-            <p className="text-orange-500 font-medium mb-4">• Our Skill</p>
-            <h2 className="text-5xl font-bold text-gray-900 mb-8">
+            <div className="flex items-center gap-2 mb-6">
+              <div className="w-2 h-2 bg-orange-500 rounded-full"></div>
+              <p className="text-orange-500 font-semibold tracking-wide uppercase text-sm">Our Skill</p>
+            </div>
+            <h2 className="text-2xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
               Business <span className="text-orange-500">Success</span> With
               <br />
               Technology
@@ -32,41 +30,73 @@ const SkillsSection = () => {
           </div>
 
           <div className="lg:pl-8">
-            <p className="text-gray-600 leading-relaxed text-lg mb-12">
-              It is a long established fact that a reader will be distracted by the readable content of a 
-              page when looking at its layout. The point of using Lorem Ipsum is that it has a more-
-              or-less normal distribution of letters, as opposed to using content here.
+            <p className="text-gray-600 leading-relaxed text-lg">
+              It is a long established fact that a reader will be distracted by the 
+              readable content of a page when looking at its layout. The point of using 
+              Lorem Ipsum is that it has a more-or-less normal distribution of letters, 
+              as opposed to using content here.
             </p>
           </div>
         </div>
 
-        <div className="mt-16">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-8">
-            {skills.slice(0, 6).map((skill, index) => (
-              <div key={index} className="space-y-3">
-                <div className="flex justify-between items-center">
-                  <span className="font-medium text-gray-900 text-lg">{skill.name}</span>
-                  <span className="text-gray-600 font-medium">{skill.percentage}%</span>
-                </div>
+        {/* Skills Grid */}
+        <div className="space-y-12">
+          {/* First Row - 4 Items */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+            {skills.slice(0, 4).map((skill, index) => (
+              <div key={index} className="space-y-4">
+                <h3 className="font-semibold text-gray-900 text-lg leading-tight">
+                  {skill.name}
+                </h3>
                 <div className="relative">
-                  <div className="w-full h-1 bg-gray-200 rounded-full">
+                  <div className="w-full h-2 bg-gray-200 rounded-full overflow-hidden">
                     <div 
-                      className="h-1 bg-orange-500 rounded-full relative"
+                      className="h-full bg-gradient-to-r from-orange-400 to-orange-600 rounded-full transition-all duration-1000 ease-out relative"
                       style={{ width: `${skill.percentage}%` }}
                     >
-                      <div className="absolute right-0 top-1/2 transform translate-x-1/2 -translate-y-1/2 w-3 h-3 bg-orange-500 rounded-full"></div>
+                      <div className="absolute right-0 top-1/2 transform translate-x-1/2 -translate-y-1/2 w-4 h-4 bg-orange-500 rounded-full shadow-lg border-2 border-white"></div>
                     </div>
+                  </div>
+                  <div className="flex justify-end mt-2">
+                    <span className="text-gray-600 font-medium text-sm">{skill.percentage}%</span>
                   </div>
                 </div>
               </div>
             ))}
           </div>
 
-          <div className="flex justify-start mt-12 ">
-            <Button className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-full">
-              More
-              <ArrowRight className="ml-2 h-4 w-4" />
-            </Button>
+          {/* Second Row - 3 Items + More Button */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 items-end">
+            {skills.slice(4, 7).map((skill, index) => (
+              <div key={index + 4} className="space-y-4">
+                <h3 className="font-semibold text-gray-900 text-lg leading-tight">
+                  {skill.name}
+                </h3>
+                <div className="relative">
+                  <div className="w-full h-2 bg-gray-200 rounded-full overflow-hidden">
+                    <div 
+                      className="h-full bg-gradient-to-r from-orange-400 to-orange-600 rounded-full transition-all duration-1000 ease-out relative"
+                      style={{ width: `${skill.percentage}%` }}
+                    >
+                      <div className="absolute right-0 top-1/2 transform translate-x-1/2 -translate-y-1/2 w-4 h-4 bg-orange-500 rounded-full shadow-lg border-2 border-white"></div>
+                    </div>
+                  </div>
+                  <div className="flex justify-end mt-2">
+                    <span className="text-gray-600 font-medium text-sm">{skill.percentage}%</span>
+                  </div>
+                </div>
+              </div>
+            ))}
+            
+            {/* More Button */}
+            <div className="flex justify-start lg:justify-center items-end pb-2">
+              <button className="group flex items-center gap-3">
+                <span className="font-semibold text-gray-900 text-lg">More</span>
+                <div className="w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-110 group-hover:bg-orange-600">
+                  <ArrowRight className="w-5 h-5 text-white transition-transform duration-300 group-hover:translate-x-0.5" />
+                </div>
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -75,5 +105,3 @@ const SkillsSection = () => {
 };
 
 export default SkillsSection;
-
-

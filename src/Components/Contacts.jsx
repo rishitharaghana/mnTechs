@@ -29,120 +29,139 @@ const Contacts = () => {
     <>
       <div className="bg-gray-900 text-white py-16 relative overflow-hidden">
         {/* Background decoration */}
-        <div className="absolute top-0 right-0 w-64 h-64 opacity-10">
-          <svg viewBox="0 0 200 200" className="w-full h-full">
-            <polygon
-              points="100,20 180,60 180,140 100,180 20,140 20,60"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
+       <div className="absolute top-0 right-0 w-64 h-64 opacity-10">
+ <img
+              src="/deco-2.svg"
+              alt="Decoration"
+              className="w-40 md:w-50 h-auto transform "
             />
-            <polygon
-              points="100,40 160,70 160,130 100,160 40,130 40,70"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-            />
-          </svg>
+</div>
+
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 text-white">
+        <div className="text-left mb-12">
+          <h2 className="text-6xl font-bold  text-white">
+            Contact <span className="text-orange-500">Us</span>
+          </h2>
         </div>
 
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold mb-4">
-              Contact <span className="text-orange-500">Us</span>
-            </h2>
-          </div>
+         <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-12">
 
-          <form onSubmit={handleSubmit} className="max-w-2xl mx-auto space-y-6">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div>
-                <label className="block text-sm font-medium mb-2">
-                  Name <span className="text-orange-500">Required</span>
-                </label>
-                <input
-                  type="text"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleInputChange}
-                  className="w-full px-4 py-3 bg-transparent border-b border-gray-600 focus:outline-none focus:ring-none text-white placeholder-gray-400"
-                  required
-                />
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium mb-2">
-                  Email Address{" "}
-                  <span className="text-orange-500">Required</span>
-                </label>
-                <input
-                  type="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleInputChange}
-                  className="w-full px-4 py-3 bg-transparent border-b border-gray-600 focus:outline-none focus:ring-none text-white placeholder-gray-400"
-                  required
-                />
-              </div>
-            </div>
-
+            {/* Left Column */}
+            <div className="space-y-6">
             <div>
-              <label className="block text-sm font-medium mb-2">
-                Phone <span className="text-gray-400">Optional</span>
-              </label>
-              <input
-                type="tel"
-                name="phone"
-                value={formData.phone}
-                onChange={handleInputChange}
-                className="w-full px-4 py-3 bg-transparent border-b border-gray-600 focus:outline-none focus:ring-none text-white placeholder-gray-400"
-              />
-            </div>
+              <label className="block text-sm font-small mb-2">
+                Name <span className="text-orange-500">Required</span>
+                  </label>
+                  <input
+                    type="text"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleInputChange}
+                    className="w-full px-4 py-3 bg-transparent border-b border-gray-600 focus:outline-none text-white "
+                    required
+                    
+                  />
+                </div>
 
-            <div>
-              <label className="block text-sm font-medium mb-2">Message</label>
-              <textarea
-                name="message"
-                value={formData.message}
-                onChange={handleInputChange}
-                rows={6}
-                className="w-full px-4 py-3 bg-transparent border-b border-gray-600 focus:outline-none focus:ring-none text-white placeholder-gray-400 resize-none"
-              />
-            </div>
-
-            <div className="flex items-center space-x-3">
-              <Paperclip className="w-5 h-5 text-gray-400" />
-              <span className="text-sm text-gray-400">Attach your file</span>
-              <span className="text-xs text-gray-500">Up to 25MB</span>
-            </div>
-
-            <div className="text-sm text-gray-400 mb-4">
-              We will process your personal information in accordance with our
-              Privacy Policy.
-            </div>
-
-            <div className="flex items-start space-x-3 mb-6">
-              <input
-                type="checkbox"
-                name="agreeToUpdates"
-                checked={formData.agreeToUpdates}
-                onChange={handleInputChange}
-                className="mt-1 w-4 h-4 text-orange-500 bg-gray-800 border-gray-600 rounded focus:ring-orange-500 focus:ring-2"
-              />
-              <label className="text-sm text-gray-300">
-                I would like to be contacted with news and updates about your{" "}
-                <span className="text-orange-500">events and services</span>
-              </label>
-            </div>
-
-            <button
-              type="submit"
-              className="w-full bg-orange-500 hover:bg-orange-600 text-orange-500 font-semibold py-4 px-8 rounded-lg transition-colors duration-200 text-lg"
-            >
-              Send Message Now
-            </button>
-          </form>
-        </div>
+               <div>
+        <label className="block text-xs font-small mb-2">
+          Email Address <span className="text-orange-500">Required</span>
+        </label>
+        <input
+          type="email"
+          name="email"
+          value={formData.email}
+          onChange={handleInputChange}
+          className="w-full px-4 py-3 bg-transparent border-b border-gray-600 focus:outline-none text-white "
+          required
+          
+        />
       </div>
+
+              <div>
+        <label className="block text-xs font-small mb-2">
+          Phone <span className="text-gray-400">Optional</span>
+        </label>
+        <input
+          type="tel"
+          name="phone"
+          value={formData.phone}
+          onChange={handleInputChange}
+          className="w-full px-4 py-3 bg-transparent border-b border-gray-600 focus:outline-none text-white "
+          
+        />
+      </div>
+
+
+              <div className="flex items-center space-x-3">
+                <Paperclip className="w-5 h-5 text-gray-400" />
+                <span className="text-sm text-gray-400">Attach your file<br></br>Up to 25MB</span> 
+              </div>
+            </div>
+
+            {/* Right Column */}
+            <div className="space-y-6">
+             
+      <div>
+        <label className="block text-xs  font-small mb-2">
+        Message
+        </label>
+        {/* <input
+          type="text"
+          name="alternateEmail"
+          value={formData.alternateEmail || ""}
+          onChange={handleInputChange}
+          className="w-full px-4 py-3 bg-transparent border-b border-gray-600 focus:outline-none text-white placeholder-gray-400"
+          required
+        
+        /> */}
+        <textarea id="w3review" name="w3review" rows="2" cols="0"
+         value={formData.alternateEmail || ""}
+          onChange={handleInputChange}
+          className="w-full px-4 py-3 bg-transparent border-b border-gray-600 focus:outline-none text-white "
+          required
+        />
+      </div>
+
+              <div className="space-y-4">
+                <div className="text-xs  text-gray-400">
+                  We will process your personal information in accordance with our
+                  Privacy Policy.
+                </div>
+
+                <div className="flex items-start space-x-3 cursor-pointer">
+                  <input
+                    type="checkbox"
+                    name="agreeToUpdates"
+                    checked={formData.agreeToUpdates}
+                    onChange={handleInputChange}
+                    className="mt-1 w-4 h-4 text-orange-500 bg-gray-800 border-gray-600 rounded focus:ring-orange-500 focus:ring-2"
+                  />
+                  <label className="text-xs text-gray-300 ">
+                    I would like to be contacted with news and updates about your{' '}
+                    <span className="text-orange-500">events and services</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+      
+
+        </form>
+<div className="flex justify-center mt-12">
+  <button
+    type="submit"
+    className="w-full bg-orange-500 hover:bg-orange-400 text-black font-semibold py-4 px-8 rounded-full transition-colors duration-200 text-lg"
+    onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+  >
+    Send Message Now
+  </button>
+</div>
+
+
+      </div>
+    </div>
+  
+
     </>
   );
 };

@@ -31,7 +31,7 @@ const Contact = () => {
 
   return (
     <>
-    <Navigation/>
+    <Navigation />
     <div className="min-h-screen w-full bg-gray-50 flex flex-col px-30">
       {/* Navigation */}
        

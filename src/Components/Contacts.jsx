@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Paperclip } from "lucide-react";
 import Navigation from "./Navigation";
 
+
 const Contacts = () => {
   const [formData, setFormData] = useState({
     name: "",
@@ -9,6 +10,7 @@ const Contacts = () => {
     phone: "",
     message: "",
     agreeToUpdates: false,
+    file: null, // <-- added field for file
   });
 
   const handleInputChange = (e) => {
@@ -19,109 +21,133 @@ const Contacts = () => {
     }));
   };
 
+  const handleFileChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      setFormData((prev) => ({
+        ...prev,
+        file: file,
+      }));
+      console.log("Selected file:", file);
+    }
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("Contact form submitted:", formData);
-    // Handle form submission logic here
+
+    
+    // const formDataToSend = new FormData();
+    // formDataToSend.append("name", formData.name);
+    // formDataToSend.append("email", formData.email);
+    // formDataToSend.append("file", formData.file);
+    // ... and send it to your API
   };
 
   return (
     <>
       <div className="bg-gray-900 text-white py-16 relative overflow-hidden">
         {/* Background decoration */}
-       <div className="absolute top-0 right-0 w-64 h-64 opacity-10">
- <img
-              src="/deco-2.svg"
-              alt="Decoration"
-              className="w-40 md:w-50 h-auto transform "
-            />
-</div>
-
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 text-white">
-        <div className="text-left mb-12">
-          <h2 className="text-6xl font-bold  text-white">
-            Contact <span className="text-orange-500">Us</span>
-          </h2>
+        <div className="absolute top-0 right-0 w-64 h-64 opacity-10">
+          <img
+            src="/deco-2.svg"
+            alt="Decoration"
+            className="w-40 md:w-50 h-auto transform "
+          />
         </div>
 
-         <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-12">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 text-white">
+          <div className="text-left mb-12">
+            <h2 className="text-6xl font-bold  text-white">
+              Contact <span className="text-orange-500">Us</span>
+            </h2>
+          </div>
 
+          <form
+            onSubmit={handleSubmit}
+            className="grid grid-cols-1 md:grid-cols-2 gap-12"
+          >
             {/* Left Column */}
             <div className="space-y-6">
-            <div>
-              <label className="block text-sm font-small mb-2">
-                Name <span className="text-orange-500">Required</span>
-                  </label>
-                  <input
-                    type="text"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleInputChange}
-                    className="w-full px-4 py-3 bg-transparent border-b border-gray-600 focus:outline-none text-white "
-                    required
-                    
-                  />
-                </div>
-
-               <div>
-        <label className="block text-xs font-small mb-2">
-          Email Address <span className="text-orange-500">Required</span>
-        </label>
-        <input
-          type="email"
-          name="email"
-          value={formData.email}
-          onChange={handleInputChange}
-          className="w-full px-4 py-3 bg-transparent border-b border-gray-600 focus:outline-none text-white "
-          required
-          
-        />
-      </div>
+              <div>
+                <label className="block text-sm font-small mb-2">
+                  Name <span className="text-orange-500">Required</span>
+                </label>
+                <input
+                  type="text"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleInputChange}
+                  className="w-full px-4 py-3 bg-transparent border-b border-gray-600 focus:outline-none text-white "
+                  required
+                />
+              </div>
 
               <div>
-        <label className="block text-xs font-small mb-2">
-          Phone <span className="text-gray-400">Optional</span>
-        </label>
-        <input
-          type="tel"
-          name="phone"
-          value={formData.phone}
-          onChange={handleInputChange}
-          className="w-full px-4 py-3 bg-transparent border-b border-gray-600 focus:outline-none text-white "
-          
-        />
-      </div>
+                <label className="block text-xs font-small mb-2">
+                  Email Address <span className="text-orange-500">Required</span>
+                </label>
+                <input
+                  type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleInputChange}
+                  className="w-full px-4 py-3 bg-transparent border-b border-gray-600 focus:outline-none text-white "
+                  required
+                />
+              </div>
 
+              <div>
+                <label className="block text-xs font-small mb-2">
+                  Phone <span className="text-gray-400">Optional</span>
+                </label>
+                <input
+                  type="num"
+                  name="phone"
+                  value={formData.phone}
+                  onChange={handleInputChange}
+                  className="w-full px-4 py-3 bg-transparent border-b border-gray-600 focus:outline-none text-white "
+                />
+              </div>
 
+              
               <div className="flex items-center space-x-3">
-                <Paperclip className="w-5 h-5 text-gray-400" />
-                <span className="text-sm text-gray-400">Attach your file<br></br>Up to 25MB</span> 
+                <label htmlFor="fileInput" className="flex items-center space-x-3 cursor-pointer">
+                  <Paperclip className="w-5 h-5 text-gray-400" />
+                  <span className="text-sm text-gray-400">
+                    Attach your file<br />Up to 25MB
+                  </span>
+                </label>
+                <input
+                  id="fileInput"
+                  type="file"
+                  className="hidden"
+                  onChange={handleFileChange}
+                />
+                {formData.file && (
+                  <span className="text-xs text-gray-300">
+                    {formData.file.name}
+                  </span>
+                )}
               </div>
             </div>
 
-            {/* Right Column */}
+            
             <div className="space-y-6">
-             
-      <div>
-        <label className="block text-xs  font-small mb-2">
-        Message
-        </label>
-        {/* <input
-          type="text"
-          name="alternateEmail"
-          value={formData.alternateEmail || ""}
-          onChange={handleInputChange}
-          className="w-full px-4 py-3 bg-transparent border-b border-gray-600 focus:outline-none text-white placeholder-gray-400"
-          required
-        
-        /> */}
-        <textarea id="w3review" name="w3review" rows="2" cols="0"
-         value={formData.alternateEmail || ""}
-          onChange={handleInputChange}
-          className="w-full px-4 py-3 bg-transparent border-b border-gray-600 focus:outline-none text-white "
-          required
-        />
-      </div>
+              <div>
+                <label className="block text-xs font-small mb-2">
+                  Message
+                </label>
+                <textarea
+                  name="message"
+                  rows="9"
+                  
+                  value={formData.message}
+                  onChange={handleInputChange}
+                  className="w-full px-4 py-3 bg-transparent border-b border-gray-600 focus:outline-none text-white"
+                  required
+                />
+              </div>
 
               <div className="space-y-4">
                 <div className="text-xs  text-gray-400">
@@ -144,24 +170,20 @@ const Contacts = () => {
                 </div>
               </div>
             </div>
-      
+          </form>
 
-        </form>
-<div className="flex justify-center mt-12">
-  <button
-    type="submit"
-    className="w-full bg-orange-500 hover:bg-orange-400 text-black font-semibold py-4 px-8 rounded-full transition-colors duration-200 text-lg"
-    onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-  >
-    Send Message Now
-  </button>
-</div>
-
-
+          <div className="flex justify-center mt-12">
+            <button
+              type="submit"
+              className="w-full bg-orange-500 hover:bg-orange-400 text-black font-semibold py-4 px-8 rounded-full transition-colors duration-200 text-lg"
+              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            >
+              Send Message Now
+            </button>
+          </div>
+        </div>
       </div>
-    </div>
-  
-
+   
     </>
   );
 };

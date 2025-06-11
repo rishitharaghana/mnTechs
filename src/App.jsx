@@ -7,6 +7,7 @@ import Service1 from "./Services/Service1";
 import Service2 from "./Services/Service2";
 import Services from "./pages/Services";
 import ContactWrapper from "./pages/CompWrapper";
+
 const App = () => (
   <BrowserRouter>
     <Routes>

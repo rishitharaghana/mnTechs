@@ -1,8 +1,8 @@
 import React from "react";
 import { CiCloud } from "react-icons/ci";
-import { ArrowRight } from "lucide-react";
+// import { ArrowRight } from "lucide-react";
 import map from "../assets/map.png";
-import Approach from "../Services/Approach";
+// import Approach from "../Services/Approach";
 import { Link } from "react-router-dom";
 import Navigation from "../Components/Navigation";
 import Safegaurd from "../Services/Safegaurd";
@@ -162,7 +162,7 @@ const Services = () => {
           <div className="w-4 h-1 bg-orange-500"></div>
         </div>
       </div>
-      <Approach />
+      {/* <Approach /> */}
       <SaasApplications />
     </div>
   );

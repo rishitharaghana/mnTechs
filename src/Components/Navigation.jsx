@@ -11,6 +11,7 @@ const Navigation = () => {
     location.pathname.startsWith("/services") ||
     location.pathname.startsWith("/contact") ||
     location.pathname.startsWith("/enterprise");
+    console.log(isWhiteBackgroundPage)
   const navItems = [
     {
       name: "Enterprise",
@@ -84,9 +85,11 @@ const Navigation = () => {
           <div className="flex items-center space-x-8">
             {navItems.map((item) => (
               <div key={item.name} className="relative group">
-                <Link
+               <Link
                   to={item.path}
-                  className="text-white hover:text-orange-500 px-3 py-2 text-sm font-medium flex items-center transition duration-300"
+                  className={`${
+                    isScrolledOrWhitePage ? "text-black" : "text-white"
+                  } hover:text-orange-500 px-3 py-2 text-sm font-medium flex items-center transition duration-300`}
                 >
                   {item.name}
                   {item.submenu && (

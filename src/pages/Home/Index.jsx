@@ -13,7 +13,7 @@ import ThinkingSection from '../../Components/ThinkingSection';
 // import ContactWrapper from '../CompWrapper';
 import Navigation from '../../Components/Navigation';
 import Contacts from '../../Components/Contacts';
-import ContactLocations from '../../Components/Contact Us/ContactLocations';
+
 
 
 export default function Index() {

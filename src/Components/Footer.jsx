@@ -77,7 +77,7 @@ export default function Footer() {
                 <ul className="flex flex-col gap-6 max-lg:items-center">
                   <li>
                     <a
-                      href="https://meetowner.in/"
+                      href=""
                       target="_blank"
                       className="text-base font-normal text-gray-400 whitespace-nowrap transition-all duration-300 hover:text-amber-400 focus-within:outline-0 focus-within:text-amber-400"
                     >
@@ -87,7 +87,7 @@ export default function Footer() {
 
                   <li>
                     <a
-                      href="https://www.marketwings.in/"
+                      href=""
                       target="_blank"
                       className="text-base font-normal text-gray-400 whitespace-nowrap transition-all duration-300 hover:text-amber-400 focus-within:outline-0 focus-within:text-amber-400"
                     >
@@ -96,7 +96,7 @@ export default function Footer() {
                   </li>
                   <li>
                     <a
-                      href="https://www.laddupallem.com/?srsltid=AfmBOor1l8lPEKiBadWviMcP_7EeFabO_jRjgH4kdXc5qFkbWiwcOjLZ"
+                      href=" "
                       target="_blank"
                       className="text-base font-normal text-gray-400 whitespace-nowrap transition-all duration-300 hover:text-amber-400 focus-within:outline-0 focus-within:text-amber-400"
                     >
@@ -105,7 +105,7 @@ export default function Footer() {
                   </li>
                   <li>
                     <a
-                      href="https://www.laddupallem.com/?srsltid=AfmBOor1l8lPEKiBadWviMcP_7EeFabO_jRjgH4kdXc5qFkbWiwcOjLZ"
+                      href=" "
                       target="_blank"
                       className="text-base font-normal text-gray-400 whitespace-nowrap transition-all duration-300 hover:text-amber-400 focus-within:outline-0 focus-within:text-amber-400"
                     >
@@ -114,7 +114,7 @@ export default function Footer() {
                   </li>
                   <li>
                     <a
-                      href="https://www.laddupallem.com/?srsltid=AfmBOor1l8lPEKiBadWviMcP_7EeFabO_jRjgH4kdXc5qFkbWiwcOjLZ"
+                      href=" "
                       target="_blank"
                       className="text-base font-normal text-gray-400 whitespace-nowrap transition-all duration-300 hover:text-amber-400 focus-within:outline-0 focus-within:text-amber-400"
                     >
@@ -123,7 +123,7 @@ export default function Footer() {
                   </li>
                   <li>
                     <a
-                      href="https://www.laddupallem.com/?srsltid=AfmBOor1l8lPEKiBadWviMcP_7EeFabO_jRjgH4kdXc5qFkbWiwcOjLZ"
+                      href=" "
                       target="_blank"
                       className="text-base font-normal text-gray-400 whitespace-nowrap transition-all duration-300 hover:text-amber-400 focus-within:outline-0 focus-within:text-amber-400"
                     >
@@ -195,7 +195,7 @@ export default function Footer() {
             2025.
           </span>
 
-          <div className="flex sm:flex-row items-center  text-gray-100 justify-between px-10 pt-7">
+          <div className="flex sm:flex-row items-center  text-gray-400 justify-between px-10 pt-7">
             All Rights Reserved.
           </div>
         </div>

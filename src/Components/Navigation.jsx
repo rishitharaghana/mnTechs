@@ -93,7 +93,7 @@ const Navigation = () => {
                 >
                   {item.name}
                   {item.submenu && (
-                    <span className="ml-1 w-2.5 h-2.5 border-2 border-orange-500 rounded-full inline-block"></span>
+                    <span className="ml-1 w-2 h-2 border-2 border-orange-500 rounded-full inline-block"></span>
                   )}
                 </Link>
 

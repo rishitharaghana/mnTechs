@@ -4,7 +4,7 @@ import Approach from '../../Services/Approach';
 const Enterprise = () => {
   return (
     <div>
-      <Approach/>
+      <h1>Hello</h1>
     </div>
   );
 };

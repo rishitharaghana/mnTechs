@@ -2,22 +2,39 @@ import { Plus } from "lucide-react";
 import BackgroundCarousel from "./Ui/Backgroundcarousel";
 const Hero = () => {
   return (
-    <section className="relative bg-cover bg-center bg-no-repeat h-screen text-white">
+    <section className="relative bg-cover bg-center bg-no-repeat h-screen min-h-[600px] text-white">
+
       <BackgroundCarousel />
       <div className="absolute bg-black bg-opacity-60"></div>
       <div className="relative z-10 flex flex-col justify-center h-full px-4 md:px-10">
-        <p className="text-white text-lg font-light mb-2">
-          The Next <span className="text-orange-500 font-semibold">Gen</span>
+        <p className="text-white text-lg font-light mb-8">
+          The Next{" "}
+          <span className=" text-orange-500 font-semibold">Gen</span>
         </p>
-        <h1 className="text-4xl md:text-6xl font-bold leading-tight">
-          WE PROVIDE SERVICES
-        </h1>
-        <h2 className="text-4xl md:text-6xl font-bold leading-tight">
-          AND SOLUTIONS <br />
-          <span className="italic text-orange-500 font-semibold">
+
+      
+        <div>
+          <h1 className="text-4xl md:text-6xl font-semibold leading-[140%] text-white font-syne mb-4">
+            WE PROVIDE SERVICES
+          </h1>
+
+          <h1 className="text-4xl md:text-6xl font-semibold leading-[140%] text-white font-syne mb-4">
+            AND SOLUTIONS
+          </h1>
+
+          {/* <span className="mil-font-3 mil-accent text-2xl md:text-3xl font-extrabold block mt-2">
             To Enterprise
-          </span>
-        </h2>
+          </span> */}
+          {/* <span className="mil-font-3 mil-accent text-2xl md:text-3xl font-black leading-tight md:leading-snug block mt-2">
+  To Enterprise
+</span> */}
+<span className="mil-font-3 mil-accent text-2xl md:text-3xl font-black block mt-2">
+  To Enterprise
+</span>
+
+
+        </div>
+
         <p className="text-gray-300 mt-6 max-w-xl">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua.

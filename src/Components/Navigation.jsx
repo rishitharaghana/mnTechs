@@ -49,7 +49,7 @@ const Navigation = () => {
       ],
     },
 
-    { name: "Contact Us", path: "/contact" },
+    { name: "Reach Us", path: "/contact" },
   ];
 
   useEffect(() => {

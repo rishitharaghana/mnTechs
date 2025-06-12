@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import Navigation from "../Components/Navigation";
 import Safegaurd from "../Services/Safegaurd";
 import BackgroundCarousel from "../Components/Ui/Backgroundcarousel";
+import SaasApplications from "../Services/SaasApplications";
 const services = [
   {
     id: "01",
@@ -162,6 +163,7 @@ const Services = () => {
         </div>
       </div>
       <Approach />
+      <SaasApplications />
     </div>
   );
 };

@@ -53,31 +53,32 @@ const Contact = () => {
           }}
         >
           <div className="text-sm text-gray-600 mb-4">
-            <Link to="/" className="text-black font-medium hover: text-orange">
-              Home
-            </Link>
-            <span className="text-orange-500 mx-2">●</span>
-            <span className="text-gray-500">Contact Us</span>
-          </div>
-          <div className="flex items-center gap-10 md:gap-10">
-            <h1 className="text-4xl md:text-5xl font-bold text-black">
-              LET'S DISCUSS THIS OPPORTUNITY
-            </h1>
-            <img
-              src="/deco-2.svg"
-              alt="Decoration"
-              className=" h-auto transform rotate-90"
-            />
-          </div>
-        </div>
-      </div>
-      <div className="relative py-16  bg-white">
-        <img
-          src={map}
-          alt="hexagon background"
-          className="absolute right-10 top-10 opacity-10 pointer-events-none hidden md:block"
-          style={{ height: "150px" }}
-        />
+                      <Link to="/" className="text-black font-medium hover: text-orange">
+                        Home
+                      </Link>
+                      <span className="text-orange-500 mx-2">●</span>
+                      <span className="text-gray-500">Reach Us</span>
+                    </div>
+                    <div className="flex items-center gap-10 md:gap-10">
+                      <h1 className="text-4xl md:text-5xl font-bold text-black">
+                        LET'S DISCUSS THIS OPPURTUNITY
+                      </h1>
+                      <img
+                        src="/deco-2.svg"
+                        alt="Decoration"
+                        className="w-40 md:w-50 h-auto transform rotate-90"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div className="relative py-16 px-6 md:px-20 bg-white">
+                  <img
+                    src={map}
+                    alt="hexagon background"
+                    className="absolute right-10 top-10 opacity-10 pointer-events-none hidden md:block"
+                    style={{ height: "150px" }}
+                  />
+          
         <div className="px-10 pt-10 pb-10">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             <div className="lg:col-span-2">

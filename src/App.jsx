@@ -12,9 +12,9 @@ const App = () => (
   <BrowserRouter>
     <Routes>
       <Route path="/" element={<Index/>} />
-      <Route path="/enterprise" element={<Enterprice />} />
+      {/* <Route path="/enterprise" element={<Enterprice />} /> 
       <Route path="/services/service1" element={<Service1 />} />
-      <Route path="/services/service2" element={<Service2 />} /> {}
+      <Route path="/services/service2" element={<Service2 />} /> */}
       <Route path="/services" element={<Services />} />
       <Route path="/contact" element={<ContactWrapper />} />
       <Route path="*" element={<NotFound />} />

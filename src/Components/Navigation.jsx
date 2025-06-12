@@ -16,7 +16,6 @@ const Navigation = () => {
     location.pathname.startsWith("/enterprise");
 
   const navItems = [
-    { name: "About", path: "/about" },
     { name: "Services", path: "/services" },
     {
       name: "Products",
@@ -33,6 +32,7 @@ const Navigation = () => {
         { name: "Payroll Management", path: "/products/payroll-management" },
       ],
     },
+    { name: "About", path: "/about" },
     { name: "Team", path: "/ourteam" },
     { name: "Reach Us", path: "/contact" },
   ];

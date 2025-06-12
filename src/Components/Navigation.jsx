@@ -19,7 +19,23 @@ const Navigation = () => {
         { name: "Service2", path: "/services/service2" },
       ],
     },
-    { name: "Solutions", path: "/solutions" },
+
+    {
+      name: "Products",
+      path: "/Products",
+      submenu: [
+        { name: "AI Chat Bot", path: "/products/ai-chatbot" },
+        { name: "App Development", path: "/products/app-development" },
+        { name: "Billing Systems", path: "/products/billing-system" },
+        { name: "CRM", path: "/products/crm" },
+        { name: "E-Commerce", path: "/products/e-commerce" },
+        { name: "Education Management", path: "/products/education-management" },
+        { name: "Hospital Management", path: "/products/hospital-management" },
+        { name: "HRMS", path: "/products/hrms" },
+        { name: "Payroll Management", path: "/products/payroll-management" },
+      ],
+    },
+
     { name: "Contact Us", path: "/contact" },
   ];
   return (
@@ -49,7 +65,7 @@ const Navigation = () => {
   {item.name}
 
   {item.submenu && (
-    <span className="ml-1 w-2.5 h-2.5 border-2 border-orange-500 rounded-full inline-block"></span>
+    <span className="ml-2 mb-3 w-2 h-2 border-2 border-orange-500 rounded-full inline-block"></span>
   )}
 </Link>
 

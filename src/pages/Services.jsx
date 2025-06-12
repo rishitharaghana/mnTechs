@@ -6,7 +6,6 @@ import Approach from "../Services/Approach";
 import { Link } from "react-router-dom";
 import Navigation from "../Components/Navigation";
 import Safegaurd from '../Services/Safegaurd';
-import BackgroundCarousel from '../Components/Ui/Backgroundcarousel'
 const services = [
   {
     id: "01",

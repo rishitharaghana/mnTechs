@@ -3,7 +3,7 @@ import { Paperclip } from "lucide-react";
 import Navigation from "../Components/Navigation";
 import { Link } from "react-router-dom";
 import map from "../assets/map.png";
-import ContactLocations from "../Components/Contact Us/ContactLocations";
+
 import Footer from "../Components/Footer";
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -316,7 +316,7 @@ const Contact = () => {
               title="Google Maps Hyderabad"
             ></iframe>
           </div>
-          {/* <ContactLocations /> */}
+     
         </div>
       </div>
       <Footer />

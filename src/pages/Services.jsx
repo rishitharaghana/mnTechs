@@ -8,6 +8,7 @@ import Navigation from "../Components/Navigation";
 import Safegaurd from "../Services/Safegaurd";
 import BackgroundCarousel from "../Components/Ui/Backgroundcarousel";
 import SaasApplications from "../Services/SaasApplications";
+import ServiceFooter from "../Services/ServiceFooter";
 const services = [
   {
     id: "01",
@@ -164,6 +165,7 @@ const Services = () => {
       </div>
       {/* <Approach /> */}
       <SaasApplications />
+      <ServiceFooter />
     </div>
   );
 };

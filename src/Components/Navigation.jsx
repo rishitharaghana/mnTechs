@@ -14,25 +14,15 @@ const Navigation = () => {
     console.log(isWhiteBackgroundPage)
   const navItems = [
     {
-      name: "Enterprise",
-      path: "/enterprise",
-      submenu: [
-        { name: "home", path: "/services/service1" },
-        { name: "hom2", path: "/services/service2" },
-      ],
+      name: "About",
+      path: "/about",
     },
     {
-      name: "Services",
-      path: "/services",
-      submenu: [
-        { name: "Service1", path: "/services/service1" },
-        { name: "Service2", path: "/services/service2" },
-      ],
-    },
+      name: "Services", path: "/services",},
 
     {
       name: "Products",
-      path: "/Products",
+      path: "/products",
       submenu: [
         { name: "AI Chat Bot", path: "/products/ai-chatbot" },
         { name: "App Development", path: "/products/app-development" },
@@ -48,7 +38,7 @@ const Navigation = () => {
         { name: "Payroll Management", path: "/products/payroll-management" },
       ],
     },
-
+    { name: "Team", path: "/ourteam" },
     { name: "Reach Us", path: "/contact" },
   ];
 

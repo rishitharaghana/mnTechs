@@ -1,35 +1,54 @@
-import React from 'react'
+import React, { Suspense, lazy } from "react";
 
-
-import Hero from '../../Components/Hero';
-import ItServices from '../../Components/ItServices';
-import ClientLogos from '../../Components/Clientlogo';
-import Footer from '../../Components/Footer';
-import LatestProjects from '../../Components/LatestProjects';
-import CollaborationSection from '../../Components/CollaborationSection';
-import SkillsSection from '../../Components/SkillsSection';
-import TestimonialsSection from '../../Components/TestimonialsSection';
-import ThinkingSection from '../../Components/ThinkingSection';
-// import ContactWrapper from '../CompWrapper';
-import Navigation from '../../Components/Navigation';
-import Contacts from '../../Components/Contacts';
-
+// Lazy load all components
+const Hero = lazy(() => import("../../Components/Hero"));
+const ItServices = lazy(() => import("../../Components/ItServices"));
+const ClientLogos = lazy(() => import("../../Components/Clientlogo"));
+const Footer = lazy(() => import("../../Components/Footer"));
+const LatestProjects = lazy(() => import("../../Components/LatestProjects"));
+const CollaborationSection = lazy(() => import("../../Components/CollaborationSection"));
+const SkillsSection = lazy(() => import("../../Components/SkillsSection"));
+const TestimonialsSection = lazy(() => import("../../Components/TestimonialsSection"));
+const ThinkingSection = lazy(() => import("../../Components/ThinkingSection"));
+const Navigation = lazy(() => import("../../Components/Navigation"));
+const Contacts = lazy(() => import("../../Components/Contacts"));
 
 
 export default function Index() {
   return (
-   <>
-   <Navigation/>
-   <Hero/>
-   <ItServices/>
-   <CollaborationSection/>
-   <LatestProjects/>
-   <SkillsSection/>
-   <ThinkingSection/>
-   <TestimonialsSection/>
-   <ClientLogos/>
-   <Contacts/>
-   <Footer/>
-   </>
-  )
+    <>
+    <Navigation />
+    <Suspense fallback={<div className="flex items-center justify-center h-screen">Loading...</div>}>
+      <Hero />
+    </Suspense>
+    <Suspense fallback={<div className="flex items-center justify-center h-screen">Loading...</div>}>
+      <ItServices />
+    </Suspense>
+    <Suspense fallback={<div className="flex items-center justify-center h-screen">Loading...</div>}>
+      <CollaborationSection />
+    </Suspense>
+    <Suspense fallback={<div className="flex items-center justify-center h-screen">Loading...</div>}>
+      <LatestProjects />
+    </Suspense>
+    <Suspense fallback={<div className="flex items-center justify-center h-screen">Loading...</div>}>
+      <SkillsSection />
+    </Suspense>
+    <Suspense fallback={<div className="flex items-center justify-center h-screen">Loading...</div>}>
+      <ThinkingSection />
+    </Suspense>
+    <Suspense fallback={<div className="flex items-center justify-center h-screen">Loading...</div>}>
+      <TestimonialsSection />
+    </Suspense>
+    <Suspense fallback={<div className="flex items-center justify-center h-screen">Loading...</div>}>
+      <ClientLogos />
+    </Suspense>
+    <Suspense fallback={<div className="flex items-center justify-center h-screen">Loading...</div>}>
+      <Contacts />
+    </Suspense>
+    <Suspense fallback={<div className="flex items-center justify-center h-screen">Loading...</div>}>
+      <Footer />
+    </Suspense>
+    </>
+    
+  );
 }

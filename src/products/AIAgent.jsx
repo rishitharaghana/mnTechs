@@ -1,13 +1,13 @@
 import React from 'react'
 
-const HRMS = () => {
+const AIAgent = () => {
   return (
     <>
       <div>
-        <h1>HRMS</h1>
+        <h1>AI Agent</h1>
       </div>
     </>
   )
 }
 
-export default HRMS
+export default AIAgent

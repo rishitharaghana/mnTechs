@@ -34,16 +34,20 @@ export default function Footer() {
                 <ul className="flex flex-col max-lg:items-center gap-6">
                   <li>
                     <a
-                      href="#"
-                      onClick={() =>
-                        window.scrollTo({ top: 0, behavior: "smooth" })
-                      }
+                      href="javascript:;"
                       className="text-base font-normal max-lg:text-center text-gray-400 whitespace-nowrap transition-all duration-300 hover:text-amber-400 focus-within:outline-0 focus-within:text-amber-400"
                     >
-                      Home
+                      Services
                     </a>
                   </li>
-
+                  <li>
+                    <a
+                      href="javascript:;"
+                      className="text-base font-normal max-lg:text-center text-gray-400 whitespace-nowrap transition-all duration-300 hover:text-amber-400 focus-within:outline-0 focus-within:text-amber-400"
+                    >
+                      Products
+                    </a>
+                  </li>
                   <li>
                     <a
                       href="javascript:;"
@@ -57,7 +61,7 @@ export default function Footer() {
                       href="javascript:;"
                       className="text-base font-normal max-lg:text-center text-gray-400 whitespace-nowrap transition-all duration-300 hover:text-amber-400 focus-within:outline-0 focus-within:text-amber-400"
                     >
-                      Enterprise
+                      Team
                     </a>
                   </li>
                   <li>
@@ -65,7 +69,15 @@ export default function Footer() {
                       href="javascript:;"
                       className="text-base font-normal max-lg:text-center text-gray-400 whitespace-nowrap transition-all duration-300 hover:text-amber-400 focus-within:outline-0 focus-within:text-amber-400"
                     >
-                      Pricing
+                      Careers
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="javascript:;"
+                      className="text-base font-normal max-lg:text-center text-gray-400 whitespace-nowrap transition-all duration-300 hover:text-amber-400 focus-within:outline-0 focus-within:text-amber-400"
+                    >
+                      Contact
                     </a>
                   </li>
                 </ul>

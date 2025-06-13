@@ -88,6 +88,14 @@ button:focus-visible {
   h1 {
     font-size: 60px;
   }
+
+  p{
+    font-family: Sora, sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    color: rgba(18, 24, 32, .4);
+    line-height: 170%;
+  }
 }
 
 @layer utilities {

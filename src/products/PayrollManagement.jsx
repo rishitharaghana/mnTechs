@@ -2,7 +2,11 @@ import React from 'react'
 
 const PayrollManagement = () => {
   return (
-    <div>PayrollManagement</div>
+    <>
+      <div>
+        <h1>Payroll Management</h1>
+      </div>
+    </>
   )
 }
 

@@ -2,7 +2,11 @@ import React from 'react'
 
 const EducationManagement = () => {
   return (
-    <div>EducationManagement</div>
+    <>
+      <div>
+        <h1>Education Management</h1>
+      </div>
+    </>
   )
 }
 

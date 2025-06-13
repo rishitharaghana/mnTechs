@@ -2,7 +2,11 @@ import React from 'react'
 
 const CRM = () => {
   return (
-    <div>CRM</div>
+    <>
+      <div>
+        <h1>CRM</h1>
+      </div>
+    </>
   )
 }
 

@@ -3,7 +3,7 @@ import { Cloud } from "lucide-react";
 const Approach = () => {
   return (
     <section className="bg-white py-25 px-6 md:px-20">
-      {}
+      
       <div className="mt-8 flex items-center gap-2 text-black font-medium text-lg">
         <span className="w-2 h-2 bg-orange-500 rounded-full"></span>
         High Quality and Performance
@@ -13,7 +13,7 @@ const Approach = () => {
         Development
       </h2>
       <div className="grid md:grid-cols-2 gap-20">
-        {}
+        
         <div className="flex gap-6">
           <div className="flex flex-col items-center">
             <Cloud className="w-6 h-6 text-orange-500" />
@@ -29,7 +29,7 @@ const Approach = () => {
             </p>
           </div>
         </div>
-        {}
+        
         <div className="flex gap-6">
           <div className="flex flex-col items-center">
             <div className="text-2xl text-orange-500 font-bold">02</div>
@@ -44,7 +44,7 @@ const Approach = () => {
             </p>
           </div>
         </div>
-        {}
+      
         <div className="flex gap-6">
           <div className="flex flex-col items-center">
             <div className="text-2xl text-orange-500 font-bold">03</div>
@@ -59,7 +59,7 @@ const Approach = () => {
             </p>
           </div>
         </div>
-        {}
+        
         <div className="flex gap-6">
           <div className="flex flex-col items-center">
             <div className="text-2xl text-orange-500 font-bold">04</div>
@@ -74,7 +74,7 @@ const Approach = () => {
             </p>
           </div>
         </div>
-        {}
+        
         <div className="flex gap-6">
           <div className="text-2xl text-orange-500 font-bold">05</div>
           <div>
@@ -87,7 +87,7 @@ const Approach = () => {
             </p>
           </div>
         </div>
-        {}
+        
         <div className="flex gap-6">
           <div className="text-2xl text-orange-500 font-bold">06</div>
           <div>
@@ -100,7 +100,7 @@ const Approach = () => {
             </p>
           </div>
         </div>
-        {}
+        
         <div className="flex items-center justify-between md:col-span-2 mt-12 px-2">
           <button className="border-2 border-orange-500 bg-white text-black font-medium py-2 px-6 rounded-full hover:bg-orange-500 hover:text-white transition">
             Talk to our SaaS Experts

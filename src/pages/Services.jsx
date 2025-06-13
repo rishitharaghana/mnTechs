@@ -1,3 +1,4 @@
+
 import React from "react";
 import { CiCloud } from "react-icons/ci";
 // import { ArrowRight } from "lucide-react";
@@ -42,6 +43,8 @@ const services = [
   },
 ];
 const Services = () => {
+"use server"
+
   return (
     <div>
       <Navigation />

@@ -21,7 +21,7 @@ const Navigation = () => {
       name: "Products",
       path: "/products",
       submenu: [
-        { name: "AI Chat Bot", path: "/products/ai-chatbot" },
+        { name: "AI Agents", path: "/products/ai-chatbot" },
         { name: "App Development", path: "/products/app-development" },
         { name: "Billing Systems", path: "/products/billing-system" },
         { name: "CRM", path: "/products/crm" },

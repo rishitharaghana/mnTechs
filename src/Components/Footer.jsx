@@ -1,12 +1,11 @@
-import {
-  MapPin,
-  PhoneCall,
-  MailIcon,
-} from "lucide-react";
-import { FaFacebook, FaInstagram, FaYoutube } from "react-icons/fa";
-import MnTechImage from '../assets/Images/mntech.png'
-const handleSubscribe = async () => {
-  const email = document.getElementById("default-search").value;
+import React from 'react';
+import { MapPin, PhoneCall, MailIcon, Facebook, Instagram, Youtube } from 'lucide-react';
+import MnTechImage from '../assets/images/mntech.png'; // Adjust the path as necessary
+
+const Footer = () => {
+  const handleSubscribe = async (e) => {
+    e.preventDefault(); // Prevent default form submission
+    const email = document.getElementById('default-search').value;
 
     if (!email) {
       alert('Please enter your email.');

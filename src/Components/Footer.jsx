@@ -1,52 +1,52 @@
-import {
-  MapPin,
-  PhoneCall,
-  MailIcon,
-} from "lucide-react";
-import { FaFacebook, FaInstagram, FaYoutube } from "react-icons/fa";
+import React from 'react';
+import { MapPin, PhoneCall, MailIcon, Facebook, Instagram, Youtube } from 'lucide-react';
+import MnTechImage from '../assets/images/mntech.png'; // Adjust the path as necessary
 
-const handleSubscribe = async () => {
-  const email = document.getElementById("default-search").value;
+const Footer = () => {
+  const handleSubscribe = async (e) => {
+    e.preventDefault(); // Prevent default form submission
+    const email = document.getElementById('default-search').value;
 
-  if (!email) {
-    alert("Please enter your email.");
-    return;
-  }
-
-  try {
-    const res = await fetch("http://localhost:5000/newsLetter/create", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ email }),
-    });
-
-    const data = await res.json();
-    if (res.ok) {
-      alert(data.message); // "Subscribed successfully"
-    } else {
-      alert(data.message); // "Already subscribed" or validation errors
+    if (!email) {
+      alert('Please enter your email.');
+      return;
     }
-  } catch (error) {
-    alert("An error occurred. Please try again later.");
-    console.error(error);
-  }
-};
 
-export default function Footer() {
+    try {
+      const res = await fetch('http://localhost:5000/newsLetter/create', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email }),
+      });
+
+      const data = await res.json();
+      alert(data.message); // "Subscribed successfully" or "Already subscribed"
+    } catch (error) {
+      alert('An error occurred. Please try again later.');
+      console.error(error);
+    }
+  };
+
   return (
     <footer className="pt-16 pb-7 bg-gray-900 text-gray-400">
       <div className="mx-auto px-4 sm:px-6 lg:px-8">
         {/* Top Logo and Social Icons */}
         <div className="flex flex-col sm:flex-row items-center justify-between pb-14 border-b border-gray-500 gap-8">
           <a href="/" aria-label="Home">
-            <img src={MntechImage} alt="MNTECHS Logo" className="h-14 w-auto" />
+            <img src={MnTechImage} alt="MNTECHS Logo" className="h-14 w-auto" />
           </a>
           <div className="flex gap-4">
-            <FaFacebook size={30} className="text-blue-500 hover:text-white transition" />
-            <FaInstagram size={30} className="text-red-500 hover:text-white transition" />
-            <FaYoutube size={30} className="text-red-500 hover:text-white transition" />
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
+              <Facebook size={30} className="text-blue-500 hover:text-white transition" />
+            </a>
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
+              <Instagram size={30} className="text-red-500 hover:text-white transition" />
+            </a>
+            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer">
+              <Youtube size={30} className="text-red-500 hover:text-white transition" />
+            </a>
           </div>
         </div>
 
@@ -58,7 +58,7 @@ export default function Footer() {
             <div>
               <h6 className="text-lg font-semibold text-white mb-6 text-center sm:text-left">MNTECHS</h6>
               <ul className="space-y-4 text-center sm:text-left">
-                {["Services", "Products", "About", "Team", "Careers", "Contact"].map((item, index) => (
+                {['Services', 'Products', 'About', 'Team', 'Careers', 'Contact'].map((item, index) => (
                   <li key={index}>
                     <a
                       href="#"
@@ -76,12 +76,12 @@ export default function Footer() {
               <h6 className="text-lg font-semibold text-white mb-6 text-center sm:text-left">Products</h6>
               <ul className="space-y-4 text-center sm:text-left">
                 {[
-                  "Payroll Management",
-                  "HRMS",
-                  "CRM",
-                  "Books",
-                  "Hospital Management Software",
-                  "School and College Management",
+                  'Payroll Management',
+                  'HRMS',
+                  'CRM',
+                  'Books',
+                  'Hospital Management Software',
+                  'School and College Management',
                 ].map((product, index) => (
                   <li key={index}>
                     <a
@@ -98,9 +98,8 @@ export default function Footer() {
             </div>
 
             {/* Contact Info */}
-            {/* <div className="flex flex-col gap-5">
+            <div className="flex flex-col gap-5">
               <h6 className="text-lg font-semibold text-white text-center sm:text-left">Address</h6>
-
               <div className="flex items-start gap-2">
                 <MapPin className="w-5 h-5 flex-shrink-0" />
                 <p className="hover:text-amber-400 transition">
@@ -109,12 +108,10 @@ export default function Footer() {
                   Hyderabad - 500073, Telangana.
                 </p>
               </div>
-
               <div className="flex items-start gap-2">
                 <PhoneCall className="w-5 h-5 flex-shrink-0" />
                 <p>+91 9701888071</p>
               </div>
-
               <div className="flex items-start gap-2">
                 <MailIcon className="w-5 h-5 flex-shrink-0" />
                 <a
@@ -124,86 +121,59 @@ export default function Footer() {
                   support@meetowner.in
                 </a>
               </div>
-            </div> */}
-            {/* <div className="flex flex-col gap-5">
-  <h6 className="text-lg font-semibold text-white text-center sm:text-left">Branch Office</h6>
-
-  <div className="flex items-start gap-2">
-    <MapPin className="w-5 h-5 flex-shrink-0" />
-    <p className="hover:text-amber-400 transition  ">
-      2nd Floor, Some Landmark Building,<br />
-      MG Road, Bengaluru - 560001,<br />
-      Karnataka, India.
-    </p>
-  </div>
-
-  <div className="flex items-start gap-2">
-    <PhoneCall className="w-5 h-5 flex-shrink-0" />
-    <p className="hover:text-amber-400 transition  ">+91 9876543210</p>
-  </div>
-
-  <div className="flex items-start gap-2">
-    <MailIcon className="w-5 h-5 flex-shrink-0" />
-    <a
-      href="mailto:branchsupport@example.com"
-      className="hover:text-amber-400 transition"
-    >
-      branchsupport@example.com
-    </a>
-  </div>
-</div> */}
-<div className="flex flex-col gap-5">
-  <h6 className="text-lg font-semibold text-white text-center sm:text-left">Branch Office</h6>
-
-  <div className="flex items-start gap-2">
-    <MapPin className="w-5 h-5 flex-shrink-0" />
-    <p className="text-base font-normal text-gray-400 whitespace-nowrap transition-all duration-300 hover:text-amber-400">
-      2nd Floor, Some Landmark Building,<br />
-      MG Road, Bengaluru - 560001,<br />
-      Karnataka, India.
-    </p>
-  </div>
-
-  <div className="flex items-start gap-2">
-    <PhoneCall className="w-5 h-5 flex-shrink-0" />
-    <p className="text-base font-normal text-gray-400 whitespace-nowrap transition-all duration-300 hover:text-amber-400">
-      +91 9876543210
-    </p>
-  </div>
-
-  <div className="flex items-start gap-2">
-    <MailIcon className="w-5 h-5 flex-shrink-0" />
-    <a
-      href="mailto:branchsupport@example.com"
-      className="text-base font-normal text-gray-400 whitespace-nowrap transition-all duration-300 hover:text-amber-400"
-    >
-      branchsupport@example.com
-    </a>
-  </div>
-</div>
-
-            <div className="w-full lg:max-w-md max-lg:mx-auto">
-              <form action="#" className="flex flex-col gap-3">
-                <div className="relative">
-                  <input
-                    type="text"
-                    id="default-search"
-                    className="block w-60 px-4 py-2 text-base font-normal shadow-xs text-gray-600 bg-white border border-gray-300 rounded-full placeholder-gray-400 focus:outline-none leading-normal mx-auto text-center"
-                    placeholder="Your email address"
-                    required
-                  />
-                </div>
-                <div className="relative-button">
-                  <button
-                    onClick={handleSubscribe}
-                    type="button"
-                    className="block w-60 px-4 py-2 text-base font-normal shadow-xs text-black bg-orange-500 hover:bg-orange-400 border border-gray-300 rounded-full placeholder-gray-400 focus:outline-none leading-normal mx-auto text-center"
-                  >
-                    Subscribe Now
-                  </button>
-                </div>
-              </form>
             </div>
+
+            {/* Branch Office */}
+            <div className="flex flex-col gap-5">
+              <h6 className="text-lg font-semibold text-white text-center sm:text-left">Branch Office</h6>
+              <div className="flex items-start gap-2">
+                <MapPin className="w-5 h-5 flex-shrink-0" />
+                <p className="text-base font-normal text-gray-400 whitespace-nowrap transition-all duration-300 hover:text-amber-400">
+                  2nd Floor, Some Landmark Building,<br />
+                  MG Road, Bengaluru - 560001,<br />
+                  Karnataka, India.
+                </p>
+              </div>
+              <div className="flex items-start gap-2">
+                <PhoneCall className="w-5 h-5 flex-shrink-0" />
+                <p className="text-base font-normal text-gray-400 whitespace-nowrap transition-all duration-300 hover:text-amber-400">
+                  +91 9876543210
+                </p>
+              </div>
+              <div className="flex items-start gap-2">
+                <MailIcon className="w-5 h-5 flex-shrink-0" />
+                <a
+                  href="mailto:branchsupport@example.com"
+                  className="text-base font-normal text-gray-400 whitespace-nowrap transition-all duration-300 hover:text-amber-400"
+                >
+                  branchsupport@example.com
+                </a>
+              </div>
+            </div>
+          </div>
+
+          {/* Subscription Form */}
+          <div className="w-full lg:max-w-md max-lg:mx-auto">
+            <form onSubmit={handleSubscribe} className="flex flex-col gap-3">
+              <label htmlFor="default-search" className="sr-only">
+                Your email address
+              </label>
+              <div className="relative">
+                <input
+                  type="email"
+                  id="default-search"
+                  className="block w-full px-4 py-2 text-base font-normal text-gray-600 bg-white border border-gray-300 rounded-full placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-500"
+                  placeholder="Your email address"
+                  required
+                />
+              </div>
+              <button
+                type="submit"
+                className="w-full px-4 py-2 text-base font-normal text-black bg-orange-500 hover:bg-orange-400 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-orange-500 transition duration-300"
+              >
+                Subscribe Now
+              </button>
+            </form>
           </div>
         </div>
 
@@ -223,4 +193,6 @@ export default function Footer() {
       </div>
     </footer>
   );
-}
+};
+
+export default Footer;

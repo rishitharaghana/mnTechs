@@ -22,7 +22,7 @@ const Contact = () => {
         />
         <div className="px-10 pt-10 pb-10">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            {/* FORM SECTION */}
+       
             <div className="lg:col-span-2">
             <div className="mt-8 flex  gap-2 text-black font-medium text-lg">
         <span className="w-2 h-2 bg-orange-500 rounded-full"></span>
@@ -31,7 +31,6 @@ const Contact = () => {
               <Form />
             </div>
 
-            {/* CONTACT INFO SECTION */}
             <div className="lg:col-span-1 flex justify-end">
               <div className="w-full max-w-md space-y-6">
                 <div>
@@ -86,7 +85,7 @@ const Contact = () => {
             </div>
           </div>
 
-          {/* GOOGLE MAP */}
+     
           <div className="w-full h-[400px] md:h-[500px] rounded overflow-hidden my-8">
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.188572952851!2d78.45114611487795!3d17.44179378802811!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb914d2a1e5453%3A0x8bff9bdbb0d5b853!2sHyderabad%2C%20Telangana!5e0!3m2!1sen!2sin!4v1718120589655!5m2!1sen!2sin"

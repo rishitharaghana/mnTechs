@@ -4,7 +4,35 @@ import {
   MailIcon,
 } from "lucide-react";
 import { FaFacebook, FaInstagram, FaYoutube } from "react-icons/fa";
-import MntechImage from "../assets/mntech.png";
+
+const handleSubscribe = async () => {
+  const email = document.getElementById("default-search").value;
+
+  if (!email) {
+    alert("Please enter your email.");
+    return;
+  }
+
+  try {
+    const res = await fetch("http://localhost:5000/newsLetter/create", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ email }),
+    });
+
+    const data = await res.json();
+    if (res.ok) {
+      alert(data.message); // "Subscribed successfully"
+    } else {
+      alert(data.message); // "Already subscribed" or validation errors
+    }
+  } catch (error) {
+    alert("An error occurred. Please try again later.");
+    console.error(error);
+  }
+};
 
 export default function Footer() {
   return (
@@ -154,25 +182,28 @@ export default function Footer() {
   </div>
 </div>
 
-
-          </div>
-
-          {/* Subscribe Section */}
-          <div className="w-full max-w-md mx-auto lg:mx-0">
-            <form className="flex flex-col gap-3">
-              <input
-                type="email"
-                placeholder="Your email address"
-                className="w-full px-4 py-2 rounded-full border border-gray-300 bg-white text-gray-700 text-center placeholder-gray-500 focus:outline-none"
-                required
-              />
-              <button
-                type="submit"
-                className="w-full px-4 py-2 rounded-full bg-orange-500 text-white font-medium hover:bg-orange-400 transition"
-              >
-                Subscribe Now
-              </button>
-            </form>
+            <div className="w-full lg:max-w-md max-lg:mx-auto">
+              <form action="#" className="flex flex-col gap-3">
+                <div className="relative">
+                  <input
+                    type="text"
+                    id="default-search"
+                    className="block w-60 px-4 py-2 text-base font-normal shadow-xs text-gray-600 bg-white border border-gray-300 rounded-full placeholder-gray-400 focus:outline-none leading-normal mx-auto text-center"
+                    placeholder="Your email address"
+                    required
+                  />
+                </div>
+                <div className="relative-button">
+                  <button
+                    onClick={handleSubscribe}
+                    type="button"
+                    className="block w-60 px-4 py-2 text-base font-normal shadow-xs text-black bg-orange-500 hover:bg-orange-400 border border-gray-300 rounded-full placeholder-gray-400 focus:outline-none leading-normal mx-auto text-center"
+                  >
+                    Subscribe Now
+                  </button>
+                </div>
+              </form>
+            </div>
           </div>
         </div>
 

@@ -1,12 +1,8 @@
 import React from "react";
-import { Paperclip } from "lucide-react";
-import useForm from "../../Hooks/useForm" // adjust the path as needed
+import useForm from "../../Hooks/useForm";
 
 const Form = () => {
-  const {
-    formData,
-    handleChange,
-  } = useForm({
+  const { formData, handleChange } = useForm({
     firstName: "",
     lastName: "",
     email: "",
@@ -19,9 +15,31 @@ const Form = () => {
     ProjectBudget: "",
   });
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Contact form submitted:", formData);
+
+    try {
+      const response = await fetch(
+        "http://localhost:5000/reach/create_reach_us",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(formData),
+        }
+      );
+
+      const result = await response.json();
+      console.log("Server response:", result);
+
+      if (response.ok) {
+        alert("Form submitted successfully!");
+      } else {
+        alert("Submission failed: " + result.error);
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      alert("An error occurred.");
+    }
   };
 
   const inputClass =
@@ -29,7 +47,6 @@ const Form = () => {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-6 max-w-3xl mx-auto">
-      {/* Name Inputs */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
         {["firstName", "lastName"].map((field) => (
           <div key={field}>
@@ -48,7 +65,6 @@ const Form = () => {
         ))}
       </div>
 
-      {/* Email and Phone */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
         <div>
           <label className="text-sm font-medium text-gray-700 mb-1 block">
@@ -70,7 +86,7 @@ const Form = () => {
           <input
             type="tel"
             name="phone"
-            placeholder="9876543210"
+            placeholder=""
             value={formData.phone}
             onChange={handleChange}
             className={inputClass}
@@ -88,7 +104,9 @@ const Form = () => {
             <input
               type="text"
               name={field}
-              placeholder={`Your ${field === "company" ? "Company Name" : "Role"}`}
+              placeholder={`Your ${
+                field === "company" ? "Company Name" : "Role"
+              }`}
               value={formData[field]}
               onChange={handleChange}
               className={inputClass}
@@ -97,7 +115,6 @@ const Form = () => {
         ))}
       </div>
 
-      {/* Product Design */}
       <div>
         <label className="text-sm font-medium text-gray-700 mb-1 block">
           Product Design
@@ -125,27 +142,6 @@ const Form = () => {
           rows="4"
           className={`${inputClass} resize-none bg-transparent`}
         />
-      </div>
-
-      {/* File Upload */}
-      <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3">
-        <label
-          htmlFor="file"
-          className="flex items-center cursor-pointer text-sm text-gray-600 hover:text-black"
-        >
-          <Paperclip className="w-5 h-5 mr-2" />
-          Attach your file
-        </label>
-        <input
-          id="file"
-          name="file"
-          type="file"
-          onChange={handleChange}
-          className="hidden"
-        />
-        {formData.file && (
-          <span className="text-xs text-gray-500">{formData.file.name}</span>
-        )}
       </div>
 
       {/* Project Budget */}

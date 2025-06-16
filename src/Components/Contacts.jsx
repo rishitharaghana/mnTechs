@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Paperclip } from "lucide-react";
+
 import Navigation from "./Navigation";
 const Contacts = () => {
   const [formData, setFormData] = useState({
@@ -17,20 +17,28 @@ const Contacts = () => {
       [name]: type === "checkbox" ? checked : value,
     }));
   };
-  const handleFileChange = (e) => {
-    const file = e.target.files[0];
-    if (file) {
-      setFormData((prev) => ({
-        ...prev,
-        file: file,
-      }));
-      console.log("Selected file:", file);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    console.log("Submitting form data:", formData); // Debug
+
+    try {
+      const response = await fetch("http://localhost:5000/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      const result = await response.json();
+      console.log("Server response:", result);
+      alert("Message sent successfully!");
+    } catch (error) {
+      console.error("Error sending form:", error);
+      alert("Something went wrong.");
     }
   };
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log("Contact form submitted:", formData);
-  };
+
   return (
     <>
       <div className="bg-gray-900 text-white py-16 relative overflow-hidden">
@@ -84,36 +92,12 @@ const Contacts = () => {
                   Phone <span className="text-gray-400">Optional</span>
                 </label>
                 <input
-                  type="num"
+                  type="number"
                   name="phone"
                   value={formData.phone}
                   onChange={handleInputChange}
                   className="w-full px-4 py-3 bg-transparent border-b border-gray-600 focus:outline-none text-white "
                 />
-              </div>
-              <div className="flex items-center space-x-3">
-                <label
-                  htmlFor="fileInput"
-                  className="flex items-center space-x-3 cursor-pointer"
-                >
-                  <Paperclip className="w-5 h-5 text-gray-400" />
-                  <span className="text-sm text-gray-400">
-                    Attach your file
-                    <br />
-                    Up to 25MB
-                  </span>
-                </label>
-                <input
-                  id="fileInput"
-                  type="file"
-                  className="hidden"
-                  onChange={handleFileChange}
-                />
-                {formData.file && (
-                  <span className="text-xs text-gray-300">
-                    {formData.file.name}
-                  </span>
-                )}
               </div>
             </div>
             <div className="space-y-6">
@@ -121,7 +105,7 @@ const Contacts = () => {
                 <label className="block text-xs font-small mb-2">Message</label>
                 <textarea
                   name="message"
-                  rows="3"
+                  rows="9.5"
                   value={formData.message}
                   onChange={handleInputChange}
                   className="w-full px-4 py-3 bg-transparent border-b border-gray-600 focus:outline-none text-white"
@@ -139,9 +123,9 @@ const Contacts = () => {
                     name="agreeToUpdates"
                     checked={formData.agreeToUpdates}
                     onChange={handleInputChange}
-                    className="mt-1 w-4 h-4 text-orange-500 bg-gray-800 border-gray-600 rounded focus:ring-orange-500 focus:ring-2"
+                    className="mt-1 w-4 h-4 text-orange-500 cursor-pointer bg-gray-800 border-gray-600 rounded focus:ring-orange-500 focus:ring-2"
                   />
-                  <label className="text-xs text-gray-300 ">
+                  <label className="text-xs text-gray-300 cursor-pointer">
                     I would like to be contacted with news and updates about
                     your{" "}
                     <span className="text-orange-500">events and services</span>
@@ -150,15 +134,20 @@ const Contacts = () => {
               </div>
             </div>
           </form>
-          <div className="flex justify-center mt-12">
-            <button
-              type="submit"
-              className="w-full bg-orange-500 hover:bg-orange-400 text-black font-semibold py-4 px-8 rounded-full transition-colors duration-200 text-lg"
-              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            >
-              Send Message Now
-            </button>
-          </div>
+          <form
+            onSubmit={handleSubmit}
+            className="grid grid-cols-1 md:grid-cols-2 gap-12"
+          >
+            {/* ... existing inputs ... */}
+            <div className="md:col-span-2 flex justify-center mt-12">
+              <button
+                type="submit"
+                className="w-full bg-orange-500 hover:bg-orange-400 text-black font-semibold py-4 px-8 rounded-full transition-colors duration-200 text-lg"
+              >
+                Send Message Now
+              </button>
+            </div>
+          </form>
         </div>
       </div>
     </>

@@ -17,6 +17,8 @@ import HRMS from "./products/HRMS";
 import PayrollManagement from "./products/PayrollManagement";
 import AIAgent from "./products/AIAgent";
 import Loader from "./Components/loaders/Loader"; // Adjust if path differs
+import Terms from "./pages/Home/Terms";
+import Privacy from "./pages/Home/Privacy";
 
 const App = () => (
   <BrowserRouter>
@@ -33,6 +35,8 @@ const App = () => (
         <Route path="/products/hospital-management" element={<HospitalManagement />} />
         <Route path="/products/hrms" element={<HRMS />} />
         <Route path="/products/payroll-management" element={<PayrollManagement />} />
+        <Route path ="/terms" element={<Terms/>}/>
+        <Route path ="/privacy" element={<Privacy/>}/>
       <Route path="/contact" element={<ContactWrapper />} />
       <Route path="*" element={<NotFound />} />
     </Routes>

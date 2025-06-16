@@ -7,7 +7,6 @@ import Navigation from "../Components/Navigation";
 import Safegaurd from "../Services/Safegaurd";
 import SaasApplications from "../Services/SaasApplications";
 import ServiceFooter from "../Services/ServiceFooter";
-// import PageBanner from "./PageBanner";
 import BreadCrumb from "./BreadCrumb";
 
 const services = [
@@ -148,7 +147,7 @@ const Services = () => {
           <div className="w-4 sm:w-8 h-1 bg-orange-500"></div>
         </div>
       </div>
-      <PageBanner />
+     
       <SaasApplications />
       <ServiceFooter />
     </div>

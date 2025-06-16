@@ -1,217 +1,195 @@
 import {
-  Camera,
-  Facebook,
-  Instagram,
-  MailIcon,
   MapPin,
   PhoneCall,
-  Youtube,
+  MailIcon,
 } from "lucide-react";
-import MntechImage from "../assets/mntech.png";
 import { FaFacebook, FaInstagram, FaYoutube } from "react-icons/fa";
+import MntechImage from "../assets/mntech.png";
 
 export default function Footer() {
   return (
-    <>
-      <section className="pt-16 pb-7 bg-gray-900">
-        <div className="mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col sm:flex-row items-center justify-between pb-14 border-b border-gray-500 gap-8">
-            <a className="">
-              <img src={MntechImage} className="h-13 w-45 justify-center" />
-            </a>
-            <div className="flex items-center gap-4">
-              <FaFacebook color="blue" size={30} />
-              <FaInstagram color="red" size={30} />
-              <FaYoutube color="red" size={30} />
-            </div>
-          </div>
-          <div className="py-14 flex flex-col lg:flex-row justify-between gap-8 border-b border-gray-500">
-            <div className="w-full max-lg:mx-auto px-10 flex flex-col sm:flex-row max-lg:items-center max-lg:justify-between gap-6 md:gap-12 lg:gap-24">
-              <div>
-                <h6 className="text-lg font-medium text-white mb-7 max-lg:text-center">
-                  MNTECHS
-                </h6>
-                <ul className="flex flex-col max-lg:items-center gap-6">
-                  <li>
-                    <a
-                      href="javascript:;"
-                      className="text-base font-normal max-lg:text-center text-gray-400 whitespace-nowrap transition-all duration-300 hover:text-amber-400 focus-within:outline-0 focus-within:text-amber-400"
-                    >
-                      Services
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="javascript:;"
-                      className="text-base font-normal max-lg:text-center text-gray-400 whitespace-nowrap transition-all duration-300 hover:text-amber-400 focus-within:outline-0 focus-within:text-amber-400"
-                    >
-                      Products
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="javascript:;"
-                      className="text-base font-normal max-lg:text-center text-gray-400 whitespace-nowrap transition-all duration-300 hover:text-amber-400 focus-within:outline-0 focus-within:text-amber-400"
-                    >
-                      About
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="javascript:;"
-                      className="text-base font-normal max-lg:text-center text-gray-400 whitespace-nowrap transition-all duration-300 hover:text-amber-400 focus-within:outline-0 focus-within:text-amber-400"
-                    >
-                      Team
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="javascript:;"
-                      className="text-base font-normal max-lg:text-center text-gray-400 whitespace-nowrap transition-all duration-300 hover:text-amber-400 focus-within:outline-0 focus-within:text-amber-400"
-                    >
-                      Careers
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="javascript:;"
-                      className="text-base font-normal max-lg:text-center text-gray-400 whitespace-nowrap transition-all duration-300 hover:text-amber-400 focus-within:outline-0 focus-within:text-amber-400"
-                    >
-                      Contact
-                    </a>
-                  </li>
-                </ul>
-              </div>
-              <div className="">
-                <h6 className="text-lg font-medium text-white mb-7 max-lg:text-center">
-                  Products
-                </h6>
-                <ul className="flex flex-col gap-6 max-lg:items-center">
-                  <li>
-                    <a
-                      href=""
-                      target="_blank"
-                      className="text-base font-normal text-gray-400 whitespace-nowrap transition-all duration-300 hover:text-amber-400 focus-within:outline-0 focus-within:text-amber-400"
-                    >
-                      Payroll Management
-                    </a>
-                  </li>
-
-                  <li>
-                    <a
-                      href=""
-                      target="_blank"
-                      className="text-base font-normal text-gray-400 whitespace-nowrap transition-all duration-300 hover:text-amber-400 focus-within:outline-0 focus-within:text-amber-400"
-                    >
-                      HRMS
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href=" "
-                      target="_blank"
-                      className="text-base font-normal text-gray-400 whitespace-nowrap transition-all duration-300 hover:text-amber-400 focus-within:outline-0 focus-within:text-amber-400"
-                    >
-                      CRM
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href=" "
-                      target="_blank"
-                      className="text-base font-normal text-gray-400 whitespace-nowrap transition-all duration-300 hover:text-amber-400 focus-within:outline-0 focus-within:text-amber-400"
-                    >
-                      Books
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href=" "
-                      target="_blank"
-                      className="text-base font-normal text-gray-400 whitespace-nowrap transition-all duration-300 hover:text-amber-400 focus-within:outline-0 focus-within:text-amber-400"
-                    >
-                      Hospital Management Software
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href=" "
-                      target="_blank"
-                      className="text-base font-normal text-gray-400 whitespace-nowrap transition-all duration-300 hover:text-amber-400 focus-within:outline-0 focus-within:text-amber-400"
-                    >
-                      School and College Management
-                    </a>
-                  </li>
-                </ul>
-              </div>
-              <div className="flex flex-col gap-5">
-                <h6 className="text-lg font-medium text-white  max-lg:text-center">
-                  Address
-                </h6>
-
-                <div className="flex flex-row items-start gap-2">
-                  <MapPin className="w-5 h-5 flex-shrink-0" />
-                  <p className="text-base font-normal text-gray-400 whitespace-nowrap transition-all duration-300 hover:text-amber-400 focus-within:outline-0 focus-within:text-amber-400">
-                    401, 8-3-6-5/1/1/4, Astral Hasini Residency, <br />
-                    J.P. Nagar, Yella Reddy Guda, <br /> Hyderabad - 500073,
-                    Telangana.
-                  </p>
-                </div>
-                <div className="flex flex-row items-start gap-2">
-                  <PhoneCall size={20} />
-                  <p className="text-base font-normal text-gray-400 whitespace-nowrap transition-all duration-300 hover:text-amber-400 focus-within:outline-0 focus-within:text-amber-400">
-                    +91 9701888071
-                  </p>
-                </div>
-                <div className="flex flex-row items-start gap-2">
-                  <MailIcon size={20} />
-                  <p className="text-base font-normal text-gray-400 whitespace-nowrap transition-all duration-300 hover:text-amber-400 focus-within:outline-0 focus-within:text-amber-400">
-                    support@meetowner.in
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div className="w-full lg:max-w-md max-lg:mx-auto">
-              <form action="#" className="flex flex-col gap-3">
-                <div className="relative">
-                  <input
-                    type="text"
-                    id="default-search"
-                    className="block w-60 px-4 py-2 text-base font-normal shadow-xs text-gray-600 bg-white border border-gray-300 rounded-full placeholder-gray-400 focus:outline-none leading-normal mx-auto text-center"
-                    placeholder="Your email address"
-                    required
-                  />
-                </div>
-                <div className="relative-button">
-                  <button
-                    type="button"
-                    id="default-search-subscribe"
-                    className="block w-60 px-4 py-2 text-base font-normal shadow-xs text-black bg-orange-500 hover:bg-orange-400  border border-gray-300 rounded-full placeholder-gray-400 focus:outline-none leading-normal mx-auto text-center"
-                    placeholder="Subscribe Now"
-                    required
-                  >
-                    Subcribe Now
-                  </button>
-                </div>
-              </form>
-            </div>
+    <footer className="pt-16 pb-7 bg-gray-900 text-gray-400">
+      <div className="mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Top Logo and Social Icons */}
+        <div className="flex flex-col sm:flex-row items-center justify-between pb-14 border-b border-gray-500 gap-8">
+          <a href="/" aria-label="Home">
+            <img src={MntechImage} alt="MNTECHS Logo" className="h-14 w-auto" />
+          </a>
+          <div className="flex gap-4">
+            <FaFacebook size={30} className="text-blue-500 hover:text-white transition" />
+            <FaInstagram size={30} className="text-red-500 hover:text-white transition" />
+            <FaYoutube size={30} className="text-red-500 hover:text-white transition" />
           </div>
         </div>
 
-        <div className="flex sm:flex-row items-center justify-between px-10 pt-7">
-          <span className="text-sm font-normal text-gray-400">
-            <a href=" " className="">
-              ©mntechs
-            </a>{" "}
-            2025.
+        {/* Main Footer Content */}
+        <div className="py-14 flex flex-col lg:flex-row justify-between gap-12 border-b border-gray-500">
+          {/* Links */}
+          <div className="flex flex-col sm:flex-row gap-12 w-full lg:w-3/4">
+            {/* MNTECHS Navigation */}
+            <div>
+              <h6 className="text-lg font-semibold text-white mb-6 text-center sm:text-left">MNTECHS</h6>
+              <ul className="space-y-4 text-center sm:text-left">
+                {["Services", "Products", "About", "Team", "Careers", "Contact"].map((item, index) => (
+                  <li key={index}>
+                    <a
+                      href="#"
+                      className="transition hover:text-amber-400 focus:outline-none focus:text-amber-400"
+                    >
+                      {item}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Product List */}
+            <div>
+              <h6 className="text-lg font-semibold text-white mb-6 text-center sm:text-left">Products</h6>
+              <ul className="space-y-4 text-center sm:text-left">
+                {[
+                  "Payroll Management",
+                  "HRMS",
+                  "CRM",
+                  "Books",
+                  "Hospital Management Software",
+                  "School and College Management",
+                ].map((product, index) => (
+                  <li key={index}>
+                    <a
+                      href="#"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="transition hover:text-amber-400 focus:outline-none focus:text-amber-400"
+                    >
+                      {product}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Contact Info */}
+            {/* <div className="flex flex-col gap-5">
+              <h6 className="text-lg font-semibold text-white text-center sm:text-left">Address</h6>
+
+              <div className="flex items-start gap-2">
+                <MapPin className="w-5 h-5 flex-shrink-0" />
+                <p className="hover:text-amber-400 transition">
+                  401, 8-3-6-5/1/1/4, Astral Hasini Residency,<br />
+                  J.P. Nagar, Yella Reddy Guda,<br />
+                  Hyderabad - 500073, Telangana.
+                </p>
+              </div>
+
+              <div className="flex items-start gap-2">
+                <PhoneCall className="w-5 h-5 flex-shrink-0" />
+                <p>+91 9701888071</p>
+              </div>
+
+              <div className="flex items-start gap-2">
+                <MailIcon className="w-5 h-5 flex-shrink-0" />
+                <a
+                  href="mailto:support@meetowner.in"
+                  className="hover:text-amber-400 transition"
+                >
+                  support@meetowner.in
+                </a>
+              </div>
+            </div> */}
+            {/* <div className="flex flex-col gap-5">
+  <h6 className="text-lg font-semibold text-white text-center sm:text-left">Branch Office</h6>
+
+  <div className="flex items-start gap-2">
+    <MapPin className="w-5 h-5 flex-shrink-0" />
+    <p className="hover:text-amber-400 transition  ">
+      2nd Floor, Some Landmark Building,<br />
+      MG Road, Bengaluru - 560001,<br />
+      Karnataka, India.
+    </p>
+  </div>
+
+  <div className="flex items-start gap-2">
+    <PhoneCall className="w-5 h-5 flex-shrink-0" />
+    <p className="hover:text-amber-400 transition  ">+91 9876543210</p>
+  </div>
+
+  <div className="flex items-start gap-2">
+    <MailIcon className="w-5 h-5 flex-shrink-0" />
+    <a
+      href="mailto:branchsupport@example.com"
+      className="hover:text-amber-400 transition"
+    >
+      branchsupport@example.com
+    </a>
+  </div>
+</div> */}
+<div className="flex flex-col gap-5">
+  <h6 className="text-lg font-semibold text-white text-center sm:text-left">Branch Office</h6>
+
+  <div className="flex items-start gap-2">
+    <MapPin className="w-5 h-5 flex-shrink-0" />
+    <p className="text-base font-normal text-gray-400 whitespace-nowrap transition-all duration-300 hover:text-amber-400">
+      2nd Floor, Some Landmark Building,<br />
+      MG Road, Bengaluru - 560001,<br />
+      Karnataka, India.
+    </p>
+  </div>
+
+  <div className="flex items-start gap-2">
+    <PhoneCall className="w-5 h-5 flex-shrink-0" />
+    <p className="text-base font-normal text-gray-400 whitespace-nowrap transition-all duration-300 hover:text-amber-400">
+      +91 9876543210
+    </p>
+  </div>
+
+  <div className="flex items-start gap-2">
+    <MailIcon className="w-5 h-5 flex-shrink-0" />
+    <a
+      href="mailto:branchsupport@example.com"
+      className="text-base font-normal text-gray-400 whitespace-nowrap transition-all duration-300 hover:text-amber-400"
+    >
+      branchsupport@example.com
+    </a>
+  </div>
+</div>
+
+
+          </div>
+
+          {/* Subscribe Section */}
+          <div className="w-full max-w-md mx-auto lg:mx-0">
+            <form className="flex flex-col gap-3">
+              <input
+                type="email"
+                placeholder="Your email address"
+                className="w-full px-4 py-2 rounded-full border border-gray-300 bg-white text-gray-700 text-center placeholder-gray-500 focus:outline-none"
+                required
+              />
+              <button
+                type="submit"
+                className="w-full px-4 py-2 rounded-full bg-orange-500 text-white font-medium hover:bg-orange-400 transition"
+              >
+                Subscribe Now
+              </button>
+            </form>
+          </div>
+        </div>
+
+        {/* Bottom Copyright */}
+        <div className="flex flex-col md:flex-row items-center justify-between px-4 pt-7 gap-4 text-sm">
+          <span>
+            <a href="/" className="hover:text-amber-400 transition">© mntechs</a> 2025. All Rights Reserved.
           </span>
-
-          <div className="flex sm:flex-row items-center  text-gray-400 justify-between px-10 pt-7">
-            All Rights Reserved.
+          <div className="flex flex-wrap justify-center gap-4">
+            <a href="/terms" className="hover:text-amber-400 transition">Terms & Conditions</a>
+            <span className="text-amber-400">|</span>
+            <a href="/privacy" className="hover:text-amber-400 transition">Privacy Policy</a>
+            <span className="text-amber-400">|</span>
+            <a href="/terms" className="hover:text-amber-400 transition">Cookies</a>
           </div>
         </div>
-      </section>
-    </>
+      </div>
+    </footer>
   );
 }

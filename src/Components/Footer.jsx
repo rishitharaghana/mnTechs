@@ -10,6 +10,35 @@ import {
 import MntechImage from "../assets/mntech.png";
 import { FaFacebook, FaInstagram, FaYoutube } from "react-icons/fa";
 
+const handleSubscribe = async () => {
+  const email = document.getElementById("default-search").value;
+
+  if (!email) {
+    alert("Please enter your email.");
+    return;
+  }
+
+  try {
+    const res = await fetch("http://localhost:5000/newsLetter/create", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ email }),
+    });
+
+    const data = await res.json();
+    if (res.ok) {
+      alert(data.message); // "Subscribed successfully"
+    } else {
+      alert(data.message); // "Already subscribed" or validation errors
+    }
+  } catch (error) {
+    alert("An error occurred. Please try again later.");
+    console.error(error);
+  }
+};
+
 export default function Footer() {
   return (
     <>
@@ -185,13 +214,11 @@ export default function Footer() {
                 </div>
                 <div className="relative-button">
                   <button
+                    onClick={handleSubscribe}
                     type="button"
-                    id="default-search-subscribe"
-                    className="block w-60 px-4 py-2 text-base font-normal shadow-xs text-black bg-orange-500 hover:bg-orange-400  border border-gray-300 rounded-full placeholder-gray-400 focus:outline-none leading-normal mx-auto text-center"
-                    placeholder="Subscribe Now"
-                    required
+                    className="block w-60 px-4 py-2 text-base font-normal shadow-xs text-black bg-orange-500 hover:bg-orange-400 border border-gray-300 rounded-full placeholder-gray-400 focus:outline-none leading-normal mx-auto text-center"
                   >
-                    Subcribe Now
+                    Subscribe Now
                   </button>
                 </div>
               </form>

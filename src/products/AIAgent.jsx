@@ -7,7 +7,7 @@ const AIAgent = () => {
     <>
       <div>
         <BreadCrumb title="AI Agent" />
-        <h1>AI Agent Page</h1>
+        
       </div>
     </>
   );

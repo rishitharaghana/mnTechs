@@ -1,13 +1,16 @@
-import React from 'react'
+import React from 'react';
+
+import BreadCrumb from '../pages/BreadCrumb'; // Make sure this path is correct
 
 const AIAgent = () => {
   return (
     <>
       <div>
-        <h1>AI Agent</h1>
+        <BreadCrumb title="AI Agent" />
+        <h1>AI Agent Page</h1>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default AIAgent
+export default AIAgent;

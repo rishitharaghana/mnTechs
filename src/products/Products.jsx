@@ -1,14 +1,12 @@
-import React from 'react'
-import AIAgent from './AIAgent'
+import React from 'react';
+import BreadCrumb from '../pages/BreadCrumb';
 
 const Products = () => {
   return (
-    <>
     <div>
-      <h1>Products</h1>
+      <BreadCrumb title="Our Products" />
     </div>
-    </>
-  )
-}
+  );
+};
 
-export default Products
+export default Products;

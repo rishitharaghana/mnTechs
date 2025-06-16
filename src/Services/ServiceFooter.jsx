@@ -75,12 +75,22 @@ const ServiceFooter = () => {
                     +91 9701888071
                   </p>
                 </div>
-         <div className="flex flex-row items-start gap-3">
+         {/* <div className="flex flex-row items-start gap-3">
                   <MailIcon size={20} />
                   <p className="text-base font-normal text-gray-400 whitespace-nowrap transition-all duration-300 hover:text-amber-400 focus-within:outline-0 focus-within:text-amber-400">
                     support@meetowner.in
                   </p>
-                </div>
+                </div> */}
+                <div className="flex flex-row items-start gap-2">
+  <MailIcon size={20} />
+  <a
+    href="mailto:support@meetowner.in"
+    className="text-base font-normal text-gray-400 hover:text-amber-400 transition-all duration-300"
+  >
+    support@meetowner.in
+  </a>
+</div>
+
         </div>
 
         <div className="mb-8 md:mb-0">

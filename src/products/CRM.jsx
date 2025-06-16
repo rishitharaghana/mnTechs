@@ -1,10 +1,11 @@
 import React from 'react'
+import BreadCrumb from '../pages/BreadCrumb'
 
 const CRM = () => {
   return (
     <>
       <div>
-        <h1>CRM</h1>
+        <BreadCrumb title='CRM'/>
       </div>
     </>
   )

@@ -7,6 +7,7 @@ import Navigation from "../Components/Navigation";
 import Safegaurd from "../Services/Safegaurd";
 import SaasApplications from "../Services/SaasApplications";
 import ServiceFooter from "../Services/ServiceFooter";
+import BreadCrumb from "./BreadCrumb";
 
 const services = [
   {
@@ -51,37 +52,8 @@ const Services = () => {
 
   return (
     <div>
+      <BreadCrumb title='Services' />
       <Navigation />
-      <div className="relative top-20">
-        <div className="absolute inset-0 bg-white bg-opacity-80 z-0"></div>
-        <div
-          className="relative z-10 px-4 sm:px-6 md:px-10 py-16 sm:py-20 md:py-32"
-          style={{
-            backgroundImage: `url(${map})`,
-            backgroundColor: "rgba(0, 0, 0, 0.1)",
-            backgroundRepeat: "no-repeat",
-            backgroundSize: "cover",
-          }}
-        >
-          <div className="text-sm text-gray-600 mb-2 sm:mb-4">
-            <Link to="/" className="text-black font-medium hover:text-orange-500">
-              Home
-            </Link>
-            <span className="text-orange-500 mx-1 sm:mx-2">●</span>
-            <span className="text-gray-500">Service</span>
-          </div>
-          <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-10">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-black">
-              SAAS DEVELOPMENT SERVICES
-            </h1>
-            <img
-              src="/deco-2.svg"
-              alt="Decoration"
-              className="w-24 sm:w-32 md:w-40 h-auto transform rotate-90"
-            />
-          </div>
-        </div>
-      </div>
       <div className="relative py-12 sm:py-16 px-4 sm:px-6 md:px-20 overflow-hidden">
         <img
           src={map}
@@ -175,6 +147,7 @@ const Services = () => {
           <div className="w-4 sm:w-8 h-1 bg-orange-500"></div>
         </div>
       </div>
+     
       <SaasApplications />
       <ServiceFooter />
     </div>

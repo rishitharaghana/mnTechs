@@ -2,24 +2,52 @@ import React, { useEffect, useState } from "react";
 import { Search, Menu, X } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import MntechImage from "../assets/mntech.png";
+import useDropdown from "../Hooks/useDropdown";
+import { ChevronDown } from "lucide-react";
+
+
 const Navigation = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSubmenu, setActiveSubmenu] = useState(null);
   const location = useLocation();
-  const isWhiteBackgroundPage =
-    location.pathname.startsWith("/services") ||
-    location.pathname.startsWith("/contact") ||
-    location.pathname.startsWith("/enterprise");
+
+  const isWhiteBackgroundPage = ["/services", "/contact", "/enterprise"].some((path) =>
+    location.pathname.startsWith(path)
+  );
+
+  const isScrolledOrWhitePage = scrolled || isWhiteBackgroundPage;
+
+  // const navItems = [
+  //   { name: "Services", path: "/services" },
+  //   {
+  //     name: "Products",
+  //     path: "/products",
+  //     submenu: [
+  //       { name: "AI Agents", path: "/products/ai-agent" },
+  //       { name: "App Development", path: "/products/app-development" },
+  //       { name: "Billing Systems", path: "/products/billing-system" },
+  //       { name: "CRM", path: "/products/crm" },
+  //       { name: "E-Commerce", path: "/products/e-commerce" },
+  //       { name: "Education Management", path: "/products/education-management" },
+  //       { name: "Hospital Management", path: "/products/hospital-management" },
+  //       { name: "HRMS", path: "/products/hrms" },
+  //       { name: "Payroll Management", path: "/products/payroll-management" },
+  //     ],
+  //   },
+  //   { name: "About", path: "/about" },
+  //   { name: "Team", path: "/ourteam" },
+  //   { name: "Reach Us", path: "/contact" },
+  // ];
   const navItems = [
     { name: "Services", path: "/services" },
     {
       name: "Products",
-      path: "/products",
+      path: "#", // Not a real path; submenu items handle navigation
       submenu: [
-        { name: "AI Agents", path: "/products/ai-agent" },
+        { name: "AI Agents", path: "/products/ai-agents" },
         { name: "App Development", path: "/products/app-development" },
-        { name: "Billing Systems", path: "/products/billing-system" },
+        { name: "Billing Systems", path: "/products/billing-systems" },
         { name: "CRM", path: "/products/crm" },
         { name: "E-Commerce", path: "/products/e-commerce" },
         { name: "Education Management", path: "/products/education-management" },
@@ -29,90 +57,247 @@ const Navigation = () => {
       ],
     },
     { name: "About", path: "/about" },
-    { name: "Team", path: "/ourteam" },
+    { name: "Team", path: "/team" },
     { name: "Reach Us", path: "/contact" },
   ];
+  
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 10);
-    };
+    const handleScroll = () => setScrolled(window.scrollY > 10);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
   useEffect(() => {
     setMobileMenuOpen(false);
     setActiveSubmenu(null);
   }, [location.pathname]);
+
   useEffect(() => {
     document.body.style.overflow = mobileMenuOpen ? "hidden" : "unset";
-    return () => {
-      document.body.style.overflow = "unset";
-    };
+    return () => (document.body.style.overflow = "unset");
   }, [mobileMenuOpen]);
-  const isScrolledOrWhitePage = scrolled || isWhiteBackgroundPage;
+
   const toggleMobileMenu = () => {
-    setMobileMenuOpen(!mobileMenuOpen);
+    setMobileMenuOpen((prev) => !prev);
     setActiveSubmenu(null);
   };
-  const toggleSubmenu = (itemName) => {
-    setActiveSubmenu(activeSubmenu === itemName ? null : itemName);
-  };
-  return (
-    <>
-      
-      <nav
-        className={`fixed top-0 left-0 w-full z-50 transition-colors duration-300 ${
-          isScrolledOrWhitePage ? "bg-white shadow-md" : "bg-transparent"
-        }`}
-      >
-        <div className="flex items-center justify-between h-16 sm:h-20 px-4 sm:px-6 lg:px-10">
-          
-          <div className="flex items-center space-x-2">
-            <Link to="/" className="flex items-center">
-              <img
-                src={MntechImage}
-                alt="Logo"
-                className="h-8 sm:h-10 w-auto"
-              />
-            </Link>
-          </div>
-          
-          <div className=" xl:flex flex-1 hidden lg:block justify-center">
-            <div className="flex items-center justify-center space-x-6 lg:space-x-8">
-              {navItems.map((item) => (
-                <div key={item.name} className="relative group">
-                  <Link
-                    to={item.path}
-                    className={`${
-                      isScrolledOrWhitePage ? "text-gray-800" : "text-white"
-                    } hover:text-orange-500 px-3 py-2 text-sm font-medium flex items-center transition-colors duration-300`}
-                  >
-                    {item.name}
-                    {item.submenu && (
-                      <span className="ml-1 w-2 h-2 border-2 border-orange-500 rounded-full inline-block"></span>
-                    )}
-                  </Link>
-                  
-                  {item.submenu && (
-                    <div className="absolute left-1/2 -translate-x-1/2 mt-2 bg-white text-black rounded-lg shadow-xl opacity-0 scale-95 group-hover:opacity-100 group-hover:scale-100 transition-all duration-300 ease-out min-w-[200px] z-50 border border-gray-100">
-                      <div className="py-2">
-                        {item.submenu.map((subItem) => (
-                          <Link
-                            key={subItem.name}
-                            to={subItem.path}
-                            className="block px-4 py-3 text-sm font-medium text-gray-700 hover:bg-orange-50 hover:text-orange-600 transition-colors duration-200"
-                          >
-                            {subItem.name}
-                          </Link>
-                        ))}
-                      </div>
-                    </div>
-                  )}
-                </div>
+
+  const toggleSubmenu = (itemName) =>
+    setActiveSubmenu((prev) => (prev === itemName ? null : itemName));
+
+  // const DesktopNavItem = ({ item }) => (
+  //   <div key={item.name} className="relative group">
+  //     <Link
+  //       to={item.path}
+  //       className={`${
+  //         isScrolledOrWhitePage ? "text-gray-800" : "text-white"
+  //       } hover:text-orange-500 px-3 py-2 text-sm font-medium flex items-center transition-colors duration-300`}
+  //     >
+  //       {item.name}
+  //       {item.submenu && (
+  //         <span className="ml-1 w-2 h-2 border-2 border-orange-500 rounded-full inline-block" />
+  //       )}
+  //     </Link>
+  //     {item.submenu && (
+  //       <div className="absolute left-1/2 -translate-x-1/2 mt-2 bg-white text-black rounded-lg shadow-xl opacity-0 scale-95 group-hover:opacity-100 group-hover:scale-100 transition-all duration-300 ease-out min-w-[200px] z-50 border border-gray-100">
+  //         <div className="py-2">
+  //           {item.submenu.map((subItem) => (
+  //             <Link
+  //               key={subItem.name}
+  //               to={subItem.path}
+  //               className="block px-4 py-3 text-sm font-medium text-gray-700 hover:bg-orange-50 hover:text-orange-600 transition-colors duration-200"
+  //             >
+  //               {subItem.name}
+  //             </Link>
+  //           ))}
+  //         </div>
+  //       </div>
+  //     )}
+  //   </div>
+  // );
+  // const DesktopNavItem = ({ item }) => (
+  //   <div className="relative group">
+  //     <Link
+  //       to={item.path}
+  //       className={`${
+  //         isScrolledOrWhitePage ? "text-gray-800" : "text-white"
+  //       } hover:text-orange-500 px-3 py-2 text-sm font-medium flex items-center transition-colors duration-300`}
+  //     >
+  //       {item.name}
+  //       {item.submenu && (
+  //         <span className="ml-1 w-2 h-2 border-2 border-orange-500 rounded-full inline-block" />
+  //       )}
+  //     </Link>
+  
+  //     {item.submenu && (
+  //       <div className="absolute left-1/2 -translate-x-1/2 mt-2 bg-white text-black rounded-lg shadow-xl opacity-0 scale-95 group-hover:opacity-100 group-hover:scale-100 transition-all duration-300 ease-out min-w-[200px] z-50 border border-gray-100 pointer-events-none group-hover:pointer-events-auto">
+  //         <div className="py-2">
+  //           {item.submenu.map((subItem) => (
+  //             <Link
+  //               key={subItem.name}
+  //               to={subItem.path}
+  //               className="block px-4 py-3 text-sm font-medium text-gray-700 hover:bg-orange-50 hover:text-orange-600 transition-colors duration-200"
+  //             >
+  //               {subItem.name}
+  //             </Link>
+  //           ))}
+  //         </div>
+  //       </div>
+  //     )}
+  //   </div>
+  // );
+  // const DesktopNavItem = ({ item, isScrolledOrWhitePage }) => {
+  //   const { isOpen, setIsOpen, ref } = useDropdown();
+  
+  //   return (
+  //     <div ref={ref} className="relative">
+  //       <button
+  //         onClick={() => setIsOpen((prev) => !prev)}
+  //         className={`${
+  //           isScrolledOrWhitePage ? "text-gray-800" : "text-white"
+  //         } hover:text-orange-500 px-3 py-2 text-sm font-medium flex items-center transition-colors duration-300`}
+  //       >
+  //         {item.name}
+  //         {item.submenu && <ChevronDown className="ml-1 w-4 h-4" />}
+  //       </button>
+  
+  //       {item.submenu && isOpen && (
+  //        <div className="absolute left-0 mt-2 bg-white text-black rounded-lg shadow-xl min-w-max z-50">
+
+  //           <div className="py-2">
+  //             {item.submenu.map((subItem) => (
+  //               <Link
+  //                 key={subItem.name}
+  //                 to={subItem.path}
+  //                 className="block px-5 py-3 text-sm font-medium text-gray-700 hover:bg-orange-50 hover:text-orange-600 transition-colors duration-200"
+  //                 onClick={() => setIsOpen(false)} // Optional: close on click
+  //               >
+  //                 {subItem.name}
+  //               </Link>
+  //             ))}
+  //           </div>
+  //         </div>
+  //       )}
+  //     </div>
+  //   );
+  // };
+  // const DesktopNavItem = ({ item, isScrolledOrWhitePage }) => {
+  //   const { isOpen, setIsOpen, ref } = useDropdown();
+  
+  //   return (
+  //     <div ref={ref} className="relative">
+  //       <button
+  //         onClick={() => setIsOpen((prev) => !prev)}
+  //         className={`${
+  //           isScrolledOrWhitePage ? "text-gray-800" : "text-white"
+  //         } hover:text-orange-500 px-3 py-2 text-sm font-medium flex items-center gap-1 transition-colors duration-300 relative`}
+  //       >
+  //         {item.name}
+  
+  //         {/* Hollow orange circle */}
+  //         {item.submenu && (
+  //           <span className="ml-1 w-2 h-2 border-2 border-orange-500 rounded-full"></span>
+  //         )}
+  //       </button>
+  
+  //       {item.submenu && isOpen && (
+  //         <div className="absolute left-0 mt-2 bg-white text-black rounded-lg shadow-xl min-w-max z-50">
+  //           <div className="py-2">
+  //             {item.submenu.map((subItem) => (
+  //               <Link
+  //                 key={subItem.name}
+  //                 to={subItem.path}
+  //                 className="block px-5 py-3 text-sm font-medium text-gray-700 hover:bg-orange-50 hover:text-orange-600 transition-colors duration-200"
+  //                 onClick={() => setIsOpen(false)}
+  //               >
+  //                 {subItem.name}
+  //               </Link>
+  //             ))}
+  //           </div>
+  //         </div>
+  //       )}
+  //     </div>
+  //   );
+  // };
+  const DesktopNavItem = ({ item, isScrolledOrWhitePage }) => {
+    const { isOpen, setIsOpen, ref } = useDropdown();
+  
+    // If there's no submenu, use Link directly
+    if (!item.submenu) {
+      return (
+        <div className="relative">
+          <Link
+            to={item.path}
+            className={`${
+              isScrolledOrWhitePage ? "text-gray-800" : "text-white"
+            } hover:text-orange-500 px-3 py-2 text-sm font-medium flex items-center transition-colors duration-300`}
+          >
+            {item.name}
+          </Link>
+        </div>
+      );
+    }
+  
+    // For submenu items
+    return (
+      <div ref={ref} className="relative">
+        <button
+          onClick={() => setIsOpen((prev) => !prev)}
+          className={`${
+            isScrolledOrWhitePage ? "text-gray-800" : "text-white"
+          } hover:text-orange-500 px-3 py-2 text-sm font-medium flex items-center gap-1 transition-colors duration-300 relative`}
+        >
+          {item.name}
+          {/* Hollow orange circle */}
+          <span className="ml-1 w-2 h-2 border-2 border-orange-500 rounded-full"></span>
+        </button>
+  
+        {isOpen && (
+          <div className="absolute left-0 mt-2 bg-white text-black rounded-lg shadow-xl min-w-max z-50">
+            <div className="py-2">
+              {item.submenu.map((subItem) => (
+                <Link
+                  key={subItem.name}
+                  to={subItem.path}
+                  className="block px-5 py-3 text-sm font-medium text-gray-700 hover:bg-orange-50 hover:text-orange-600 transition-colors duration-200"
+                  onClick={() => setIsOpen(false)}
+                >
+                  {subItem.name}
+                </Link>
               ))}
             </div>
           </div>
-          
+        )}
+      </div>
+    );
+  };
+  
+  
+  return (
+    <>
+      {/* Top Navbar */}
+      <nav
+        className={`fixed top-0 left-0 w-full z-50 transition-colors duration-300 ${
+          isScrolledOrWhitePage ? "shadow-md" : "bg-transparent"
+        }`}
+      >
+        <div className="flex items-center justify-between h-16 sm:h-20 px-4 sm:px-6 lg:px-10">
+          {/* Logo */}
+          <Link to="/" className="flex items-center">
+            <img src={MntechImage} alt="Logo" className="h-8 sm:h-10 w-auto" />
+          </Link>
+
+          {/* Desktop Nav */}
+          <div className="xl:flex hidden lg:block flex-1 justify-center">
+            <div className="flex items-center justify-center space-x-6 lg:space-x-8">
+            {navItems.map((item) => (
+  <DesktopNavItem key={item.name} item={item} isScrolledOrWhitePage={isScrolledOrWhitePage} />
+))}
+
+            </div>
+          </div>
+
+          {/* Search Icon */}
           <div className="xl:flex hidden lg:block items-center">
             <Search
               className={`h-5 w-5 transition-colors duration-300 cursor-pointer hover:text-orange-500 ${
@@ -120,7 +305,8 @@ const Navigation = () => {
               }`}
             />
           </div>
-          
+
+          {/* Mobile Menu Button */}
           <div className="xl:hidden lg:hidden">
             <button
               onClick={toggleMobileMenu}
@@ -131,36 +317,30 @@ const Navigation = () => {
               }`}
               aria-label="Toggle menu"
             >
-              {mobileMenuOpen ? (
-                <X className="h-6 w-6" />
-              ) : (
-                <Menu className="h-6 w-6" />
-              )}
+              {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </button>
           </div>
         </div>
       </nav>
-      
+
+      {/* Mobile Overlay */}
       <div
         className={`fixed inset-0 bg-black bg-opacity-50 z-40 xl:hidden transition-opacity duration-300 ${
           mobileMenuOpen ? "opacity-100" : "opacity-0 pointer-events-none"
         }`}
         onClick={toggleMobileMenu}
       />
-      
+
+      {/* Mobile Drawer */}
       <div
         className={`fixed top-0 right-0 h-full w-80 max-w-[85vw] bg-white shadow-2xl z-50 xl:hidden transform transition-transform duration-300 ease-in-out ${
           mobileMenuOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
         <div className="flex flex-col h-full">
-          
+          {/* Header */}
           <div className="flex items-center justify-between p-6 border-b border-gray-200">
-            <img
-              src={MntechImage}
-              alt="Logo"
-              className="h-8 w-auto"
-            />
+            <img src={MntechImage} alt="Logo" className="h-8 w-auto" />
             <button
               onClick={toggleMobileMenu}
               className="p-2 rounded-md text-gray-600 hover:bg-gray-100 transition-colors duration-200"
@@ -169,82 +349,74 @@ const Navigation = () => {
               <X className="h-6 w-6" />
             </button>
           </div>
-          
-          <div className="flex-1 overflow-y-auto py-6">
-            <div className="px-6 space-y-2">
-              {navItems.map((item) => (
-                <div key={item.name}>
-                  {item.submenu ? (
-                    <div>
-                      <button
-                        onClick={() => toggleSubmenu(item.name)}
-                        className="w-full flex items-center justify-between py-3 px-4 text-left text-gray-800 hover:bg-gray-50 rounded-lg transition-colors duration-200 font-medium"
-                      >
-                        <span>{item.name}</span>
-                        <div
-                          className={`transform transition-transform duration-200 ${
-                            activeSubmenu === item.name ? "rotate-180" : ""
-                          }`}
-                        >
-                          <svg
-                            className="w-4 h-4"
-                            fill="none"
-                            stroke="currentColor"
-                            viewBox="0 0 24 24"
-                          >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              strokeWidth={2}
-                              d="M19 9l-7 7-7-7"
-                            />
-                          </svg>
-                        </div>
-                      </button>
-                      
-                      <div
-                        className={`overflow-hidden transition-all duration-300 ${
-                          activeSubmenu === item.name
-                            ? "max-h-96 opacity-100"
-                            : "max-h-0 opacity-0"
+
+          {/* Menu Items */}
+          <div className="flex-1 overflow-y-auto py-6 px-6 space-y-2">
+            {navItems.map((item) => (
+              <div key={item.name}>
+                {item.submenu ? (
+                  <>
+                    <button
+                      onClick={() => toggleSubmenu(item.name)}
+                      className="w-full flex items-center justify-between py-3 px-4 text-left text-gray-800 hover:bg-gray-50 rounded-lg transition duration-200 font-medium"
+                    >
+                      <span>{item.name}</span>
+                      <svg
+                        className={`w-4 h-4 transform transition-transform ${
+                          activeSubmenu === item.name ? "rotate-180" : ""
                         }`}
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
                       >
-                        <div className="pl-4 py-2 space-y-1">
-                          {item.submenu.map((subItem) => (
-                            <Link
-                              key={subItem.name}
-                              to={subItem.path}
-                              className="block py-2 px-4 text-sm text-gray-600 hover:text-orange-600 hover:bg-orange-50 rounded-md transition-colors duration-200"
-                              onClick={toggleMobileMenu}
-                            >
-                              {subItem.name}
-                            </Link>
-                          ))}
-                        </div>
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M19 9l-7 7-7-7"
+                        />
+                      </svg>
+                    </button>
+                    <div
+                      className={`overflow-hidden transition-all duration-300 ${
+                        activeSubmenu === item.name ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+                      }`}
+                    >
+                      <div className="pl-4 py-2 space-y-1">
+                        {item.submenu.map((subItem) => (
+                          <Link
+                            key={subItem.name}
+                            to={subItem.path}
+                            className="block py-2 px-4 text-sm text-gray-600 hover:text-orange-600 hover:bg-orange-50 rounded-md transition-colors duration-200"
+                            onClick={toggleMobileMenu}
+                          >
+                            {subItem.name}
+                          </Link>
+                        ))}
                       </div>
                     </div>
-                  ) : (
-                    <Link
-                      to={item.path}
-                      className="block py-3 px-4 text-gray-800 hover:bg-gray-50 hover:text-orange-600 rounded-lg transition-colors duration-200 font-medium"
-                      onClick={toggleMobileMenu}
-                    >
-                      {item.name}
-                    </Link>
-                  )}
-                </div>
-              ))}
-            </div>
+                  </>
+                ) : (
+                  <Link
+                    to={item.path}
+                    className="block py-3 px-4 text-gray-800 hover:bg-gray-50 hover:text-orange-600 rounded-lg transition duration-200 font-medium"
+                    onClick={toggleMobileMenu}
+                  >
+                    {item.name}
+                  </Link>
+                )}
+              </div>
+            ))}
           </div>
-          
-          <div className="p-6 border-t border-gray-200">
-            <div className="text-center text-sm text-gray-500">
-              © 2024 MN Tech Solutions
-            </div>
+
+          {/* Footer */}
+          <div className="p-6 border-t border-gray-200 text-center text-sm text-gray-500">
+            © 2024 MN Tech Solutions
           </div>
         </div>
       </div>
     </>
   );
 };
+
 export default Navigation;

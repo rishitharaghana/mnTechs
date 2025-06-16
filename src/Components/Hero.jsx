@@ -55,9 +55,19 @@ const Hero = () => {
                 project.
               </p>
             </div>
-            <div className="bg-gray-800 bg-opacity-80 rounded-full p-3 transition-all duration-500 ease-in-out group-hover:shadow-[4px_4px_12px_rgba(255,165,0,0.7),-4px_-4px_12px_rgba(107,114,128,0.5)] group-hover:bg-orange-500">
-              <Plus />
-            </div>
+       
+<div className="relative flex items-center justify-center size-10 group">
+  {/* Ping Animation: only shows on hover */}
+  <span className="absolute hidden group-hover:inline-flex h-full w-full rounded-full bg-orange-400 opacity-75 animate-ping"></span>
+
+  {/* Circle with Plus Icon */}
+  <span className="relative inline-flex items-center justify-center size-10 rounded-full bg-gray-700 text-white transition-colors duration-300 group-hover:bg-orange-500">
+    <Plus size={16} />
+  </span>
+</div>
+
+
+
             <span className="transition-colors duration-300 group-hover:text-orange-500 ">
               Dedicated Team
             </span>
@@ -75,9 +85,18 @@ const Hero = () => {
                 solutions.
               </p>
             </div>
-            <div className="bg-gray-800 bg-opacity-80 rounded-full p-3 transition-all duration-500 ease-in-out group-hover:shadow-[4px_4px_12px_rgba(255,165,0,0.7),-4px_-4px_12px_rgba(107,114,128,0.5)] group-hover:bg-orange-500">
+            {/* <div className="bg-gray-800 bg-opacity-80 rounded-full p-3 transition-all duration-500 ease-in-out group-hover:shadow-[4px_4px_12px_rgba(255,165,0,0.7),-4px_-4px_12px_rgba(107,114,128,0.5)] group-hover:bg-orange-500">
               <Plus />
-            </div>
+            </div> */}
+            <div className="relative flex items-center justify-center size-10 group ">
+  {/* Ping Animation: only shows on hover */}
+  <span className="absolute hidden group-hover:inline-flex h-full w-full rounded-full bg-orange-400 opacity-75 animate-ping"></span>
+
+  {/* Circle with Plus Icon */}
+  <span className="relative inline-flex items-center justify-center size-10 rounded-full bg-gray-700 text-white transition-colors duration-300 group-hover:bg-orange-500">
+    <Plus size={16} />
+  </span>
+</div>
             <span className="transition-colors duration-300 group-hover:text-orange-500 ">
               Developers
             </span>
@@ -94,9 +113,18 @@ const Hero = () => {
                 Designers craft visually appealing and user-friendly interfaces.
               </p>
             </div>
-            <div className="bg-gray-800 bg-opacity-80 rounded-full p-3 transition-all duration-500 ease-in-out group-hover:shadow-[4px_4px_12px_rgba(255,165,0,0.7),-4px_-4px_12px_rgba(107,114,128,0.5)] group-hover:bg-orange-500">
+            {/* <div className="bg-gray-800 bg-opacity-80 rounded-full p-3 transition-all duration-500 ease-in-out group-hover:shadow-[4px_4px_12px_rgba(255,165,0,0.7),-4px_-4px_12px_rgba(107,114,128,0.5)] group-hover:bg-orange-500">
               <Plus />
-            </div>
+            </div> */}
+            <div className="relative flex items-center justify-center size-10 group">
+  {/* Ping Animation: only shows on hover */}
+  <span className="absolute hidden group-hover:inline-flex h-full w-full rounded-full bg-orange-400 opacity-75 animate-ping"></span>
+
+  {/* Circle with Plus Icon */}
+  <span className="relative inline-flex items-center justify-center size-10 rounded-full bg-gray-700 text-white transition-colors duration-300 group-hover:bg-orange-500">
+    <Plus size={16} />
+  </span>
+</div>
             <span className="transition-colors duration-300 group-hover:text-orange-500 ">
               Designers
             </span>

@@ -1,8 +1,13 @@
 import React from 'react'
 
+import BreadCrumb from '../pages/BreadCrumb'
+
+
 const Team = () => {
   return (
-    <div>Team</div>
+    <div> 
+    <BreadCrumb title="Team" /> 
+    </div>
   )
 }
 

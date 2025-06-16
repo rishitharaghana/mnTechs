@@ -29,7 +29,7 @@ const Navigation = () => {
       ],
     },
     { name: "About", path: "/about" },
-    { name: "Team", path: "/ourteam" },
+    { name: "Team", path: "/team" },
     { name: "Reach Us", path: "/contact" },
   ];
   useEffect(() => {

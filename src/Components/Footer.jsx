@@ -39,7 +39,7 @@ const Footer = () => {
        
         <div className="flex flex-col sm:flex-row items-center justify-between pb-14 border-b border-gray-500 gap-8">
           <a href="/" aria-label="Home">
-            <img src={MntechImage} alt="MNTECHS Logo" className="h-14 w-auto" />
+            <img src={MnTechImage} alt="MNTECHS Logo" className="h-14 w-auto" />
           </a>
           <div className="flex gap-4">
             <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">

@@ -1,8 +1,13 @@
 import React from 'react'
+import PageBanner from './PageBanner'
 
 const Careers = () => {
   return (
-    <div>Careers</div>
+    <>
+    <div>
+      <PageBanner title='Careers' />
+    </div>
+    </>
   )
 }
 

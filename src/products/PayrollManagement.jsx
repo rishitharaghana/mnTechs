@@ -1,10 +1,11 @@
 import React from 'react'
+import BreadCrumb from '../pages/BreadCrumb'
 
 const PayrollManagement = () => {
   return (
     <>
       <div>
-        <h1>Payroll Management</h1>
+        <BreadCrumb title='Payroll Management'/>
       </div>
     </>
   )

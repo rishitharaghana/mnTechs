@@ -2,7 +2,6 @@ import React from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-
 const ClientCarousel = () => {
   const clients = [
     {
@@ -94,6 +93,7 @@ const ClientCarousel = () => {
   };
 
   return (
+    <>
     <section className="py-16 bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
@@ -135,6 +135,7 @@ const ClientCarousel = () => {
         </div>
       </div>
     </section>
+    </>
   );
 };
 

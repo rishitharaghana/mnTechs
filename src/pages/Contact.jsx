@@ -4,41 +4,14 @@ import Navigation from "../Components/Navigation";
 import Footer from "../Components/Footer";
 import map from "../assets/map.png";
 import Form from "../Components/contact/Form"; // Adjust path if your Form.jsx is elsewhere
+import BreadCrumb from "./BreadCrumb";
 
 const Contact = () => {
   return (
     <div className="min-h-screen w-full bg-gray-50 flex flex-col">
       <Navigation />
-      <div className="relative">
-        <div className="absolute inset-0 bg-white bg-opacity-80 z-0"></div>
-        <div
-          className="relative z-10 flex flex-col items-center py-20 px-4 text-center"
-          style={{
-            backgroundImage: `url(${map})`,
-            backgroundColor: "rgba(0, 0, 0, 0.1)",
-            backgroundRepeat: "no-repeat",
-            backgroundSize: "cover",
-          }}
-        >
-          <div className="text-sm text-gray-600 mb-4">
-            <Link to="/" className="text-black font-medium hover:text-orange-500">
-              Home
-            </Link>
-            <span className="text-orange-500 mx-2">●</span>
-            <span className="text-gray-500">Reach Us</span>
-          </div>
-          <div className="flex items-center gap-4 md:gap-10">
-            <h1 className="text-4xl md:text-5xl font-bold text-black">
-              LET'S DISCUSS THIS OPPORTUNITY
-            </h1>
-            <img
-              src="/deco-2.svg"
-              alt="Decoration"
-              className="w-40 md:w-50 h-auto transform rotate-90"
-            />
-          </div>
-        </div>
-      </div>
+            <BreadCrumb title='Reach US' />
+      
 
       <div className="relative py-16 px-6 md:px-20 bg-white">
         <img

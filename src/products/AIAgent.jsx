@@ -1,6 +1,6 @@
 import React from 'react';
 
-import BreadCrumb from '../pages/BreadCrumb'; // Make sure this path is correct
+import BreadCrumb from '../pages/BreadCrumb';
 
 const AIAgent = () => {
   return (

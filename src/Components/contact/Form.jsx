@@ -1,5 +1,4 @@
 import React from "react";
-import { Paperclip } from "lucide-react";
 import useForm from "../../Hooks/useForm" // adjust the path as needed
 
 const Form = () => {
@@ -97,7 +96,7 @@ const Form = () => {
         ))}
       </div>
 
-      {/* Product Design */}
+    
       <div>
         <label className="text-sm font-medium text-gray-700 mb-1 block">
           Product Design
@@ -127,26 +126,7 @@ const Form = () => {
         />
       </div>
 
-      {/* File Upload */}
-      <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3">
-        <label
-          htmlFor="file"
-          className="flex items-center cursor-pointer text-sm text-gray-600 hover:text-black"
-        >
-          <Paperclip className="w-5 h-5 mr-2" />
-          Attach your file
-        </label>
-        <input
-          id="file"
-          name="file"
-          type="file"
-          onChange={handleChange}
-          className="hidden"
-        />
-        {formData.file && (
-          <span className="text-xs text-gray-500">{formData.file.name}</span>
-        )}
-      </div>
+   
 
       {/* Project Budget */}
       <div>

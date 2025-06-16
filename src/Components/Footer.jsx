@@ -4,6 +4,7 @@ import {
   MailIcon,
 } from "lucide-react";
 import { FaFacebook, FaInstagram, FaYoutube } from "react-icons/fa";
+ import MnTechImgage from '../assets/mntech.png';
 
 const handleSubscribe = async () => {
   const email = document.getElementById("default-search").value;
@@ -24,9 +25,9 @@ const handleSubscribe = async () => {
 
     const data = await res.json();
     if (res.ok) {
-      alert(data.message); // "Subscribed successfully"
+      alert(data.message); 
     } else {
-      alert(data.message); // "Already subscribed" or validation errors
+      alert(data.message); 
     }
   } catch (error) {
     alert("An error occurred. Please try again later.");
@@ -38,10 +39,10 @@ export default function Footer() {
   return (
     <footer className="pt-16 pb-7 bg-gray-900 text-gray-400">
       <div className="mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Top Logo and Social Icons */}
+       
         <div className="flex flex-col sm:flex-row items-center justify-between pb-14 border-b border-gray-500 gap-8">
           <a href="/" aria-label="Home">
-            <img src={MntechImage} alt="MNTECHS Logo" className="h-14 w-auto" />
+            <img src={MnTechImgage} alt="MNTECHS Logo" className="h-14 w-auto" />
           </a>
           <div className="flex gap-4">
             <FaFacebook size={30} className="text-blue-500 hover:text-white transition" />
@@ -50,11 +51,11 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Main Footer Content */}
+       
         <div className="py-14 flex flex-col lg:flex-row justify-between gap-12 border-b border-gray-500">
-          {/* Links */}
+       
           <div className="flex flex-col sm:flex-row gap-12 w-full lg:w-3/4">
-            {/* MNTECHS Navigation */}
+      
             <div>
               <h6 className="text-lg font-semibold text-white mb-6 text-center sm:text-left">MNTECHS</h6>
               <ul className="space-y-4 text-center sm:text-left">
@@ -71,7 +72,7 @@ export default function Footer() {
               </ul>
             </div>
 
-            {/* Product List */}
+        
             <div>
               <h6 className="text-lg font-semibold text-white mb-6 text-center sm:text-left">Products</h6>
               <ul className="space-y-4 text-center sm:text-left">

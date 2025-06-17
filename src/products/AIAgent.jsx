@@ -1,12 +1,13 @@
 import React from 'react';
-
+import Navigation from '../Components/Navigation';
 import BreadCrumb from '../pages/BreadCrumb';
 
 const AIAgent = () => {
   return (
     <>
       <div>
-        <BreadCrumb title='AI Agent'/>
+        <Navigation />
+        <BreadCrumb title="AI Agent" />
       </div>
     </>
   );

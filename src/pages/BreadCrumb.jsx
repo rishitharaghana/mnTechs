@@ -1,8 +1,16 @@
-
-
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import PageBannerImg from '../assets/images/PageBanner.png';
+import Navigation from '../Components/Navigation';
+
+// Navigation text styles for consistency
+const navTextStyles = `
+  font-family: Sora, sans-serif;
+  text-decoration: none;
+  font-weight: 400;
+  white-space: nowrap;
+  transition: color 0.2s cubic-bezier(0, 0, 0.3642, 1);
+`;
 
 const Breadcrumb = ({ title = "Page Title" }) => {
   const location = useLocation();
@@ -12,20 +20,26 @@ const Breadcrumb = ({ title = "Page Title" }) => {
     str.charAt(0).toUpperCase() + str.slice(1).replace(/-/g, ' ');
 
   return (
-    <div className="relative w-full h-120 overflow-hidden!">
+    <div className="relative w-full h-120 overflow-hidden">
       {/* Background Image */}
       <img
         src={PageBannerImg}
-        alt="background"
-        className="bg-cover bg-no-repeat absolute inset-0 w-full h-full object-cover"
+        alt="Background"
+        className="absolute inset-0 w-full h-full object-cover bg-no-repeat bg-cover"
         loading="lazy"
       />
+
+      {/* Black Gradient Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/50 to-black/50 z-5"></div>
 
       {/* Overlay content */}
       <div className="relative z-10 top-50 px-20">
         {/* Breadcrumb Links */}
         <div className="text-sm text-gray-600 mb-2 sm:mb-4 flex flex-wrap items-center">
-          <Link to="/" className="text-black font-medium hover:text-orange-500">
+          <Link
+            to="/"
+            className={`${navTextStyles} text-[#121820] hover:text-orange-500`}
+          >
             Home
           </Link>
           {pathnames.map((value, index) => {
@@ -35,11 +49,13 @@ const Breadcrumb = ({ title = "Page Title" }) => {
               <span key={to} className="flex items-center">
                 <span className="mx-2 text-orange-500">●</span>
                 {isLast ? (
-                  <span className="text-gray-500">{toTitleCase(value)}</span>
+                  <span className={`${navTextStyles} text-gray-500`}>
+                    {toTitleCase(value)}
+                  </span>
                 ) : (
                   <Link
                     to={to}
-                    className="text-black font-medium hover:text-orange-500"
+                    className={`${navTextStyles} text-[#121820] hover:text-orange-500`}
                   >
                     {toTitleCase(value)}
                   </Link>
@@ -50,10 +66,16 @@ const Breadcrumb = ({ title = "Page Title" }) => {
         </div>
 
         {/* Page Title */}
-        <h1 className="text-3xl pt-8 px-4 pb-4 sm:text-4xl md:text-5xl font-bold text-black">
+        <h1
+          className={`
+            text-3xl pt-8 px-4 pb-4 sm:text-4xl md:text-5xl font-bold text-[#121820]
+            ${navTextStyles}
+          `}
+        >
           {title}
         </h1>
       </div>
+      <Navigation />
     </div>
   );
 };

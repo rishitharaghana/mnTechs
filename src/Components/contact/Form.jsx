@@ -84,7 +84,7 @@ const Form = () => {
             Phone
           </label>
           <input
-            type="tel"
+            type="number"
             name="phone"
             placeholder=""
             value={formData.phone}

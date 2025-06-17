@@ -52,7 +52,7 @@ const CollaborationSection = () => {
             const IconComponent = feature.icon;
             return (
               <div key={index} className="text-left">
-                {/* Icon with Orange Dot */}
+                
                 <div className="flex gap-5 place-items-center mb-4">
                   <div className="relative">
                     <IconComponent className="w-8 h-8 text-gray-700" />
@@ -74,7 +74,7 @@ const CollaborationSection = () => {
         </div>
 
         <div className="flex flex-col sm:flex-row gap-6 justify-between items-start sm:items-center">
-          {/* Learn More Button with Animated Arrow */}
+         
           <button className="group flex items-center gap-3">
             <span className="font-semibold text-gray-900 text-lg">
               Learn More
@@ -84,7 +84,7 @@ const CollaborationSection = () => {
             </div>
           </button>
 
-          {/* How We Work Button with Border Animation */}
+          
           <button className="group border-2 border-orange-500 text-orange-500 hover:bg-orange-50 px-8 py-3 rounded-full transition-all duration-300 font-medium">
             How We Work
           </button>

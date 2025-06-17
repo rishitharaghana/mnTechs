@@ -23,9 +23,9 @@ const Footer = () => {
 
     const data = await res.json();
     if (res.ok) {
-      alert(data.message); // "Subscribed successfully"
+      alert(data.message); 
     } else {
-      alert(data.message); // "Already subscribed" or validation errors
+      alert(data.message);
     }
   } catch (error) {
     alert("An error occurred. Please try again later.");
@@ -101,33 +101,7 @@ const Footer = () => {
               </ul>
             </div>
 
-            {/* Contact Info */}
-            <div className="flex flex-col gap-5">
-              <h6 className="text-lg font-semibold text-white text-center sm:text-left">Address</h6>
-              <div className="flex items-start gap-2">
-                <MapPin className="w-5 h-5 flex-shrink-0" />
-                <p className="hover:text-amber-400 transition">
-                  401, 8-3-6-5/1/1/4, Astral Hasini Residency,<br />
-                  J.P. Nagar, Yella Reddy Guda,<br />
-                  Hyderabad - 500073, Telangana.
-                </p>
-              </div>
-              <div className="flex items-start gap-2">
-                <PhoneCall className="w-5 h-5 flex-shrink-0" />
-                <p>+91 9701888071</p>
-              </div>
-              <div className="flex items-start gap-2">
-                <MailIcon className="w-5 h-5 flex-shrink-0" />
-                <a
-                  href="mailto:support@meetowner.in"
-                  className="hover:text-amber-400 transition"
-                >
-                  support@meetowner.in
-                </a>
-              </div>
-            </div>
-
-            {/* Branch Office */}
+          
             <div className="flex flex-col gap-5">
               <h6 className="text-lg font-semibold text-white text-center sm:text-left">Branch Office</h6>
               <div className="flex items-start gap-2">
@@ -156,7 +130,6 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Subscription Form */}
           <div className="w-full lg:max-w-md max-lg:mx-auto">
             <form onSubmit={handleSubscribe} className="flex flex-col gap-3">
               <label htmlFor="default-search" className="sr-only">
@@ -166,14 +139,14 @@ const Footer = () => {
                 <input
                   type="email"
                   id="default-search"
-                  className="block w-full px-4 py-2 text-base font-normal text-gray-600 bg-white border border-gray-300 rounded-full placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-500"
+                  className="block w-full px-6 py-2 text-base font-normal text-gray-600 bg-white border border-gray-300 rounded-full placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-500"
                   placeholder="Your email address"
                   required
                 />
               </div>
               <button
                 type="submit"
-                className="w-full px-4 py-2 text-base font-normal text-black bg-orange-500 hover:bg-orange-400 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-orange-500 transition duration-300"
+                className="w-full px-6 py-2 text-base font-normal text-black bg-orange-500 hover:bg-orange-400 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-orange-500 transition duration-300"
               >
                 Subscribe Now
               </button>

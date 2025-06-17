@@ -30,7 +30,7 @@ const Breadcrumb = ({ title = "Page Title" }) => {
       />
 
       {/* Black Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/50 to-black/50 z-5"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-gray-500/10 to-gray-500/10 z-5"></div>
 
       {/* Overlay content */}
       <div className="relative z-10 top-50 px-20">
@@ -49,7 +49,7 @@ const Breadcrumb = ({ title = "Page Title" }) => {
               <span key={to} className="flex items-center">
                 <span className="mx-2 text-orange-500">●</span>
                 {isLast ? (
-                  <span className={`${navTextStyles} text-gray-500`}>
+                  <span className={`${navTextStyles} text-orange-500`}>
                     {toTitleCase(value)}
                   </span>
                 ) : (

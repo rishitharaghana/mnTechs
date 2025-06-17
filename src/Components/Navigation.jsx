@@ -12,33 +12,12 @@ const Navigation = () => {
   const [activeSubmenu, setActiveSubmenu] = useState(null);
   const location = useLocation();
 
-  const isWhiteBackgroundPage = ["/services", "/contact", "/enterprise"].some((path) =>
+  const isWhiteBackgroundPage = ["/services", "/contact",].some((path) =>
     location.pathname.startsWith(path)
   );
 
   const isScrolledOrWhitePage = scrolled || isWhiteBackgroundPage;
 
-  // const navItems = [
-  //   { name: "Services", path: "/services" },
-  //   {
-  //     name: "Products",
-  //     path: "/products",
-  //     submenu: [
-  //       { name: "AI Agents", path: "/products/ai-agent" },
-  //       { name: "App Development", path: "/products/app-development" },
-  //       { name: "Billing Systems", path: "/products/billing-system" },
-  //       { name: "CRM", path: "/products/crm" },
-  //       { name: "E-Commerce", path: "/products/e-commerce" },
-  //       { name: "Education Management", path: "/products/education-management" },
-  //       { name: "Hospital Management", path: "/products/hospital-management" },
-  //       { name: "HRMS", path: "/products/hrms" },
-  //       { name: "Payroll Management", path: "/products/payroll-management" },
-  //     ],
-  //   },
-  //   { name: "About", path: "/about" },
-  //   { name: "Team", path: "/ourteam" },
-  //   { name: "Reach Us", path: "/contact" },
-  // ];
   const navItems = [
     { name: "Services", path: "/services" },
     {
@@ -84,145 +63,10 @@ const Navigation = () => {
 
   const toggleSubmenu = (itemName) =>
     setActiveSubmenu((prev) => (prev === itemName ? null : itemName));
-
-  // const DesktopNavItem = ({ item }) => (
-  //   <div key={item.name} className="relative group">
-  //     <Link
-  //       to={item.path}
-  //       className={`${
-  //         isScrolledOrWhitePage ? "text-gray-800" : "text-white"
-  //       } hover:text-orange-500 px-3 py-2 text-sm font-medium flex items-center transition-colors duration-300`}
-  //     >
-  //       {item.name}
-  //       {item.submenu && (
-  //         <span className="ml-1 w-2 h-2 border-2 border-orange-500 rounded-full inline-block" />
-  //       )}
-  //     </Link>
-  //     {item.submenu && (
-  //       <div className="absolute left-1/2 -translate-x-1/2 mt-2 bg-white text-black rounded-lg shadow-xl opacity-0 scale-95 group-hover:opacity-100 group-hover:scale-100 transition-all duration-300 ease-out min-w-[200px] z-50 border border-gray-100">
-  //         <div className="py-2">
-  //           {item.submenu.map((subItem) => (
-  //             <Link
-  //               key={subItem.name}
-  //               to={subItem.path}
-  //               className="block px-4 py-3 text-sm font-medium text-gray-700 hover:bg-orange-50 hover:text-orange-600 transition-colors duration-200"
-  //             >
-  //               {subItem.name}
-  //             </Link>
-  //           ))}
-  //         </div>
-  //       </div>
-  //     )}
-  //   </div>
-  // );
-  // const DesktopNavItem = ({ item }) => (
-  //   <div className="relative group">
-  //     <Link
-  //       to={item.path}
-  //       className={`${
-  //         isScrolledOrWhitePage ? "text-gray-800" : "text-white"
-  //       } hover:text-orange-500 px-3 py-2 text-sm font-medium flex items-center transition-colors duration-300`}
-  //     >
-  //       {item.name}
-  //       {item.submenu && (
-  //         <span className="ml-1 w-2 h-2 border-2 border-orange-500 rounded-full inline-block" />
-  //       )}
-  //     </Link>
   
-  //     {item.submenu && (
-  //       <div className="absolute left-1/2 -translate-x-1/2 mt-2 bg-white text-black rounded-lg shadow-xl opacity-0 scale-95 group-hover:opacity-100 group-hover:scale-100 transition-all duration-300 ease-out min-w-[200px] z-50 border border-gray-100 pointer-events-none group-hover:pointer-events-auto">
-  //         <div className="py-2">
-  //           {item.submenu.map((subItem) => (
-  //             <Link
-  //               key={subItem.name}
-  //               to={subItem.path}
-  //               className="block px-4 py-3 text-sm font-medium text-gray-700 hover:bg-orange-50 hover:text-orange-600 transition-colors duration-200"
-  //             >
-  //               {subItem.name}
-  //             </Link>
-  //           ))}
-  //         </div>
-  //       </div>
-  //     )}
-  //   </div>
-  // );
-  // const DesktopNavItem = ({ item, isScrolledOrWhitePage }) => {
-  //   const { isOpen, setIsOpen, ref } = useDropdown();
-  
-  //   return (
-  //     <div ref={ref} className="relative">
-  //       <button
-  //         onClick={() => setIsOpen((prev) => !prev)}
-  //         className={`${
-  //           isScrolledOrWhitePage ? "text-gray-800" : "text-white"
-  //         } hover:text-orange-500 px-3 py-2 text-sm font-medium flex items-center transition-colors duration-300`}
-  //       >
-  //         {item.name}
-  //         {item.submenu && <ChevronDown className="ml-1 w-4 h-4" />}
-  //       </button>
-  
-  //       {item.submenu && isOpen && (
-  //        <div className="absolute left-0 mt-2 bg-white text-black rounded-lg shadow-xl min-w-max z-50">
-
-  //           <div className="py-2">
-  //             {item.submenu.map((subItem) => (
-  //               <Link
-  //                 key={subItem.name}
-  //                 to={subItem.path}
-  //                 className="block px-5 py-3 text-sm font-medium text-gray-700 hover:bg-orange-50 hover:text-orange-600 transition-colors duration-200"
-  //                 onClick={() => setIsOpen(false)} // Optional: close on click
-  //               >
-  //                 {subItem.name}
-  //               </Link>
-  //             ))}
-  //           </div>
-  //         </div>
-  //       )}
-  //     </div>
-  //   );
-  // };
-  // const DesktopNavItem = ({ item, isScrolledOrWhitePage }) => {
-  //   const { isOpen, setIsOpen, ref } = useDropdown();
-  
-  //   return (
-  //     <div ref={ref} className="relative">
-  //       <button
-  //         onClick={() => setIsOpen((prev) => !prev)}
-  //         className={`${
-  //           isScrolledOrWhitePage ? "text-gray-800" : "text-white"
-  //         } hover:text-orange-500 px-3 py-2 text-sm font-medium flex items-center gap-1 transition-colors duration-300 relative`}
-  //       >
-  //         {item.name}
-  
-  //         {/* Hollow orange circle */}
-  //         {item.submenu && (
-  //           <span className="ml-1 w-2 h-2 border-2 border-orange-500 rounded-full"></span>
-  //         )}
-  //       </button>
-  
-  //       {item.submenu && isOpen && (
-  //         <div className="absolute left-0 mt-2 bg-white text-black rounded-lg shadow-xl min-w-max z-50">
-  //           <div className="py-2">
-  //             {item.submenu.map((subItem) => (
-  //               <Link
-  //                 key={subItem.name}
-  //                 to={subItem.path}
-  //                 className="block px-5 py-3 text-sm font-medium text-gray-700 hover:bg-orange-50 hover:text-orange-600 transition-colors duration-200"
-  //                 onClick={() => setIsOpen(false)}
-  //               >
-  //                 {subItem.name}
-  //               </Link>
-  //             ))}
-  //           </div>
-  //         </div>
-  //       )}
-  //     </div>
-  //   );
-  // };
   const DesktopNavItem = ({ item, isScrolledOrWhitePage }) => {
     const { isOpen, setIsOpen, ref } = useDropdown();
-  
-    // If there's no submenu, use Link directly
+    // Check if the item has a submenu                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
     if (!item.submenu) {
       return (
         <div className="relative">

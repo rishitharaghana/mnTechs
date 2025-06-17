@@ -8,11 +8,10 @@ import BreadCrumb from "./BreadCrumb";
 
 const Contact = () => {
   return (
-    <div className="min-h-screen w-full bg-gray-50 flex flex-col">
-      <Navigation />
-            <BreadCrumb title='Reach US' />
+    <div className="min-h-screen w-full flex flex-col">
+      <Navigation className="bg-gray-50" />
+      <BreadCrumb title='Reach US' />
       
-
       <div className="relative py-16 px-6 md:px-20 bg-white">
         <img
           src={map}

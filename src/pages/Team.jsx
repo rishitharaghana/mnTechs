@@ -1,12 +1,12 @@
 import React from 'react'
-
 import BreadCrumb from '../pages/BreadCrumb'
-
+import Navigation from '../Components/Navigation'
 
 const Team = () => {
   return (
-    <div> 
-    <BreadCrumb title="Team" /> 
+    <div>
+      <Navigation /> 
+      <BreadCrumb title="Team" /> 
     </div>
   )
 }

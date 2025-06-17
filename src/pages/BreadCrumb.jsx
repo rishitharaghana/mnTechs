@@ -3,6 +3,7 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import PageBannerImg from '../assets/images/PageBanner.png';
+import Navigation from '../Components/Navigation';
 
 const Breadcrumb = ({ title = "Page Title" }) => {
   const location = useLocation();
@@ -54,6 +55,7 @@ const Breadcrumb = ({ title = "Page Title" }) => {
           {title}
         </h1>
       </div>
+      <Navigation />
     </div>
   );
 };

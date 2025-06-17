@@ -1,11 +1,12 @@
 import React from 'react'
-import PageBanner from './BreadCrumb'
-
+import Navigation from '../Components/Navigation'
+import BreadCrumb from './BreadCrumb'
 
 const About = () => {
   return (
     <div>
-        <PageBanner title='About' />
+        <Navigation  />
+        <BreadCrumb title='About' />
     </div>
   )
 }

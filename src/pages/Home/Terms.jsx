@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-// import map from "../assets/map.png";
-import map from "../../assets/map.png";
+import map from "../../assets/images/map.png";
 import Navigation from "../../Components/Navigation";
 import Footer from "../../Components/Footer";
 

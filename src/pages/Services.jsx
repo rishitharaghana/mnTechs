@@ -1,7 +1,6 @@
 import React from "react";
 import { CiCloud } from "react-icons/ci";
 import { ArrowRight } from "lucide-react";
-import map from "../assets/map.png";
 import { Link, useNavigate } from "react-router-dom";
 import Navigation from "../Components/Navigation";
 import Safegaurd from "../Services/Safegaurd";

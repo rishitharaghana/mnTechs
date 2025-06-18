@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useCallback, memo } from "react";
 import { Search, Menu, X } from "lucide-react"; // Removed ChevronDown
 import { Link, useLocation } from "react-router-dom";
-import MntechImage from "../assets/mntech.png";
+import MntechImage from "../assets/images/mntech.png";
 import useDropdown from "../Hooks/useDropdown";
 
 // Memoize DesktopNavItem to prevent unnecessary re-renders

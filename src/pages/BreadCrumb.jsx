@@ -2,6 +2,7 @@ import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import PageBannerImg from '../assets/images/PageBanner.png';
 import Navigation from '../Components/Navigation';
+import Pattern from "../assets/Images/deco-2.png"
 
 // Navigation text styles for consistency
 const navTextStyles = `
@@ -28,6 +29,23 @@ const Breadcrumb = ({ title = "Page Title" }) => {
         className="absolute inset-0 w-full h-full object-cover bg-no-repeat bg-cover"
         loading="lazy"
       />
+      
+   
+
+
+
+<div
+  className="absolute top-[47%] right-[10%] rotate-[90deg] z-[1] w-60 h-40 bg-no-repeat bg-contain pointer-events-none"
+  style={{ backgroundImage: `url(${Pattern})` }}
+></div>
+
+
+
+
+
+
+
+
 
       {/* Black Gradient Overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-gray-500/10 to-gray-500/10 z-5"></div>

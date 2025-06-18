@@ -55,12 +55,12 @@ const Services = () => {
       <BreadCrumb title='Services' />
       <Navigation />
       <div className="relative py-12 sm:py-16 px-4 sm:px-6 md:px-20 overflow-hidden">
-        <img
+        {/* <img
           src={map}
           alt="hexagon background"
           className="absolute z-10 inset-0 w-full h-full object-cover opacity-20"
           style={{ height: "150px" }}
-        />
+        /> */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-6 sm:gap-10 relative z-10">
           <div className="flex items-center gap-4 sm:gap-6 max-w-xs sm:max-w-3xl">
             <div className="relative bg-gray-100 shadow-2xl p-4 sm:p-6 rounded-full text-2xl sm:text-4xl text-orange-500">

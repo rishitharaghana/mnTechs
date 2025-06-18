@@ -93,7 +93,7 @@ const Services = () => {
             <span className="w-2 h-2 bg-orange-500 rounded-full"></span>
             Services and Solutions
           </div>
-          <h2 className="text-2xl sm:text-3xl md:text-5xl text-start text-black mt-2 sm:mt-4 mb-4 sm:mb-6">
+          <h2 className="text-2xl leading-tight sm:text-3xl md:text-5xl text-start text-black mt-2 sm:mt-4 mb-4 sm:mb-6">
             MN Techs delivers innovative, customized software solutions.
           </h2>
           <p className="text-black text-sm sm:text-base">

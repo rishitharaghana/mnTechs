@@ -1,6 +1,8 @@
 import React from 'react'
 import BreadCrumb from '../pages/BreadCrumb'
 import Navigation from '../Components/Navigation'
+import SaasApplications from '../Services/SaasApplications'
+import ServiceFooter from '../Services/ServiceFooter'
 
 const BillingSystems = () => {
   return (
@@ -8,6 +10,8 @@ const BillingSystems = () => {
       <div>
         <Navigation />
         <BreadCrumb title='Billing Systems'/>
+        <SaasApplications />
+        <ServiceFooter />
       </div>
     </>
   )

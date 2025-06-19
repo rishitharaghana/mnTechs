@@ -11,11 +11,11 @@ const Hero = () => {
         </p>
 
         <div>
-          <h1 className="text-4xl md:text-6xl font-semibold leading-[140%] text-white font-syne mb-4">
+          <h1 className="text-3xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-semibold leading-[140%] text-white font-syne mb-2 sm:mb-4 md:mb-6">
             WE PROVIDE SERVICES
           </h1>
 
-          <h1 className="text-4xl md:text-6xl font-semibold leading-[140%] text-white font-syne mb-4">
+          <h1 className="text-3xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-semibold leading-[140%] text-white font-syne mb-2 sm:mb-4 md:mb-6">
             AND SOLUTIONS
           </h1>
 

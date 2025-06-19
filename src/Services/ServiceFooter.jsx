@@ -56,7 +56,8 @@ const ServiceFooter = () => {
       
       <div className="w-full py-12 px-4 sm:px-6 lg:px-8 bg-gray-900 flex flex-col md:flex-row justify-between items-start">
    
-        <div className="mb-8 md:mb-0">
+      <div className="mb-8 md:mb-0 ml-[45px]">
+
           <div className="flex items-center mb-4">
             <span className="text-2xl font-bold text-blue-800">MN</span>
             <span className="text-2xl font-bold text-white">techs</span>
@@ -104,20 +105,10 @@ const ServiceFooter = () => {
           </ul>
         </div>
 
-     
-        <div className="mb-8 md:mb-0">
-          <h3 className="text-orange-500 font-semibold mb-4">Support</h3>
-          <ul className="space-y-2">
-            <li className="text-gray-400 hover:text-orange-500 cursor-pointer">Documentation</li>
-            <li className="text-gray-400 hover:text-orange-500 cursor-pointer">Support</li>
-            <li className="text-gray-400 hover:text-orange-500 cursor-pointer">FAQs</li>
-            <li className="text-gray-400 hover:text-orange-500 cursor-pointer">Download</li>
-            <li className="text-gray-400 hover:text-orange-500 cursor-pointer">Sitemap</li>
-          </ul>
-        </div>
+    
 
       
-        <div>
+        <div >
           <h3 className="text-orange-500 font-semibold mb-4">Links</h3>
           <ul className="space-y-2">
             <li className="text-gray-400 hover:text-orange-500 cursor-pointer">About Us</li>

@@ -22,10 +22,13 @@ import Loader from "./Components/loaders/Loader"; // Adjust if path differs
 import Terms from "./pages/Home/Terms";
 import Privacy from "./pages/Home/Privacy";
 import Careers from "./pages/Careers";
+import ScrollToTop from "./products/Scrolltotop";
 
 const App = () => (
   <BrowserRouter>
+   <ScrollToTop/>
     <Routes>
+    
       <Route path="/" element={<Index/>} />
       <Route path="/services" element={<Services />} />
       <Route path="/products" element={<Products />} />

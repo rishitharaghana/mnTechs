@@ -117,7 +117,7 @@ const Navigation = () => {
   const isWhiteBackgroundPage = ["/services", "/contact","/products","/about","/team",
     "/products/ai-agent","/products/app-development","/products/billing-system","/products/crm",
   "/products/education-management", "/products/hospital-management", "/products/payroll-management",
-  "/products/e-commerce","/terms","/privacy",
+  "/products/e-commerce","/terms","/privacy","/careers",
   "/products/hrms" ].includes(location.pathname);
 
   // Memoize navItems to prevent recreation on re-renders

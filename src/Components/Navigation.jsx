@@ -166,7 +166,7 @@ const Navigation = () => {
           <div className="lg:hidden">
             <button
               onClick={toggleMobileMenu}
-              className="p-2 rounded-md transition-colors duration-300 bg-white hover:bg-gray-100"
+              className="p-1 rounded-md transition-colors duration-300 w-[20px!] h-[20px!] bg-white hover:bg-gray-100"
               aria-label="Toggle mobile menu"
             >
               {mobileMenuOpen ? (

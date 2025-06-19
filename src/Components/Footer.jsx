@@ -1,6 +1,19 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+
 import { MapPin, PhoneCall, MailIcon, Facebook, Instagram, Youtube } from 'lucide-react';
 import MnTechImage from '../assets/images/mntech.png'; // Adjust the path as necessary
+const productLinks = [  // ✅ define here
+  { label: 'Payroll Management', path: '/products/payroll-management' },
+  { label: 'HRMS', path: '/products/hrms' },
+  { label: 'CRM', path: '/products/crm' },
+  { label: 'Billing Systems', path: '/products/billing-system' },
+  { label: 'Hospital Management', path: '/products/hospital-management' },
+  { label: 'Education Management', path: '/products/education' },
+  { label: 'E-Commerce', path: '/products/e-commerce' },
+  { label: 'AI Agents', path: '/products/ai-agent' },
+  { label: 'App Development', path: '/products/app-development' },
+];
 
 const Footer = () => {
   const handleSubscribe = async (e) => {
@@ -61,7 +74,7 @@ const Footer = () => {
       
             <div>
               <h6 className="text-lg font-semibold text-white mb-6 text-center sm:text-left">MNTECHS</h6>
-              <ul className="space-y-4 text-center sm:text-left">
+              {/* <ul className="space-y-4 text-center sm:text-left">
                 {['Services', 'Products', 'About', 'Team', 'Careers', 'Contact'].map((item, index) => (
                   <li key={index}>
                     <a
@@ -72,20 +85,36 @@ const Footer = () => {
                     </a>
                   </li>
                 ))}
-              </ul>
+              </ul> */}
+              <ul className="space-y-4 text-center sm:text-left">
+  {['Services', 'Products', 'About', 'Team', 'Careers', 'Contact'].map((item, index) => (
+    <li key={index}>
+      <Link
+        to={`/${item.toLowerCase()}`}
+        className="transition hover:text-amber-400 focus:outline-none focus:text-amber-400"
+      >
+        {item}
+      </Link>
+    </li>
+  ))}
+</ul>
+
             </div>
 
         
             <div>
               <h6 className="text-lg font-semibold text-white mb-6 text-center sm:text-left">Products</h6>
-              <ul className="space-y-4 text-center sm:text-left">
+              {/* <ul className="space-y-4 text-center sm:text-left">
                 {[
                   'Payroll Management',
                   'HRMS',
                   'CRM',
-                  'Books',
-                  'Hospital Management Software',
-                  'School and College Management',
+                  'Billing Systems',
+                  'Hospital Management ',
+                  'Education Management',
+                  'E-Commerce',
+                  'AI Agents',
+                  'App Development'
                 ].map((product, index) => (
                   <li key={index}>
                     <a
@@ -98,7 +127,20 @@ const Footer = () => {
                     </a>
                   </li>
                 ))}
-              </ul>
+              </ul> */}
+              <ul className="space-y-4 text-center sm:text-left">
+  {productLinks.map((product, index) => (
+    <li key={index}>
+      <Link
+        to={product.path}
+        className="transition hover:text-amber-400 focus:outline-none focus:text-amber-400"
+      >
+        {product.label}
+      </Link>
+    </li>
+  ))}
+</ul>
+
             </div>
 
           

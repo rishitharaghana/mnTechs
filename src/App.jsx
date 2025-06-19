@@ -21,6 +21,7 @@ import Team from "./pages/Team";
 import Loader from "./Components/loaders/Loader"; // Adjust if path differs
 import Terms from "./pages/Home/Terms";
 import Privacy from "./pages/Home/Privacy";
+import Careers from "./pages/Careers";
 
 const App = () => (
   <BrowserRouter>
@@ -43,6 +44,8 @@ const App = () => (
       <Route path="/team" element={<Team />} />
       <Route path="/contact" element={<ContactWrapper />} />
       <Route path="*" element={<NotFound />} />
+      <Route path="/careers" element={<Careers/>} />
+    
     </Routes>
   </BrowserRouter>
 );

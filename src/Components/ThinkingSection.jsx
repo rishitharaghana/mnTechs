@@ -110,7 +110,7 @@ const ThinkingSection = () => {
                   <>
                     <div className="aspect-[4/3]">
                       <img
-                        src={slide.image}
+                        src={`http://localhost:5000/${slide.image}`}
                         alt={slide.title}
                         className="w-full h-full object-cover"
                       />

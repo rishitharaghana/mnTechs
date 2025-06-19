@@ -4,20 +4,19 @@ import { ArrowRight } from "lucide-react";
 const Safeguard = () => {
   const [data, setData] = useState({ title: "", subtitle: "", cards: [] });
 
-  // GET: Fetch latest safeguard data
+ 
   const fetchSafeguard = async () => {
     try {
       const res = await fetch("http://localhost:5000/dynamic/safeguard");
       const allData = await res.json();
       if (allData.length > 0) {
-        setData(allData[0]); // show only latest
+        setData(allData[0]); 
       }
     } catch (error) {
       console.error("Error fetching safeguard data:", error);
     }
   };
 
-  // POST: Add a new safeguard block
   const postSafeguard = async () => {
     const payload = {
       title: "Safeguard Modern",
@@ -43,14 +42,13 @@ const Safeguard = () => {
 
       if (res.ok) {
         console.log("Safeguard created");
-        fetchSafeguard(); // refresh UI
+        fetchSafeguard(); 
       }
     } catch (error) {
       console.error("Error posting safeguard:", error);
     }
   };
 
-  // PUT: Update safeguard by ID
   const updateSafeguard = async (id) => {
     const updated = {
       title: "Updated Title",
@@ -83,7 +81,6 @@ const Safeguard = () => {
     }
   };
 
-  // DELETE: Remove safeguard by ID
   const deleteSafeguard = async (id) => {
     try {
       const res = await fetch(`http://localhost:5000/dynamic/safeguard/${id}`, {

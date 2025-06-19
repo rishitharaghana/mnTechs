@@ -41,7 +41,6 @@ const SaasApplications = () => {
 
   return (
     <section className="relative py-20 bg-gray-900 overflow-hidden">
-      {/* Decorative Shapes */}
       <div className="absolute top-0 left-0 w-64 h-64 opacity-20">
         <svg viewBox="0 0 200 200" className="w-full h-full">
           <g stroke="#f97316" strokeWidth="2" fill="none">
@@ -56,7 +55,6 @@ const SaasApplications = () => {
       </div>
       <div className="absolute top-0 right-0 w-96 h-96 bg-orange-500 rounded-full opacity-30 -translate-y-48 translate-x-48"></div>
 
-      {/* Content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div className="text-center mb-16">
           <div className="flex items-center justify-center mb-6">

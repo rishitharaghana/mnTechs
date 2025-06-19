@@ -17,7 +17,7 @@ import HRMS from "./products/HRMS";
 import PayrollManagement from "./products/PayrollManagement";
 import AIAgent from "./products/AIAgent";
 import About from "./pages/About";
-import Team from "./pages/Team"
+import Team from "./pages/Team";
 import Loader from "./Components/loaders/Loader"; // Adjust if path differs
 import Terms from "./pages/Home/Terms";
 import Privacy from "./pages/Home/Privacy";

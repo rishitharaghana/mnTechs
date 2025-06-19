@@ -1,6 +1,8 @@
 import React from 'react'
 import BreadCrumb from '../pages/BreadCrumb'
 import Navigation from '../Components/Navigation'
+import SaasApplications from '../Services/SaasApplications'
+import ServiceFooter from '../Services/ServiceFooter'
 
 const HRMS = () => {
   return (
@@ -8,6 +10,8 @@ const HRMS = () => {
       <div>
         <Navigation />
         <BreadCrumb title='HRMS'/>
+        <SaasApplications />
+        <ServiceFooter />
       </div>
     </>
   )

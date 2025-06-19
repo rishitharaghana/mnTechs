@@ -1,5 +1,4 @@
 import { useState } from "react";
-import Navigation from "./Navigation";
 
 const Contacts = () => {
   const [formData, setFormData] = useState({

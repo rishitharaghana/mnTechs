@@ -52,10 +52,8 @@ const Hero = () => {
             </div>
        
 <div className="relative flex items-center justify-center size-10 group">
-  {/* Ping Animation: only shows on hover */}
   <span className="absolute hidden group-hover:inline-flex h-full w-full rounded-full bg-orange-400 opacity-75 animate-ping"></span>
 
-  {/* Circle with Plus Icon */}
   <span className="relative inline-flex items-center justify-center size-10 rounded-full bg-gray-700 text-white transition-colors duration-300 group-hover:bg-orange-500">
     <Plus size={16} />
   </span>
@@ -84,10 +82,8 @@ const Hero = () => {
               <Plus />
             </div> */}
             <div className="relative flex items-center justify-center size-10 group ">
-  {/* Ping Animation: only shows on hover */}
   <span className="absolute hidden group-hover:inline-flex h-full w-full rounded-full bg-orange-400 opacity-75 animate-ping"></span>
 
-  {/* Circle with Plus Icon */}
   <span className="relative inline-flex items-center justify-center size-10 rounded-full bg-gray-700 text-white transition-colors duration-300 group-hover:bg-orange-500">
     <Plus size={16} />
   </span>
@@ -112,10 +108,8 @@ const Hero = () => {
               <Plus />
             </div> */}
             <div className="relative flex items-center justify-center size-10 group">
-  {/* Ping Animation: only shows on hover */}
   <span className="absolute hidden group-hover:inline-flex h-full w-full rounded-full bg-orange-400 opacity-75 animate-ping"></span>
 
-  {/* Circle with Plus Icon */}
   <span className="relative inline-flex items-center justify-center size-10 rounded-full bg-gray-700 text-white transition-colors duration-300 group-hover:bg-orange-500">
     <Plus size={16} />
   </span>

@@ -3,13 +3,16 @@ import BackgroundCarousel from "./Ui/Backgroundcarousel";
 const Hero = () => {
   return (
     <section className="relative bg-cover bg-center bg-no-repeat h-screen min-h-[600px] text-white">
+
       <BackgroundCarousel />
       <div className="absolute bg-black bg-opacity-60"></div>
       <div className="relative z-10 flex flex-col justify-center h-full px-4 md:px-10">
         <p className="text-white text-lg font-light mb-8">
-          The Next <span className=" text-orange-500 font-semibold">Gen</span>
+          The Next{" "}
+          <span className=" text-orange-500 font-semibold">Gen</span>
         </p>
 
+      
         <div>
           <h1 className="text-3xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-semibold leading-[140%] text-white font-syne mb-2 sm:mb-4 md:mb-6">
             WE PROVIDE SERVICES
@@ -19,9 +22,12 @@ const Hero = () => {
             AND SOLUTIONS
           </h1>
 
-          <span className="mil-font-3 mil-accent text-2xl md:text-3xl font-black block mt-2">
-            To Enterprise
-          </span>
+         
+<span className="mil-font-3 mil-accent text-2xl md:text-3xl font-black block mt-2">
+  To Enterprise
+</span>
+
+
         </div>
 
         <p className="text-gray-300 mt-6 max-w-xl">
@@ -44,16 +50,16 @@ const Hero = () => {
                 project.
               </p>
             </div>
+       
+<div className="relative flex items-center justify-center size-10 group">
+  <span className="absolute hidden group-hover:inline-flex h-full w-full rounded-full bg-orange-400 opacity-75 animate-ping"></span>
 
-            <div className="relative flex items-center justify-center size-10 group">
-              {/* Ping Animation: only shows on hover */}
-              <span className="absolute hidden group-hover:inline-flex h-full w-full rounded-full bg-orange-400 opacity-75 animate-ping"></span>
+  <span className="relative inline-flex items-center justify-center size-10 rounded-full bg-gray-700 text-white transition-colors duration-300 group-hover:bg-orange-500">
+    <Plus size={16} />
+  </span>
+</div>
 
-              {/* Circle with Plus Icon */}
-              <span className="relative inline-flex items-center justify-center size-10 rounded-full bg-gray-700 text-white transition-colors duration-300 group-hover:bg-orange-500">
-                <Plus size={16} />
-              </span>
-            </div>
+
 
             <span className="transition-colors duration-300 group-hover:text-orange-500 ">
               Dedicated Team
@@ -76,14 +82,12 @@ const Hero = () => {
               <Plus />
             </div> */}
             <div className="relative flex items-center justify-center size-10 group ">
-              {/* Ping Animation: only shows on hover */}
-              <span className="absolute hidden group-hover:inline-flex h-full w-full rounded-full bg-orange-400 opacity-75 animate-ping"></span>
+  <span className="absolute hidden group-hover:inline-flex h-full w-full rounded-full bg-orange-400 opacity-75 animate-ping"></span>
 
-              {/* Circle with Plus Icon */}
-              <span className="relative inline-flex items-center justify-center size-10 rounded-full bg-gray-700 text-white transition-colors duration-300 group-hover:bg-orange-500">
-                <Plus size={16} />
-              </span>
-            </div>
+  <span className="relative inline-flex items-center justify-center size-10 rounded-full bg-gray-700 text-white transition-colors duration-300 group-hover:bg-orange-500">
+    <Plus size={16} />
+  </span>
+</div>
             <span className="transition-colors duration-300 group-hover:text-orange-500 ">
               Developers
             </span>
@@ -104,14 +108,12 @@ const Hero = () => {
               <Plus />
             </div> */}
             <div className="relative flex items-center justify-center size-10 group">
-              {/* Ping Animation: only shows on hover */}
-              <span className="absolute hidden group-hover:inline-flex h-full w-full rounded-full bg-orange-400 opacity-75 animate-ping"></span>
+  <span className="absolute hidden group-hover:inline-flex h-full w-full rounded-full bg-orange-400 opacity-75 animate-ping"></span>
 
-              {/* Circle with Plus Icon */}
-              <span className="relative inline-flex items-center justify-center size-10 rounded-full bg-gray-700 text-white transition-colors duration-300 group-hover:bg-orange-500">
-                <Plus size={16} />
-              </span>
-            </div>
+  <span className="relative inline-flex items-center justify-center size-10 rounded-full bg-gray-700 text-white transition-colors duration-300 group-hover:bg-orange-500">
+    <Plus size={16} />
+  </span>
+</div>
             <span className="transition-colors duration-300 group-hover:text-orange-500 ">
               Designers
             </span>

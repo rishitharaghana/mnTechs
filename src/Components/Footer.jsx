@@ -90,8 +90,8 @@ const Footer = () => {
                   <li key={index}>
                     <a
                       href="#"
-                      target="_blank"
-                      rel="noopener noreferrer"
+                      // target="_blank"
+                      // rel="noopener noreferrer"
                       className="transition hover:text-amber-400 focus:outline-none focus:text-amber-400"
                     >
                       {product}

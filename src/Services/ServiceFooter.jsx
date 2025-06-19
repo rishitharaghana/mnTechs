@@ -50,7 +50,7 @@ const ServiceFooter = () => {
 
 </div>
 
-     <div className="w-full py-12 px-4 sm:px-6 lg:px-8 bg-gray-900 flex flex-col md:flex-row md:justify-between md:gap-2 lg:gap-20 items-start">
+     <div className="w-full py-12 px-4 sm:px-6 lg:px-8 bg-gray-900 flex flex-col md:flex-row md:justify-between md:gap-2 lg:gap-2 items-start">
 
    
         <div className="mb-8 md:mb-0">

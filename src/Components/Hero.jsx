@@ -22,12 +22,7 @@ const Hero = () => {
             AND SOLUTIONS
           </h1>
 
-          {/* <span className="mil-font-3 mil-accent text-2xl md:text-3xl font-extrabold block mt-2">
-            To Enterprise
-          </span> */}
-          {/* <span className="mil-font-3 mil-accent text-2xl md:text-3xl font-black leading-tight md:leading-snug block mt-2">
-  To Enterprise
-</span> */}
+         
 <span className="mil-font-3 mil-accent text-2xl md:text-3xl font-black block mt-2">
   To Enterprise
 </span>

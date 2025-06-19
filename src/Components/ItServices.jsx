@@ -11,7 +11,7 @@ const iconMap = {
   "Bookmark": Bookmark,
 };
 
-const ServicesSection = () => {
+const ItServices = () => {
   const [itServices, setItServices] = useState([]);
   const [itSolutions, setItSolutions] = useState([]);
 
@@ -34,6 +34,27 @@ const ServicesSection = () => {
     }
   };
 
+  // PUT - Update Service
+const updateService = async (id, updatedData) => {
+  try {
+    const response = await axios.put(`http://localhost:5000/dynamic/itServices/${id}`, updatedData);
+    console.log("Service updated:", response.data);
+    fetchItServices();
+  } catch (error) {
+    console.error("Error updating IT Service:", error);
+  }
+};
+
+// DELETE - Remove Service
+const deleteService = async (id) => {
+  try {
+    await axios.delete(`http://localhost:5000/dynamic/itServices/${id}`);
+    console.log("Service deleted");
+    fetchItServices(); // Refresh list
+  } catch (error) {
+    console.error("Error deleting IT Service:", error);
+  }
+};
   const fetchItSolutions = async () => {
     try {
       const response = await axios.get("http://localhost:5000/dynamic/itSolutions");
@@ -47,6 +68,24 @@ const ServicesSection = () => {
       console.error("Error fetching IT Solutions:", error);
     }
   };
+const updateSolution = async (id, updatedData) => {
+  try {
+    const response = await axios.put(`http://localhost:5000/dynamic/itSolutions/${id}`, updatedData);
+    console.log("Solution updated:", response.data);
+    fetchItSolutions(); // Refresh list
+  } catch (error) {
+    console.error("Error updating IT Solution:", error);
+  }
+};
+const deleteSolution = async (id) => {
+  try {
+    await axios.delete(`http://localhost:5000/dynamic/itSolutions/${id}`);
+    console.log("Solution deleted");
+    fetchItSolutions(); // Refresh list
+  } catch (error) {
+    console.error("Error deleting IT Solution:", error);
+  }
+};
 
   return (
     <section className="relative py-16 px-4 sm:px-6 lg:px-8 bg-background overflow-hidden">
@@ -67,10 +106,10 @@ const ServicesSection = () => {
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
-          {/* IT Services */}
+       
           <ServiceList title="IT Services" data={itServices} />
 
-          {/* IT Solutions */}
+        
           <ServiceList title="IT Solutions" data={itSolutions} />
         </div>
       </div>
@@ -132,4 +171,4 @@ const ServiceItem = ({ service }) => {
   );
 };
 
-export default ServicesSection;
+export default ItServices;

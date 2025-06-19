@@ -1,71 +1,36 @@
-import React, { useState } from "react";
-import { ArrowRight, ArrowLeft, ChevronLeft, ChevronRight } from "lucide-react";
-// import { Button } from "./Ui/Button";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import { ArrowRight, ArrowLeft } from "lucide-react";
 
 const TestimonialsSection = () => {
+  const [reviews, setReviews] = useState([]);
   const [currentSlide, setCurrentSlide] = useState(0);
 
-  const testimonials = [
-    {
-      id: 1,
-      rating: 5,
-      text: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.",
-      name: "Tamzyn French",
-      position: "Agency Design",
-      avatar:
-        "https://images.unsplash.com/photo-1649972904349-6e44c42644a7?w=60&h=60&fit=crop&crop=face",
-    },
-    {
-      id: 2,
-      rating: 5,
-      text: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.",
-      name: "Margaret Williams",
-      position: "Agency Design",
-      avatar:
-        "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=60&h=60&fit=crop&crop=face",
-    },
-    {
-      id: 3,
-      rating: 5,
-      text: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.",
-      name: "Tarryn Gillies",
-      position: "Agency Design",
-      avatar:
-        "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=60&h=60&fit=crop&crop=face",
-    },
-    {
-      id: 4,
-      rating: 5,
-      text: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.",
-      name: "Tamzyn French",
-      position: "Agency Design",
-      avatar:
-        "https://images.unsplash.com/photo-1649972904349-6e44c42644a7?w=60&h=60&fit=crop&crop=face",
-    },
-    {
-      id: 5,
-      rating: 5,
-      text: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.",
-      name: "Mark Johnson",
-      position: "Creative Director",
-      avatar:
-        "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=60&h=60&fit=crop&crop=face",
-    },
-  ];
+  useEffect(() => {
+    const fetchReviews = async () => {
+      try {
+        const response = await axios.get("http://localhost:5000/dynamic/review");
+        setReviews(response.data);
+      } catch (error) {
+        console.error("Error fetching reviews:", error);
+      }
+    };
+
+    fetchReviews();
+  }, []);
 
   const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % (testimonials.length - 2));
+    if (reviews.length <= 3) return;
+    setCurrentSlide((prev) => (prev + 1) % (reviews.length - 2));
   };
 
   const prevSlide = () => {
-    setCurrentSlide(
-      (prev) =>
-        (prev - 1 + (testimonials.length - 2)) % (testimonials.length - 2)
-    );
+    if (reviews.length <= 3) return;
+    setCurrentSlide((prev) => (prev - 1 + (reviews.length - 2)) % (reviews.length - 2));
   };
 
-  const getVisibleTestimonials = () => {
-    return testimonials.slice(currentSlide, currentSlide + 3);
+  const getVisibleReviews = () => {
+    return reviews.slice(currentSlide, currentSlide + 3);
   };
 
   const renderStars = (rating) => {
@@ -81,7 +46,7 @@ const TestimonialsSection = () => {
 
   return (
     <section className="py-20 px-10 bg-gray-50">
-      <div className="">
+      <div>
         <div className="flex justify-between items-start mb-16">
           <div>
             <p className="text-orange-500 font-medium mb-4">• Testimonial</p>
@@ -93,7 +58,7 @@ const TestimonialsSection = () => {
           <div className="flex items-center gap-4">
             <button
               onClick={prevSlide}
-              className="flex items-center gap-2 px-4 py-2 bg-gray-100 border-2 border-gray-300 rounded-full text-gray-700 hover:bg-orange-500 hover:text-white hover:border-orange-500 focus:bg-orange-500 focus:text-white focus:border-orange-500 transition-all duration-300 shadow-sm"
+              className="flex items-center gap-2 px-4 py-2 bg-gray-100 border-2 border-gray-300 rounded-full text-gray-700 hover:bg-orange-500 hover:text-white hover:border-orange-500 transition-all duration-300 shadow-sm"
             >
               <ArrowLeft className="h-4 w-4 sm:h-5 sm:w-5" />
               <span className="text-xs sm:text-sm font-medium hidden sm:inline">
@@ -102,7 +67,7 @@ const TestimonialsSection = () => {
             </button>
             <button
               onClick={nextSlide}
-              className="flex items-center gap-2 px-4 py-2 bg-gray-100 border-2 border-gray-300 rounded-full text-gray-700 hover:bg-orange-500 hover:text-white hover:border-orange-500 focus:bg-orange-500 focus:text-white focus:border-orange-500 transition-all duration-300 shadow-sm"
+              className="flex items-center gap-2 px-4 py-2 bg-gray-100 border-2 border-gray-300 rounded-full text-gray-700 hover:bg-orange-500 hover:text-white hover:border-orange-500 transition-all duration-300 shadow-sm"
             >
               <span className="text-xs sm:text-sm font-medium hidden sm:inline">
                 Next
@@ -112,35 +77,40 @@ const TestimonialsSection = () => {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {getVisibleTestimonials().map((testimonial) => (
-            <div
-              key={`${testimonial.id}-${currentSlide}`}
-              className="bg-white p-8 rounded-lg shadow-sm"
-            >
-              <div className="text-6xl text-gray-300 mb-4 font-serif">"</div>
-              <div className="flex mb-4">{renderStars(testimonial.rating)}</div>
-              <p className="text-gray-600 mb-6 leading-relaxed text-sm">
-                {testimonial.text}
-              </p>
-              <div className="flex items-center">
-                <img
-                  src={testimonial.avatar}
-                  alt={testimonial.name}
-                  className="w-12 h-12 rounded-full mr-4 object-cover"
-                />
-                <div>
-                  <h4 className="font-semibold text-gray-900">
-                    {testimonial.name}
-                  </h4>
-                  <p className="text-gray-500 text-sm">
-                    {testimonial.position}
-                  </p>
+        {reviews.length === 0 ? (
+          <p className="text-gray-500 text-center">No testimonials yet.</p>
+        ) : (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {getVisibleReviews().map((review, index) => (
+              <div key={index} className="bg-white p-8 rounded-lg shadow-sm">
+                <div className="text-6xl text-gray-300 mb-4 font-serif">"</div>
+                <div className="flex mb-4">{renderStars(review.rating)}</div>
+                <p className="text-gray-600 mb-6 leading-relaxed text-sm">
+                  {review.comments}
+                </p>
+                <div className="flex items-center">
+                  {review.avatar?.startsWith("http") ? (
+                    <img
+                      src={review.avatar}
+                      alt={review.user_name}
+                      className="w-12 h-12 rounded-full mr-4 object-cover"
+                    />
+                  ) : (
+                    <div className="w-12 h-12 rounded-full mr-4 bg-orange-500 text-white flex items-center justify-center text-xl font-semibold">
+                      {review.user_name?.[0]}
+                    </div>
+                  )}
+                  <div>
+                    <h4 className="font-semibold text-gray-900">
+                      {review.user_name}
+                    </h4>
+                    <p className="text-gray-500 text-sm">{review.company}</p>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        )}
       </div>
     </section>
   );

@@ -49,10 +49,10 @@ button {
 button:hover {
   border-color: rgb(213, 200, 175);
 }
-button:focus,
+/* button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
-}
+} */
 
 @media (prefers-color-scheme: light) {
   :root {

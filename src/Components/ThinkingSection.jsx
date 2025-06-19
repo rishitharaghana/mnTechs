@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { Button } from "./Ui/Button";
+// import { Button } from "./Ui/Button";
+import Button1 from "./Ui/Button1";
 import { ArrowRight, ArrowLeft, ChevronLeft, ChevronRight } from "lucide-react";
 
 // Move slides array outside component to avoid redeclaring on each render
@@ -199,17 +200,20 @@ const ThinkingSection = () => {
         </div>
 
         {/* View More Button */}
-        <div className="flex justify-start">
-          <button className="group flex items-center gap-3">
+        
+          {/* <button className="group flex items-center gap-3">
             <span className="font-semibold text-gray-900 text-lg">
               View More Insights
             </span>
             <div className="w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-110 group-hover:bg-orange-600">
               <ArrowRight className="w-5 h-5 text-white transition-transform duration-300 group-hover:translate-x-0.5" />
             </div>
-          </button>
-        </div>
-      </div>
+          </button> */}
+            
+      <Button1 /> 
+    </div>
+        
+     
     </section>
   );
 };

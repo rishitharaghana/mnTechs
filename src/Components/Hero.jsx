@@ -31,7 +31,10 @@ const Hero = () => {
         <button className="mt-8 w-max px-6 py-3 border-2 border-orange-500 text-white hover:bg-orange-500 hover:text-white  bg-or-50 transition-all duration-300 rounded-full">
           Let’s Talk
         </button>
-        <div className="absolute z-20 top-1/3 right-10 space-y-15 text-white text-lg font-semibold">
+        <div className="absolute z-20 top-1/3 right-10 space-y-15 text-white text-lg font-semibold
+  hidden sm:flex flex-col
+">
+
           <div className="relative top-[15%] right-50 flex items-center space-x-3 group">
             <div className="absolute bottom-full mb-2 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transform scale-95 group-hover:scale-100 transition-all duration-300 bg-white text-black text-sm rounded-md shadow-lg px-4 py-3 w-56 z-30">
               <h3 className="text-black font-bold">Experts</h3>
@@ -67,7 +70,7 @@ const Hero = () => {
                 <div className="flex-1 border-t border-gray-200"></div>
               </div>
               <p>
-                {" "}
+                
                 Our developers are skilled in modern frameworks and scalable
                 solutions.
               </p>
@@ -96,7 +99,7 @@ const Hero = () => {
                 <div className="flex-1 border-t border-gray-200"></div>
               </div>
               <p>
-                {" "}
+              
                 Designers craft visually appealing and user-friendly interfaces.
               </p>
             </div>

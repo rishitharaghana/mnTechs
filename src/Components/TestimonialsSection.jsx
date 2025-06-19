@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { ArrowRight, ArrowLeft, ChevronLeft, ChevronRight } from "lucide-react";
-import { Button } from "./Ui/Button";
+// import { Button } from "./Ui/Button";
 
 const TestimonialsSection = () => {
   const [currentSlide, setCurrentSlide] = useState(0);

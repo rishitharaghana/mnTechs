@@ -37,7 +37,7 @@ const ServiceFooter = () => {
       value={email}
       onChange={handleEmailChange}
       placeholder="Your email address"
-      className="w-full px-20 py-8 pr-40 bg-white text-gray-900 text-lg font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-orange-500"
+      className="w-full px-10 py-6 pr-10 bg-white text-gray-900 text-lg font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-orange-500"
     />
     <button
       type="submit"
@@ -48,13 +48,10 @@ const ServiceFooter = () => {
   </div>
 </form>
 
-
-
 </div>
 
+     <div className="w-full py-12 px-4 sm:px-6 lg:px-8 bg-gray-900 flex flex-col md:flex-row md:justify-between md:gap-2 lg:gap-20 items-start">
 
-      
-      <div className="w-full py-12 px-4 sm:px-6 lg:px-8 bg-gray-900 flex flex-col md:flex-row justify-between items-start">
    
         <div className="mb-8 md:mb-0">
           <div className="flex items-center mb-4">
@@ -93,7 +90,7 @@ const ServiceFooter = () => {
 
         </div>
 
-        <div className="mb-8 md:mb-0">
+        <div className="mb-2">
           <h3 className="text-orange-500 font-semibold mb-4">Social</h3>
           <ul className="space-y-2">
             <li className="text-gray-400 hover:text-orange-500 cursor-pointer">Facebook</li>
@@ -104,27 +101,14 @@ const ServiceFooter = () => {
           </ul>
         </div>
 
-     
-        <div className="mb-8 md:mb-0">
-          <h3 className="text-orange-500 font-semibold mb-4">Support</h3>
-          <ul className="space-y-2">
-            <li className="text-gray-400 hover:text-orange-500 cursor-pointer">Documentation</li>
-            <li className="text-gray-400 hover:text-orange-500 cursor-pointer">Support</li>
-            <li className="text-gray-400 hover:text-orange-500 cursor-pointer">FAQs</li>
-            <li className="text-gray-400 hover:text-orange-500 cursor-pointer">Download</li>
-            <li className="text-gray-400 hover:text-orange-500 cursor-pointer">Sitemap</li>
-          </ul>
-        </div>
-
-      
         <div>
           <h3 className="text-orange-500 font-semibold mb-4">Links</h3>
           <ul className="space-y-2">
             <li className="text-gray-400 hover:text-orange-500 cursor-pointer">About Us</li>
             <li className="text-gray-400 hover:text-orange-500 cursor-pointer">Terms & Conditions</li>
             <li className="text-gray-400 hover:text-orange-500 cursor-pointer">Privacy Policy</li>
-            <li className="text-gray-400 hover:text-orange-500 cursor-pointer">Partners</li>
-            <li className="text-gray-400 hover:text-orange-500 cursor-pointer">Press</li>
+
+         
           </ul>
         </div>
       </div>

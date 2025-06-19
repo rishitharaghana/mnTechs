@@ -3,17 +3,18 @@ import { Link } from 'react-router-dom';
 
 import { MapPin, PhoneCall, MailIcon, Facebook, Instagram, Youtube } from 'lucide-react';
 import MnTechImage from '../assets/images/mntech.png'; // Adjust the path as necessary
-const productLinks = [  // ✅ define here
-  { label: 'Payroll Management', path: '/products/payroll-management' },
-  { label: 'HRMS', path: '/products/hrms' },
-  { label: 'CRM', path: '/products/crm' },
-  { label: 'Billing Systems', path: '/products/billing-system' },
-  { label: 'Hospital Management', path: '/products/hospital-management' },
-  { label: 'Education Management', path: '/products/education' },
-  { label: 'E-Commerce', path: '/products/e-commerce' },
+const productLinks = [
   { label: 'AI Agents', path: '/products/ai-agent' },
   { label: 'App Development', path: '/products/app-development' },
+  { label: 'Billing Systems', path: '/products/billing-system' },
+  { label: 'CRM', path: '/products/crm' },
+  { label: 'E-Commerce', path: '/products/e-commerce' },
+  { label: 'Education Management', path: 'products/education-management' },
+  { label: 'Hospital Management', path: '/products/hospital-management' },
+  { label: 'HRMS', path: '/products/hrms' },
+  { label: 'Payroll Management', path: '/products/payroll-management' },
 ];
+
 
 const Footer = () => {
   const handleSubscribe = async (e) => {

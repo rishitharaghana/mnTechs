@@ -1,10 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import map from "../../assets/images/map.png"; // Adjust the path as needed
+import map from "../../assets/images/map.png"; 
 import Navigation from "../../Components/Navigation";
 import Footer from "../../Components/Footer";
 
-// import map from "../../assets/logos/map.png"; // Adjust the path as needed
 
 const Privacy = () => {
   return (

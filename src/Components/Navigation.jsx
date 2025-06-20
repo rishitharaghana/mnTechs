@@ -1,56 +1,9 @@
 import React, { useEffect, useState, useCallback, memo } from "react";
-import { Search, Menu, X } from "lucide-react"; // Removed ChevronDown
+import { Search, Menu, X } from "lucide-react"; 
 import { Link, useLocation } from "react-router-dom";
 import MntechImage from "../assets/images/mntech.png";
 import useDropdown from "../Hooks/useDropdown";
 
-// Memoize DesktopNavItem to prevent unnecessary re-renders
-// const DesktopNavItem = memo(({ item, isScrolledOrWhitePage }) => {
-//   const { isOpen, setIsOpen, ref } = useDropdown();
-
-//   if (!item.submenu) {
-//     return (
-//       <Link
-//         to={item.path}
-//         className={`px-3 py-2 text-md font-medium transition-colors duration-300 ${
-//           isScrolledOrWhitePage ? "text-gray-800 hover:text-orange-500" : "text-white hover:text-orange-400"
-//         }`}
-//       >
-//         {item.name}
-//       </Link>
-//     );
-//   }
-
-//   return (
-//     <div ref={ref} className="relative">
-//       <button
-//         onClick={() => setIsOpen((prev) => !prev)}
-//         className={`flex items-center gap-1 px-3 py-2 text-md font-medium transition-colors duration-300 ${
-//           isScrolledOrWhitePage ? "text-gray-800 hover:text-orange-500" : "text-white hover:text-orange-400"
-//         }`}
-//         aria-expanded={isOpen}
-//         aria-haspopup="true"
-//       >
-//         {item.name}
-//         <span className="w-2 h-2 bg-orange-500 rounded-full"></span> {/* Orange dot */}
-//       </button>
-//       {isOpen && (
-//         <div className="absolute left-0 mt-2 bg-white rounded-lg shadow-xl min-w-max z-50">
-//           {item.submenu.map((subItem) => (
-//             <Link
-//               key={subItem.name}
-//               to={subItem.path}
-//               className="block px-5 py-2 text-md font-medium text-gray-700 hover:bg-orange-50 hover:text-orange-600 transition-colors duration-200"
-//               onClick={() => setIsOpen(false)}
-//             >
-//               {subItem.name}
-//             </Link>
-//           ))}
-//         </div>
-//       )}
-//     </div>
-//   );
-// });
 const DesktopNavItem = memo(({ item, isScrolledOrWhitePage }) => {
   const { isOpen, setIsOpen, ref } = useDropdown();
 
@@ -74,7 +27,7 @@ const DesktopNavItem = memo(({ item, isScrolledOrWhitePage }) => {
       onMouseEnter={() => setIsOpen(true)}
       onMouseLeave={() => setIsOpen(false)}
     >
-      {/* Main link navigates to /products */}
+   
       <Link
         to={item.path}
         className={`flex items-center gap-1 px-3 py-2 text-md font-medium transition-colors duration-300 ${
@@ -87,7 +40,7 @@ const DesktopNavItem = memo(({ item, isScrolledOrWhitePage }) => {
 
       </Link>
 
-      {/* Dropdown menu on hover */}
+     
       {isOpen && (
         <div className="absolute left-0 mt-2 bg-white rounded-lg shadow-xl min-w-max z-50">
           {item.submenu.map((subItem) => (
@@ -113,7 +66,7 @@ const Navigation = () => {
   const [activeSubmenu, setActiveSubmenu] = useState(null);
   const location = useLocation();
 
-  // Define white background pages
+ 
   const isWhiteBackgroundPage = ["/services", "/contact","/products","/about","/team",
     "/products/ai-agent","/products/app-development","/products/billing-system","/products/crm",
   "/products/education-management", "/products/hospital-management", "/products/payroll-management",
@@ -213,7 +166,7 @@ const Navigation = () => {
           <div className="lg:hidden">
             <button
               onClick={toggleMobileMenu}
-              className="p-2 rounded-md transition-colors duration-300 hover:bg-gray-100"
+              className="p-1 rounded-md transition-colors duration-300 w-[20px!] h-[20px!] bg-white hover:bg-gray-100"
               aria-label="Toggle mobile menu"
             >
               {mobileMenuOpen ? (
@@ -226,16 +179,14 @@ const Navigation = () => {
         </div>
       </nav>
 
-      {/* Mobile Overlay */}
-      <div
+      <div  
         className={`fixed inset-0 bg-black bg-opacity-50 z-40 lg:hidden transition-opacity duration-300 ${
           mobileMenuOpen ? "opacity-100" : "opacity-0 pointer-events-none"
         }`}
         onClick={toggleMobileMenu}
         aria-hidden="true"
-      />
+      /> 
 
-      {/* Mobile Drawer */}
       <div
         className={`fixed top-0 right-0 h-full w-64 sm:w-80 max-w-[85vw] bg-white shadow-2xl z-50 lg:hidden transform transition-transform duration-300 ease-in-out ${
           mobileMenuOpen ? "translate-x-0" : "translate-x-full"

@@ -1,8 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+// import { Facebook, Instagram, Youtube } from "lucide-react";
 
 import { MapPin, PhoneCall, MailIcon, Facebook, Instagram, Youtube } from 'lucide-react';
-import MnTechImage from '../assets/images/mntech.png'; // Adjust the path as necessary
+import MnTechImage from '../assets/images/mntech.png'; 
 const productLinks = [
   { label: 'AI Agents', path: '/products/ai-agent' },
   { label: 'App Development', path: '/products/app-development' },
@@ -18,7 +19,7 @@ const productLinks = [
 
 const Footer = () => {
   const handleSubscribe = async (e) => {
-    e.preventDefault(); // Prevent default form submission
+    e.preventDefault(); 
     const email = document.getElementById('default-search').value;
 
     if (!email) {
@@ -51,22 +52,30 @@ const Footer = () => {
     <footer className="pt-16 pb-7 bg-gray-900 text-gray-400">
       <div className="mx-auto px-4 sm:px-6 lg:px-8">
        
-        <div className="flex flex-col sm:flex-row items-center justify-between pb-14 border-b border-gray-500 gap-8">
-          <a href="/" aria-label="Home">
-            <img src={MnTechImage} alt="MNTECHS Logo" className="h-14 w-auto" />
-          </a>
-          <div className="flex gap-4">
-            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
-              <Facebook size={30} className="text-blue-500 hover:text-white transition" />
-            </a>
-            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
-              <Instagram size={30} className="text-red-500 hover:text-white transition" />
-            </a>
-            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer">
-              <Youtube size={30} className="text-red-500 hover:text-white transition" />
-            </a>
-          </div>
-        </div>
+    
+    
+
+<div className="flex flex-col sm:flex-row items-center justify-between pb-14 border-b border-gray-500 gap-8">
+  <a href="/" aria-label="Home">
+    <img src={MnTechImage} alt="MNTECHS Logo" className="h-14 w-auto" />
+  </a>
+  <div className="flex gap-4">
+    <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
+      <Facebook size={30} className="text-white hover:text-[#1877F2] transition-colors duration-300" />
+      {/* Facebook blue on hover */}
+    </a>
+    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
+      <Instagram size={30} className="text-white hover:text-[#E1306C] transition-colors duration-300" />
+      {/* Instagram pink on hover */}
+    </a>
+    <a href="https://youtube.com" target="_blank" rel="noopener noreferrer">
+      <Youtube size={30} className="text-white hover:text-[#FF0000] transition-colors duration-300" />
+      {/* YouTube red on hover */}
+    </a>
+  </div>
+</div>
+
+
 
        
         <div className="py-14 flex flex-col lg:flex-row justify-between gap-12 border-b border-gray-500">
@@ -75,18 +84,7 @@ const Footer = () => {
       
             <div>
               <h6 className="text-lg font-semibold text-white mb-6 text-center sm:text-left">MNTECHS</h6>
-              {/* <ul className="space-y-4 text-center sm:text-left">
-                {['Services', 'Products', 'About', 'Team', 'Careers', 'Contact'].map((item, index) => (
-                  <li key={index}>
-                    <a
-                      href="#"
-                      className="transition hover:text-amber-400 focus:outline-none focus:text-amber-400"
-                    >
-                      {item}
-                    </a>
-                  </li>
-                ))}
-              </ul> */}
+             
               <ul className="space-y-4 text-center sm:text-left">
   {['Services', 'Products', 'About', 'Team', 'Careers', 'Contact'].map((item, index) => (
     <li key={index}>
@@ -105,30 +103,7 @@ const Footer = () => {
         
             <div>
               <h6 className="text-lg font-semibold text-white mb-6 text-center sm:text-left">Products</h6>
-              {/* <ul className="space-y-4 text-center sm:text-left">
-                {[
-                  'Payroll Management',
-                  'HRMS',
-                  'CRM',
-                  'Billing Systems',
-                  'Hospital Management ',
-                  'Education Management',
-                  'E-Commerce',
-                  'AI Agents',
-                  'App Development'
-                ].map((product, index) => (
-                  <li key={index}>
-                    <a
-                      href="#"
-                      // target="_blank"
-                      // rel="noopener noreferrer"
-                      className="transition hover:text-amber-400 focus:outline-none focus:text-amber-400"
-                    >
-                      {product}
-                    </a>
-                  </li>
-                ))}
-              </ul> */}
+             
               <ul className="space-y-4 text-center sm:text-left">
   {productLinks.map((product, index) => (
     <li key={index}>

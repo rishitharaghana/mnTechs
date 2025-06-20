@@ -161,7 +161,7 @@ const Contacts = () => {
               <button
                 type="submit"
                 disabled={submitting}
-                className={`w-full ${
+                className={`w-70 ${
                   submitting ? "bg-orange-300" : "bg-orange-500 hover:bg-orange-400"
                 } text-black font-semibold py-4 px-8 rounded-full transition-colors duration-200 text-lg`}
               >

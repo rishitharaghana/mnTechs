@@ -5,7 +5,6 @@ const ThinkingSection = () => {
   const [slides, setSlides] = useState([]);
   const [currentSlide, setCurrentSlide] = useState(0);
 
-  // Placeholder slides when backend is empty
   const placeholderSlides = [
     {
       _id: "placeholder-1",
@@ -30,13 +29,12 @@ const ThinkingSection = () => {
     },
   ];
 
-  // Fetch data from backend
   useEffect(() => {
     fetch("http://localhost:5000/dynamic/latestThinking")
       .then((res) => res.json())
       .then((data) => {
-        const sortedSlides = data.sort((a, b) => a.order - b.order);
-        setSlides(sortedSlides);
+        // const sortedSlides = data.sort((a, b) => a.order - b.order);
+        setSlides(data);
       })
       .catch((err) => console.error("Error fetching thinking data", err));
   }, []);

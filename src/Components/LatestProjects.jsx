@@ -92,21 +92,21 @@ const LatestProjects = () => {
 
   return (
     <div className="container mx-auto px-4 py-16 bg-gray-50">
-      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-12 gap-6">
+      <div className="flex sm:flex-row justify-between items-start sm:items-center mb-12 gap-6">
         <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#121820]">
           Latest Projects
         </h2>
         <div className="flex items-center gap-4">
           <button
             onClick={handlePrevious}
-            className="flex items-center gap-2 px-4 py-2 bg-gray-100 border-2 border-gray-300 rounded-full text-gray-700 hover:bg-orange-500 hover:text-white transition-all duration-300"
+            className="flex items-center gap-2 md:px-4 px-2 py-2 bg-gray-100 border-2 border-gray-300 rounded-full text-gray-700 hover:bg-orange-500 hover:text-white transition-all duration-300"
           >
             <ArrowLeft className="h-4 w-4" />
             <span className="hidden sm:inline text-sm">Previous</span>
           </button>
           <button
             onClick={handleNext}
-            className="flex items-center gap-2 px-4 py-2 bg-gray-100 border-2 border-gray-300 rounded-full text-gray-700 hover:bg-orange-500 hover:text-white transition-all duration-300"
+            className="flex items-center gap-2 md:px-4 px-2 py-2 bg-gray-100 border-2 border-gray-300 rounded-full text-gray-700 hover:bg-orange-500 hover:text-white transition-all duration-300"
           >
             <span className="hidden sm:inline text-sm">Next</span>
             <ArrowRight className="h-4 w-4" />
@@ -159,14 +159,14 @@ const LatestProjects = () => {
         ))}
       </div>
 
-      <div className="flex flex-col sm:flex-row justify-between items-center mt-12 gap-4">
+      <div className="flex flex-col sm:flex-row justify-between md:items-center items-start mt-12 gap-4">
         <button className="group flex items-center gap-3">
           <span className="font-semibold text-gray-900 text-lg">View All Cases</span>
-          <div className="w-10 h-10 bg-orange-500 rounded-full flex items-center justify-center hover:bg-orange-600 transition">
+          <div className="w-8 md:w-10 h-8 md:h-10 bg-orange-500 rounded-full flex items-center justify-center hover:bg-orange-600 transition">
             <ArrowRight className="w-5 h-5 text-white" />
           </div>
         </button>
-        <button className="group border-2 border-orange-500 text-orange-500 hover:bg-orange-50 px-8 py-3 rounded-full transition font-medium">
+        <button className="group border-2 border-orange-500 text-orange-500 hover:bg-orange-50 md:px-8 px-4 py-2 md:py-3 rounded-full transition-all duration-300 font-medium">
           Get Started
         </button>
       </div>

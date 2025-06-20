@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-// import { Facebook, Instagram, Youtube } from "lucide-react";
+import { Facebook, Instagram, MailIcon, MapPin, PhoneCall, Youtube } from "lucide-react";
 
-import { MapPin, PhoneCall, MailIcon, Facebook, Instagram, Youtube } from 'lucide-react';
+  
 import MnTechImage from '../assets/images/mntech.png'; 
 const productLinks = [
   { label: 'AI Agents', path: '/products/ai-agent' },
@@ -80,7 +80,7 @@ const Footer = () => {
        
         <div className="py-14 flex flex-col lg:flex-row justify-between gap-12 border-b border-gray-500">
        
-          <div className="flex flex-col sm:flex-row gap-12 w-full lg:w-3/4">
+          <div className="flex flex-col sm:flex-row justify-center gap-12 w-full lg:w-4/4">
       
             <div>
               <h6 className="text-lg font-semibold text-white mb-6 text-center sm:text-left">MNTECHS</h6>
@@ -148,7 +148,7 @@ const Footer = () => {
             </div>
           </div>
 
-          <div className="w-full lg:max-w-md max-lg:mx-auto">
+          <div className="w-full lg:w-1/4 max-lg:mx-auto">
             <form onSubmit={handleSubscribe} className="flex flex-col gap-3">
               <label htmlFor="default-search" className="sr-only">
                 Your email address

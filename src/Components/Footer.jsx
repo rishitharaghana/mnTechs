@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import { MapPin, PhoneCall, MailIcon, Facebook, Instagram, Youtube } from 'lucide-react';
-import MnTechImage from '../assets/images/mntech.png'; // Adjust the path as necessary
+import MnTechImage from '../assets/images/mntech.png'; 
 const productLinks = [
   { label: 'AI Agents', path: '/products/ai-agent' },
   { label: 'App Development', path: '/products/app-development' },
@@ -18,7 +18,7 @@ const productLinks = [
 
 const Footer = () => {
   const handleSubscribe = async (e) => {
-    e.preventDefault(); // Prevent default form submission
+    e.preventDefault(); 
     const email = document.getElementById('default-search').value;
 
     if (!email) {
@@ -75,18 +75,7 @@ const Footer = () => {
       
             <div>
               <h6 className="text-lg font-semibold text-white mb-6 text-center sm:text-left">MNTECHS</h6>
-              {/* <ul className="space-y-4 text-center sm:text-left">
-                {['Services', 'Products', 'About', 'Team', 'Careers', 'Contact'].map((item, index) => (
-                  <li key={index}>
-                    <a
-                      href="#"
-                      className="transition hover:text-amber-400 focus:outline-none focus:text-amber-400"
-                    >
-                      {item}
-                    </a>
-                  </li>
-                ))}
-              </ul> */}
+             
               <ul className="space-y-4 text-center sm:text-left">
   {['Services', 'Products', 'About', 'Team', 'Careers', 'Contact'].map((item, index) => (
     <li key={index}>
@@ -105,30 +94,7 @@ const Footer = () => {
         
             <div>
               <h6 className="text-lg font-semibold text-white mb-6 text-center sm:text-left">Products</h6>
-              {/* <ul className="space-y-4 text-center sm:text-left">
-                {[
-                  'Payroll Management',
-                  'HRMS',
-                  'CRM',
-                  'Billing Systems',
-                  'Hospital Management ',
-                  'Education Management',
-                  'E-Commerce',
-                  'AI Agents',
-                  'App Development'
-                ].map((product, index) => (
-                  <li key={index}>
-                    <a
-                      href="#"
-                      // target="_blank"
-                      // rel="noopener noreferrer"
-                      className="transition hover:text-amber-400 focus:outline-none focus:text-amber-400"
-                    >
-                      {product}
-                    </a>
-                  </li>
-                ))}
-              </ul> */}
+             
               <ul className="space-y-4 text-center sm:text-left">
   {productLinks.map((product, index) => (
     <li key={index}>

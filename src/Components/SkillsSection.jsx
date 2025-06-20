@@ -24,7 +24,8 @@ const SkillsSection = () => {
 
   return (
     <section className="py-20 px-10 bg-white">
-      <div className="">
+      <div>
+        {/* Title & Description */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start mb-16">
           <div>
             <div className="flex items-center gap-2 mb-6">
@@ -44,13 +45,11 @@ const SkillsSection = () => {
             </h2>
           </div>
           <div className="lg:pl-8">
-            <p className="text-gray-600 leading-relaxed text-lg">
-              {description}
-            </p>
+            <p className="text-gray-600 leading-relaxed text-lg">{description}</p>
           </div>
         </div>
 
-        {/* Skill Bars */}
+        {/* Skills Grid */}
         <div className="space-y-12">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
             {skills.slice(0, 4).map((skill) => (

@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useCallback, memo } from "react";
-import { Search, Menu, X } from "lucide-react"; // Removed ChevronDown
+import { Search, Menu, X } from "lucide-react"; 
 import { Link, useLocation } from "react-router-dom";
 import MntechImage from "../assets/images/mntech.png";
 import useDropdown from "../Hooks/useDropdown";
@@ -27,7 +27,7 @@ const DesktopNavItem = memo(({ item, isScrolledOrWhitePage }) => {
       onMouseEnter={() => setIsOpen(true)}
       onMouseLeave={() => setIsOpen(false)}
     >
-      {/* Main link navigates to /products */}
+   
       <Link
         to={item.path}
         className={`flex items-center gap-1 px-3 py-2 text-md font-medium transition-colors duration-300 ${
@@ -40,7 +40,7 @@ const DesktopNavItem = memo(({ item, isScrolledOrWhitePage }) => {
 
       </Link>
 
-      {/* Dropdown menu on hover */}
+     
       {isOpen && (
         <div className="absolute left-0 mt-2 bg-white rounded-lg shadow-xl min-w-max z-50">
           {item.submenu.map((subItem) => (
@@ -66,11 +66,11 @@ const Navigation = () => {
   const [activeSubmenu, setActiveSubmenu] = useState(null);
   const location = useLocation();
 
-  // Define white background pages
+ 
   const isWhiteBackgroundPage = ["/services", "/contact","/products","/about","/team",
     "/products/ai-agent","/products/app-development","/products/billing-system","/products/crm",
   "/products/education-management", "/products/hospital-management", "/products/payroll-management",
-  "/products/e-commerce","/terms","/privacy",
+  "/products/e-commerce","/terms","/privacy","/careers",
   "/products/hrms" ].includes(location.pathname);
 
   // Memoize navItems to prevent recreation on re-renders

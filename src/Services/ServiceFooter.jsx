@@ -41,7 +41,7 @@ const ServiceFooter = () => {
     />
     <button
       type="submit"
-      className="absolute right-2 top-1 bottom-1 px-20 py-4 bg-orange-500 text-black text-lg font-semibold rounded-full hover:bg-orange-400 transition-colors"
+      className="absolute right-2 top-1 bottom-1  px-20 py-4 bg-orange-500 text-black text-lg font-semibold rounded-full hover:bg-orange-400 transition-colors"
     >
       Subscribe Now
     </button>

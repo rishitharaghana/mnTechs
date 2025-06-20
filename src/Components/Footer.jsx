@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Facebook, Instagram, MailIcon, MapPin, PhoneCall, Youtube } from "lucide-react";
 
-import { MapPin, PhoneCall, MailIcon, Facebook, Instagram, Youtube } from 'lucide-react';
+  
 import MnTechImage from '../assets/images/mntech.png'; 
 const productLinks = [
   { label: 'AI Agents', path: '/products/ai-agent' },
@@ -51,27 +52,35 @@ const Footer = () => {
     <footer className="pt-16 pb-7 bg-gray-900 text-gray-400">
       <div className="mx-auto px-4 sm:px-6 lg:px-8">
        
-        <div className="flex flex-col sm:flex-row items-center justify-between pb-14 border-b border-gray-500 gap-8">
-          <a href="/" aria-label="Home">
-            <img src={MnTechImage} alt="MNTECHS Logo" className="h-14 w-auto" />
-          </a>
-          <div className="flex gap-4">
-            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
-              <Facebook size={30} className="text-blue-500 hover:text-white transition" />
-            </a>
-            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
-              <Instagram size={30} className="text-red-500 hover:text-white transition" />
-            </a>
-            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer">
-              <Youtube size={30} className="text-red-500 hover:text-white transition" />
-            </a>
-          </div>
-        </div>
+    
+    
+
+<div className="flex flex-col sm:flex-row items-center justify-between pb-14 border-b border-gray-500 gap-8">
+  <a href="/" aria-label="Home">
+    <img src={MnTechImage} alt="MNTECHS Logo" className="h-14 w-auto" />
+  </a>
+  <div className="flex gap-4">
+    <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
+      <Facebook size={30} className="text-white hover:text-[#1877F2] transition-colors duration-300" />
+      {/* Facebook blue on hover */}
+    </a>
+    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
+      <Instagram size={30} className="text-white hover:text-[#E1306C] transition-colors duration-300" />
+      {/* Instagram pink on hover */}
+    </a>
+    <a href="https://youtube.com" target="_blank" rel="noopener noreferrer">
+      <Youtube size={30} className="text-white hover:text-[#FF0000] transition-colors duration-300" />
+      {/* YouTube red on hover */}
+    </a>
+  </div>
+</div>
+
+
 
        
         <div className="py-14 flex flex-col lg:flex-row justify-between gap-12 border-b border-gray-500">
        
-          <div className="flex flex-col sm:flex-row gap-12 w-full lg:w-3/4">
+          <div className="flex flex-col sm:flex-row justify-center gap-12 w-full lg:w-4/4">
       
             <div>
               <h6 className="text-lg font-semibold text-white mb-6 text-center sm:text-left">MNTECHS</h6>
@@ -139,7 +148,7 @@ const Footer = () => {
             </div>
           </div>
 
-          <div className="w-full lg:max-w-md max-lg:mx-auto">
+          <div className="w-full lg:w-1/4 max-lg:mx-auto">
             <form onSubmit={handleSubscribe} className="flex flex-col gap-3">
               <label htmlFor="default-search" className="sr-only">
                 Your email address

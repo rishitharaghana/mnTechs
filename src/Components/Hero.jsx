@@ -13,6 +13,7 @@ const Hero = () => {
         if (res.data.length > 0) {
           const latest = res.data[0];
 
+          
           const feature_items =
             latest.features?.map((item) => ({
               label: item.title,

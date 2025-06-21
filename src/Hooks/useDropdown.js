@@ -1,4 +1,3 @@
-// hooks/useDropdown.js
 import { useState, useEffect, useRef } from "react";
 
 const useDropdown = () => {

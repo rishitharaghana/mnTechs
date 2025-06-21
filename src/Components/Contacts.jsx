@@ -28,7 +28,8 @@ const Contacts = () => {
   console.log("Submitting form data:", formData);
 
   try {
-    const response = await ngrokAxiosInstance.post('/contact/contact_us', formData);
+ const response = await ngrokAxiosInstance.post('/contact/contact_us', formData);
+
 
     console.log("Server response:", response.data);
 

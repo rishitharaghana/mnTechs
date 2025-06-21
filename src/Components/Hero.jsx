@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Plus } from "lucide-react";
 import BackgroundCarousel from "./Ui/Backgroundcarousel";
-
 import ngrokAxiosInstance from "../Hooks/axiosInstance";
 
 const Hero = () => {
@@ -10,10 +9,19 @@ const Hero = () => {
   useEffect(() => {
     const fetchHeroData = async () => {
       try {
-        const res = await ngrokAxiosInstance.get('/dynamic/hero');
-       
+        const res = await ngrokAxiosInstance.get("/dynamic/hero");
         if (res.data.length > 0) {
-          setHeroData(res.data[0]); // Use latest
+          const latest = res.data[0];
+
+          
+          const feature_items =
+            latest.features?.map((item) => ({
+              label: item.title,
+              tooltip_title: item.tooltip_title,
+              tooltip_description: item.tooltip_text,
+            })) || [];
+
+          setHeroData({ ...latest, feature_items }); 
         }
       } catch (error) {
         console.error("Error fetching hero data:", error);
@@ -23,7 +31,7 @@ const Hero = () => {
     fetchHeroData();
   }, []);
 
-  if (!heroData) return null; // Or show loader
+  if (!heroData) return null;
 
   return (
     <section className="relative bg-cover bg-center bg-no-repeat h-screen min-h-[600px] text-white">
@@ -36,8 +44,8 @@ const Hero = () => {
 
         <div>
           <h1 className="text-3xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-semibold text-white font-syne mb-2 sm:mb-4 md:mb-6">
-            <span className="block mb-2">{heroData.title_linres}</span>
-            <span className="block mb-2">{heroData.subheading }</span>
+            <span className="block mb-2">{heroData.title_lines}</span>
+            <span className="block mb-2">{heroData.subheading}</span>
             <span className="mil-font-3 mil-accent text-2xl md:text-3xl font-black block md:mb-10 mb-5 mt-4">
               {heroData.description}
             </span>
@@ -49,15 +57,11 @@ const Hero = () => {
             {heroData.button_text}
           </button>
           <p className="text-gray-300 max-w-xl">
-            {/* Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. */}
-            MN Techs delivers innovative, customized software solutions.
-Transform your operations with our digital tools.
-
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua.
           </p>
         </div>
 
-        {/* Tooltip Feature Blocks */}
         <div className="hidden lg:block absolute z-20 top-1/3 right-10 space-y-15 text-white text-lg font-semibold">
           {heroData.feature_items?.map((item, index) => {
             const positions = [
@@ -72,7 +76,7 @@ Transform your operations with our digital tools.
                 key={index}
                 className={`relative ${posClass} flex items-center space-x-3 group`}
               >
-                <div className="absolute  bottom-full mb-2 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transform scale-95 group-hover:scale-100 transition-all duration-300 bg-white text-black text-sm rounded-md shadow-lg px-4 py-3 w-56 z-30">
+                <div className="absolute bottom-full mb-2 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transform scale-95 group-hover:scale-100 transition-all duration-300 bg-white text-black text-sm rounded-md shadow-lg px-4 py-3 w-56 z-30">
                   <h3 className="text-black font-bold">{item.tooltip_title}</h3>
                   <div className="flex items-center mt-2">
                     <div className="w-8 h-1 bg-orange-500"></div>

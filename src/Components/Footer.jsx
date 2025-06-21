@@ -96,9 +96,9 @@ const Footer = () => {
         </div>
 
         {/* Main Footer Content - 4x4 Card Layout for md and above */}
-        <div className="py-14 grid grid-cols-1 gap-8 md:grid-cols-4 border-b border-gray-500">
+        <div className=" py-14 grid grid-cols-1 gap-8 md:grid-cols-4 border-b border-gray-500">
           {/* MNTECHS Links Card */}
-          <div className="bg-gray-800 p-6 rounded-lg shadow-md">
+          <div className="md:p-4 rounded-lg shadow-md">
             <h6 className="text-lg font-semibold text-white mb-6 text-center md:text-left">MNTECHS</h6>
             <ul className="space-y-4 text-center md:text-left">
               {['Services', 'Products', 'About', 'Team', 'Careers', 'Contact'].map((item) => (
@@ -115,7 +115,7 @@ const Footer = () => {
           </div>
 
           {/* Products Links Card */}
-          <div className="bg-gray-800 p-6 rounded-lg shadow-md">
+          <div className="md:p-4 rounded-lg shadow-md">
             <h6 className="text-lg font-semibold text-white mb-6 text-center md:text-left">Products</h6>
             <ul className="space-y-4 text-center md:text-left">
               {productLinks.map((product) => (
@@ -132,12 +132,12 @@ const Footer = () => {
           </div>
 
           {/* Branch Office Card */}
-          <div className="bg-gray-800 p-6 rounded-lg shadow-md">
+          <div className="md:p-4 rounded-lg shadow-md">
             <h6 className="text-lg font-semibold text-white mb-6 text-center md:text-left">Branch Office</h6>
             <div className="flex flex-col gap-5">
-              <div className="flex items-start gap-2">
+              <div className="flex md:justify-center justify-center gap-2">
                 <MapPin size={20} className="text-white flex-shrink-0" />
-                <p className="text-base font-normal text-gray-400 transition-all duration-300 hover:text-amber-400">
+                <p className="md:text-base text-[14px] font-normal text-gray-400 transition-all duration-300 hover:text-amber-400">
                   2nd Floor, Some Landmark Building,
                   <br />
                   MG Road, Bengaluru - 560001,
@@ -145,17 +145,17 @@ const Footer = () => {
                   Karnataka, India.
                 </p>
               </div>
-              <div className="flex items-start gap-2">
+              <div className="flex md:justify-center justify-center items-start gap-2">
                 <Phone size={20} className="text-white flex-shrink-0" />
-                <p className="text-base font-normal text-gray-400 transition-all duration-300 hover:text-amber-400">
+                <p className="md:text-base text-sm font-normal text-gray-400 transition-all duration-300 hover:text-amber-400">
                   +91 9876543210
                 </p>
               </div>
-              <div className="flex items-start gap-2">
+              <div className="flex md:justify-center justify-center items-start gap-2">
                 <Mail size={20} className="text-white flex-shrink-0" />
                 <a
                   href="mailto:branchsupport@example.com"
-                  className="text-base font-normal text-gray-400 transition-all duration-300 hover:text-amber-400"
+                  className="md:text-base text-sm font-normal text-gray-400 transition-all duration-300 hover:text-amber-400"
                 >
                   branchsupport@example.com
                 </a>
@@ -164,7 +164,7 @@ const Footer = () => {
           </div>
 
           {/* Subscribe Form Card */}
-          <div className="bg-gray-800 p-6 rounded-lg shadow-md">
+          <div className="md:p-4 rounded-lg shadow-md">
             <h6 className="text-lg font-semibold text-white mb-6 text-center md:text-left">Subscribe</h6>
             <form onSubmit={handleSubscribe} className="flex flex-col gap-3">
               <label htmlFor="default-search" className="sr-only">
@@ -181,7 +181,7 @@ const Footer = () => {
               </div>
               <button
                 type="submit"
-                className="w-full px-6 py-2 text-base font-normal text-black bg-orange-500 hover:bg-orange-400 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-orange-500 transition duration-300"
+                className="w-full px-6 py-2 lg:text-base text-sm font-normal text-black bg-orange-500 hover:bg-orange-400 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-orange-500 transition duration-300"
               >
                 Subscribe Now
               </button>

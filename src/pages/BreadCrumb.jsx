@@ -4,7 +4,7 @@ import PageBannerImg from "../assets/images/PageBanner.png";
 import Navigation from "../Components/Navigation";
 import Pattern from "../assets/Images/deco-2.png";
 
-// Navigation text styles for consistency
+
 const navTextStyles = `
   font-family: Sora, sans-serif;
   text-decoration: none;
@@ -22,7 +22,7 @@ const Breadcrumb = ({ title = "Page Title" }) => {
 
   return (
     <div className="relative w-full h-120 overflow-hidden">
-      {/* Background Image */}
+     
       <img
         src={PageBannerImg}
         alt="Background"
@@ -30,17 +30,19 @@ const Breadcrumb = ({ title = "Page Title" }) => {
         loading="lazy"
       />
 
+     
       <div
-        className="absolute top-[47%] right-[10%] rotate-[90deg] z-[1] w-60 h-40 bg-no-repeat bg-contain pointer-events-none"
-        style={{ backgroundImage: `url(${Pattern})` }}
-      ></div>
+  className="absolute top-[47%] right-[10%] rotate-[90deg] z-[1] w-60 h-40 bg-no-repeat bg-contain pointer-events-none hidden sm:block"
+  style={{ backgroundImage: `url(${Pattern})` }}
+></div>
 
-      {/* Black Gradient Overlay */}
+
+      
       <div className="absolute inset-0 bg-gradient-to-b from-gray-500/10 to-gray-500/10 z-5"></div>
 
-      {/* Overlay content */}
+    
       <div className="relative z-10 top-50 px-20">
-        {/* Breadcrumb Links */}
+      
         <div className="text-sm text-gray-600 mb-2 sm:mb-4 flex flex-wrap items-center">
           <Link
             to="/"
@@ -71,7 +73,7 @@ const Breadcrumb = ({ title = "Page Title" }) => {
           })}
         </div>
 
-        {/* Page Title */}
+       
         <h1
           className={`
             text-3xl pt-8 px-4 pb-4 sm:text-4xl md:text-5xl font-bold text-[#121820]

@@ -12,14 +12,14 @@ const Contact = () => {
       <Navigation className="bg-gray-50" />
       <BreadCrumb title='Reach US' />
       
-      <div className="relative py-16 px-6 md:px-20 bg-white">
+      <div className="relative py-10 px-4 md:px-20 bg-white">
         <img
           src={map}
           alt="hexagon background"
           className="absolute right-10 top-10 opacity-10 pointer-events-none hidden md:block"
           style={{ height: "150px" }}
         />
-        <div className="px-10 pt-10 pb-10">
+        <div className="px-2 pt-10 pb-10">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
        
             <div className="lg:col-span-2">
@@ -40,7 +40,7 @@ const Contact = () => {
                     </h6>
                   </div>
                   <div className="bg-white p-6 rounded-lg shadow-lg text-center">
-                    <p className="text-gray-600 text-sm mb-4">
+                    <p className="text-gray-600 sm:text-start text-sm mb-4">
                       Our experts are ready to answer your questions.
                     </p>
                     <div className="flex justify-center items-center space-x-2">

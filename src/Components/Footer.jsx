@@ -55,7 +55,7 @@ const Footer = () => {
   const splitAddress = branch?.address?.split("\n") || [];
 
   return (
-    <footer className="pt-16 pb-7 bg-gray-900 text-gray-400">
+    <footer className="pb-7 bg-gray-900 text-gray-400">
       <div className="mx-auto px-4 sm:px-6 lg:px-8">
         {/* Top Section */}
         <div className="flex flex-col sm:flex-row items-center justify-between pb-14 border-b border-gray-500 gap-8">

@@ -2,6 +2,7 @@
 @import "tailwindcss";
 @tailwind utilities;
 
+
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -38,13 +39,7 @@ h1 {
   line-height: 1.1;
 }
 
-button {
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
+
 button:hover {
   border-color: rgb(213, 200, 175);
 }
@@ -84,14 +79,6 @@ button:focus-visible {
 
   h1 {
     font-size: 60px;
-  }
-
-  p{
-    font-family: Sora, sans-serif;
-    font-size: 15px;
-    font-weight: 400;
-    color: rgba(18, 24, 32, .4);
-    line-height: 170%;
   }
 }
 

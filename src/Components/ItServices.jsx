@@ -1,91 +1,37 @@
 import React, { useEffect, useState } from "react";
-import { Bell, Bookmark, Box, Cloud, Settings, Zap } from "lucide-react";
 import axios from "axios";
+import {
+  Bell, Bookmark, Box, Cloud, Settings, Zap
+} from "lucide-react";
 
 const iconMap = {
-  "Cloud": Cloud,
-  "Bell": Bell,
-  "Box": Box,
-  "Settings": Settings,
-  "Zap": Zap,
-  "Bookmark": Bookmark,
+  Cloud: Cloud,
+  Bell: Bell,
+  Box: Box,
+  Settings: Settings,
+  Zap: Zap,
+  Bookmark: Bookmark,
 };
 
 const ItServices = () => {
-  const [itServices, setItServices] = useState([]);
-  const [itSolutions, setItSolutions] = useState([]);
+  const [sectionData, setSectionData] = useState(null);
 
   useEffect(() => {
-    fetchItServices();
-    fetchItSolutions();
+    fetchSectionData();
   }, []);
 
-  const fetchItServices = async () => {
+  const fetchSectionData = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/dynamic/itServices");
-      const services = response.data.map((item, index) => ({
-        id: String(index + 1).padStart(2, "0"),
-        ...item,
-        icon: iconMap[item.icon] || Cloud, 
-      }));
-      setItServices(services);
+      const response = await axios.get("http://localhost:5000/dynamic/serviceSection");
+      setSectionData(response.data);
     } catch (error) {
-      console.error("Error fetching IT Services:", error);
+      console.error("Error fetching service section:", error);
     }
   };
 
-  // PUT - Update Service
-const updateService = async (id, updatedData) => {
-  try {
-    const response = await axios.put(`http://localhost:5000/dynamic/itServices/${id}`, updatedData);
-    console.log("Service updated:", response.data);
-    fetchItServices();
-  } catch (error) {
-    console.error("Error updating IT Service:", error);
-  }
-};
+  if (!sectionData) return null;
 
-// DELETE - Remove Service
-const deleteService = async (id) => {
-  try {
-    await axios.delete(`http://localhost:5000/dynamic/itServices/${id}`);
-    console.log("Service deleted");
-    fetchItServices(); // Refresh list
-  } catch (error) {
-    console.error("Error deleting IT Service:", error);
-  }
-};
-  const fetchItSolutions = async () => {
-    try {
-      const response = await axios.get("http://localhost:5000/dynamic/itSolutions");
-      const solutions = response.data.map((item, index) => ({
-        id: String(index + 1).padStart(2, "0"),
-        ...item,
-        icon: iconMap[item.icon] || Settings,
-      }));
-      setItSolutions(solutions);
-    } catch (error) {
-      console.error("Error fetching IT Solutions:", error);
-    }
-  };
-const updateSolution = async (id, updatedData) => {
-  try {
-    const response = await axios.put(`http://localhost:5000/dynamic/itSolutions/${id}`, updatedData);
-    console.log("Solution updated:", response.data);
-    fetchItSolutions(); // Refresh list
-  } catch (error) {
-    console.error("Error updating IT Solution:", error);
-  }
-};
-const deleteSolution = async (id) => {
-  try {
-    await axios.delete(`http://localhost:5000/dynamic/itSolutions/${id}`);
-    console.log("Solution deleted");
-    fetchItSolutions(); // Refresh list
-  } catch (error) {
-    console.error("Error deleting IT Solution:", error);
-  }
-};
+  const { sectionTitle, itServicesTitle, itSolutionsTitle, itServices, itSolutions } = sectionData;
 
   return (
     <section className="relative md:py-16 py-4 px-4 sm:px-6 lg:px-8 bg-background overflow-hidden">
@@ -101,16 +47,19 @@ const deleteSolution = async (id) => {
       <div>
         <div className="text-start mb-16">
           <h2 className="font-size-[42px] sm:text-4xl lg:text-5xl font-semibold text-[#121820] mb-4">
-            How We Can <span className="text-orange-500">Help You</span>
+            {sectionTitle?.split(" ").map((word, index) =>
+              word.toLowerCase() === "help" ? (
+                <span key={index} className="text-orange-500">{word} </span>
+              ) : (
+                word + " "
+              )
+            )}
           </h2>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
-       
-          <ServiceList title="IT Services" data={itServices} />
-
-        
-          <ServiceList title="IT Solutions" data={itSolutions} />
+          <ServiceList title={itServicesTitle} data={itServices} />
+          <ServiceList title={itSolutionsTitle} data={itSolutions} />
         </div>
       </div>
     </section>
@@ -128,47 +77,49 @@ const ServiceList = ({ title, data }) => (
       <div className="w-4 h-0.5 bg-orange-500"></div>
     </div>
     <div className="space-y-0">
-      {data.map((service, index) => (
-        <div key={service.id}>
-          <ServiceItem service={service} />
-          {index < data.length - 1 && (
-            <div className="flex items-center my-8">
-              <div className="w-4 h-0.5 bg-orange-500"></div>
-              <div className="flex-1 h-px bg-gray-800"></div>
-              <div className="w-4 h-0.5 bg-orange-500"></div>
-            </div>
-          )}
-        </div>
-      ))}
+      {data.map((item, index) => {
+        const Icon = iconMap[item.icon] || Cloud;
+        const id = String(index + 1).padStart(2, "0");
+
+        return (
+          <div key={id}>
+            <ServiceItem id={id} title={item.title} description={item.description} Icon={Icon} />
+            {index < data.length - 1 && (
+              <div className="flex items-center my-8">
+                <div className="w-4 h-0.5 bg-orange-500"></div>
+                <div className="flex-1 h-px bg-gray-800"></div>
+                <div className="w-4 h-0.5 bg-orange-500"></div>
+              </div>
+            )}
+          </div>
+        );
+      })}
     </div>
   </div>
 );
 
-const ServiceItem = ({ service }) => {
-  const Icon = service.icon;
-  return (
-    <div className="group flex items-start gap-6 p-4 rounded-lg transition-all duration-300 hover:bg-gray-300">
-      <div className="relative flex-shrink-0">
-        <div className="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center group-hover:bg-orange-50 transition-colors duration-300">
-          <Icon className="w-6 h-6 text-gray-600 group-hover:text-orange-500 transition-colors duration-300" />
-        </div>
-        <div className="absolute -bottom-0 -right-1 w-4 h-4 bg-orange-500 rounded-full flex items-center justify-center">
-          <div className="w-2 h-2 rounded-full"></div>
-        </div>
+const ServiceItem = ({ id, title, description, Icon }) => (
+  <div className="group flex items-start gap-6 p-4 rounded-lg transition-all duration-300 hover:bg-gray-300">
+    <div className="relative flex-shrink-0">
+      <div className="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center group-hover:bg-orange-50 transition-colors duration-300">
+        <Icon className="w-6 h-6 text-gray-600 group-hover:text-orange-500 transition-colors duration-300" />
       </div>
-      <div className="flex-1">
-        <div className="flex items-center gap-3 mb-3">
-          <span className="text-orange-500 font-semibold text-sm">{service.id}</span>
-          <h4 className="text-lg sm:text-xl font-semibold text-[#121820] group-hover:text-orange-500 transition-colors duration-300">
-            {service.title}
-          </h4>
-        </div>
-        <p className="text-sm sm:text-base leading-relaxed" style={{ color: "rgba(18, 24, 32, 0.4)" }}>
-          {service.description}
-        </p>
+      <div className="absolute -bottom-0 -right-1 w-4 h-4 bg-orange-500 rounded-full flex items-center justify-center">
+        <div className="w-2 h-2 rounded-full"></div>
       </div>
     </div>
-  );
-};
+    <div className="flex-1">
+      <div className="flex items-center gap-3 mb-3">
+        <span className="text-orange-500 font-semibold text-sm">{id}</span>
+        <h4 className="text-lg sm:text-xl font-semibold text-[#121820] group-hover:text-orange-500 transition-colors duration-300">
+          {title}
+        </h4>
+      </div>
+      <p className="text-sm sm:text-base leading-relaxed text-gray-500">
+        {description}
+      </p>
+    </div>
+  </div>
+);
 
 export default ItServices;

@@ -66,7 +66,7 @@ const Footer = () => {
       alert('An error occurred. Please try again later.');
       console.error(error);
     }
-  };
+  }
 
   return (
     <footer className="pb-7 bg-gray-900 text-gray-400">

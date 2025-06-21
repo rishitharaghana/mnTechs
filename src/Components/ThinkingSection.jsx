@@ -63,7 +63,7 @@ const ThinkingSection = () => {
   };
 
   return (
-    <section className="py-20 px-10 bg-gray-50">
+    <section className="md:py-20 py-4 md:px-10 px-4 bg-gray-50">
       <div>
         
         <div className="flex justify-between items-center mb-16">

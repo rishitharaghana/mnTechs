@@ -88,9 +88,9 @@ const deleteSolution = async (id) => {
 };
 
   return (
-    <section className="relative py-16 px-4 sm:px-6 lg:px-8 bg-background overflow-hidden">
+    <section className="relative md:py-16 py-4 px-4 sm:px-6 lg:px-8 bg-background overflow-hidden">
       <div
-        className="absolute z-50 top-0 right-0 w-32 h-32 opacity-10"
+        className="absolute z-50 top-0 right-0 w-32 h-32  opacity-10"
         style={{
           backgroundImage: `url('/ITservices Pattern.png')`,
           backgroundSize: "cover",

@@ -2,7 +2,6 @@ import React, { Suspense } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Home/Index";
 import NotFound from "./pages/NotFound";
-import Enterprice from "./pages/EnterPriceWrapper.jsx/Index";
 import Contact from "./pages/Contact";
 import Services from "./pages/Services";
 import ContactWrapper from "./pages/CompWrapper";
@@ -18,7 +17,6 @@ import PayrollManagement from "./products/PayrollManagement";
 import AIAgent from "./products/AIAgent";
 import About from "./pages/About";
 import Team from "./pages/Team";
-import Loader from "./Components/loaders/Loader"; // Adjust if path differs
 import Terms from "./pages/Home/Terms";
 import Privacy from "./pages/Home/Privacy";
 import Careers from "./pages/Careers";

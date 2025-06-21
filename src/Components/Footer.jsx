@@ -59,7 +59,6 @@ const handleSubscribe = async (e) => {
   return (
     <footer className="pb-7 bg-gray-900 text-gray-400">
       <div className="mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Top Section */}
         <div className="flex flex-col sm:flex-row items-center justify-between pb-14 border-b border-gray-500 gap-8">
           <a href="/" aria-label="Home">
             <img
@@ -87,10 +86,8 @@ const handleSubscribe = async (e) => {
           </div>
         </div>
 
-        {/* Middle Columns */}
         <div className="py-14 flex flex-col lg:flex-row justify-between gap-12 border-b border-gray-500">
           <div className="flex flex-col sm:flex-row gap-12 w-full lg:w-3/4">
-            {/* Menu Links */}
             <div>
               <h6 className="text-lg font-semibold text-white mb-6 text-center sm:text-left">
                 {sectionTitles?.menuTitle}

@@ -12,7 +12,6 @@ const Form = () => {
     role: "",
     message: "",
     ProductDesign: "",
-    file: null,
     ProjectBudget: "",
   });
 
@@ -87,7 +86,6 @@ const Form = () => {
         </div>
       </div>
 
-      {/* Company & Role */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
         {["company", "role"].map((field) => (
           <div key={field}>
@@ -122,7 +120,6 @@ const Form = () => {
         />
       </div>
 
-      {/* Project Description */}
       <div>
         <label className="text-sm font-medium text-gray-700 mb-1 block">
           Project Description
@@ -137,7 +134,6 @@ const Form = () => {
         />
       </div>
 
-      {/* Project Budget */}
       <div>
         <label className="text-sm font-medium text-gray-700 mb-1 block">
           Project Budget
@@ -152,7 +148,6 @@ const Form = () => {
         />
       </div>
 
-      {/* Submit */}
       <button
         type="submit"
         className="w-full bg-white text-black font-semibold py-3 px-6 rounded-full mt-6 border-2 border-orange-500 hover:bg-orange-500 hover:text-white transition-all duration-300"

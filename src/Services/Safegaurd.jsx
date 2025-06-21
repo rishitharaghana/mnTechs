@@ -25,7 +25,6 @@ const Safeguard = () => {
       <p className="text-orange-500 font-medium mb-2">● {data.title}</p>
       <h2 className="text-4xl font-bold text-gray-900 mb-12">{data.subtitle}</h2>
 
-      {/* Cards */}
       <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
         {data.cards.map((card, index) => (
           <div

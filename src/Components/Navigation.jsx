@@ -45,9 +45,6 @@ const DesktopNavItem = memo(({ item, isScrolledOrWhitePage }) => {
 
       {isOpen && (
         <div className="absolute left-0 mt-2 bg-white rounded-lg shadow-xl min-w-max z-50">
-        {/* {isOpen && (
-  <div className="absolute left-0 mt-2 bg-white rounded-lg shadow-xl min-w-max z-50 transition-all duration-300 ease-out opacity-0 translate-y-2 animate-fade-in"> */}
-
           {item.submenu.map((subItem, idx) => (
             <Link
               key={idx}

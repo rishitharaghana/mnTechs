@@ -36,8 +36,8 @@ const Hero = () => {
 
         <div>
           <h1 className="text-3xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-semibold text-white font-syne mb-2 sm:mb-4 md:mb-6">
-            <span className="block mb-2">{heroData.title}</span>
-            <span className="block mb-2">{heroData.subtitle}</span>
+            <span className="block mb-2">{heroData.title_linres}</span>
+            <span className="block mb-2">{heroData.subheading }</span>
             <span className="mil-font-3 mil-accent text-2xl md:text-3xl font-black block md:mb-10 mb-5 mt-4">
               {heroData.description}
             </span>
@@ -46,7 +46,7 @@ const Hero = () => {
 
         <div className="flex flex-col sm:flex-row sm:items-center gap-10">
           <button className="lg:w-max w-[40%] px-6 py-3 border-2 border-orange-500 text-white hover:bg-orange-500 hover:text-white bg-transparent transition-all duration-300 rounded-full">
-            {heroData.cta_text}
+            {heroData.button_text}
           </button>
           <p className="text-gray-300 max-w-xl">
             {/* Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do

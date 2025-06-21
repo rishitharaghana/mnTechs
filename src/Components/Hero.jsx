@@ -13,7 +13,6 @@ const Hero = () => {
         if (res.data.length > 0) {
           const latest = res.data[0];
 
-          // 🛠️ Transform `features` to match UI expectations (with `label` and `tooltip_description`)
           const feature_items =
             latest.features?.map((item) => ({
               label: item.title,
@@ -21,7 +20,7 @@ const Hero = () => {
               tooltip_description: item.tooltip_text,
             })) || [];
 
-          setHeroData({ ...latest, feature_items }); // Inject transformed array
+          setHeroData({ ...latest, feature_items }); 
         }
       } catch (error) {
         console.error("Error fetching hero data:", error);
@@ -62,7 +61,6 @@ const Hero = () => {
           </p>
         </div>
 
-        {/* ✅ Tooltip Feature Blocks (unchanged UI) */}
         <div className="hidden lg:block absolute z-20 top-1/3 right-10 space-y-15 text-white text-lg font-semibold">
           {heroData.feature_items?.map((item, index) => {
             const positions = [

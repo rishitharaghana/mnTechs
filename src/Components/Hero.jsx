@@ -4,7 +4,7 @@ const Hero = () => {
   return (
     <section className="relative bg-cover bg-center bg-no-repeat h-screen min-h-[600px] text-white">
       <BackgroundCarousel />
-      <div className="absolute bg-black bg-opacity-60"></div>
+      <div className="absolute bg-black bg-opacity-60 "></div>
       <div className="relative z-10 flex flex-col justify-center pt-28 lg:h-block lg:h-full ms:h-hidden px-4 md:px-10">
         <p className="text-white text-lg font-light mb-8">
           The Next <span className=" text-orange-500 font-semibold">Gen</span>

@@ -3,7 +3,6 @@ import React, { Suspense, lazy } from "react";
 // Lazy load all components
 const Hero = lazy(() => import("../../Components/Hero"));
 const ItServices = lazy(() => import("../../Components/ItServices"));
-const ClientLogos = lazy(() => import("../../Components/Clientlogo"));
 const CollaborationSection = lazy(() => import("../../Components/CollaborationSection"));
 const SkillsSection = lazy(() => import("../../Components/SkillsSection"));
 const TestimonialsSection = lazy(() => import("../../Components/TestimonialsSection"));
@@ -30,9 +29,6 @@ export default function Index() {
       </Suspense>
       <Suspense fallback={<div className="flex items-center justify-center h-screen">Loading...</div>}>
         <TestimonialsSection />
-      </Suspense>
-      <Suspense fallback={<div className="flex items-center justify-center h-screen">Loading...</div>}>
-        <ClientLogos />
       </Suspense>
       <Suspense fallback={<div className="flex items-center justify-center h-screen">Loading...</div>}>
         <Contacts />

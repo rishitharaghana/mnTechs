@@ -5,96 +5,14 @@ import ngrokAxiosInstance from "../Hooks/axiosInstance";
 const Safeguard = () => {
   const [data, setData] = useState({ title: "", subtitle: "", cards: [] });
 
- 
   const fetchSafeguard = async () => {
     try {
-      
-      const res = await ngrokAxiosInstance.get("http://localhost:5000/dynamic/safeguard");
-      const allData = await res.json();
-      if (allData.length > 0) {
-        setData(allData[0]); 
+      const res = await ngrokAxiosInstance.get("/dynamic/safeguard");
+      if (Array.isArray(res.data) && res.data.length > 0) {
+        setData(res.data[0]);
       }
     } catch (error) {
       console.error("Error fetching safeguard data:", error);
-    }
-  };
-
-  const postSafeguard = async () => {
-    const payload = {
-      title: "Safeguard Modern",
-      subtitle: "Ready To Take The Next Step?",
-      cards: [
-        {
-          title: "Get a Live Demo",
-          description: "Dissuade ecstatic and properly saw entirely sir why laughter endeavor...",
-        },
-        {
-          title: "Start Now",
-          description: "In on my jointure horrible margaret suitable he followed speedily...",
-        },
-      ],
-    };
-
-    try {
-      const res = await fetch("http://localhost:5000/dynamic/safeguard", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
-      });
-
-      if (res.ok) {
-        console.log("Safeguard created");
-        fetchSafeguard(); 
-      }
-    } catch (error) {
-      console.error("Error posting safeguard:", error);
-    }
-  };
-
-  const updateSafeguard = async (id) => {
-    const updated = {
-      title: "Updated Title",
-      subtitle: "Updated Subtitle",
-      cards: [
-        {
-          title: "Updated Card 1",
-          description: "Updated card 1 description",
-        },
-        {
-          title: "Updated Card 2",
-          description: "Updated card 2 description",
-        },
-      ],
-    };
-
-    try {
-      const res = await fetch(`http://localhost:5000/dynamic/safeguard/${id}`, {
-        method: "PUT",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(updated),
-      });
-
-      if (res.ok) {
-        console.log("Safeguard updated");
-        fetchSafeguard();
-      }
-    } catch (error) {
-      console.error("Error updating safeguard:", error);
-    }
-  };
-
-  const deleteSafeguard = async (id) => {
-    try {
-      const res = await fetch(`http://localhost:5000/dynamic/safeguard/${id}`, {
-        method: "DELETE",
-      });
-
-      if (res.ok) {
-        console.log("Safeguard deleted");
-        fetchSafeguard();
-      }
-    } catch (error) {
-      console.error("Error deleting safeguard:", error);
     }
   };
 
@@ -106,6 +24,8 @@ const Safeguard = () => {
     <section className="py-16 px-4 bg-white text-center">
       <p className="text-orange-500 font-medium mb-2">● {data.title}</p>
       <h2 className="text-4xl font-bold text-gray-900 mb-12">{data.subtitle}</h2>
+
+      {/* Cards */}
       <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
         {data.cards.map((card, index) => (
           <div

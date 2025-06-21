@@ -8,7 +8,7 @@ const Contacts = () => {
     phone: "",
     message: "",
     agreeToUpdates: false,
-    file: null, // Not used yet
+    file: null, 
   });
 
   const [submitting, setSubmitting] = useState(false);
@@ -70,7 +70,6 @@ const Contacts = () => {
             </h2>
           </div>
 
-          {/* FORM STARTS HERE */}
           <form
             onSubmit={handleSubmit}
             className="grid grid-cols-1 md:grid-cols-2 gap-12"

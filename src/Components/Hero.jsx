@@ -49,8 +49,11 @@ const Hero = () => {
             {heroData.cta_text}
           </button>
           <p className="text-gray-300 max-w-xl">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            {/* Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. */}
+            MN Techs delivers innovative, customized software solutions.
+Transform your operations with our digital tools.
+
           </p>
         </div>
 
@@ -69,7 +72,7 @@ const Hero = () => {
                 key={index}
                 className={`relative ${posClass} flex items-center space-x-3 group`}
               >
-                <div className="absolute top-full mt-2 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transform scale-95 group-hover:scale-100 transition-all duration-300 bg-white text-black text-sm rounded-md shadow-lg px-4 py-3 w-56 z-30">
+                <div className="absolute  bottom-full mb-2 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transform scale-95 group-hover:scale-100 transition-all duration-300 bg-white text-black text-sm rounded-md shadow-lg px-4 py-3 w-56 z-30">
                   <h3 className="text-black font-bold">{item.tooltip_title}</h3>
                   <div className="flex items-center mt-2">
                     <div className="w-8 h-1 bg-orange-500"></div>

@@ -68,23 +68,25 @@ const handleSubscribe = async (e) => {
               className="h-14 w-auto"
             />
           </a>
+       
           <div className="flex gap-4">
-            {socialLinks?.facebook && (
-              <a href={socialLinks.facebook} target="_blank" rel="noreferrer">
-                <Facebook className="text-blue-500 hover:text-white" size={30} />
-              </a>
-            )}
-            {socialLinks?.instagram && (
-              <a href={socialLinks.instagram} target="_blank" rel="noreferrer">
-                <Instagram className="text-red-500 hover:text-white" size={30} />
-              </a>
-            )}
-            {socialLinks?.youtube && (
-              <a href={socialLinks.youtube} target="_blank" rel="noreferrer">
-                <Youtube className="text-red-500 hover:text-white" size={30} />
-              </a>
-            )}
-          </div>
+  {socialLinks?.facebook && (
+    <a href={socialLinks.facebook} target="_blank" rel="noreferrer">
+      <Facebook className="text-white hover:text-blue-500" size={30} />
+    </a>
+  )}
+  {socialLinks?.instagram && (
+    <a href={socialLinks.instagram} target="_blank" rel="noreferrer">
+      <Instagram className="text-white hover:text-red-500" size={30} />
+    </a>
+  )}
+  {socialLinks?.youtube && (
+    <a href={socialLinks.youtube} target="_blank" rel="noreferrer">
+      <Youtube className="text-white hover:text-red-500" size={30} />
+    </a>
+  )}
+</div>
+
         </div>
 
         {/* Middle Columns */}
@@ -130,7 +132,7 @@ const handleSubscribe = async (e) => {
 
               <div className="flex items-start gap-2">
                 <MapPin className="w-5 h-5" />
-                <p className="text-base text-gray-400">
+                <p className="text-base text-gray-400   hover:text-amber-400">
                   {splitAddress.map((line, i) => (
                     <span key={i}>
                       {line}
@@ -139,11 +141,11 @@ const handleSubscribe = async (e) => {
                   ))}
                 </p>
               </div>
-              <div className="flex items-start gap-2">
+              <div className="flex items-start gap-2  hover:text-amber-400">
                 <PhoneCall className="w-5 h-5" />
-                <p className="text-base text-gray-400">{branch?.phone}</p>
+                <p className="text-base text-gray-400   hover:text-amber-400">{branch?.phone}</p>
               </div>
-              <div className="flex items-start gap-2">
+              <div className="flex items-start gap-2  hover:text-amber-400">
                 <MailIcon className="w-5 h-5" />
                 <a
                   href={`mailto:${branch?.email}`}

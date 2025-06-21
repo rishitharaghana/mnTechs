@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 import { ArrowRight } from "lucide-react";
 import {
   Wrench, BookOpen, Zap, Rocket, Code, Globe, Users, Server, Handshake,
 } from "lucide-react";
+import ngrokAxiosInstance from "../Hooks/axiosInstance";
 
 const iconMap = {
   wrench: Wrench,
@@ -23,8 +23,8 @@ const CollaborationSection = () => {
   useEffect(() => {
     const fetchCollaborations = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/dynamic/collaboration");
-        setCollabData(res.data[0]); // assuming single doc
+          const res = await ngrokAxiosInstance.get('/dynamic/collaboration');
+        setCollabData(res.data[0]); 
       } catch (error) {
         console.error("Error fetching collaborations:", error);
       }

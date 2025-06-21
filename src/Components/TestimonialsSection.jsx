@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
+
 import { ArrowRight, ArrowLeft } from "lucide-react";
+import ngrokAxiosInstance from "../Hooks/axiosInstance";
 
 const TestimonialsSection = () => {
   const [reviews, setReviews] = useState([]);
@@ -9,7 +10,8 @@ const TestimonialsSection = () => {
   useEffect(() => {
     const fetchReviews = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/dynamic/review");
+ 
+        const response = await ngrokAxiosInstance.get("/dynamic/review");
         setReviews(response.data);
       } catch (error) {
         console.error("Error fetching reviews:", error);

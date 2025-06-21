@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { ArrowRight } from "lucide-react";
-import axios from "axios";
+
+import ngrokAxiosInstance from "../Hooks/axiosInstance";
 
 const SkillsSection = () => {
   const [data, setData] = useState(null);
@@ -11,7 +12,8 @@ const SkillsSection = () => {
 
   const fetchSkills = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/dynamic/ourSkills");
+      const res = await ngrokAxiosInstance.get('/dynamic/ourSkills');
+    
       setData(res.data);
     } catch (error) {
       console.error("Error fetching skills:", error);

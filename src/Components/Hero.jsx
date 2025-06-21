@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Plus } from "lucide-react";
 import BackgroundCarousel from "./Ui/Backgroundcarousel";
-import axios from "axios";
+
+import ngrokAxiosInstance from "../Hooks/axiosInstance";
 
 const Hero = () => {
   const [heroData, setHeroData] = useState(null);
@@ -9,7 +10,8 @@ const Hero = () => {
   useEffect(() => {
     const fetchHeroData = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/dynamic/hero");
+        const res = await ngrokAxiosInstance.get('/dynamic/hero');
+       
         if (res.data.length > 0) {
           setHeroData(res.data[0]); // Use latest
         }

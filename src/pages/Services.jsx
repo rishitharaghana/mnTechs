@@ -7,21 +7,24 @@ import Safegaurd from "../Services/Safegaurd";
 import SaasApplications from "../Services/SaasApplications";
 import ServiceFooter from "../Services/ServiceFooter";
 import BreadCrumb from "./BreadCrumb";
+import ngrokAxiosInstance from "../Hooks/axiosInstance";
 
 const Services = () => {
   const navigate = useNavigate();
   const [serviceData, setServiceData] = useState(null);
 
-  useEffect(() => {
-    fetch("http://localhost:5000/dynamic/service")
-      .then((res) => res.json())
-      .then((data) => {
-        if (Array.isArray(data) && data.length > 0) {
-          setServiceData(data[0]);
-        }
-      })
-      .catch((err) => console.error("Error fetching service data:", err));
-  }, []);
+useEffect(() => {
+  ngrokAxiosInstance
+    .get('/dynamic/service')
+    .then((res) => {
+      if (Array.isArray(res.data) && res.data.length > 0) {
+        setServiceData(res.data[0]);
+      }
+    })
+    .catch((err) => {
+      console.error('Error fetching service data:', err.response ? err.response.data : err.message);
+    });
+}, []);
 
   if (!serviceData) return null;
 

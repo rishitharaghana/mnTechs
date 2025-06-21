@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import ngrokAxiosInstance from '../Hooks/axiosInstance';
 
 const ClientCarousel = () => {
   const [clients, setClients] = useState([]);
@@ -14,7 +14,8 @@ const ClientCarousel = () => {
 
   const fetchClients = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/dynamic/client');
+        const res = await ngrokAxiosInstance.get('/dynamic/client');
+
       const data = res.data;
 
       if (Array.isArray(data) && data.length > 0) {

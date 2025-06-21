@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
+
 import {
   Bell, Bookmark, Box, Cloud, Settings, Zap
 } from "lucide-react";
+import ngrokAxiosInstance from "../Hooks/axiosInstance";
 
 const iconMap = {
   Cloud: Cloud,
@@ -22,7 +23,8 @@ const ItServices = () => {
 
   const fetchSectionData = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/dynamic/serviceSection");
+      const response = await ngrokAxiosInstance.get('/dynamic/serviceSection');
+      
       setSectionData(response.data);
     } catch (error) {
       console.error("Error fetching service section:", error);

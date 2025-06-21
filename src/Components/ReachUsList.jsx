@@ -1,18 +1,17 @@
 import React, { useEffect, useState } from "react";
+import ngrokAxiosInstance from "../Hooks/axiosInstance";
 
 const ReachUsList = () => {
   const [reachUsEntries, setReachUsEntries] = useState([]);
 
-  useEffect(() => {
-    fetch("http://localhost:5000/reach/getAllReachUS")
-      .then((res) => res.json())
-      .then((data) => {
-        setReachUsEntries(data);
-      })
-      .catch((err) => {
-        console.error("Error fetching reach us data:", err);
-      });
-  }, []);
+useEffect(() => {
+  ngrokAxiosInstance
+    .get('/reach/getAllReachUS')
+    .then((res) => setReachUsEntries(res.data))
+    .catch((err) => {
+      console.error('Error fetching reach us data:', err.response ? err.response.data : err.message);
+    });
+}, []);
 
   return (
     <div className="max-w-5xl mx-auto mt-10">

@@ -27,6 +27,7 @@ const LatestProjects = () => {
   // GET projects
   const fetchProjects = async () => {
     try {
+      
       const res = await fetch(API_URL);
       const data = await res.json();
       setProjects(data);

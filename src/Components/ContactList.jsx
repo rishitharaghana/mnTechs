@@ -1,19 +1,17 @@
 import React, { useEffect, useState } from "react";
+import ngrokAxiosInstance from "../Hooks/axiosInstance";
 
 const ContactList = () => {
   const [contacts, setContacts] = useState([]);
 
   useEffect(() => {
-  fetch("http://localhost:5000/contact/getAllContacted")
-    .then((res) => {
-      if (!res.ok) throw new Error("Failed to fetch");
-      return res.json();
-    })
-    .then((data) => setContacts(data))
-    .catch((err) => {
-      console.error("Error fetching contacts:", err);
-      alert("Something went wrong.");
-    });
+ ngrokAxiosInstance
+  .get('/contact/getAllContacted')
+  .then((res) => setContacts(res.data))
+  .catch((err) => {
+    console.error('Error fetching contacts:', err);
+    alert('Something went wrong.');
+  });
 }, []);
 
   return (

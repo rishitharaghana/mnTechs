@@ -9,35 +9,37 @@ import {
   Youtube,
 } from "lucide-react";
 import MnTechImage from "../assets/images/mntech.png";
+import ngrokAxiosInstance from "../Hooks/axiosInstance";
 
 const Footer = () => {
   const [footerData, setFooterData] = useState(null);
 
   useEffect(() => {
-    fetch("http://localhost:5000/dynamic/footer")
-      .then((res) => res.json())
-      .then((data) => setFooterData(data[0]))
-      .catch((err) => console.error("Error loading footer data:", err));
-  }, []);
+  ngrokAxiosInstance
+    .get('/dynamic/footer') 
+    .then((res) => setFooterData(res.data[0]))
+    .catch((err) => console.error('Error loading footer data:', err.response ? err.response.data : err.message));
+}, []);
 
-  const handleSubscribe = async (e) => {
-    e.preventDefault();
-    const email = document.getElementById("default-search").value;
-    if (!email) return alert("Please enter your email");
 
-    try {
-      const res = await fetch("http://localhost:5000/newsLetter/create", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email }),
-      });
-      const data = await res.json();
-      alert(data.message || "Subscription successful");
-    } catch (error) {
-      console.error(error);
-      alert("Something went wrong");
+const handleSubscribe = async (e) => {
+  e.preventDefault();
+  const email = document.getElementById('default-search').value;
+  if (!email) return alert('Please enter your email');
+
+  try {
+    const response = await ngrokAxiosInstance.post('/newsLetter/create', { email });
+    alert(response.data.message || 'Subscription successful');
+  } catch (error) {
+    console.error('Error subscribing:', error.response ? error.response.data : error.message);
+    if (error.response?.status === 409) {
+      alert('This email is already subscribed.');
+    } else {
+      alert(error.response?.data?.error || error.response?.data?.message || 'Something went wrong');
     }
-  };
+  }
+};
+
 
   if (!footerData) return null;
 

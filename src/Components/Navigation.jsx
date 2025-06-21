@@ -1,9 +1,10 @@
 import React, { useEffect, useState,  memo } from "react";
 import {  Menu, X } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
-import axios from "axios";
+
 import MntechImage from "../assets/images/mntech.png";
 import useDropdown from "../Hooks/useDropdown";
+import ngrokAxiosInstance from "../Hooks/axiosInstance";
 
 const DesktopNavItem = memo(({ item, isScrolledOrWhitePage }) => {
   const { isOpen, setIsOpen, ref } = useDropdown();
@@ -78,7 +79,8 @@ const Navigation = () => {
   useEffect(() => {
     const fetchNavItems = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/dynamic/navigation");
+        const res = await ngrokAxiosInstance.get('/dynamic/navigation');
+       
         setNavItems(res.data);
       } catch (err) {
         console.error("Navigation fetch error:", err);

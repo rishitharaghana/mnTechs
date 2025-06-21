@@ -1,4 +1,5 @@
 import { useState } from "react";
+import ngrokAxiosInstance from "../Hooks/axiosInstance";
 
 const Contacts = () => {
   const [formData, setFormData] = useState({
@@ -20,42 +21,37 @@ const Contacts = () => {
     }));
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setSubmitting(true);
+ const handleSubmit = async (e) => {
+  e.preventDefault();
+  setSubmitting(true);
 
-    console.log("Submitting form data:", formData);
+  console.log("Submitting form data:", formData);
 
-    try {
-      const response = await fetch("http://localhost:5000/contact/contact_us", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
+  try {
+    const response = await ngrokAxiosInstance.post('/contact/contact_us', formData);
+
+    console.log("Server response:", response.data);
+
+    if (response.status >= 200 && response.status < 300) {
+      alert("Message sent successfully!");
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        message: "",
+        agreeToUpdates: false,
+        file: null,
       });
-
-      const result = await response.json();
-      console.log("Server response:", result);
-
-      if (response.ok) {
-        alert("Message sent successfully!");
-        setFormData({
-          name: "",
-          email: "",
-          phone: "",
-          message: "",
-          agreeToUpdates: false,
-          file: null,
-        });
-      } else {
-        alert(result.error || "Something went wrong.");
-      }
-    } catch (error) {
-      console.error("Error sending form:", error);
-      alert("Something went wrong.");
-    } finally {
-      setSubmitting(false);
+    } else {
+      alert(response.data.error || "Something went wrong.");
     }
-  };
+  } catch (error) {
+    console.error("Error sending form:", error);
+    alert(error.response?.data?.error || "Something went wrong.");
+  } finally {
+    setSubmitting(false);
+  }
+};
 
   return (
     <>

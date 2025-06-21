@@ -4,6 +4,8 @@ import {
   Calculator, University, Hospital, Users
 } from "lucide-react";
 
+import ngrokAxiosInstance from "../Hooks/axiosInstance";
+
 const ICON_MAP = {
   Database,
   HandCoins,
@@ -23,21 +25,18 @@ const SaasApplications = () => {
     services: [],
   });
 
-  const API_URL = "http://localhost:5000/dynamic/saasApplication";
+ useEffect(() => {
+  const fetchData = async () => {
+    try {
+      const response = await ngrokAxiosInstance.get('/dynamic/saasApplication');
+      if (response.data.length > 0) setData(response.data[0]);
+    } catch (error) {
+      console.error('Error fetching SaaS application data:', error.response ? error.response.data : error.message);
+    }
+  };
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const res = await fetch(API_URL);
-        const json = await res.json();
-        if (json.length > 0) setData(json[0]);
-      } catch (error) {
-        console.error("Error fetching SaaS application data:", error);
-      }
-    };
-
-    fetchData();
-  }, []);
+  fetchData();
+}, []);
 
   return (
     <section className="relative py-20 bg-gray-900 overflow-hidden">

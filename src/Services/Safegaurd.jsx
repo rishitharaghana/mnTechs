@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { ArrowRight } from "lucide-react";
+import ngrokAxiosInstance from "../Hooks/axiosInstance";
 
 const Safeguard = () => {
   const [data, setData] = useState({ title: "", subtitle: "", cards: [] });
@@ -7,7 +8,8 @@ const Safeguard = () => {
  
   const fetchSafeguard = async () => {
     try {
-      const res = await fetch("http://localhost:5000/dynamic/safeguard");
+      
+      const res = await ngrokAxiosInstance.get("http://localhost:5000/dynamic/safeguard");
       const allData = await res.json();
       if (allData.length > 0) {
         setData(allData[0]); 

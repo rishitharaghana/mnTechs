@@ -1,40 +1,40 @@
 import React, { useState, useEffect } from "react";
 import { MapPin, PhoneCall, MailIcon } from "lucide-react";
-import axios from "axios";
+
+import ngrokAxiosInstance from "../Hooks/axiosInstance";
 
 const ServiceFooter = () => {
   const [footerData, setFooterData] = useState(null);
   const [email, setEmail] = useState("");
 
   useEffect(() => {
-    axios
-      .get("http://localhost:5000/dynamic/serviceFooter")
-      .then((res) => {
-        setFooterData(res.data[0]);
-      })
-      .catch((err) => {
-        console.error("Error fetching footer:", err);
-      });
-  }, []);
+  ngrokAxiosInstance
+    .get('/dynamic/serviceFooter')
+    .then((res) => {
+      setFooterData(res.data[0]);
+    })
+    .catch((err) => {
+      console.error('Error fetching footer:', err.response ? err.response.data : err.message);
+    });
+}, []);
 
-  const handleSubscribe = async (e) => {
+const handleSubscribe = async (e) => {
   e.preventDefault();
-  
-  if (!email) return alert("Please enter your email");
+
+  if (!email) return alert('Please enter your email');
 
   try {
-    const res = await fetch("http://localhost:5000/newsLetter/create", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ email }),
-    });
-    const data = await res.json();
-    alert(data.message || "Subscription successful");
+    const response = await ngrokAxiosInstance.post('/newsLetter/create', { email });
+    alert(response.data.message || 'Subscription successful');
   } catch (error) {
-    console.error(error);
-    alert("Something went wrong");
+    console.error('Error subscribing:', error.response ? error.response.data : error.message);
+    if (error.response?.status === 409) {
+      alert('This email is already subscribed.');
+    } else {
+      alert(error.response?.data?.error || error.response?.data?.message || 'Something went wrong');
+    }
   }
-}
+};
 
   if (!footerData) return null;
 

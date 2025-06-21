@@ -1,5 +1,6 @@
 import React from "react";
 import useForm from "../../Hooks/useForm";
+import ngrokAxiosInstance from "../../Hooks/axiosInstance";
 
 const Form = () => {
   const { formData, handleChange } = useForm({
@@ -19,26 +20,18 @@ const Form = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch(
-        "http://localhost:5000/reach/create_reach_us",
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(formData),
-        }
-      );
+      const response = await ngrokAxiosInstance.post('/reach/create_reach_us', formData);
 
-      const result = await response.json();
-      console.log("Server response:", result);
+      console.log('Server response:', response.data);
 
-      if (response.ok) {
-        alert("Form submitted successfully!");
+      if (response.status >= 200 && response.status < 300) {
+        alert('Form submitted successfully!');
       } else {
-        alert("Submission failed: " + result.error);
+        alert('Submission failed: ' + response.data.error);
       }
     } catch (error) {
-      console.error("Error submitting form:", error);
-      alert("An error occurred.");
+      console.error('Error submitting form:', error.response ? error.response.data : error.message);
+      alert(error.response?.data?.error || 'An error occurred.');
     }
   };
 

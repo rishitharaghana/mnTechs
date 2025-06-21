@@ -2,8 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Navigation from "../Components/Navigation";
 import Footer from "../Components/Footer";
-import map from "../assets/images/map.png"; // Adjust the path as needed
-import Form from "../Components/contact/Form"; // Adjust path if your Form.jsx is elsewhere
+import map from "../assets/images/map.png"; 
+import Form from "../Components/contact/Form"; 
 import BreadCrumb from "./BreadCrumb";
 
 const Contact = () => {

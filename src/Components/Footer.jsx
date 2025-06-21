@@ -80,7 +80,9 @@ const Footer = () => {
        
         <div className="py-14 flex flex-col lg:flex-row justify-between gap-12 border-b border-gray-500">
        
-          <div className="flex flex-col sm:flex-row justify-center gap-12 w-full lg:w-4/4">
+          {/* <div className="flex flex-col sm:flex-row justify-center gap-12 w-full lg:w-4/4"> */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 w-full">
+
       
             <div>
               <h6 className="text-lg font-semibold text-white mb-6 text-center sm:text-left">MNTECHS</h6>
@@ -120,11 +122,12 @@ const Footer = () => {
             </div>
 
           
-            <div className="flex flex-col gap-5">
+            {/* <div className="flex flex-col gap-5">
               <h6 className="text-lg font-semibold text-white text-center sm:text-left">Branch Office</h6>
               <div className="flex items-start gap-2">
                 <MapPin className="w-5 h-5 flex-shrink-0" />
-                <p className="text-base font-normal text-gray-400 whitespace-nowrap transition-all duration-300 hover:text-amber-400">
+                <p className="text-base font-normal text-gray-400 transition-all duration-300 hover:text-amber-400">
+
                   2nd Floor, Some Landmark Building,<br />
                   MG Road, Bengaluru - 560001,<br />
                   Karnataka, India.
@@ -132,7 +135,7 @@ const Footer = () => {
               </div>
               <div className="flex items-start gap-2">
                 <PhoneCall className="w-5 h-5 flex-shrink-0" />
-                <p className="text-base font-normal text-gray-400 whitespace-nowrap transition-all duration-300 hover:text-amber-400">
+                <p className="text-base font-normal text-gray-400  transition-all duration-300 hover:text-amber-400">
                   +91 9876543210
                 </p>
               </div>
@@ -140,12 +143,42 @@ const Footer = () => {
                 <MailIcon className="w-5 h-5 flex-shrink-0" />
                 <a
                   href="mailto:branchsupport@example.com"
-                  className="text-base font-normal text-gray-400 whitespace-nowrap transition-all duration-300 hover:text-amber-400"
+                  className="text-base font-normal text-gray-400 transition-all duration-300 hover:text-amber-400"
                 >
                   branchsupport@example.com
                 </a>
               </div>
-            </div>
+            </div> */}
+            <div className="flex flex-col items-center sm:items-start gap-5 text-center sm:text-left">
+  <h6 className="text-lg font-semibold text-white">Branch Office</h6>
+
+  <div className="flex items-start gap-2">
+    <MapPin className="w-5 h-5 flex-shrink-0" />
+    <p className="text-base font-normal text-gray-400 transition-all duration-300 hover:text-amber-400">
+      2nd Floor, Some Landmark Building,<br />
+      MG Road, Bengaluru - 560001,<br />
+      Karnataka, India.
+    </p>
+  </div>
+
+  <div className="flex items-start gap-2">
+    <PhoneCall className="w-5 h-5 flex-shrink-0" />
+    <p className="text-base font-normal text-gray-400 transition-all duration-300 hover:text-amber-400">
+      +91 9876543210
+    </p>
+  </div>
+
+  <div className="flex items-start gap-2">
+    <MailIcon className="w-5 h-5 flex-shrink-0" />
+    <a
+      href="mailto:branchsupport@example.com"
+      className="text-base font-normal text-gray-400 transition-all duration-300 hover:text-amber-400"
+    >
+      branchsupport@example.com
+    </a>
+  </div>
+</div>
+
           </div>
 
           <div className="w-full lg:w-1/4 max-lg:mx-auto">

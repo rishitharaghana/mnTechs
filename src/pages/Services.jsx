@@ -39,7 +39,6 @@ const Services = () => {
       <BreadCrumb title="Services" />
       <Navigation />
 
-      {/* Top Section */}
       <div className="relative py-12 sm:py-16 px-4 sm:px-6 md:px-20 overflow-hidden">
         <div className="flex flex-col sm:flex-row items-center justify-between gap-6 sm:gap-10 relative z-10">
           <div className="flex items-center gap-4 sm:gap-6 max-w-xs sm:max-w-3xl">
@@ -61,14 +60,12 @@ const Services = () => {
           </div>
         </div>
 
-        {/* Divider */}
         <div className="flex items-center mt-6 sm:mt-12">
           <div className="w-4 sm:w-8 h-1 bg-orange-500"></div>
           <div className="flex-1 border-t border-gray-200 mx-2 sm:mx-4"></div>
           <div className="w-4 sm:w-8 h-1 bg-orange-500"></div>
         </div>
 
-        {/* Section Heading */}
         <div className="mt-6 sm:mt-8">
           <div className="flex items-center gap-1 sm:gap-2 text-black font-medium text-base sm:text-lg">
             <span className="w-2 h-2 bg-orange-500 rounded-full"></span>
@@ -81,7 +78,6 @@ const Services = () => {
         </div>
       </div>
 
-      {/* Services Grid */}
       <div className="px-4 sm:px-6 md:px-20 pb-12 sm:pb-20">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-6 sm:gap-8">
           {services?.map((service, index) => (
@@ -103,7 +99,6 @@ const Services = () => {
           ))}
         </div>
 
-        {/* CTA Button */}
         <div className="flex flex-col sm:flex-row items-center justify-between mt-8 sm:mt-12 px-2">
           <button
             onClick={() => navigate(callToAction?.buttonLink || "/contact")}
@@ -122,7 +117,6 @@ const Services = () => {
         </div>
       </div>
 
-      {/* Divider & More Sections */}
       <div className="flex items-center mt-6 sm:mt-12">
         <div className="w-4 sm:w-8 h-1 bg-orange-500"></div>
         <div className="flex-1 border-t border-gray-200 mx-2 sm:mx-4"></div>

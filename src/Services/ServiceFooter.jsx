@@ -17,44 +17,24 @@ const ServiceFooter = () => {
       });
   }, []);
 
-  const saveFooterData = async (data) => {
-    try {
-      if (!footerData?._id) {
-        const res = await axios.post(
-          "http://localhost:5000/dynamic/serviceFooter",
-          data
-        );
-        setFooterData(res.data.data);
-      } else {
-        const res = await axios.put(
-          `http://localhost:5000/dynamic/serviceFooter/${footerData._id}`,
-          data
-        );
-        setFooterData(res.data.data);
-      }
-    } catch (err) {
-      console.error("Save footer error:", err);
-    }
-  };
+  const handleSubscribe = async (e) => {
+  e.preventDefault();
+  
+  if (!email) return alert("Please enter your email");
 
-  // Invisible logic for Delete (admin/dev only)
-  const deleteFooter = async () => {
-    try {
-      if (footerData?._id) {
-        await axios.delete(
-          `http://localhost:5000/dynamic/serviceFooter/${footerData._id}`
-        );
-        setFooterData(null);
-      }
-    } catch (err) {
-      console.error("Delete footer error:", err);
-    }
-  };
-
-  const handleSubscribe = (e) => {
-    e.preventDefault();
-    console.log("Subscribed with email:", email);
-  };
+  try {
+    const res = await fetch("http://localhost:5000/newsLetter/create", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email }),
+    });
+    const data = await res.json();
+    alert(data.message || "Subscription successful");
+  } catch (error) {
+    console.error(error);
+    alert("Something went wrong");
+  }
+}
 
   if (!footerData) return null;
 
@@ -63,8 +43,8 @@ const ServiceFooter = () => {
     address,
     phone,
     email: footerEmail,
-    socialLinks,
-    links,
+    socialLinks = {},
+    links = [],
     copyright,
     reserved,
   } = footerData;
@@ -81,23 +61,23 @@ const ServiceFooter = () => {
             Duis autem vel eum iriure dolor in hendrerit in vulputate
           </p>
         </div>
-        <form onSubmit={handleSubscribe} className="w-full max-w-xl mx-auto">
-          <div className="relative w-full">
-            <input
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder="Your email address"
-              className="w-full px-10 py-6 pr-10 bg-white text-gray-900 text-lg font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-orange-500"
-            />
-            <button
-              type="submit"
-              className="absolute right-2 top-1 bottom-1 px-20 py-4 bg-orange-500 text-black text-lg font-semibold rounded-full hover:bg-orange-400 transition-colors"
-            >
-              Subscribe Now
-            </button>
-          </div>
-        </form>
+       <form onSubmit={handleSubscribe} className="w-full max-w-xl mx-auto">
+        <div className="relative w-full">
+          <input
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="Your email address"
+            className="w-full px-10 py-6 pr-10 bg-white text-gray-900 text-lg font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-orange-500"
+          />
+          <button
+            type="submit"
+            className="absolute right-2 top-1 bottom-1 px-20 py-4 bg-orange-500 text-black text-lg font-semibold rounded-full hover:bg-orange-400 transition-colors"
+          >
+            Subscribe Now
+          </button>
+        </div>
+      </form>
       </div>
 
       <div className="w-full py-12 px-4 sm:px-6 lg:px-8 bg-gray-900 flex flex-col md:flex-row md:justify-between md:gap-2 lg:gap-2 items-start">
@@ -106,7 +86,7 @@ const ServiceFooter = () => {
             <span className="text-2xl font-bold text-blue-800">
               {logoText?.part1}
             </span>
-            <span className="text-2xl font-bold text-white">
+            <span className="text-2xl font-bold text-white ml-1">
               {logoText?.part2}
             </span>
           </div>

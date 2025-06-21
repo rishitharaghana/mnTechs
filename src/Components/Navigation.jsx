@@ -1,5 +1,5 @@
 import React, { useEffect, useState,  memo } from "react";
-import { Search, Menu, X } from "lucide-react";
+import {  Menu, X } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import axios from "axios";
 import MntechImage from "../assets/images/mntech.png";
@@ -137,9 +137,7 @@ const Navigation = () => {
             </div>
           </div>
 
-          <div className="hidden lg:flex items-center">
-            <Search className="h-5 w-5 cursor-pointer hover:text-orange-500" />
-          </div>
+        
 
           <div className="lg:hidden">
             <button

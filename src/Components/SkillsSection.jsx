@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
+
 
 import ngrokAxiosInstance from "../Hooks/axiosInstance";
 
@@ -12,8 +14,8 @@ const SkillsSection = () => {
 
   const fetchSkills = async () => {
     try {
-      const res = await ngrokAxiosInstance.get('/dynamic/ourSkills');
-    
+      const res = await ngrokAxiosInstance.get("/dynamic/ourSkills");
+
       setData(res.data);
     } catch (error) {
       console.error("Error fetching skills:", error);
@@ -22,7 +24,8 @@ const SkillsSection = () => {
 
   if (!data) return null;
 
-  const { title, highlight, description, skills } = data;
+  const { title, highlight, description, skills, buttonLink, buttonText } =
+    data;
 
   return (
     <section className="py-20 px-10 bg-white">
@@ -39,7 +42,9 @@ const SkillsSection = () => {
             <h2 className="text-2xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
               {title?.split(" ").map((word, idx) =>
                 word === highlight ? (
-                  <span key={idx} className="text-orange-500">{word} </span>
+                  <span key={idx} className="text-orange-500">
+                    {word}{" "}
+                  </span>
                 ) : (
                   word + " "
                 )
@@ -47,7 +52,9 @@ const SkillsSection = () => {
             </h2>
           </div>
           <div className="lg:pl-8">
-            <p className="text-gray-600 leading-relaxed text-lg">{description}</p>
+            <p className="text-gray-600 leading-relaxed text-lg">
+              {description}
+            </p>
           </div>
         </div>
 
@@ -63,12 +70,17 @@ const SkillsSection = () => {
               <SkillBar key={skill._id || skill.name} skill={skill} />
             ))}
             <div className="flex justify-start lg:justify-center items-end pb-2">
-              <button className="group flex items-center gap-3">
-                <span className="font-semibold text-gray-900 text-lg">More</span>
+              <Link
+                to={buttonLink || "/"}
+                className="group flex items-center gap-3"
+              >
+                <span className="font-semibold text-gray-900 text-lg">
+                  {buttonText || "More"}
+                </span>
                 <div className="w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-110 group-hover:bg-orange-600">
                   <ArrowRight className="w-5 h-5 text-white transition-transform duration-300 group-hover:translate-x-0.5" />
                 </div>
-              </button>
+              </Link>
             </div>
           </div>
         </div>

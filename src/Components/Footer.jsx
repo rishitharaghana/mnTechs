@@ -15,31 +15,43 @@ const Footer = () => {
   const [footerData, setFooterData] = useState(null);
 
   useEffect(() => {
-  ngrokAxiosInstance
-    .get('/dynamic/footer') 
-    .then((res) => setFooterData(res.data[0]))
-    .catch((err) => console.error('Error loading footer data:', err.response ? err.response.data : err.message));
-}, []);
+    ngrokAxiosInstance
+      .get("/dynamic/footer")
+      .then((res) => setFooterData(res.data[0]))
+      .catch((err) =>
+        console.error(
+          "Error loading footer data:",
+          err.response ? err.response.data : err.message
+        )
+      );
+  }, []);
 
+  const handleSubscribe = async (e) => {
+    e.preventDefault();
+    const email = document.getElementById("default-search").value;
+    if (!email) return alert("Please enter your email");
 
-const handleSubscribe = async (e) => {
-  e.preventDefault();
-  const email = document.getElementById('default-search').value;
-  if (!email) return alert('Please enter your email');
-
-  try {
-    const response = await ngrokAxiosInstance.post('/newsLetter/create', { email });
-    alert(response.data.message || 'Subscription successful');
-  } catch (error) {
-    console.error('Error subscribing:', error.response ? error.response.data : error.message);
-    if (error.response?.status === 409) {
-      alert('This email is already subscribed.');
-    } else {
-      alert(error.response?.data?.error || error.response?.data?.message || 'Something went wrong');
+    try {
+      const response = await ngrokAxiosInstance.post("/newsLetter/create", {
+        email,
+      });
+      alert(response.data.message || "Subscription successful");
+    } catch (error) {
+      console.error(
+        "Error subscribing:",
+        error.response ? error.response.data : error.message
+      );
+      if (error.response?.status === 409) {
+        alert("This email is already subscribed.");
+      } else {
+        alert(
+          error.response?.data?.error ||
+            error.response?.data?.message ||
+            "Something went wrong"
+        );
+      }
     }
-  }
-};
-
+  };
 
   if (!footerData) return null;
 
@@ -67,25 +79,30 @@ const handleSubscribe = async (e) => {
               className="h-14 w-auto"
             />
           </a>
-       
-          <div className="flex gap-4">
-  {socialLinks?.facebook && (
-    <a href={socialLinks.facebook} target="_blank" rel="noreferrer">
-      <Facebook className="text-white hover:text-blue-500" size={30} />
-    </a>
-  )}
-  {socialLinks?.instagram && (
-    <a href={socialLinks.instagram} target="_blank" rel="noreferrer">
-      <Instagram className="text-white hover:text-red-500" size={30} />
-    </a>
-  )}
-  {socialLinks?.youtube && (
-    <a href={socialLinks.youtube} target="_blank" rel="noreferrer">
-      <Youtube className="text-white hover:text-red-500" size={30} />
-    </a>
-  )}
-</div>
 
+          <div className="flex gap-4">
+            {socialLinks?.facebook && (
+              <a href={socialLinks.facebook} target="_blank" rel="noreferrer">
+                <Facebook
+                  className="text-white hover:text-blue-500"
+                  size={30}
+                />
+              </a>
+            )}
+            {socialLinks?.instagram && (
+              <a href={socialLinks.instagram} target="_blank" rel="noreferrer">
+                <Instagram
+                  className="text-white hover:text-red-500"
+                  size={30}
+                />
+              </a>
+            )}
+            {socialLinks?.youtube && (
+              <a href={socialLinks.youtube} target="_blank" rel="noreferrer">
+                <Youtube className="text-white hover:text-red-500" size={30} />
+              </a>
+            )}
+          </div>
         </div>
 
         <div className="py-14 flex flex-col lg:flex-row justify-between gap-12 border-b border-gray-500">
@@ -140,7 +157,9 @@ const handleSubscribe = async (e) => {
               </div>
               <div className="flex items-start gap-2  hover:text-amber-400">
                 <PhoneCall className="w-5 h-5" />
-                <p className="text-base text-gray-400   hover:text-amber-400">{branch?.phone}</p>
+                <p className="text-base text-gray-400   hover:text-amber-400">
+                  {branch?.phone}
+                </p>
               </div>
               <div className="flex items-start gap-2  hover:text-amber-400">
                 <MailIcon className="w-5 h-5" />
@@ -176,12 +195,12 @@ const handleSubscribe = async (e) => {
 
         {/* Bottom Section */}
         <div className="flex flex-col md:flex-row items-center justify-between pt-7 text-sm">
-          <span>
-            <a href="/" className="hover:text-amber-400">
-              © mntechs
-            </a>{" "}
-            2025. {copyright}
-          </span>
+          
+          <span> <a href="/" className="hover:text-amber-400">
+          {copyright}
+          </a>{""}
+        </span>
+
           <div className="flex flex-wrap justify-center gap-4">
             {policyLinks?.map((item, idx) => (
               <React.Fragment key={idx}>

@@ -4,7 +4,7 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import ngrokAxiosInstance from '../Hooks/axiosInstance';
 
-const ClientCarousel = () => {
+const Clientlogo = () => {
   const [clients, setClients] = useState([]);
   const [title, setTitle] = useState('Trusted by Industry Leaders');
 
@@ -99,4 +99,4 @@ const ClientCarousel = () => {
   );
 };
 
-export default ClientCarousel;
+export default Clientlogo;

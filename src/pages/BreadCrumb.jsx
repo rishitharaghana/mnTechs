@@ -4,7 +4,6 @@ import PageBannerImg from "../assets/images/PageBanner.png";
 import Navigation from "../Components/Navigation";
 import Pattern from "../assets/Images/deco-2.png";
 
-
 const navTextStyles = `
   font-family: Sora, sans-serif;
   text-decoration: none;
@@ -13,7 +12,7 @@ const navTextStyles = `
   transition: color 0.2s cubic-bezier(0, 0, 0.3642, 1);
 `;
 
-const Breadcrumb = ({ title = "Page Title" }) => {
+const Breadcrumb = ({ title = "Page Title", paragraph }) => {
   const location = useLocation();
   const pathnames = location.pathname.split("/").filter((x) => x);
 
@@ -22,7 +21,7 @@ const Breadcrumb = ({ title = "Page Title" }) => {
 
   return (
     <div className="relative w-full h-120 overflow-hidden">
-     
+      {/* Background Image */}
       <img
         src={PageBannerImg}
         alt="Background"
@@ -30,19 +29,18 @@ const Breadcrumb = ({ title = "Page Title" }) => {
         loading="lazy"
       />
 
-     
+      {/* Decorative Pattern */}
       <div
-  className="absolute top-[47%] right-[10%] rotate-[90deg] z-[1] w-60 h-40 bg-no-repeat bg-contain pointer-events-none hidden sm:block"
-  style={{ backgroundImage: `url(${Pattern})` }}
-></div>
+        className="absolute top-[47%] right-[10%] rotate-[90deg] z-[1] w-60 h-40 bg-no-repeat bg-contain pointer-events-none hidden sm:block"
+        style={{ backgroundImage: `url(${Pattern})` }}
+      ></div>
 
-
-      
+      {/* Gradient Overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-gray-500/10 to-gray-500/10 z-5"></div>
 
-    
+      {/* Content */}
       <div className="relative z-10 top-50 px-20">
-      
+        {/* Breadcrumb Navigation */}
         <div className="text-sm text-gray-600 mb-2 sm:mb-4 flex flex-wrap items-center">
           <Link
             to="/"
@@ -73,7 +71,7 @@ const Breadcrumb = ({ title = "Page Title" }) => {
           })}
         </div>
 
-       
+        {/* Title */}
         <h1
           className={`
             text-3xl pt-8 px-4 pb-4 sm:text-4xl md:text-5xl font-bold text-[#121820]
@@ -82,6 +80,13 @@ const Breadcrumb = ({ title = "Page Title" }) => {
         >
           {title}
         </h1>
+
+        {/* Paragraph */}
+        {paragraph && (
+          <p className="text-md text-gray-600 leading-relaxed max-w-3xl px-4 pb-4">
+            {paragraph}
+          </p>
+        )}
       </div>
       <Navigation />
     </div>

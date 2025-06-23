@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Facebook, Instagram, Linkedin, Youtube } from 'lucide-react';
 import BreadCrumb from '../pages/BreadCrumb';
 import Navigation from '../Components/Navigation';
 import SaasApplications from '../Services/SaasApplications';
 import ServiceFooter from '../Services/ServiceFooter';
+import ngrokAxiosInstance from '../Hooks/axiosInstance';
 
 const Team = () => {
   const teamMembers = [

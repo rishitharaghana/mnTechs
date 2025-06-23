@@ -40,18 +40,7 @@ const SaasApplications = () => {
 
   return (
     <section className="relative py-20 bg-gray-900 overflow-hidden">
-      {/* <div className="absolute top-0 left-0 w-220px h-140px opacity-20">
-        <svg viewBox="0 0 200 200" className="w-full h-full">
-          <g stroke="#f97316" strokeWidth="2" fill="none">
-            <polygon points="50,20 80,35 80,65 50,80 20,65 20,35" />
-            <polygon points="80,35 110,50 110,80 80,95 50,80 50,50" />
-            <polygon points="110,50 140,65 140,95 110,110 80,95 80,65" />
-            <polygon points="140,65 170,80 170,110 140,125 110,110 110,80" />
-            <polygon points="50,80 80,95 80,125 50,140 20,125 20,95" />
-            <polygon points="80,95 110,110 110,140 80,155 50,140 50,110" />
-          </g>
-        </svg>
-      </div> */}
+     
       <div className="absolute top-0 left-0 w-[220px] h-[140px] opacity-20 hidden sm:block">
   <svg viewBox="0 0 200 200" className="w-full h-full">
     <g stroke="#f97316" strokeWidth="2" fill="none">
@@ -89,25 +78,31 @@ const SaasApplications = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-20">
           {data.services.map((service, index) => {
             const Icon = ICON_MAP[service.icon] || Users;
             return (
-              <div key={index} className="flex items-center space-x-3 text-white">
+              <div key={index} className="flex items-center gap-4 text-white">
                 <div className="flex-shrink-0">
                   <Icon className="w-6 h-6 text-orange-500" />
                 </div>
-                <span className="text-lg font-medium">{service.title}</span>
+                <span className="text-lg font-large">{service.title}</span>
               </div>
             );
           })}
         </div>
 
-        <div className="text-center ">
-          <button className="bg-transparent border-2 text-center border-orange-500 h-10 w-50 text-white  px-8 py-3 rounded-full font-semibold  hover:bg-orange-500    items-center justify-center transition-colors duration-300">
+        {/* <div >
+          <button className="bg-transparent border-2 text-center  border-orange-500 h-10 w-50 text-white  px-8 py-3 rounded-full font-semibold  hover:bg-orange-500    items-center justify-center transition-colors duration-300">
             Reach out to us
           </button>
-        </div>
+        </div> */}
+        <div className="flex justify-center">
+  <button className="bg-transparent border-2 border-orange-500 h-10 px-8 py-3 rounded-full font-semibold text-white hover:bg-orange-500 transition-colors duration-300 flex items-center justify-center text-center">
+    Reach out to us
+  </button>
+</div>
+
       </div>
     </section>
   );

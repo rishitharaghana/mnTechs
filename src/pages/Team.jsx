@@ -23,11 +23,11 @@ const Team = () => {
         const res = await ngrokAxiosInstance.get('/dynamic/team');
      
         setTeamInfo({
-          title: 'Our Team', // Keep default or fetch from another endpoint if available
-          description: 'Accelerate Innovation with Our Skilled Team.', // Keep default or fetch if available
+          title: 'Our Team', 
+          description: 'Accelerate Innovation with Our Skilled Team.', 
           members: res.data.map(member => ({
             ...member,
-            image: member.image.replace(/\\/g, '/'), // Replace backslashes with forward slashes
+            image: member.image.replace(/\\/g, '/'), 
           })),
         });
       } catch (error) {

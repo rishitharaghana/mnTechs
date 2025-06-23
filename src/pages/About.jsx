@@ -88,7 +88,7 @@ const About = () => {
 
             <div className="relative">
               <img
-                src={`http://localhost:5000/${image}`}
+                 src={`${ngrokAxiosInstance.defaults.baseURL.replace(/\/$/, "")}/${image.replace(/^\/+/, "").replace(/\\/g, "/")}`}
                 alt="About Section"
                 className="rounded-2xl shadow-2xl w-full"
               />

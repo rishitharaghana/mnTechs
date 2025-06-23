@@ -90,9 +90,9 @@ const Team = () => {
       <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <p className="text-lg text-gray-600 mb-2">
+            <p className="md:text-3xl text-1xl leading-tight text-gray-600 mb-2">
               It is a long established fact that a{" "}
-              <span className="text-orange-500 font-semibold">reader will be distracted</span>{" "}
+              <span className="text-orange-500 leading-tight font-semibold">Reader will be<br></br> distracted</span>{" "}
               by the readable content.
             </p>
           </div>
@@ -102,7 +102,7 @@ const Team = () => {
               <div key={member.id} className="group relative flex flex-col items-center text-center">
                 <div className="relative w-fit">
                   {/* Profile Image with gray overlay */}
-                  <div className="w-48 h-48 sm:w-56 sm:h-56 lg:w-64 lg:h-64 rounded-full overflow-hidden bg-gray-200 relative">
+                  <div className="md:w-48 md:h-48 w-full h:full sm:w-56 sm:h-56 lg:w-64 lg:h-64 md:rounded-full rounded-md overflow-hidden bg-gray-200 relative">
                     <img
                       src={member.image}
                       alt={member.name}

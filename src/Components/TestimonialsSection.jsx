@@ -57,7 +57,7 @@ const TestimonialsSection = () => {
             </h2>
           </div>
 
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-4 hidden">
             <button
               onClick={prevSlide}
               className="flex items-center gap-2 md:px-4 px-2 py-2 bg-gray-100 border-2 border-gray-300 rounded-full text-gray-700 hover:bg-orange-500 hover:text-white hover:border-orange-500 transition-all duration-300 shadow-sm"

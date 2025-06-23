@@ -85,7 +85,7 @@ const About = () => {
 
             <div className="relative">
               <img
-                src={`/${image}`}
+                src={`http://localhost:5000/${image}`}
                 alt="About Section"
                 className="rounded-2xl shadow-2xl w-full"
               />

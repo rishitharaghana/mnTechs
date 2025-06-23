@@ -26,10 +26,11 @@ const DesktopNavItem = memo(({ item, isScrolledOrWhitePage }) => {
 
   return (
     <div
-      ref={ref}
-      className="relative"
-      onMouseEnter={() => setIsOpen(true)}
-      onMouseLeave={() => setIsOpen(false)}
+    ref={ref}
+    className="relative py-2 min-h-[50px]"
+    onMouseEnter={() => setIsOpen(true)}
+    onMouseLeave={() => setIsOpen(false)}
+  
     >
       <Link
         to={item.path}
@@ -45,9 +46,6 @@ const DesktopNavItem = memo(({ item, isScrolledOrWhitePage }) => {
 
       {isOpen && (
         <div className="absolute left-0 mt-2 bg-white rounded-lg shadow-xl min-w-max z-50">
-        {/* {isOpen && (
-  <div className="absolute left-0 mt-2 bg-white rounded-lg shadow-xl min-w-max z-50 transition-all duration-300 ease-out opacity-0 translate-y-2 animate-fade-in"> */}
-
           {item.submenu.map((subItem, idx) => (
             <Link
               key={idx}

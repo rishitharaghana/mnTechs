@@ -153,12 +153,12 @@ const Contacts = () => {
               </div>
             </div>
 
-            <div className="md:col-span-2 flex justify-center mt-12">
+            <div className="md:col-span-2 flex justify-center  mt-12">
               <button
                 type="submit"
                 disabled={submitting}
                 className={`w-70 ${
-                  submitting ? "bg-orange-300" : "bg-orange-500 hover:bg-orange-400"
+                  submitting ? "bg-orange-300" : "bg-orange-500 cursor-pointer hover:bg-orange-400"
                 } text-black font-semibold py-4 px-8 rounded-full transition-colors duration-200 text-lg`}
               >
                 {submitting ? "Sending..." : "Send Message Now"}

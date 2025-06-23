@@ -13,7 +13,6 @@ const Hero = () => {
         if (res.data.length > 0) {
           const latest = res.data[0];
 
-          
           const feature_items =
             latest.features?.map((item) => ({
               label: item.title,
@@ -21,7 +20,7 @@ const Hero = () => {
               tooltip_description: item.tooltip_text,
             })) || [];
 
-          setHeroData({ ...latest, feature_items }); 
+          setHeroData({ ...latest, feature_items });
         }
       } catch (error) {
         console.error("Error fetching hero data:", error);
@@ -39,7 +38,10 @@ const Hero = () => {
       <div className="absolute bg-black bg-opacity-60 inset-0"></div>
       <div className="relative z-10 flex flex-col justify-center pt-28 lg:h-block lg:h-full ms:h-hidden px-4 md:px-10">
         <p className="text-white text-lg font-light mb-8">
-          The Next <span className="text-orange-500 font-semibold">Gen</span>
+          {heroData.intro_heading}{" "}
+          <span className="text-orange-500 font-semibold">
+            {heroData.intro_highlight}
+          </span>
         </p>
 
         <div>
@@ -56,10 +58,7 @@ const Hero = () => {
           <button className="lg:w-max w-[40%] px-6 py-3 border-2 border-orange-500 text-white hover:bg-orange-500 hover:text-white bg-transparent transition-all duration-300 rounded-full">
             {heroData.button_text}
           </button>
-          <p className="text-gray-300 max-w-xl">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          </p>
+          <p className="text-gray-300 max-w-xl">{heroData.paragraph_text}</p>
         </div>
 
         <div className="hidden lg:block absolute z-20 top-1/3 right-10 space-y-15 text-white text-lg font-semibold">

@@ -1,8 +1,5 @@
 import React, { useEffect, useState } from "react";
-
-import {
-  Bell, Bookmark, Box, Cloud, Settings, Zap
-} from "lucide-react";
+import { Bell, Bookmark, Box, Cloud, Settings, Zap } from "lucide-react";
 import ngrokAxiosInstance from "../Hooks/axiosInstance";
 
 const iconMap = {
@@ -24,7 +21,6 @@ const ItServices = () => {
   const fetchSectionData = async () => {
     try {
       const response = await ngrokAxiosInstance.get('/dynamic/serviceSection');
-      
       setSectionData(response.data);
     } catch (error) {
       console.error("Error fetching service section:", error);
@@ -33,12 +29,18 @@ const ItServices = () => {
 
   if (!sectionData) return null;
 
-  const { sectionTitle, itServicesTitle, itSolutionsTitle, itServices, itSolutions } = sectionData;
+  const {
+    sectionTitle,
+    itServicesTitle,
+    itSolutionsTitle,
+    itServices,
+    itSolutions
+  } = sectionData;
 
   return (
     <section className="relative md:py-16 py-4 px-4 sm:px-6 lg:px-8 bg-background overflow-hidden">
       <div
-        className="absolute z-50 top-0 right-0 w-32 h-32  opacity-10"
+        className="absolute z-50 top-0 right-0 w-32 h-32 opacity-10"
         style={{
           backgroundImage: `url('/ITservices Pattern.png')`,
           backgroundSize: "cover",
@@ -61,7 +63,10 @@ const ItServices = () => {
 
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
           <ServiceList title={itServicesTitle} data={itServices} />
-          <ServiceList title={itSolutionsTitle} data={itSolutions} />
+        {itSolutions?.length > 0 && (
+  <ServiceList title={itSolutionsTitle || "IT Solutions"} data={itSolutions} />
+)}
+
         </div>
       </div>
     </section>
@@ -70,9 +75,11 @@ const ItServices = () => {
 
 const ServiceList = ({ title, data }) => (
   <div>
-    <div className="flex items-center mb-12">
-      <h3 className="text-2xl sm:text-3xl font-600 text-[#121820]">{title}</h3>
-    </div>
+    {title?.trim() && (
+      <div className="flex items-center mb-12">
+        <h3 className="text-2xl sm:text-3xl font-600 text-[#121820]">{title}</h3>
+      </div>
+    )}
     <div className="flex items-center my-8">
       <div className="w-4 h-0.5 bg-orange-500"></div>
       <div className="flex-1 h-px bg-gray-800"></div>
@@ -99,6 +106,7 @@ const ServiceList = ({ title, data }) => (
     </div>
   </div>
 );
+
 
 const ServiceItem = ({ id, title, description, Icon }) => (
   <div className="group flex items-start gap-6 p-4 rounded-lg transition-all duration-300 hover:bg-gray-300">

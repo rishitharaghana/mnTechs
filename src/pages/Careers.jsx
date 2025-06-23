@@ -9,7 +9,7 @@ const Careers = () => {
     <>
     <div>
       <Navigation />
-      <BreadCrumb title='Creers' />
+      <BreadCrumb title='Careers' />
       <SaasApplications />
       <ServiceFooter />
     </div>

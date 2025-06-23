@@ -38,28 +38,30 @@ const handleSubscribe = async (e) => {
 
   if (!footerData) return null;
 
-  const {
-    logoText,
-    address,
-    phone,
-    email: footerEmail,
-    socialLinks = {},
-    links = [],
-    copyright,
-    reserved,
-  } = footerData;
+ const {
+  logoText,
+  address,
+  phone,
+  email: footerEmail,
+  socialLinks = {},
+  links = [],
+  copyright,
+  reserved,
+  joinHeading,
+  joinDescription,
+} = footerData;
 
   return (
     <footer className="bg-gray-900 text-white min-h-screen flex flex-col justify-between">
       <div className="w-full py-16 px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-12">
         <div className="md:w-1/2 text-left">
           <h2 className="text-xl sm:text-3xl font-bold text-white mb-4">
-            Join The <span className="text-orange-500">{logoText?.part1}</span>{" "}
-            {logoText?.part2} Experience
-          </h2>
-          <p className="text-gray-400 text-sm">
-            Duis autem vel eum iriure dolor in hendrerit in vulputate
-          </p>
+  {joinHeading}
+</h2>
+<p className="text-gray-400 text-sm">
+  {joinDescription}
+</p>
+
         </div>
        <form onSubmit={handleSubscribe} className="w-full max-w-xl mx-auto">
         <div className="relative w-full">
@@ -72,7 +74,7 @@ const handleSubscribe = async (e) => {
           />
           <button
             type="submit"
-            className="absolute right-2 top-1 bottom-1 px-20 py-4 bg-orange-500 text-black text-lg font-semibold rounded-full hover:bg-orange-400 transition-colors"
+            className="absolute right-2 top-1 bottom-1 px-20 cursor-pointer py-4 bg-orange-500 text-black text-lg font-semibold rounded-full hover:bg-orange-400 transition-colors"
           >
             Subscribe Now
           </button>
@@ -129,16 +131,20 @@ const handleSubscribe = async (e) => {
 
         <div>
           <h3 className="text-orange-500 font-semibold mb-4">Links</h3>
-          <ul className="space-y-2">
-            {links.map((link, i) => (
-              <li
-                key={i}
-                className="text-gray-400 hover:text-orange-500 cursor-pointer"
-              >
-                {link.label}
-              </li>
-            ))}
-          </ul>
+        <ul className="space-y-2">
+  {links.map((link, i) => (
+    <li key={i}>
+      <a
+        href={link.path}
+        className="text-gray-400 hover:text-orange-500 transition-colors"
+      >
+        {link.label}
+      </a>
+    </li>
+  ))}
+</ul>
+
+
         </div>
       </div>
 

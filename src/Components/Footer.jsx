@@ -74,10 +74,11 @@ const Footer = () => {
         <div className="flex flex-col sm:flex-row items-center justify-between pb-14 border-b border-gray-500 gap-8">
           <a href="/" aria-label="Home">
             <img
-              src={logoUrl || MnTechImage}
-              alt="MNTECHS Logo"
-              className="h-14 w-auto"
-            />
+  src={MnTechImage}
+  alt="MNTECHS Logo"
+  className="h-14 w-auto"
+/>
+
           </a>
 
           <div className="flex gap-4">

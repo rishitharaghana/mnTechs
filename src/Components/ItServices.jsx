@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Bell, Bookmark, Box, Cloud, Settings, Zap } from "lucide-react";
+import { Bell, Bookmark, Box, Cloud, Settings,  ShoppingCart,  Zap } from "lucide-react";
 import ngrokAxiosInstance from "../Hooks/axiosInstance";
 
 const iconMap = {
@@ -9,6 +9,7 @@ const iconMap = {
   Settings: Settings,
   Zap: Zap,
   Bookmark: Bookmark,
+  ShoppingCart: ShoppingCart,
 };
 
 const ItServices = () => {
@@ -32,9 +33,9 @@ const ItServices = () => {
   const {
     sectionTitle,
     itServicesTitle,
-    itSolutionsTitle,
+   productsTitle,
     itServices,
-    itSolutions
+    products
   } = sectionData;
 
   return (
@@ -61,13 +62,14 @@ const ItServices = () => {
           </h2>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
-          <ServiceList title={itServicesTitle} data={itServices} />
-        {itSolutions?.length > 0 && (
-  <ServiceList title={itSolutionsTitle || "IT Solutions"} data={itSolutions} />
+       <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
+  <ServiceList title={itServicesTitle} data={itServices} />
+  {sectionData.products?.length > 0 && (
+  <ServiceList title={sectionData.productsTitle || "Products"} data={sectionData.products} />
 )}
 
-        </div>
+</div>
+
       </div>
     </section>
   );

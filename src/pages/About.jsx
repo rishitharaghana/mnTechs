@@ -39,9 +39,12 @@ const About = () => {
   } = aboutData;
 
   return (
-    <div>
+    <div className="flex flex-col min-h-screen">
       <Navigation />
-      <BreadCrumb title="About" />
+      <BreadCrumb
+        title="About"
+        paragraph="Our distinguished team shall deliver unparalleled expertise to fulfill all technological requisites from inception to completion."
+      />
       <section id="about" className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-center">

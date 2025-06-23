@@ -26,10 +26,11 @@ const DesktopNavItem = memo(({ item, isScrolledOrWhitePage }) => {
 
   return (
     <div
-      ref={ref}
-      className="relative"
-      onMouseEnter={() => setIsOpen(true)}
-      onMouseLeave={() => setIsOpen(false)}
+    ref={ref}
+    className="relative py-2 min-h-[50px]"
+    onMouseEnter={() => setIsOpen(true)}
+    onMouseLeave={() => setIsOpen(false)}
+  
     >
       <Link
         to={item.path}

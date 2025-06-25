@@ -46,7 +46,8 @@ const App = () => (
       <Route path="/contact" element={<ContactWrapper />} />
       <Route path="*" element={<NotFound />} />
       <Route path="/careers" element={<Careers/>} />
-    
+      
+      
     </Routes>
   </BrowserRouter>
 );

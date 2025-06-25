@@ -55,7 +55,7 @@ const Hero = () => {
         </div>
 
         <div className="flex flex-col sm:flex-row sm:items-center gap-10">
-          <button className="lg:w-max w-[40%] px-6 py-3 border-2 border-orange-500 text-white hover:bg-orange-500 hover:text-white bg-transparent transition-all duration-300 rounded-full">
+          <button className="lg:w-max w-[40%] px-6 py-3 border-2 cursor-pointer border-orange-500 text-white hover:bg-orange-500 hover:text-white bg-transparent transition-all duration-300 rounded-full">
             {heroData.button_text}
           </button>
           <p className="text-gray-300 max-w-xl">{heroData.paragraph_text}</p>

@@ -37,7 +37,7 @@ const Footer = () => {
       });
       alert(response.data.message || "Subscription successful");
     } catch (error) {
-      console.error(
+      console.error( 
         "Error subscribing:",
         error.response ? error.response.data : error.message
       );
@@ -56,7 +56,7 @@ const Footer = () => {
   if (!footerData) return null;
 
   const {
-    logoUrl,
+    
     socialLinks,
     menuLinks,
     productLinks,

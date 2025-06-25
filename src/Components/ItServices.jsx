@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Bell, Bookmark, Box, Cloud, Settings,  ShoppingCart,  Zap } from "lucide-react";
+import axios from "axios";
 import ngrokAxiosInstance from "../Hooks/axiosInstance";
 
 const iconMap = {
@@ -15,18 +16,19 @@ const iconMap = {
 const ItServices = () => {
   const [sectionData, setSectionData] = useState(null);
 
-  useEffect(() => {
-    fetchSectionData();
-  }, []);
+useEffect(() => {
+  ngrokAxiosInstance
+    .get("/dynamic/serviceSection")
+    .then((res) => setSectionData(res.data))
+    .catch((err) =>
+      console.error(
+        "Error fetching service section:",
+        err.response ? err.response.data : err.message
+      )
+    );
+}, []);
 
-  const fetchSectionData = async () => {
-    try {
-      const response = await ngrokAxiosInstance.get('/dynamic/serviceSection');
-      setSectionData(response.data);
-    } catch (error) {
-      console.error("Error fetching service section:", error);
-    }
-  };
+
 
   if (!sectionData) return null;
 
@@ -35,7 +37,7 @@ const ItServices = () => {
     itServicesTitle,
    productsTitle,
     itServices,
-    products
+    products,
   } = sectionData;
 
   return (

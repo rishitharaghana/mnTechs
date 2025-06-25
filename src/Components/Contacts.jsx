@@ -109,7 +109,7 @@ const Contacts = () => {
                   Phone <span className="text-gray-400">Optional</span>
                 </label>
                 <input
-                  type="tel"
+                  type="number"
                   name="phone"
                   value={formData.phone}
                   onChange={handleInputChange}

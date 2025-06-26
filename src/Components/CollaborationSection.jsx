@@ -4,6 +4,7 @@ import {
   Wrench, BookOpen, Zap, Rocket, Code, Globe, Users, Server, Handshake,
 } from "lucide-react";
 import ngrokAxiosInstance from "../Hooks/axiosInstance";
+import { Link } from "react-router-dom";
 
 const iconMap = {
   wrench: Wrench,
@@ -81,16 +82,15 @@ const CollaborationSection = () => {
       </div>
 
       <div className="flex flex-col sm:flex-row gap-6 justify-between items-start sm:items-center">
-        <button className="group flex items-center gap-3">
+        <Link to ="/services" >
+        <button className="group flex items-center cursor-pointer gap-3">
           <span className="font-semibold text-gray-900 text-lg">Learn More</span>
           <div className="w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-110 group-hover:bg-orange-600">
             <ArrowRight className="w-5 h-5 text-white group-hover:translate-x-0.5 transition-transform duration-300" />
           </div>
         </button>
+        </Link>
 
-        <button className="group border-2 border-orange-500 text-orange-500 hover:bg-orange-50 px-8 py-3 rounded-full transition-all duration-300 font-medium">
-          How We Work
-        </button>
       </div>
     </section>
   );

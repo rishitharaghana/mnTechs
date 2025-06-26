@@ -3,7 +3,7 @@ import useForm from "../../Hooks/useForm";
 import ngrokAxiosInstance from "../../Hooks/axiosInstance";
 
 const Form = () => {
-  const { formData, handleChange } = useForm({
+  const { formData, handleChange, setFormData } = useForm({
     firstName: "",
     lastName: "",
     email: "",
@@ -18,6 +18,20 @@ const Form = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    // Validate phone number
+    const phonePattern = /^[6-9][0-9]{9}$/;
+    if (!phonePattern.test(formData.phone)) {
+      alert("Please enter a valid 10-digit phone number starting with 6-9");
+      return;
+    }
+
+    // Validate budget (let’s say limit is ₹1 crore)
+    const maxBudget = 10000000;
+    if (Number(formData.ProjectBudget) > maxBudget) {
+      alert("Project budget should not exceed ₹1,00,00,000 (1 crore)");
+      return;
+    }
+
     try {
       const response = await ngrokAxiosInstance.post('/reach/create_reach_us', formData);
 
@@ -25,6 +39,19 @@ const Form = () => {
 
       if (response.status >= 200 && response.status < 300) {
         alert('Form submitted successfully!');
+
+        // ✅ Clear form data after successful submission
+        setFormData({
+          firstName: "",
+          lastName: "",
+          email: "",
+          phone: "",
+          company: "",
+          role: "",
+          message: "",
+          ProductDesign: "",
+          ProjectBudget: "",
+        });
       } else {
         alert('Submission failed: ' + response.data.error);
       }
@@ -78,9 +105,15 @@ const Form = () => {
           <input
             type="tel"
             name="phone"
-            placeholder=""
+            inputMode="numeric"
+            pattern="[6-9][0-9]{9}"
+            maxLength={10}
+            placeholder="Enter 10-digit phone"
             value={formData.phone}
-            onChange={handleChange}
+            onChange={(e) => {
+              const value = e.target.value.replace(/\D/g, "");
+              handleChange({ target: { name: "phone", value } });
+            }}
             className={inputClass}
           />
         </div>
@@ -95,9 +128,7 @@ const Form = () => {
             <input
               type="text"
               name={field}
-              placeholder={`Your ${
-                field === "company" ? "Company Name" : "Role"
-              }`}
+              placeholder={`Your ${field === "company" ? "Company Name" : "Role"}`}
               value={formData[field]}
               onChange={handleChange}
               className={inputClass}
@@ -139,10 +170,16 @@ const Form = () => {
           Project Budget
         </label>
         <input
+          type="num"
           name="ProjectBudget"
           placeholder="Enter your budget"
           value={formData.ProjectBudget}
-          onChange={handleChange}
+          onChange={(e) => {
+            const value = e.target.value;
+            if (!value || Number(value) <= 10000000) {
+              handleChange(e);
+            }
+          }}
           className={inputClass}
         />
       </div>

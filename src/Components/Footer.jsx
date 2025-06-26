@@ -26,32 +26,42 @@ const Footer = () => {
       );
   }, []);
 
-  const handleSubscribe = async (e) => {
-    e.preventDefault();
-    const email = document.getElementById("default-search").value;
-    if (!email) return alert("Please enter your email");
+ const handleSubscribe = async (e) => {
+  e.preventDefault();
+  const emailInput = document.getElementById("default-search");
+  const email = emailInput.value;
 
-    try {
-      const response = await ngrokAxiosInstance.post("/newsLetter/create", {
-        email,
-      });
-      alert(response.data.message || "Subscription successful");
-    } catch (error) {
-      console.error( 
-        "Error subscribing:",
-        error.response ? error.response.data : error.message
+  if (!email) return alert("Please enter your email");
+
+  try {
+    const response = await ngrokAxiosInstance.post("/newsLetter/create", {
+      email,
+    });
+
+    alert(response.data.message || "Subscription successful");
+
+  } catch (error) {
+    console.error(
+      "Error subscribing:",
+      error.response ? error.response.data : error.message
+    );
+
+    if (error.response?.status === 409) {
+      alert("This email is already subscribed.");
+    } else {
+      alert(
+        error.response?.data?.error ||
+        error.response?.data?.message ||
+        "Something went wrong"
       );
-      if (error.response?.status === 409) {
-        alert("This email is already subscribed.");
-      } else {
-        alert(
-          error.response?.data?.error ||
-            error.response?.data?.message ||
-            "Something went wrong"
-        );
-      }
     }
-  };
+  } finally {
+    // ✅ Always clear input, whether success or error
+    emailInput.value = "";
+  }
+};
+
+
 
   if (!footerData) return null;
 

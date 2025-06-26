@@ -8,7 +8,7 @@ const Contacts = () => {
     phone: "",
     message: "",
     agreeToUpdates: false,
-    file: null, 
+    file: null,
   });
 
   const [submitting, setSubmitting] = useState(false);
@@ -21,38 +21,40 @@ const Contacts = () => {
     }));
   };
 
- const handleSubmit = async (e) => {
-  e.preventDefault();
-  setSubmitting(true);
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setSubmitting(true);
 
-  console.log("Submitting form data:", formData);
+    console.log("Submitting form data:", formData);
 
-  try {
- const response = await ngrokAxiosInstance.post('/contact/contact_us', formData);
+    try {
+      const response = await ngrokAxiosInstance.post(
+        "/contact/contact_us",
+        formData
+      );
 
+      console.log("Server response:", response.data);
 
-    console.log("Server response:", response.data);
-
-    if (response.status >= 200 && response.status < 300) {
-      alert("Message sent successfully!");
-      setFormData({
-        name: "",
-        email: "",
-        phone: "",
-        message: "",
-        agreeToUpdates: false,
-        file: null,
-      });
-    } else {
-      alert(response.data.error || "Something went wrong.");
+      if (response.status >= 200 && response.status < 300) {
+        alert("Message sent successfully!");
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          message: "",
+          agreeToUpdates: false,
+          file: null,
+        });
+      } else {
+        alert(response.data.error || "Something went wrong.");
+      }
+    } catch (error) {
+      console.error("Error sending form:", error);
+      alert(error.response?.data?.error || "Something went wrong.");
+    } finally {
+      setSubmitting(false);
     }
-  } catch (error) {
-    console.error("Error sending form:", error);
-    alert(error.response?.data?.error || "Something went wrong.");
-  } finally {
-    setSubmitting(false);
-  }
-};
+  };
 
   return (
     <>
@@ -91,7 +93,8 @@ const Contacts = () => {
               </div>
               <div>
                 <label className="block text-xs font-small mb-2">
-                  Email Address <span className="text-orange-500">Required</span>
+                  Email Address{" "}
+                  <span className="text-orange-500">Required</span>
                 </label>
                 <input
                   type="email"
@@ -109,13 +112,18 @@ const Contacts = () => {
                   Phone <span className="text-gray-400">Optional</span>
                 </label>
                 <input
-                  type="number"
+                  type="tel"
                   name="phone"
                   value={formData.phone}
                   onChange={handleInputChange}
-                  className="w-full px-4 py-3 bg-transparent border-b border-gray-600 focus:outline-none text-white"
-                  pattern="[6-9]{1}[0-9]{9}"
+                  onInput={(e) => {
+                    e.target.value = e.target.value.replace(/\D/g, "");
+                  }}
+                  inputMode="numeric"
+                  pattern="[6-9][0-9]{9}"
+                  maxLength={10}
                   title="Enter a valid 10-digit phone number starting with 6-9"
+                  className="w-full px-4 py-3 bg-transparent border-b border-gray-600 focus:outline-none text-white"
                 />
               </div>
             </div>
@@ -129,7 +137,6 @@ const Contacts = () => {
                   value={formData.message}
                   onChange={handleInputChange}
                   className="w-full px-4 py-3 bg-transparent border-b border-gray-600 focus:outline-none text-white"
-                 
                 />
               </div>
               <div className="space-y-4">
@@ -146,7 +153,8 @@ const Contacts = () => {
                     className="mt-1 w-4 h-4 text-orange-500 cursor-pointer bg-gray-800 border-gray-600 rounded focus:ring-orange-500 focus:ring-2"
                   />
                   <label className="text-xs text-gray-300 cursor-pointer">
-                    I would like to be contacted with news and updates about your{" "}
+                    I would like to be contacted with news and updates about
+                    your{" "}
                     <span className="text-orange-500">events and services</span>
                   </label>
                 </div>
@@ -158,7 +166,9 @@ const Contacts = () => {
                 type="submit"
                 disabled={submitting}
                 className={`w-70 ${
-                  submitting ? "bg-orange-300" : "bg-orange-500 cursor-pointer hover:bg-orange-400"
+                  submitting
+                    ? "bg-orange-300"
+                    : "bg-orange-500 cursor-pointer hover:bg-orange-400"
                 } text-black font-semibold py-4 px-8 rounded-full transition-colors duration-200 text-lg`}
               >
                 {submitting ? "Sending..." : "Send Message Now"}

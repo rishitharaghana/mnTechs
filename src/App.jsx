@@ -21,6 +21,7 @@ import Terms from "./pages/Home/Terms";
 import Privacy from "./pages/Home/Privacy";
 import Careers from "./pages/Careers";
 import ScrollToTop from "./products/Scrolltotop";
+import ScrollButton from "./Components/ScrollButton";
 
 const App = () => (
   <BrowserRouter>
@@ -49,6 +50,7 @@ const App = () => (
       
       
     </Routes>
+    <ScrollButton />
   </BrowserRouter>
 );
 export default App;

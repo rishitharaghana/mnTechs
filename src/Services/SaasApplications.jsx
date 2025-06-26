@@ -3,7 +3,7 @@ import {
   Database, HandCoins, TrendingUp, ShoppingCart,
   Calculator, University, Hospital, Users
 } from "lucide-react";
-
+import { Link } from "react-router-dom";
 import ngrokAxiosInstance from "../Hooks/axiosInstance";
 
 const ICON_MAP = {
@@ -92,16 +92,14 @@ const SaasApplications = () => {
           })}
         </div>
 
-        {/* <div >
-          <button className="bg-transparent border-2 text-center  border-orange-500 h-10 w-50 text-white  px-8 py-3 rounded-full font-semibold  hover:bg-orange-500    items-center justify-center transition-colors duration-300">
-            Reach out to us
-          </button>
-        </div> */}
+       
+        <Link to ="/contact">
         <div className="flex justify-center">
-  <button className="bg-transparent border-2 border-orange-500 h-10 px-8 py-3 rounded-full font-semibold text-white hover:bg-orange-500 transition-colors duration-300 flex items-center justify-center text-center">
+  <button className="bg-transparent border-2 cursor-pointer border-orange-500 h-10 px-8 py-3 rounded-full font-semibold text-white hover:bg-orange-500 transition-colors duration-300 flex items-center justify-center text-center">
     Reach out to us
   </button>
 </div>
+</Link>
 
       </div>
     </section>

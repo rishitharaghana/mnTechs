@@ -8,11 +8,10 @@ import ngrokAxiosInstance from '../Hooks/axiosInstance';
 
 const Team = () => {
   const [teamInfo, setTeamInfo] = useState({
-    title: 'Our Team', // Default title
-    description: 'Meet the dedicated professionals driving our success.', // Default description
+    title: 'Our Team',
+    description: 'Meet the dedicated professionals driving our success.',
     members: [],
   });
-  console.log(teamInfo)
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -21,13 +20,12 @@ const Team = () => {
       try {
         setLoading(true);
         const res = await ngrokAxiosInstance.get('/dynamic/team');
-     
         setTeamInfo({
-          title: 'Our Team', 
-          description: 'Accelerate Innovation with Our Skilled Team.', 
+          title: 'Our Team',
+          description: 'Accelerate Innovation with Our Skilled Team.',
           members: res.data.map(member => ({
             ...member,
-            image: member.image.replace(/\\/g, '/'), 
+            image: member.image.replace(/\\/g, '/'),
           })),
         });
       } catch (error) {
@@ -87,12 +85,11 @@ const Team = () => {
             {teamInfo.members.map((member) => (
               <div key={member._id} className="group relative flex flex-col items-center text-center">
                 <div className="relative w-fit">
-                  <div className="w-48 h-48 sm:w-56 sm:h-56 lg:w-64 lg:h-64 rounded-full overflow-hidden bg-gray-200 relative">
+                  <div className="w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 lg:w-56 lg:h-56 rounded-full overflow-hidden bg-gray-200 relative">
                     <img
-                     src={`${ngrokAxiosInstance.defaults.baseURL.replace(/\/$/, "")}/${member.image.replace(/^\/+/, "").replace(/\\/g, "/")}`}
+                      src={`${ngrokAxiosInstance.defaults.baseURL.replace(/\/$/, "")}/${member.image.replace(/^\/+/, "").replace(/\\/g, "/")}`}
                       alt={member.name}
                       className="w-full h-full object-cover transition-all duration-500 group-hover:scale-110 grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100"
-                      
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 

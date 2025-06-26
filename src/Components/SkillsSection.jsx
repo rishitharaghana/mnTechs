@@ -30,7 +30,6 @@ const SkillsSection = () => {
   return (
     <section className="py-20 px-10 bg-white">
       <div>
-        {/* Title & Description */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start mb-16">
           <div>
             <div className="flex items-center gap-2 mb-6">
@@ -71,7 +70,7 @@ const SkillsSection = () => {
             ))}
             <div className="flex justify-start lg:justify-center items-end pb-2">
               <Link
-                to={buttonLink || "/"}
+                to={buttonLink || "/about"}
                 className="group flex items-center gap-3"
               >
                 <span className="font-semibold text-gray-900 text-lg">

@@ -70,11 +70,11 @@ const handleSubscribe = async (e) => {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             placeholder="Your email address"
-            className="w-full px-10 py-6 pr-10 bg-white text-gray-900 text-lg font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-orange-500"
+            className="w-full px-10 md:py-6 py-3 pr-10 bg-white text-gray-900 text-lg font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-orange-500"
           />
           <button
             type="submit"
-            className="absolute right-2 top-1 bottom-1 px-20 cursor-pointer py-4 bg-orange-500 text-black text-lg font-semibold rounded-full hover:bg-orange-400 transition-colors"
+            className="absolute right-2 top-1 bottom-1  md:xs:px-20 sm:xs:px-20 px-4 cursor-pointer md:py-4 py-2  bg-orange-500 text-black md:text-lg text-sm font-semibold rounded-full hover:bg-orange-400 transition-colors"
           >
             Subscribe Now
           </button>

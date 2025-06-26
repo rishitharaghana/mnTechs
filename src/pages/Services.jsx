@@ -109,14 +109,14 @@ useEffect(() => {
           >
             {callToAction?.buttonText || "Tell us about your project"}
           </button>
-          <button className="group flex items-center gap-2 sm:gap-3 mt-4 sm:mt-0">
+          {/* <button className="group flex items-center gap-2 sm:gap-3 mt-4 sm:mt-0">
             <span className="font-semibold text-gray-900  text-base sm:text-lg">
               See More
             </span>
             <div className="w-8 sm:w-10 h-8 sm:h-10 bg-orange-500 rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-110 group-hover:bg-orange-600">
               <ArrowRight className="w-4 sm:w-5 h-4 sm:h-5 cursor-pointer text-white transition-transform duration-300 group-hover:translate-x-1" />
             </div>
-          </button>
+          </button> */}
         </div>
       </div>
 

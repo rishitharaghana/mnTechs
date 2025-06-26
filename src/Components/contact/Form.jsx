@@ -76,7 +76,7 @@ const Form = () => {
             Phone
           </label>
           <input
-            type="number"
+            type="tel"
             name="phone"
             placeholder=""
             value={formData.phone}
@@ -139,7 +139,6 @@ const Form = () => {
           Project Budget
         </label>
         <input
-          type="number"
           name="ProjectBudget"
           placeholder="Enter your budget"
           value={formData.ProjectBudget}

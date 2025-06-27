@@ -35,7 +35,10 @@ const Hero = () => {
 
   return (
 <section className="relative bg-cover bg-center bg-no-repeat min-h-[100vh] text-white">
-      <BackgroundCarousel />
+      <div className="hidden md:block">
+  <BackgroundCarousel />
+</div>
+
       <div className="absolute bg-black bg-opacity-60 inset-0"></div>
       <div className="relative z-10 flex flex-col justify-center pt-16 sm:pt-20 md:pt-24 lg:pt-28 lg:h-block lg:h-full ms:h-hidden px-4 md:px-10">
 

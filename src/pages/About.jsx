@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from 'react';
-import Navigation from '../Components/Navigation';
-import BreadCrumb from './BreadCrumb';
-import Contacts from '../components/Contacts';
-import ServiceFooter from '../Services/ServiceFooter';
-import Footer from '../Components/Footer';
-import ngrokAxiosInstance from '../Hooks/axiosInstance';
-import { useNavigate } from 'react-router-dom';
-import ValuesSection from '../Components/ValueSection';
+import React, { useEffect, useState } from "react";
+import Navigation from "../Components/Navigation";
+import BreadCrumb from "./BreadCrumb";
+import Contacts from "../Components/Contacts";
+import ServiceFooter from "../Services/ServiceFooter";
+import Footer from "../Components/Footer";
+import ngrokAxiosInstance from "../Hooks/axiosInstance";
+import { useNavigate } from "react-router-dom";
+import ValuesSection from "../Components/ValueSection";
 
 const About = () => {
   const [aboutData, setAboutData] = useState(null);
@@ -18,10 +18,10 @@ const About = () => {
 
   const fetchAboutData = async () => {
     try {
-      const res = await ngrokAxiosInstance.get('/dynamic/about');
+      const res = await ngrokAxiosInstance.get("/dynamic/about");
       setAboutData(res.data);
     } catch (error) {
-      console.error('Error fetching about data:', error);
+      console.error("Error fetching about data:", error);
     }
   };
 
@@ -57,13 +57,13 @@ const About = () => {
                   </span>
                 </div>
                 <h2 className="text-4xl lg:text-5xl font-bold text-gray-900">
-                  {title.split(' ').map((word, i) =>
+                  {title.split(" ").map((word, i) =>
                     word === highlight ? (
                       <span key={i} className="text-orange-500">
-                        {word}{' '}
+                        {word}{" "}
                       </span>
                     ) : (
-                      word + ' '
+                      word + " "
                     )
                   )}
                 </h2>
@@ -79,7 +79,7 @@ const About = () => {
               </div>
 
               <button
-                onClick={() => navigate(buttonLink || '/')}
+                onClick={() => navigate(buttonLink || "/")}
                 className="border-2 border-orange-500 cursor-pointer text-orange-500 px-8 py-3 rounded-full hover:bg-orange-500 hover:text-white transition-all duration-300"
               >
                 {buttonText}
@@ -88,7 +88,10 @@ const About = () => {
 
             <div className="relative">
               <img
-                 src={`${ngrokAxiosInstance.defaults.baseURL.replace(/\/$/, "")}/${image.replace(/^\/+/, "").replace(/\\/g, "/")}`}
+                src={`${ngrokAxiosInstance.defaults.baseURL.replace(
+                  /\/$/,
+                  ""
+                )}/${image.replace(/^\/+/, "").replace(/\\/g, "/")}`}
                 alt="About Section"
                 className="rounded-2xl shadow-2xl w-full"
               />

@@ -2,7 +2,7 @@ import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import PageBannerImg from "../assets/images/PageBanner.png";
 import Navigation from "../Components/Navigation";
-import Pattern from "../assets/Images/deco-2.png";
+import Pattern from "../assets/images/deco-2.png";
 
 const navTextStyles = `
   font-family: Sora, sans-serif;

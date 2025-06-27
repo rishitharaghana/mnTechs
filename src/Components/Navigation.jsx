@@ -1,5 +1,5 @@
-import React, { useEffect, useState,  memo } from "react";
-import {  Menu, X } from "lucide-react";
+import React, { useEffect, useState, memo } from "react";
+import { Menu, X, ChevronDown, ChevronUp } from "lucide-react"; // Added ChevronDown and ChevronUp
 import { Link, useLocation } from "react-router-dom";
 
 import MntechImage from "../assets/images/mntech.png";
@@ -26,11 +26,10 @@ const DesktopNavItem = memo(({ item, isScrolledOrWhitePage }) => {
 
   return (
     <div
-    ref={ref}
-    className="relative py-2 min-h-[50px]"
-    onMouseEnter={() => setIsOpen(true)}
-    onMouseLeave={() => setIsOpen(false)}
-  
+      ref={ref}
+      className="relative py-2 min-h-[50px]"
+      onMouseEnter={() => setIsOpen(true)}
+      onMouseLeave={() => setIsOpen(false)}
     >
       <Link
         to={item.path}
@@ -70,18 +69,29 @@ const Navigation = () => {
   const location = useLocation();
 
   const isWhiteBackgroundPage = [
-    "/services", "/contact", "/products", "/about", "/team",
-    "/products/ai-agent", "/products/app-development", "/products/billing-system",
-    "/products/crm", "/products/education-management", "/products/hospital-management",
-    "/products/payroll-management", "/products/e-commerce", "/terms", "/privacy",
-    "/careers", "/products/hrms"
+    "/services",
+    "/contact",
+    "/products",
+    "/about",
+    "/team",
+    "/products/ai-agent",
+    "/products/app-development",
+    "/products/billing-system",
+    "/products/crm",
+    "/products/education-management",
+    "/products/hospital-management",
+    "/products/payroll-management",
+    "/products/e-commerce",
+    "/terms",
+    "/privacy",
+    "/careers",
+    "/products/hrms",
   ].includes(location.pathname);
 
   useEffect(() => {
     const fetchNavItems = async () => {
       try {
-        const res = await ngrokAxiosInstance.get('/dynamic/navigation');
-       
+        const res = await ngrokAxiosInstance.get("/dynamic/navigation");
         setNavItems(res.data);
       } catch (err) {
         console.error("Navigation fetch error:", err);
@@ -116,13 +126,23 @@ const Navigation = () => {
     setActiveSubmenu((prev) => (prev === itemName ? null : itemName));
   };
 
+  // Calculate available height for submenu
+  const getSubmenuMaxHeight = () => {
+    const navbarHeight = 64; // Height of the navbar (adjust based on your design)
+    const windowHeight = window.innerHeight;
+    const menuHeight = windowHeight - navbarHeight;
+    return `${menuHeight}px`;
+  };
+
   return (
     <>
-      <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-        scrolled || isWhiteBackgroundPage
-          ? "bg-white shadow-md text-gray-800"
-          : "bg-transparent text-white"
-      }`}>
+      <nav
+        className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
+          scrolled || isWhiteBackgroundPage
+            ? "bg-white shadow-md text-gray-800"
+            : "bg-transparent text-white"
+        }`}
+      >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-10 h-16 sm:h-20 flex items-center justify-between">
           <Link to="/" className="flex items-center">
             <img src={MntechImage} alt="MN Tech Logo" className="h-8 sm:h-10 w-auto" />
@@ -139,8 +159,6 @@ const Navigation = () => {
               ))}
             </div>
           </div>
-
-        
 
           <div className="lg:hidden">
             <button
@@ -165,9 +183,11 @@ const Navigation = () => {
         aria-hidden="true"
       />
 
-      <div className={`fixed top-0 right-0 h-full w-64 sm:w-80 bg-white shadow-2xl z-50 lg:hidden transform transition-transform duration-300 ease-in-out ${
-        mobileMenuOpen ? "translate-x-0" : "translate-x-full"
-      }`}>
+      <div
+        className={`fixed top-0 right-0 h-full w-64 sm:w-80 bg-white shadow-2xl z-50 lg:hidden transform transition-transform duration-300 ease-in-out ${
+          mobileMenuOpen ? "translate-x-0" : "translate-x-full"
+        }`}
+      >
         <div className="flex flex-col h-full">
           <div className="flex items-center justify-between p-4 border-b">
             <img src={MntechImage} alt="MN Tech" className="h-8 sm:h-10" />
@@ -183,14 +203,23 @@ const Navigation = () => {
                   <>
                     <button
                       onClick={() => toggleSubmenu(item.name)}
-                      className="w-full flex justify-between py-2 px-4 text-left font-medium text-gray-800 hover:bg-gray-50 rounded-lg"
+                      className="w-full flex justify-between items-center py-2 px-4 text-left font-medium text-gray-800 hover:bg-gray-50 rounded-lg"
                     >
-                      {item.name}
-                      <span className="w-2 h-2 bg-orange-500 rounded-full"></span>
+                      <span>{item.name}</span>
+                      {activeSubmenu === item.name ? (
+                        <ChevronUp className="h-5 w-5 text-gray-800 transition-transform duration-300" />
+                      ) : (
+                        <ChevronDown className="h-5 w-5 text-gray-800 transition-transform duration-300" />
+                      )}
                     </button>
-                    <div className={`pl-4 transition-all ${
-                      activeSubmenu === item.name ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
-                    }`}>
+                    <div
+                      className={`pl-4 overflow-y-auto transition-all duration-300 ${
+                        activeSubmenu === item.name
+                          ? "max-h-[calc(100vh-200px)] opacity-100"
+                          : "max-h-0 opacity-0"
+                      }`}
+                      style={{ maxHeight: activeSubmenu === item.name ? getSubmenuMaxHeight() : "0px" }}
+                    >
                       {item.submenu.map((subItem, i) => (
                         <Link
                           key={i}

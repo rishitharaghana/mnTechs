@@ -62,41 +62,41 @@ const ServiceFooter = () => {
   return (
     <footer className="bg-gray-900 text-white">
       {/* Top Section */}
-      <div className="w-full py-12 px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row flex-wrap items-center justify-between gap-10">
-        {/* Left Info Block */}
-        <div className="w-full md:w-1/2 lg:w-2/5 text-center md:text-left">
-          <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4 text-white">
-            {joinHeading}
-          </h2>
-          <p className="text-gray-400 text-sm sm:text-base">
-            {joinDescription}
-          </p>
-        </div>
+        <div className="w-full py-12 px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row flex-wrap items-center justify-between gap-10">
+          {/* Left Info Block */}
+          <div className="w-full md:w-1/2 lg:w-2/5 text-center md:text-left">
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4 text-white">
+              {joinHeading}
+            </h2>
+            <p className="text-gray-400 text-sm sm:text-base">
+              {joinDescription}
+            </p>
+          </div>
 
-        {/* Subscription Form */}
-        <form
-          onSubmit={handleSubscribe}
-          className="w-full md:w-1/2 lg:w-2/5 flex flex-col sm:flex-row items-center justify-center md:justify-end"
-        >
-          <input
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            placeholder="Your email address"
-            className="w-full sm:w-auto px-6 py-3 bg-white text-gray-900 text-base rounded-full focus:outline-none focus:ring-2 focus:ring-orange-500"
-          />
-          <button
-            type="submit"
-            className="w-full sm:w-auto mt-3 sm:mt-0 sm:ml-3 px-6 py-3 bg-orange-500 text-black font-semibold text-sm sm:text-base rounded-full hover:bg-orange-400 transition-colors"
+          {/* Subscription Form */}
+          <form
+            onSubmit={handleSubscribe}
+            className="w-full md:w-1/2 lg:w-2/5 flex flex-col sm:flex-row items-center justify-center md:justify-end"
           >
-            Subscribe Now
-          </button>
-        </form>
-      </div>
+            <input
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="Your email address"
+              className="w-full sm:w-auto px-6 py-3 bg-white text-gray-900 text-base rounded-full focus:outline-none focus:ring-2 focus:ring-orange-500"
+            />
+            <button
+              type="submit"
+              className="w-full sm:w-auto mt-3 sm:mt-0 sm:ml-3 px-6 py-3 bg-orange-500 text-black font-semibold text-sm sm:text-base rounded-full hover:bg-orange-400 transition-colors"
+            >
+              Subscribe Now
+            </button>
+          </form>
+        </div>
 
       {/* Middle Info Section */}
       <div className="w-full py-12 md:pt-10 pt-0 px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between md:gap-10 gap-6 md:text-left">
-        <div className="flex items-center justify-center md:justify-start mb-4">
+        <div className="flex items-start justify-center md:justify-start mb-4">
             <a href="/" aria-label="Home">
               <img
                 src={MnTechImage}

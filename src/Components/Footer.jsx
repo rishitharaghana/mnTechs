@@ -118,7 +118,7 @@ const Footer = () => {
 
         <div className="py-14 flex flex-col lg:flex-row justify-between gap-12 border-b border-gray-500">
           <div className="flex flex-col sm:flex-row gap-7 md:gap-12 w-full lg:w-3/4">
-            <div className="md:p-0 p-5 border border-gray-500 rounded-md md:border-0 md:rounded-none md:border-transparent">
+            <div className="md:p-0 p-5 border border-gray-500 rounded-md md:border-0 md:rounded-none md:border-transparent bg-gray-500 shadow-md">
               <h6 className="text-lg font-semibold text-white mb-6 text-center sm:text-left">
                 {sectionTitles?.menuTitle}
               </h6>
@@ -134,7 +134,7 @@ const Footer = () => {
             </div>
 
             {/* Product Links */}
-            <div className="md:p-0 p-5 border border-gray-500 rounded-md md:border-0 md:rounded-none md:border-transparent">
+            <div className="md:p-0 p-5 border border-gray-500 rounded-md md:border-0 md:rounded-none md:border-transparent bg-gray-500 shadow-md">
               <h6 className="text-lg font-semibold text-white mb-6 text-center sm:text-left">
                 {sectionTitles?.productTitle}
               </h6>
@@ -150,7 +150,7 @@ const Footer = () => {
             </div>
 
             {/* Branch Info */}
-            <div className="flex flex-col gap-5 md:p-0 p-5 border border-gray-500 rounded-md md:border-0 md:rounded-none md:border-transparent">
+            <div className="flex flex-col gap-5 md:p-0 p-5 border border-gray-500 rounded-md md:border-0 md:rounded-none md:border-transparent bg-gray-500 shadow-md">
               <h6 className="text-lg font-semibold text-white mb-6 text-center sm:text-left">
                 {sectionTitles?.branchTitle}
               </h6>

@@ -58,7 +58,7 @@ const SkillsSection = () => {
         </div>
 
         {/* Skills Grid */}
-        <div className="space-y-12">
+        <div className="space-y-12 md:pt-10 pt-0">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 md:gap-8 gap-6 lg:gap-12">
             {skills.slice(0, 4).map((skill) => (
               <SkillBar key={skill._id || skill.name} skill={skill} />

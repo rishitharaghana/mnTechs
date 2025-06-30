@@ -56,11 +56,11 @@ const Hero = () => {
 
         <div className="flex flex-col sm:flex-row sm:items-center lg:gap-10 gap-5">
           <Link to = "/contact">
-          <button className="lg:w-max md:w-[100%] sm:w-[40%] lg:px-6 px-3 py-3 border-2 cursor-pointer border-orange-500 text-white hover:bg-orange-500 hover:text-white bg-transparent transition-all duration-300 rounded-full">
+          <button className="lg:w-max md:w-[100%] sm:w-[60%] lg:px-6 px-4 py-2 border-2 cursor-pointer border-orange-500 text-white text-sm md:text-md hover:bg-orange-500 hover:text-white bg-transparent transition-all duration-300 rounded-full">
             {heroData.button_text}
           </button>
           </Link>
-          <p className="text-gray-300c text-1xl max-w-xl">{heroData.paragraph_text}</p>
+          <p className="text-gray-300c text-sm md:text-1xl max-w-xl">{heroData.paragraph_text}</p>
         </div>
 
         

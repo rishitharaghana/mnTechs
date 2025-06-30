@@ -26,47 +26,43 @@ const Footer = () => {
       );
   }, []);
 
- const handleSubscribe = async (e) => {
-  e.preventDefault();
-  const emailInput = document.getElementById("default-search");
-  const email = emailInput.value;
+  const handleSubscribe = async (e) => {
+    e.preventDefault();
+    const emailInput = document.getElementById("default-search");
+    const email = emailInput.value;
 
-  if (!email) return alert("Please enter your email");
+    if (!email) return alert("Please enter your email");
 
-  try {
-    const response = await ngrokAxiosInstance.post("/newsLetter/create", {
-      email,
-    });
+    try {
+      const response = await ngrokAxiosInstance.post("/newsLetter/create", {
+        email,
+      });
 
-    alert(response.data.message || "Subscription successful");
-
-  } catch (error) {
-    console.error(
-      "Error subscribing:",
-      error.response ? error.response.data : error.message
-    );
-
-    if (error.response?.status === 409) {
-      alert("This email is already subscribed.");
-    } else {
-      alert(
-        error.response?.data?.error ||
-        error.response?.data?.message ||
-        "Something went wrong"
+      alert(response.data.message || "Subscription successful");
+    } catch (error) {
+      console.error(
+        "Error subscribing:",
+        error.response ? error.response.data : error.message
       );
+
+      if (error.response?.status === 409) {
+        alert("This email is already subscribed.");
+      } else {
+        alert(
+          error.response?.data?.error ||
+            error.response?.data?.message ||
+            "Something went wrong"
+        );
+      }
+    } finally {
+      // ✅ Always clear input, whether success or error
+      emailInput.value = "";
     }
-  } finally {
-    // ✅ Always clear input, whether success or error
-    emailInput.value = "";
-  }
-};
-
-
+  };
 
   if (!footerData) return null;
 
   const {
-    
     socialLinks,
     menuLinks,
     productLinks,
@@ -83,12 +79,7 @@ const Footer = () => {
       <div className="mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col sm:flex-row items-center justify-between pb-0 md:pb-14 md:border-b border-transparent md:border-gray-500 gap-8">
           <a href="/" aria-label="Home">
-            <img
-  src={MnTechImage}
-  alt="MNTECHS Logo"
-  className="h-14 w-auto"
-/>
-
+            <img src={MnTechImage} alt="MNTECHS Logo" className="h-14 w-auto" />
           </a>
 
           <div className="flex gap-4 ">
@@ -157,7 +148,7 @@ const Footer = () => {
 
               <div className="flex items-start gap-2">
                 <MapPin className="w-5 h-5" />
-                <p className="text-base text-gray-400   hover:text-amber-400">
+                <p className="md:text-base text-sm text-gray-400   hover:text-amber-400">
                   {splitAddress.map((line, i) => (
                     <span key={i}>
                       {line}
@@ -206,11 +197,13 @@ const Footer = () => {
 
         {/* Bottom Section */}
         <div className="flex relative flex-col md:flex-row items-center justify-between pt-7 text-sm">
-          
-          <span> <a href="/" className="hover:text-amber-400">
-          {copyright}
-          </a>{""}
-        </span>
+          <span>
+            {" "}
+            <a href="/" className="hover:text-amber-400">
+              {copyright}
+            </a>
+            {""}
+          </span>
 
           <div className="flex flex-wrap justify-center gap-4 absolute md:static -top-10 md:top-auto">
             {policyLinks?.map((item, idx) => (

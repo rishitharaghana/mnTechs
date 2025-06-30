@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { MapPin, PhoneCall, MailIcon } from "lucide-react";
 import ngrokAxiosInstance from "../Hooks/axiosInstance";
+import MnTechImage from "../assets/images/mntech.png";
 
 const ServiceFooter = () => {
   const [footerData, setFooterData] = useState(null);
@@ -47,7 +48,6 @@ const ServiceFooter = () => {
   if (!footerData) return null;
 
   const {
-    logoText,
     address,
     phone,
     email: footerEmail,
@@ -65,7 +65,7 @@ const ServiceFooter = () => {
       <div className="w-full py-12 px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row flex-wrap items-center justify-between gap-10">
         {/* Left Info Block */}
         <div className="w-full md:w-1/2 lg:w-2/5 text-center md:text-left">
-          <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4  text-white">
+          <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4 text-white">
             {joinHeading}
           </h2>
           <p className="text-gray-400 text-sm sm:text-base">
@@ -95,28 +95,30 @@ const ServiceFooter = () => {
       </div>
 
       {/* Middle Info Section */}
-      <div className="w-full py-12 px-4  sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between gap-10 text-center md:text-left">
-        {/* Logo and Address */}
-        <div className="w-full md:w-1/3 pl-10">
-          <div className="flex items-center justify-center md:justify-start mb-4">
-            <span className="text-2xl font-bold text-blue-800">
-              {logoText?.part1}
-            </span>
-            <span className="text-2xl font-bold text-white ml-1">
-              {logoText?.part2}
-            </span>
+      <div className="w-full py-12 md:pt-10 pt-0 px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between md:gap-10 gap-6 md:text-left">
+        <div className="flex items-center justify-center md:justify-start mb-4">
+            <a href="/" aria-label="Home">
+              <img
+                src={MnTechImage}
+                alt="MNTECHS Logo"
+                className="h-14 w-auto"
+              />
+            </a>
           </div>
+        {/* Logo and Address */}
+        <div className="w-full md:w-1/3 md:pl-10 md:p-0 p-5 border border-gray-500 rounded-md md:border-0 md:rounded-none md:border-transparent">
+          
           <div className="flex items-start gap-3 mb-2 justify-center md:justify-start">
             <MapPin className="w-5 h-5 mt-1 flex-shrink-0" />
             <p className="text-base text-gray-400 whitespace-pre-line">
               {address}
             </p>
           </div>
-          <div className="flex items-start gap-2 mb-2 justify-center md:justify-start">
+          <div className="flex items-start gap-2 mb-2 justify-start md:justify-start">
             <PhoneCall size={18} />
             <p className="text-base text-gray-400">{phone}</p>
           </div>
-          <div className="flex items-start gap-2 justify-center md:justify-start">
+          <div className="flex items-start gap-2 justify-start md:justify-start">
             <MailIcon size={18} />
             <a
               href={`mailto:${footerEmail}`}
@@ -128,14 +130,13 @@ const ServiceFooter = () => {
         </div>
 
         {/* Social Links */}
-        <div className="w-full md:w-1/3 ">
+        <div className="w-full md:w-1/3 md:pl-10 md:p-0 p-5 border border-gray-500 rounded-md md:border-0 md:rounded-none md:border-transparent">
           <h3 className="text-orange-500 font-semibold mb-4">Social</h3>
           <ul className="space-y-2">
             {Object.entries(socialLinks).map(([key, value]) => (
               <li key={key}>
                 <a
                   href={value}
-                 
                   rel="noopener noreferrer"
                   className="text-gray-400 hover:text-orange-500 transition-colors"
                 >
@@ -147,7 +148,7 @@ const ServiceFooter = () => {
         </div>
 
         {/* Page Links */}
-        <div className="w-full md:w-1/3">
+        <div className="w-full md:w-1/3 md:pl-10 md:p-0 p-5 border border-gray-500 rounded-md md:border-0 md:rounded-none md:border-transparent">
           <h3 className="text-orange-500 font-semibold mb-4">Links</h3>
           <ul className="space-y-2">
             {links.map((link, i) => (
@@ -166,8 +167,7 @@ const ServiceFooter = () => {
 
       {/* Bottom Bar */}
       <div className="flex flex-col sm:flex-row justify-between items-center border-t border-gray-700 pt-6 pb-8 text-gray-400 text-sm px-4 sm:px-6 lg:px-8 gap-4 text-center">
-        <span>{copyright}</span>
-        <div>{reserved}</div>
+        <span>{copyright}, {reserved}</span>
       </div>
     </footer>
   );

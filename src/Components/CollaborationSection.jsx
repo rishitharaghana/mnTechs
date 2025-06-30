@@ -37,7 +37,7 @@ const CollaborationSection = () => {
   if (!collabData) return null;
 
   return (
-    <section className="md:px-10 px-4 pb-5 bg-gray-50">
+    <section className="md:px-10 px-4 pb-8 bg-gray-50">
       <div className="flex items-center md:mb-16 mb-9">
         <div className="w-4 h-0.5 bg-orange-500" />
         <div className="flex-1 h-px bg-gray-800" />
@@ -81,7 +81,7 @@ const CollaborationSection = () => {
         })}
       </div>
 
-      <div className="flex flex-col mb:5 sm:flex-row gap-6 justify-between items-start sm:items-center">
+      <div className="flex flex-col sm:flex-row gap-6 justify-between items-start sm:items-center">
         <Link to ="/services" >
         <button className="group flex items-center cursor-pointer gap-3">
           <span className="font-semibold text-gray-900 text-lg">Learn More</span>

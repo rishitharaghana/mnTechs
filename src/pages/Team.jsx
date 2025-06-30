@@ -85,7 +85,7 @@ const Team = () => {
             {teamInfo.members.map((member) => (
               <div key={member._id} className="group relative flex flex-col items-center text-center">
                 <div className="relative w-fit">
-                  <div className="w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 lg:w-56 lg:h-56 rounded-full overflow-hidden bg-gray-200 relative">
+                  <div className="w-40 h-40 sm:w-40 sm:h-40 md:w-48 md:h-48 lg:w-56 lg:h-56 rounded-full overflow-hidden bg-gray-200 relative">
                     <img
                       src={`${ngrokAxiosInstance.defaults.baseURL.replace(/\/$/, "")}/${member.image.replace(/^\/+/, "").replace(/\\/g, "/")}`}
                       alt={member.name}

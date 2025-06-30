@@ -47,10 +47,10 @@ const Hero = () => {
         </p>
 
         <div>
-          <h1 className="text-3xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-semibold text-white font-syne mb-2 sm:mb-4 md:mb-6">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-semibold text-white font-syne mb-2 sm:mb-4 md:mb-6">
             <span className="block mb-2">{heroData.title_lines}</span>
             <span className="block mb-2">{heroData.subheading}</span>
-            <span className="mil-font-3 mil-accent text-2xl md:text-3xl font-black block md:mb-10 mb-5 mt-4">
+            <span className="mil-font-3 mil-accent text-1xl md:text-3xl font-black block md:mb-10 mb-5 mt-4">
               {heroData.description}
             </span>
           </h1>
@@ -62,7 +62,7 @@ const Hero = () => {
             {heroData.button_text}
           </button>
           </Link>
-          <p className="text-gray-300 max-w-xl">{heroData.paragraph_text}</p>
+          <p className="text-gray-300c text-1xl max-w-xl">{heroData.paragraph_text}</p>
         </div>
 
         

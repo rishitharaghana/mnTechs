@@ -59,7 +59,7 @@ const SkillsSection = () => {
 
         {/* Skills Grid */}
         <div className="space-y-12 md:pt-10 pt-0">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 md:gap-8 gap-6 lg:gap-12">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 md:gap-8 gap-4 lg:gap-12">
             {skills.slice(0, 4).map((skill) => (
               <SkillBar key={skill._id || skill.name} skill={skill} />
             ))}
@@ -90,11 +90,11 @@ const SkillsSection = () => {
 
 const SkillBar = ({ skill }) => (
   <div className="space-y-4">
-    <h3 className="font-semibold text-gray-900 text-lg leading-tight">
+    <h3 className="font-semibold text-gray-900 text-md md:text-lg mb-2 leading-tight">
       {skill.name}
     </h3>
     <div className="relative">
-      <div className="w-full h-2 bg-gray-200 rounded-full overflow-hidden">
+      <div className="w-full h-1 md:h-2 bg-gray-200 rounded-full overflow-hidden">
         <div
           className="h-full bg-gradient-to-r from-orange-400 to-orange-600 rounded-full transition-all duration-1000 ease-out relative"
           style={{ width: `${skill.percentage}%` }}

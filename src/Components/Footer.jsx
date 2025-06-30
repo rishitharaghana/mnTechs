@@ -81,7 +81,7 @@ const Footer = () => {
   return (
     <footer className="pb-7 bg-gray-900 text-gray-400">
       <div className="mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col sm:flex-row items-center justify-between pb-14 border-b border-gray-500 gap-8">
+        <div className="flex flex-col sm:flex-row items-center justify-between pb-0 md:pb-14 md:border-b border-transparent md:border-gray-500 gap-8">
           <a href="/" aria-label="Home">
             <img
   src={MnTechImage}
@@ -117,12 +117,12 @@ const Footer = () => {
         </div>
 
         <div className="py-14 flex flex-col lg:flex-row justify-between gap-12 border-b border-gray-500">
-          <div className="flex flex-col sm:flex-row gap-12 w-full lg:w-3/4">
-            <div>
+          <div className="flex flex-col sm:flex-row gap-7 md:gap-12 w-full lg:w-3/4">
+            <div className="md:p-0 p-5 border border-gray-500 rounded-md md:border-0 md:rounded-none md:border-transparent">
               <h6 className="text-lg font-semibold text-white mb-6 text-center sm:text-left">
                 {sectionTitles?.menuTitle}
               </h6>
-              <ul className="space-y-4 text-center sm:text-left">
+              <ul className="space-y-4 text-left md:text-center sm:text-left">
                 {menuLinks?.map((item, index) => (
                   <li key={index}>
                     <Link to={item.path} className="hover:text-amber-400">
@@ -134,11 +134,11 @@ const Footer = () => {
             </div>
 
             {/* Product Links */}
-            <div>
+            <div className="md:p-0 p-5 border border-gray-500 rounded-md md:border-0 md:rounded-none md:border-transparent">
               <h6 className="text-lg font-semibold text-white mb-6 text-center sm:text-left">
                 {sectionTitles?.productTitle}
               </h6>
-              <ul className="space-y-4 text-center sm:text-left">
+              <ul className="space-y-4 text-left md:text-center sm:text-left">
                 {productLinks?.map((item, index) => (
                   <li key={index}>
                     <Link to={item.path} className="hover:text-amber-400">
@@ -150,7 +150,7 @@ const Footer = () => {
             </div>
 
             {/* Branch Info */}
-            <div className="flex flex-col gap-5">
+            <div className="flex flex-col gap-5 md:p-0 p-5 border border-gray-500 rounded-md md:border-0 md:rounded-none md:border-transparent">
               <h6 className="text-lg font-semibold text-white mb-6 text-center sm:text-left">
                 {sectionTitles?.branchTitle}
               </h6>
@@ -185,18 +185,18 @@ const Footer = () => {
           </div>
 
           {/* Newsletter */}
-          <div className="w-80 lg:max-w-md max-lg:mx-auto">
-            <form onSubmit={handleSubscribe} className="flex flex-col gap-3">
+          <div className="w-full md:w-80 lg:max-w-md max-lg:mx-auto mb-5 md:mb-0">
+            <form onSubmit={handleSubscribe} className="flex flex-col gap-5">
               <input
                 type="email"
                 id="default-search"
-                className="w-full px-10 py-4 text-gray-600 bg-white border border-gray-300 rounded-full placeholder-gray-400"
+                className="w-full px-10 py-3 md:py-4 text-gray-600 bg-white border border-gray-300 rounded-full placeholder-gray-400"
                 placeholder="Your email address"
                 required
               />
               <button
                 type="submit"
-                className="w-full py-4 bg-orange-500 hover:bg-orange-400 rounded-full text-black font-medium"
+                className="w-full py-3 md:py-4 bg-orange-500 hover:bg-orange-400 rounded-full text-black font-medium"
               >
                 Subscribe Now
               </button>
@@ -205,14 +205,14 @@ const Footer = () => {
         </div>
 
         {/* Bottom Section */}
-        <div className="flex flex-col md:flex-row items-center justify-between pt-7 text-sm">
+        <div className="flex relative flex-col md:flex-row items-center justify-between pt-7 text-sm">
           
           <span> <a href="/" className="hover:text-amber-400">
           {copyright}
           </a>{""}
         </span>
 
-          <div className="flex flex-wrap justify-center gap-4">
+          <div className="flex flex-wrap justify-center gap-4 absolute md:static -top-10 md:top-auto">
             {policyLinks?.map((item, idx) => (
               <React.Fragment key={idx}>
                 <a href={item.path} className="hover:text-amber-400">

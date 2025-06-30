@@ -133,7 +133,7 @@ const Contacts = () => {
                 <label className="block text-xs font-small mb-2">Message</label>
                 <textarea
                   name="message"
-                  rows="9.5"
+                  rows="1"
                   value={formData.message}
                   onChange={handleInputChange}
                   className="w-full px-4 py-3 bg-transparent border-b border-gray-600 focus:outline-none text-white"

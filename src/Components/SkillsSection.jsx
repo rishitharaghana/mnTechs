@@ -102,11 +102,11 @@ const SkillBar = ({ skill }) => (
           <div className="absolute right-0 top-1/2 transform translate-x-1/2 -translate-y-1/2 w-4 h-4 bg-orange-500 rounded-full shadow-lg border-2 border-white"></div>
         </div>
       </div>
-      <div className="flex justify-end mt-2">
+      {/* <div className="flex justify-end mt-2">
         <span className="text-gray-600 font-medium text-sm">
           {skill.percentage}%
         </span>
-      </div>
+      </div> */}
     </div>
   </div>
 );

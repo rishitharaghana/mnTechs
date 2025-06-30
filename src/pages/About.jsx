@@ -52,11 +52,11 @@ const About = () => {
               <div className="space-y-4">
                 <div className="flex items-center space-x-2">
                   <div className="w-2 h-2 bg-orange-500 rounded-full"></div>
-                  <span className="text-orange-500 font-medium">
+                  <span className="md:text-md text-sm text-orange-500 font-medium">
                     {subtitle}
                   </span>
                 </div>
-                <h2 className="text-4xl lg:text-5xl font-bold text-gray-900">
+                <h2 className="md:text-4xl text-2xl lg:text-5xl font-bold text-gray-900">
                   {title.split(" ").map((word, i) =>
                     word === highlight ? (
                       <span key={i} className="text-orange-500">
@@ -70,17 +70,17 @@ const About = () => {
               </div>
 
               <div className="space-y-6">
-                <p className="text-lg text-gray-500 leading-relaxed">
+                <p className="md:text-lg text-sm text-gray-500 leading-relaxed">
                   {paragraph1}
                 </p>
-                <p className="text-lg text-gray-500 leading-relaxed">
+                <p className="md:text-lg text-sm text-gray-500 leading-relaxed">
                   {paragraph2}
                 </p>
               </div>
 
               <button
                 onClick={() => navigate(buttonLink || "/")}
-                className="border-2 border-orange-500 cursor-pointer text-orange-500 px-8 py-3 rounded-full hover:bg-orange-500 hover:text-white transition-all duration-300"
+                className="border-2 border-orange-500 cursor-pointer text-orange-500 md:px-8 px-6 md:py-3 py-2 rounded-full hover:bg-orange-500 hover:text-white transition-all duration-300"
               >
                 {buttonText}
               </button>

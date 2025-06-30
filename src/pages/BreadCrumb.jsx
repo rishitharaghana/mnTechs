@@ -3,7 +3,6 @@ import { Link, useLocation } from "react-router-dom";
 import PageBannerImg from "../assets/images/PageBanner.png";
 import Navigation from "../Components/Navigation";
 import Pattern from "../assets/images/deco-2.png";
-import { Weight } from "lucide-react";
 
 const navTextStyles = `
   font-family: Verdana, Geneva, sans-serif ; 
@@ -40,7 +39,7 @@ const Breadcrumb = ({ title = "Page Title", paragraph }) => {
       <div className="absolute inset-0 bg-gradient-to-b from-gray-500/10 to-gray-500/10 z-5"></div>
 
       {/* Content */}
-      <div className="relative z-10 top-30 px-10">
+      <div className="relative z-10 top-30 md:px-10 px-6">
         {/* Breadcrumb Navigation */}
         <div className="text-sm text-gray-600 mb-2 sm:mb-4 flex flex-wrap items-center">
           <Link
@@ -85,7 +84,7 @@ const Breadcrumb = ({ title = "Page Title", paragraph }) => {
 
         {/* Paragraph */}
         {paragraph && (
-          <p className="text-md text-gray-600 leading-relaxed max-w-3xl px-4 pb-4">
+          <p className="text-sm md:text-md text-gray-600 leading-relaxed max-w-3xl px-4 pb-4">
             {paragraph}
           </p>
         )}

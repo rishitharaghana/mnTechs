@@ -58,24 +58,17 @@ const Contacts = () => {
 
   return (
     <>
-      <div className="bg-gray-900 text-white py-16 relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-64 h-64 opacity-10">
-          <img
-            src="/deco-2.svg"
-            alt="Decoration"
-            className="w-40 md:w-50 h-auto transform"
-          />
-        </div>
-        <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 py-16 text-white">
-          <div className="text-left mb-12">
-            <h2 className="text-6xl font-bold text-white">
+      <div className="bg-gray-900 text-white relative overflow-hidden">
+        <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 py-10 pt-16 md:py-16 text-white">
+          <div className="text-left md:mb-12 mb-8">
+            <h2 className="lg:text-6xl text-3xl font-bold text-white">
               Contact <span className="text-orange-500">Us</span>
             </h2>
           </div>
 
           <form
             onSubmit={handleSubmit}
-            className="grid grid-cols-1 md:grid-cols-2 gap-12"
+            className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12"
           >
             <div className="space-y-6">
               <div>
@@ -161,15 +154,15 @@ const Contacts = () => {
               </div>
             </div>
 
-            <div className="md:col-span-2 flex justify-center  mt-12">
+            <div className="md:col-span-2 flex justify-center md:mt-12 mt-3">
               <button
                 type="submit"
                 disabled={submitting}
-                className={`w-70 ${
+                className={`w-50 md:w-70 ${
                   submitting
                     ? "bg-orange-300"
                     : "bg-orange-500 cursor-pointer hover:bg-orange-400"
-                } text-black font-semibold py-4 px-8 rounded-full transition-colors duration-200 text-lg`}
+                } text-black font-semibold py-3 px-4 md:py-4 md:px-8 rounded-full transition-colors duration-200 text-md md:text-lg`}
               >
                 {submitting ? "Sending..." : "Send Message Now"}
               </button>

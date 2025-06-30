@@ -34,8 +34,7 @@ const Hero = () => {
   if (!heroData) return null;
 
   return (
-<section className="relative bg-cover bg-center bg-no-repeat min-h-[100vh] text-white">
-      <div className="hidden md:block">
+  <section className="relative bg-cover bg-center bg-no-repeat h-screen min-h-[600px] text-white">      <div className="hidden md:block">
   <BackgroundCarousel />
 </div>
 

@@ -34,9 +34,7 @@ const Hero = () => {
   if (!heroData) return null;
 
   return (
-  <section className="relative bg-cover bg-center bg-no-repeat h-screen min-h-[600px] text-white">      <div className="hidden md:block">
-  <BackgroundCarousel />
-</div>
+  <section className="relative pt-10 md:pb-20 pb-10 text-white">
 
       <div className="absolute bg-black bg-opacity-60 inset-0"></div>
       <div className="relative z-10 flex flex-col justify-center pt-16 sm:pt-20 md:pt-24 lg:pt-28 lg:h-block lg:h-full ms:h-hidden px-4 md:px-10">

@@ -28,7 +28,7 @@ const SkillsSection = () => {
     data;
 
   return (
-    <section className="md:py-20 py-10 md:px-10 px-4 bg-white">
+    <section className="md:py-13 py-10 md:px-10 px-4 bg-white">
       <div>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-16 items-start mb-5">
           <div>

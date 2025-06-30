@@ -47,7 +47,7 @@ const TestimonialsSection = () => {
   };
 
   return (
-    <section className="md:py-20 py-10 md:px-10 px-4 bg-gray-50">
+    <section className="md:py-13 py-10 md:px-10 px-4 bg-gray-50">
       <div>
         <div className="flex justify-between items-start mb-16">
           <div>

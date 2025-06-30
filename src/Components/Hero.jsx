@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { Plus } from "lucide-react";
-import BackgroundCarousel from "./Ui/Backgroundcarousel";
 import ngrokAxiosInstance from "../Hooks/axiosInstance";
 import { Link } from "react-router-dom";
 

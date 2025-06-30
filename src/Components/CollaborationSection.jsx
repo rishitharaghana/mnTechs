@@ -38,17 +38,17 @@ const CollaborationSection = () => {
 
   return (
     <section className="md:px-10 px-4 pb-5 bg-gray-50">
-      <div className="flex items-center mb-16">
+      <div className="flex items-center md:mb-16 mb-9">
         <div className="w-4 h-0.5 bg-orange-500" />
         <div className="flex-1 h-px bg-gray-800" />
         <div className="w-4 h-0.5 bg-orange-500" />
       </div>
 
-      <div className="text-left mb-16">
+      <div className="text-left md:mb-16 mb-10">
         <p className="text-orange-500 font-medium mb-4">
           {collabData.sectionSubtitle}
         </p>
-        <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-8">
+        <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 md:mb-8 mb-5">
           {collabData.sectionTitle.split(" ").map((word, i) =>
             word.toLowerCase() === "collaborate" ? (
               <span key={i} className="text-orange-500">{word} </span>
@@ -59,11 +59,11 @@ const CollaborationSection = () => {
         </h1>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 md:gap-8 gap-6 md:mb-16 mb-10">
         {collabData.features.map((feature, index) => {
           const IconComponent = iconMap[feature.icon] || Wrench;
           return (
-            <div key={index} className="text-left">
+            <div key={index} className="text-left md:p-0 p-5 border border-gray-500 rounded-md md:border-0 md:rounded-none md:border-transparent">
               <div className="flex gap-5 items-center mb-4">
                 <div className="relative">
                   <IconComponent className="w-8 h-8 text-gray-700" />
@@ -81,7 +81,7 @@ const CollaborationSection = () => {
         })}
       </div>
 
-      <div className="flex flex-col sm:flex-row gap-6 justify-between items-start sm:items-center">
+      <div className="flex flex-col mb:5 sm:flex-row gap-6 justify-between items-start sm:items-center">
         <Link to ="/services" >
         <button className="group flex items-center cursor-pointer gap-3">
           <span className="font-semibold text-gray-900 text-lg">Learn More</span>

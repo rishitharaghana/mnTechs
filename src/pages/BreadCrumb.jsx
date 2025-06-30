@@ -40,7 +40,7 @@ const Breadcrumb = ({ title = "Page Title", paragraph }) => {
       <div className="absolute inset-0 bg-gradient-to-b from-gray-500/10 to-gray-500/10 z-5"></div>
 
       {/* Content */}
-      <div className="relative z-10 top-50 px-20">
+      <div className="relative z-10 top-30 px-10">
         {/* Breadcrumb Navigation */}
         <div className="text-sm text-gray-600 mb-2 sm:mb-4 flex flex-wrap items-center">
           <Link
@@ -72,18 +72,9 @@ const Breadcrumb = ({ title = "Page Title", paragraph }) => {
           })}
         </div>
 
-        {/* Title */}
-        {/* <h1
-          className={`
-            text-3xl pt-8 px-4 pb-4 sm:text-4xl md:text-5xl font-bold text-[#121820]
-            ${navTextStyles}
-          `}
-        >
-          {title}
-        </h1> */}
         <h1
   className={`
-    text-3xl pt-8 px-4 pb-4 sm:text-4xl md:text-5xl  text-[#121820]
+    text-3xl pt-5 px-4 pb-4 sm:text-4xl md:text-5xl  text-[#121820]
     ${navTextStyles}
   `}
   style={{ fontFamily: "Verdana, Geneva, sans-serif", fontWeight: 300 }}

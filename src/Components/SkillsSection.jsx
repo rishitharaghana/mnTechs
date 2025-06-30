@@ -28,7 +28,7 @@ const SkillsSection = () => {
     data;
 
   return (
-    <section className="py-20 px-10 bg-white">
+    <section className="md:py-20 py-10 md:px-10 px-4 bg-white">
       <div>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-16 items-start mb-5">
           <div>
@@ -58,13 +58,13 @@ const SkillsSection = () => {
         </div>
 
         {/* Skills Grid */}
-        <div className="space-y-12">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+        <div className="space-y-12 md:pt-10 pt-0">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 md:gap-8 gap-6 lg:gap-12">
             {skills.slice(0, 4).map((skill) => (
               <SkillBar key={skill._id || skill.name} skill={skill} />
             ))}
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 items-end">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 md:gap-8 gap-6 lg:gap-12 items-end">
             {skills.slice(4).map((skill) => (
               <SkillBar key={skill._id || skill.name} skill={skill} />
             ))}
@@ -76,8 +76,8 @@ const SkillsSection = () => {
                 <span className="font-semibold text-gray-900 text-lg">
                   {buttonText || "More"}
                 </span>
-                <div className="w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-110 group-hover:bg-orange-600">
-                  <ArrowRight className="w-5 h-5 text-white transition-transform duration-300 group-hover:translate-x-0.5" />
+                <div className="w-8 h-8 bg-orange-500 rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-110 group-hover:bg-orange-600">
+                  <ArrowRight className="w-4 h-4 text-white transition-transform duration-300 group-hover:translate-x-0.5" />
                 </div>
               </Link>
             </div>

@@ -48,7 +48,6 @@ const ServiceFooter = () => {
   if (!footerData) return null;
 
   const {
-    logoText,
     address,
     phone,
     email: footerEmail,
@@ -97,18 +96,18 @@ const ServiceFooter = () => {
 
       {/* Middle Info Section */}
       <div className="w-full py-12 md:pt-10 pt-0 px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between md:gap-10 gap-6 md:text-left">
+        <div className="flex items-center justify-center md:justify-start mb-4">
+            <a href="/" aria-label="Home">
+              <img
+                src={MnTechImage}
+                alt="MNTECHS Logo"
+                className="h-14 w-auto"
+              />
+            </a>
+          </div>
         {/* Logo and Address */}
         <div className="w-full md:w-1/3 md:pl-10 md:p-0 p-5 border border-gray-500 rounded-md md:border-0 md:rounded-none md:border-transparent">
-          <div className="flex items-center justify-center md:justify-start mb-4">
-            <a href="/" aria-label="Home">
-                        <img
-              src={MnTechImage}
-              alt="MNTECHS Logo"
-              className="h-14 w-auto"
-            />
-            
-                      </a>
-          </div>
+          
           <div className="flex items-start gap-3 mb-2 justify-center md:justify-start">
             <MapPin className="w-5 h-5 mt-1 flex-shrink-0" />
             <p className="text-base text-gray-400 whitespace-pre-line">
@@ -138,7 +137,6 @@ const ServiceFooter = () => {
               <li key={key}>
                 <a
                   href={value}
-                 
                   rel="noopener noreferrer"
                   className="text-gray-400 hover:text-orange-500 transition-colors"
                 >
@@ -169,8 +167,7 @@ const ServiceFooter = () => {
 
       {/* Bottom Bar */}
       <div className="flex flex-col sm:flex-row justify-between items-center border-t border-gray-700 pt-6 pb-8 text-gray-400 text-sm px-4 sm:px-6 lg:px-8 gap-4 text-center">
-        <span>{copyright}</span>
-        <div>{reserved}</div>
+        <span>{copyright}, {reserved}</span>
       </div>
     </footer>
   );

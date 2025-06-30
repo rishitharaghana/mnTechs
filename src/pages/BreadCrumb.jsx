@@ -7,7 +7,7 @@ import Pattern from "../assets/images/deco-2.png";
 const navTextStyles = `
   font-family: Verdana, Geneva, sans-serif ; 
   text-decoration: none;
-  font-weight: 100;
+  font-weight: 500;
   white-space: nowrap;
   transition: color 0.2s cubic-bezier(0, 0, 0.3642, 1);
 `;
@@ -72,15 +72,14 @@ const Breadcrumb = ({ title = "Page Title", paragraph }) => {
         </div>
 
         <h1
-  className={`
+          className={`
     text-3xl pt-5 px-4 pb-4 sm:text-4xl md:text-5xl  text-[#121820]
     ${navTextStyles}
   `}
-  style={{ fontFamily: "Verdana, Geneva, sans-serif", fontWeight: 300 }}
-
->
-  {title}
-</h1>
+          style={{ fontFamily: "Verdana, Geneva, sans-serif", fontWeight: 500 }}
+        >
+          {title}
+        </h1>
 
         {/* Paragraph */}
         {paragraph && (

@@ -45,7 +45,7 @@ const Hero = () => {
         </p>
 
         <div>
-          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-semibold text-white font-syne mb-2 sm:mb-4 md:mb-6">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-semibold text-white font-serif mb-2 sm:mb-4 md:mb-6">
             <span className="block mb-2">{heroData.title_lines}</span>
             <span className="block mb-2">{heroData.subheading}</span>
             <span className="mil-font-3 mil-accent text-1xl md:text-3xl font-black block md:mb-10 mb-5 mt-4">

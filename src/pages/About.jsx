@@ -70,10 +70,10 @@ const About = () => {
               </div>
 
               <div className="space-y-6">
-                <p className="text-lg text-gray-600 leading-relaxed">
+                <p className="text-lg text-gray-500 leading-relaxed">
                   {paragraph1}
                 </p>
-                <p className="text-lg text-gray-600 leading-relaxed">
+                <p className="text-lg text-gray-500 leading-relaxed">
                   {paragraph2}
                 </p>
               </div>

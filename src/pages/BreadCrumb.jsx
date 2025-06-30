@@ -3,11 +3,12 @@ import { Link, useLocation } from "react-router-dom";
 import PageBannerImg from "../assets/images/PageBanner.png";
 import Navigation from "../Components/Navigation";
 import Pattern from "../assets/images/deco-2.png";
+import { Weight } from "lucide-react";
 
 const navTextStyles = `
-  font-family: Sora, sans-serif;
+  font-family: Verdana, Geneva, sans-serif ; 
   text-decoration: none;
-  font-weight: 400;
+  font-weight: 100;
   white-space: nowrap;
   transition: color 0.2s cubic-bezier(0, 0, 0.3642, 1);
 `;
@@ -20,7 +21,7 @@ const Breadcrumb = ({ title = "Page Title", paragraph }) => {
     str.charAt(0).toUpperCase() + str.slice(1).replace(/-/g, " ");
 
   return (
-    <div className="relative w-full h-120 overflow-hidden">
+    <div className="relative w-full h-100 overflow-hidden">
       {/* Background Image */}
       <img
         src={PageBannerImg}
@@ -72,14 +73,24 @@ const Breadcrumb = ({ title = "Page Title", paragraph }) => {
         </div>
 
         {/* Title */}
-        <h1
+        {/* <h1
           className={`
             text-3xl pt-8 px-4 pb-4 sm:text-4xl md:text-5xl font-bold text-[#121820]
             ${navTextStyles}
           `}
         >
           {title}
-        </h1>
+        </h1> */}
+        <h1
+  className={`
+    text-3xl pt-8 px-4 pb-4 sm:text-4xl md:text-5xl  text-[#121820]
+    ${navTextStyles}
+  `}
+  style={{ fontFamily: "Verdana, Geneva, sans-serif", fontWeight: 300 }}
+
+>
+  {title}
+</h1>
 
         {/* Paragraph */}
         {paragraph && (

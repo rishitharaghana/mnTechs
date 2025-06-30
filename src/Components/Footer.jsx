@@ -91,7 +91,7 @@ const Footer = () => {
 
           </a>
 
-          <div className="flex gap-4">
+          <div className="flex gap-4 ">
             {socialLinks?.facebook && (
               <a href={socialLinks.facebook} target="_blank" rel="noreferrer">
                 <Facebook

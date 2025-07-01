@@ -9,7 +9,9 @@ const HospitalManagement = () => {
     <>
       <div>
         <Navigation />
-        <BreadCrumb title='Hospital Management'/>
+        <BreadCrumb title='Hospital Management'
+         paragraph={`Streamlining Care, Empowering Hospitals.
+Your complete digital solution for healthcare management.`} />
         <SaasApplications />
         <ServiceFooter />
       </div>

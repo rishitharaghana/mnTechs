@@ -9,7 +9,9 @@ const AppDevelopment = () => {
     <>
       <div>
         <Navigation />
-        <BreadCrumb title='App Development'/>
+        <BreadCrumb title='App Development'
+        paragraph={`Custom App Solutions for Every Need.
+iOS, Android, and Web — We’ve Got You Covered.`}/>
         <SaasApplications />
         <ServiceFooter />
       </div>

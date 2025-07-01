@@ -9,8 +9,12 @@ const EducationManagement = () => {
     <>
       <div>
         <Navigation />
-        <BreadCrumb title='Education Management'/>
-        <SaasApplications />
+        <BreadCrumb
+  title="Education Management"
+  paragraph={`Smart Solutions for Smarter Institutions.
+Digitize, centralize, and simplify every academic process.`}
+/>
+
         <ServiceFooter />
       </div>
     </>

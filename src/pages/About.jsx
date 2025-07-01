@@ -42,7 +42,8 @@ const About = () => {
       <Navigation />
       <BreadCrumb
         title="About"
-        paragraph="Driven by Consistency, Commitment, and Customer Satisfaction – we deliver beyond expectations, every time."
+        paragraph="Driven by Consistency, Commitment, and Customer Satisfaction –
+         we deliver beyond expectations, every time."
       />
       <section id="about" className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

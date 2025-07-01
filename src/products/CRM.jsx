@@ -9,7 +9,9 @@ const CRM = () => {
     <>
       <div>
         <Navigation />
-        <BreadCrumb title='CRM'/>
+        <BreadCrumb title='CRM'
+         paragraph={`Real-Time Insights. Real Customer Impact.
+Empower your team with data-driven relationship management.`}/>
         <SaasApplications />
         <ServiceFooter />
       </div>

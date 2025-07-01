@@ -9,7 +9,9 @@ const HRMS = () => {
     <>
       <div>
         <Navigation />
-        <BreadCrumb title='HRMS'/>
+        <BreadCrumb title='HRMS'
+        paragraph={`Less Paperwork. More People Work.
+An intelligent HRMS for fast-growing teams.`}/>
         <SaasApplications />
         <ServiceFooter />
       </div>

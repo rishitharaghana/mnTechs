@@ -9,7 +9,11 @@ const Careers = () => {
     <>
     <div>
       <Navigation />
-      <BreadCrumb title='Careers' />
+      <BreadCrumb
+  title="Careers"
+  paragraph={`Work where your ideas matter.
+Collaborate, create, and grow at MNTechs.`}
+/>
       <SaasApplications />
       <ServiceFooter />
     </div>

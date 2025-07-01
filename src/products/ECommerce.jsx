@@ -9,7 +9,10 @@ const ECommerce = () => {
     <>
       <div>
         <Navigation />
-        <BreadCrumb title='E-Commerce'/>
+       
+        <BreadCrumb title='E-Commerce'
+         paragraph={`Your Products Deserve the Best Platform.
+We create fast, flexible, and user-friendly online stores.`}/>
         <SaasApplications />
         <ServiceFooter />
       </div>

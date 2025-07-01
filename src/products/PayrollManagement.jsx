@@ -9,7 +9,9 @@ const PayrollManagement = () => {
     <>
       <div>
         <Navigation />
-        <BreadCrumb title='Payroll Management'/>
+        <BreadCrumb title='Payroll Management'
+          paragraph={`Effortless Payroll, Every Month.
+From salary calculations to statutory deductions — all automated.`} />
         <SaasApplications />
         <ServiceFooter />
       </div>

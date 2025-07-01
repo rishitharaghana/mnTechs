@@ -9,7 +9,9 @@ const BillingSystems = () => {
     <>
       <div>
         <Navigation />
-        <BreadCrumb title='Billing Systems'/>
+        <BreadCrumb title='Billing Systems'
+         paragraph={`Simplify Invoicing. Automate Payments.
+Smart billing solutions tailored for your business.`}/>
         <SaasApplications />
         <ServiceFooter />
       </div>

@@ -10,6 +10,7 @@ const Team = () => {
   const [teamInfo, setTeamInfo] = useState({
     title: 'Our Team',
     description: 'Meet the dedicated professionals driving our success.',
+
     members: [],
   });
   const [loading, setLoading] = useState(true);
@@ -62,7 +63,11 @@ const Team = () => {
   return (
     <div className="min-h-screen bg-white">
       <Navigation />
-      <BreadCrumb title="Team" />
+      <BreadCrumb
+  title="Team"
+  paragraph={`Engineering success through teamwork and talent.
+Your vision, our unified execution.`}
+/>
 
       <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
         <div className="max-w-7xl mx-auto">

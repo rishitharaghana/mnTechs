@@ -83,10 +83,17 @@ const Breadcrumb = ({ title = "Page Title", paragraph }) => {
 
         {/* Paragraph */}
         {paragraph && (
-          <p className="text-sm md:text-md text-gray-600 leading-relaxed max-w-3xl px-4 pb-4">
-            {paragraph}
-          </p>
-        )}
+  <p className="text-sm md:text-md text-gray-600 leading-relaxed max-w-3xl px-4 pb-4">
+    {paragraph.split('\n').map((line, idx) => (
+      <React.Fragment key={idx}>
+        {line.trim()}
+        <br />
+      </React.Fragment>
+    ))}
+  </p>
+)}
+
+        
       </div>
       <Navigation />
     </div>

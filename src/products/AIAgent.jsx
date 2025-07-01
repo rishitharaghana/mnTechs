@@ -9,7 +9,9 @@ const AIAgent = () => {
     <>
       <div>
         <Navigation />
-        <BreadCrumb title="AI Agent" />
+        <BreadCrumb title="AI Agent"
+         paragraph={`AI Agents That Work Around the Clock.
+Faster support, smarter automation, real results.`} />
         <SaasApplications />
         <ServiceFooter />
       </div>

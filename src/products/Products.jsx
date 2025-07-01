@@ -8,7 +8,11 @@ const Products = () => {
   return (
     <div>
       <Navigation />
-      <BreadCrumb title="Our Products" />
+      <BreadCrumb 
+      title="Our Products" 
+      paragraph={`Explore Smart Solutions for Every Need.
+Power-packed products tailored to transform.`} />
+      
       <SaasApplications />
       <ServiceFooter />
     </div>

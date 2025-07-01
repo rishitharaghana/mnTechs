@@ -10,7 +10,9 @@ const Contact = () => {
   return (
     <div className="min-h-screen w-full flex flex-col">
       <Navigation className="bg-gray-50" />
-      <BreadCrumb title='Reach US' />
+      <BreadCrumb title='Reach US'
+      paragraph={`Your journey with MNTechs begins here.
+Reach out — the future is just a message away.`} />
       
       <div className="relative py-10 px-4 md:px-20 bg-white">
         <img

@@ -1,5 +1,5 @@
 import React, { useEffect, useState, memo } from "react";
-import { Menu, X, ChevronDown, ChevronUp } from "lucide-react"; // Added ChevronDown and ChevronUp
+import { Menu, X, ChevronDown, ChevronUp } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 
 import MntechImage from "../assets/images/mntech.png";
@@ -8,13 +8,22 @@ import ngrokAxiosInstance from "../Hooks/axiosInstance";
 
 const DesktopNavItem = memo(({ item, isScrolledOrWhitePage }) => {
   const { isOpen, setIsOpen, ref } = useDropdown();
+  const location = useLocation(); // Get current location
+
+  // Check if the current item or its submenu is active
+  const isActive =
+    item.path === location.pathname ||
+    (item.submenu &&
+      item.submenu.some((subItem) => subItem.path === location.pathname));
 
   if (!item.submenu || item.submenu.length === 0) {
     return (
       <Link
         to={item.path}
         className={`px-3 py-2 text-md font-medium transition-colors duration-300 ${
-          isScrolledOrWhitePage
+          isActive
+            ? "text-orange-500"
+            : isScrolledOrWhitePage
             ? "text-gray-800 hover:text-orange-500"
             : "text-white hover:text-orange-400"
         }`}
@@ -34,7 +43,9 @@ const DesktopNavItem = memo(({ item, isScrolledOrWhitePage }) => {
       <Link
         to={item.path}
         className={`flex items-center gap-1 px-3 py-2 text-md font-medium transition-colors duration-300 ${
-          isScrolledOrWhitePage
+          isActive
+            ? "text-orange-500"
+            : isScrolledOrWhitePage
             ? "text-gray-800 hover:text-orange-500"
             : "text-white hover:text-orange-400"
         }`}
@@ -49,7 +60,11 @@ const DesktopNavItem = memo(({ item, isScrolledOrWhitePage }) => {
             <Link
               key={idx}
               to={subItem.path}
-              className="block px-5 py-2 text-md font-medium text-gray-700 hover:bg-orange-50 hover:text-orange-600 transition-colors duration-200"
+              className={`block px-5 py-2 text-md font-medium transition-colors duration-200 ${
+                subItem.path === location.pathname
+                  ? "text-orange-500 bg-orange-50"
+                  : "text-gray-700 hover:bg-orange-50 hover:text-orange-600"
+              }`}
               onClick={() => setIsOpen(false)}
             >
               {subItem.name}
@@ -126,9 +141,8 @@ const Navigation = () => {
     setActiveSubmenu((prev) => (prev === itemName ? null : itemName));
   };
 
-  // Calculate available height for submenu
   const getSubmenuMaxHeight = () => {
-    const navbarHeight = 64; // Height of the navbar (adjust based on your design)
+    const navbarHeight = 64;
     const windowHeight = window.innerHeight;
     const menuHeight = windowHeight - navbarHeight;
     return `${menuHeight}px`;
@@ -203,7 +217,12 @@ const Navigation = () => {
                   <>
                     <button
                       onClick={() => toggleSubmenu(item.name)}
-                      className="w-full flex justify-between items-center py-2 px-4 text-left font-medium text-gray-800 hover:bg-gray-50 rounded-lg"
+                      className={`w-full flex justify-between items-center py-2 px-4 text-left font-medium rounded-lg ${
+                        item.path === location.pathname ||
+                        item.submenu.some((subItem) => subItem.path === location.pathname)
+                          ? "text-orange-500 bg-orange-50"
+                          : "text-gray-800 hover:bg-gray-50 hover:text-orange-600"
+                      }`}
                     >
                       <span>{item.name}</span>
                       {activeSubmenu === item.name ? (
@@ -224,7 +243,11 @@ const Navigation = () => {
                         <Link
                           key={i}
                           to={subItem.path}
-                          className="block py-1 px-4 text-sm text-gray-600 hover:text-orange-600 hover:bg-orange-50 rounded-md"
+                          className={`block py-1 px-4 text-sm rounded-md ${
+                            subItem.path === location.pathname
+                              ? "text-orange-500 bg-orange-50"
+                              : "text-gray-600 hover:text-orange-600 hover:bg-orange-50"
+                          }`}
                           onClick={toggleMobileMenu}
                         >
                           {subItem.name}
@@ -235,7 +258,11 @@ const Navigation = () => {
                 ) : (
                   <Link
                     to={item.path}
-                    className="block py-2 px-4 text-gray-800 hover:bg-gray-50 hover:text-orange-600 rounded-lg font-medium"
+                    className={`block py-2 px-4 rounded-lg font-medium ${
+                      item.path === location.pathname
+                        ? "text-orange-500 bg-orange-50"
+                        : "text-gray-800 hover:bg-gray-50 hover:text-orange-600"
+                    }`}
                     onClick={toggleMobileMenu}
                   >
                     {item.name}

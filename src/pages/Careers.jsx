@@ -11,7 +11,7 @@ const Careers = () => {
         <Navigation />
         <BreadCrumb
           title="Careers"
-          paragraph="Work where your ideas matter. Collaborate, create, and grow at MNTechs."
+          paragraph={`Work where your ideas matter. Collaborate, create, and grow at MNTechs.`}
         />
         <SaasApplications />
         <ServiceFooter />

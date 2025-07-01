@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { MapPin, PhoneCall, MailIcon } from "lucide-react";
+import { MapPin, PhoneCall, MailIcon, Facebook, Instagram, Youtube } from "lucide-react";
 import ngrokAxiosInstance from "../Hooks/axiosInstance";
 import MnTechImage from "../assets/images/mntech.png";
 
@@ -61,48 +61,80 @@ const ServiceFooter = () => {
 
   return (
     <footer className="bg-gray-900 text-white">
-        <div className="w-full py-12 px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row flex-wrap items-center justify-between gap-10">
-          <div className="w-full md:w-1/2 lg:w-2/5 text-center md:text-left">
-            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4 text-white">
-              {joinHeading}
-            </h2>
-            <p className="text-gray-400 text-sm sm:text-base">
-              {joinDescription}
-            </p>
-          </div>
-
-          <form
-            onSubmit={handleSubscribe}
-            className="w-full md:w-1/2 lg:w-2/5 flex flex-col sm:flex-row items-center justify-center md:justify-end"
-          >
-            <input
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder="Your email address"
-              className="w-full sm:w-auto px-6 py-3 bg-white text-gray-900 text-base rounded-full focus:outline-none focus:ring-2 focus:ring-orange-500"
-            />
-            <button
-              type="submit"
-              className="w-full sm:w-auto mt-3 sm:mt-0 sm:ml-3 px-6 py-3 bg-orange-500 text-black font-semibold text-sm sm:text-base rounded-full hover:bg-orange-400 transition-colors"
-            >
-              Subscribe Now
-            </button>
-          </form>
+      <div className="w-full py-12 px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row flex-wrap items-center justify-between gap-10">
+        <div className="w-full md:w-1/2 lg:w-2/5 text-center md:text-left">
+          <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4 text-white">
+            {joinHeading}
+          </h2>
+          <p className="text-gray-400 text-sm sm:text-base">
+            {joinDescription}
+          </p>
         </div>
 
+        <form
+          onSubmit={handleSubscribe}
+          className="w-full md:w-1/2 lg:w-2/5 flex flex-col sm:flex-row items-center justify-center md:justify-end"
+        >
+          <input
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="Your email address"
+            className="w-full sm:w-auto px-6 py-3 bg-white text-gray-900 text-base rounded-full focus:outline-none focus:ring-2 focus:ring-orange-500"
+          />
+          <button
+            type="submit"
+            className="w-full sm:w-auto mt-3 sm:mt-0 sm:ml-3 px-6 py-3 bg-orange-500 text-black font-semibold text-sm sm:text-base rounded-full hover:bg-orange-400 transition-colors"
+          >
+            Subscribe Now
+          </button>
+        </form>
+      </div>
+
       <div className="w-full py-12 md:pt-10 pt-0 px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between md:gap-10 gap-6 md:text-left">
-        <div className="flex items-start justify-center md:justify-start mb-4">
-            <a href="/" aria-label="Home">
-              <img
-                src={MnTechImage}
-                alt="MNTECHS Logo"
-                className="h-14 w-auto"
-              />
-            </a>
+        <div className="flex flex-col items-start justify-center md:justify-start mb-4">
+          <a href="/" aria-label="Home">
+            <img
+              src={MnTechImage}
+              alt="MNTECHS Logo"
+              className="h-23 w-auto"
+            />
+          </a>
+          <div className="flex items-center gap-4 mt-10">
+            {socialLinks.facebook && (
+              <a
+                href={socialLinks.facebook}
+                rel="noopener noreferrer"
+                aria-label="Facebook"
+                className="text-white hover:text-orange-500 transition-colors"
+              >
+                <Facebook className="w-6 h-6" />
+              </a>
+            )}
+            {socialLinks.instagram && (
+              <a
+                href={socialLinks.instagram}
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+                className="text-white hover:text-orange-500 transition-colors"
+              >
+                <Instagram className="w-6 h-6" />
+              </a>
+            )}
+            {socialLinks.youtube && (
+              <a
+                href={socialLinks.youtube}
+                rel="noopener noreferrer"
+                aria-label="YouTube"
+                className="text-white hover:text-orange-500 transition-colors"
+              >
+                <Youtube className="w-6 h-6" />
+              </a>
+            )}
           </div>
+        </div>
         <div className="w-full md:w-1/3 md:pl-10 md:p-0 p-5 border border-gray-500 rounded-md md:border-0 md:rounded-none md:border-transparent">
-          
+          <h3 className="text-orange-500 font-semibold mb-4">Address</h3>
           <div className="flex items-start gap-3 mb-2 justify-center md:justify-start">
             <MapPin className="w-5 h-5 mt-1 flex-shrink-0" />
             <p className="text-base text-gray-400 whitespace-pre-line">

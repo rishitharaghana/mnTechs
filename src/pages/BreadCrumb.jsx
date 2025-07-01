@@ -20,18 +20,18 @@ const Breadcrumb = ({ title = "Page Title", paragraph }) => {
     str.charAt(0).toUpperCase() + str.slice(1).replace(/-/g, " ");
 
   return (
-    <div className="relative w-full h-100 overflow-hidden">
+    <div className="relative w-full h-auto pt-5 md:pt-15 pb-35 md:pb-40 overflow-hidden">
       {/* Background Image */}
       <img
         src={PageBannerImg}
         alt="Background"
-        className="absolute inset-0 w-full h-full object-cover bg-no-repeat bg-cover"
+        className="absolute inset-0 w-full h-auto object-cover bg-no-repeat bg-cover"
         loading="lazy"
       />
 
       {/* Decorative Pattern */}
       <div
-        className="absolute top-[47%] right-[10%] rotate-[90deg] z-[1] w-60 h-40 bg-no-repeat bg-contain pointer-events-none hidden sm:block"
+        className="absolute top-[40%] right-[10%] rotate-[90deg] z-[1] w-60 h-40 bg-no-repeat bg-contain pointer-events-none hidden sm:block"
         style={{ backgroundImage: `url(${Pattern})` }}
       ></div>
 
@@ -39,7 +39,7 @@ const Breadcrumb = ({ title = "Page Title", paragraph }) => {
       <div className="absolute inset-0 bg-gradient-to-b from-gray-500/10 to-gray-500/10 z-5"></div>
 
       {/* Content */}
-      <div className="relative z-10 top-30 md:px-10 px-6">
+      <div className="relative z-10 top-25 md:px-10 px-6">
         {/* Breadcrumb Navigation */}
         <div className="text-sm text-gray-600 mb-2 sm:mb-4 flex flex-wrap items-center">
           <Link

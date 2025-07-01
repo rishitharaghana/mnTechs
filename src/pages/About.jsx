@@ -3,7 +3,6 @@ import Navigation from "../Components/Navigation";
 import BreadCrumb from "./BreadCrumb";
 import Contacts from "../Components/Contacts";
 import ServiceFooter from "../Services/ServiceFooter";
-import Footer from "../Components/Footer";
 import ngrokAxiosInstance from "../Hooks/axiosInstance";
 import { useNavigate } from "react-router-dom";
 import ValuesSection from "../Components/ValueSection";
@@ -43,7 +42,7 @@ const About = () => {
       <Navigation />
       <BreadCrumb
         title="About"
-        paragraph="Our distinguished team shall deliver unparalleled expertise to fulfill all technological requisites from inception to completion."
+        paragraph="Driven by Consistency, Commitment, and Customer Satisfaction – we deliver beyond expectations, every time."
       />
       <section id="about" className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

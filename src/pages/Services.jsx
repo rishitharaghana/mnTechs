@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { CiCloud } from "react-icons/ci";
-import { ArrowRight } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import Navigation from "../Components/Navigation";
 import Safegaurd from "../Services/Safegaurd";
@@ -13,33 +12,33 @@ const Services = () => {
   const navigate = useNavigate();
   const [serviceData, setServiceData] = useState(null);
 
-useEffect(() => {
-  ngrokAxiosInstance
-    .get('/dynamic/service')
-    .then((res) => {
-      if (Array.isArray(res.data) && res.data.length > 0) {
-        setServiceData(res.data[0]);
-      }
-    })
-    .catch((err) => {
-      console.error('Error fetching service data:', err.response ? err.response.data : err.message);
-    });
-}, []);
+  useEffect(() => {
+    ngrokAxiosInstance
+      .get("/dynamic/service")
+      .then((res) => {
+        if (Array.isArray(res.data) && res.data.length > 0) {
+          setServiceData(res.data[0]);
+        }
+      })
+      .catch((err) => {
+        console.error(
+          "Error fetching service data:",
+          err.response ? err.response.data : err.message
+        );
+      });
+  }, []);
 
   if (!serviceData) return null;
 
-  const {
-    topBanner,
-    sectionTitle,
-    heading,
-    subtitle,
-    services,
-    callToAction,
-  } = serviceData;
+  const { topBanner, sectionTitle, heading, subtitle, services, callToAction } =
+    serviceData;
 
   return (
     <div>
-      <BreadCrumb title="Services" />
+      <BreadCrumb
+        title="Services"
+        paragraph="Driven by Consistency, Commitment, and Customer Satisfaction – we deliver beyond expectations, every time."
+      />
       <Navigation />
 
       <div className="relative py-12 sm:py-16 px-4 sm:px-6 md:px-20 overflow-hidden">
@@ -97,7 +96,9 @@ useEffect(() => {
                   {service.title}
                 </h3>
               </div>
-              <p className="text-gray-600 text-sm sm:text-base">{service.description}</p>
+              <p className="text-gray-600 text-sm sm:text-base">
+                {service.description}
+              </p>
             </div>
           ))}
         </div>
@@ -109,14 +110,6 @@ useEffect(() => {
           >
             {callToAction?.buttonText || "Tell us about your project"}
           </button>
-          {/* <button className="group flex items-center gap-2 sm:gap-3 mt-4 sm:mt-0">
-            <span className="font-semibold text-gray-900  text-base sm:text-lg">
-              See More
-            </span>
-            <div className="w-8 sm:w-10 h-8 sm:h-10 bg-orange-500 rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-110 group-hover:bg-orange-600">
-              <ArrowRight className="w-4 sm:w-5 h-4 sm:h-5 cursor-pointer text-white transition-transform duration-300 group-hover:translate-x-1" />
-            </div>
-          </button> */}
         </div>
       </div>
 

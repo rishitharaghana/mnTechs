@@ -1,4 +1,5 @@
 import React, { Suspense, lazy } from "react";
+import Loader from "../../Components/loaders/Loader";
 
 // Lazy load all components
 const Hero = lazy(() => import("../../Components/Hero"));
@@ -10,33 +11,40 @@ const Navigation = lazy(() => import("../../Components/Navigation"));
 const Contacts = lazy(() => import("../../Components/Contacts"));
 const Footer = lazy(() => import("../../Components/Footer"));
 
-
 export default function Index() {
   return (
     <>
-      <Navigation />
-      <Suspense fallback={<div className="flex items-center justify-center h-screen">Loading...</div>}>
+      <Suspense fallback={<Loader />}>
+        <Navigation />
+      </Suspense>
+      
+      <Suspense fallback={<Loader />}>
         <Hero />
       </Suspense>
-      <Suspense fallback={<div className="flex items-center justify-center h-screen">Loading...</div>}>
+      
+      <Suspense fallback={<Loader />}>
         <ItServices />
       </Suspense>
-      <Suspense fallback={<div className="flex items-center justify-center h-screen">Loading...</div>}>
+      
+      <Suspense fallback={<Loader />}>
         <CollaborationSection />
       </Suspense>
-      <Suspense fallback={<div className="flex items-center justify-center h-screen">Loading...</div>}>
+      
+      <Suspense fallback={<Loader />}>
         <SkillsSection />
       </Suspense>
-      <Suspense fallback={<div className="flex items-center justify-center h-screen">Loading...</div>}>
+      
+      <Suspense fallback={<Loader />}>
         <TestimonialsSection />
       </Suspense>
-      <Suspense fallback={<div className="flex items-center justify-center h-screen">Loading...</div>}>
+      
+      <Suspense fallback={<Loader />}>
         <Contacts />
       </Suspense>
-      <Suspense fallback={<div className="flex items-center justify-center h-screen">Loading...</div>}>
+      
+      <Suspense fallback={<Loader />}>
         <Footer />
       </Suspense>
     </>
-    
   );
 }

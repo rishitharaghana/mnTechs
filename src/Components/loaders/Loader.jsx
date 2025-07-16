@@ -8,7 +8,7 @@ const Loader = () => {
       <img
         src={logo}
         alt="Loading Logo"
-        className="w-24 h-24 animate-bounce" // Try 'animate-spin' or 'animate-pulse' too!
+        className="w-auto h-10 animate-pulse" // Try 'animate-spin' or 'animate-pulse' too!
       />
     </div>
   );

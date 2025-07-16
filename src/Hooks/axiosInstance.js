@@ -1,6 +1,5 @@
 import axios from 'axios';
 
-
 // const ngrokAxiosInstance = axios.create({
 //   baseURL: 'https://26cf-110-235-236-151.ngrok-free.app',
 //   headers: {
@@ -9,7 +8,9 @@ import axios from 'axios';
 //   },
 // });
 const ngrokAxiosInstance = axios.create({
-  baseURL: 'https://api.mntechs.com',
+
+   baseURL: 'https://api.mntechs.com',
+
   
   headers: {
     'Content-Type': 'application/json',

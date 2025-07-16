@@ -104,6 +104,7 @@ Your vision, our unified execution.`}
                         ""
                       )}/${member.image
                         .replace(/\\/g, "/")
+                      
                         .replace(/^\/+/, "")}`}
                       alt={member.name}
                       className="w-full h-full object-cover transition-all duration-500 group-hover:scale-110 grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100"

@@ -22,6 +22,7 @@ import Privacy from "./pages/Home/Privacy";
 import Careers from "./pages/Careers";
 import ScrollToTop from "./products/Scrolltotop";
 import ScrollButton from "./Components/ScrollButton";
+import Portfolio from "./Components/Portfolio";
 
 const App = () => (
   <BrowserRouter>
@@ -29,8 +30,10 @@ const App = () => (
     <Routes>
     
       <Route path="/" element={<Index/>} />
+      <Route path = '/portfolio' element = {<Portfolio/>}/>
       <Route path="/services" element={<Services />} />
       <Route path="/products" element={<Products />} />
+
         <Route path="/products/ai-agent" element={<AIAgent />} />
         <Route path="/products/app-development" element={<AppDevelopment />} />
         <Route path="/products/billing-system" element={<BillingSystems />} />

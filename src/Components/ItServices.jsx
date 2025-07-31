@@ -17,7 +17,7 @@ const ItServices = () => {
 
 useEffect(() => {
   ngrokAxiosInstance
-    .get("/dynamic/serviceSection")
+    .get("/serviceSection")
     .then((res) => setSectionData(res.data))
     .catch((err) =>
       console.error(

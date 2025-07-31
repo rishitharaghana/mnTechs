@@ -106,7 +106,7 @@ const Navigation = () => {
   useEffect(() => {
     const fetchNavItems = async () => {
       try {
-        const res = await ngrokAxiosInstance.get("/dynamic/navigation");
+        const res = await ngrokAxiosInstance.get("/navigation");
         setNavItems(res.data);
       } catch (err) {
         console.error("Navigation fetch error:", err);

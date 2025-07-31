@@ -14,7 +14,7 @@ const Services = () => {
 
   useEffect(() => {
     ngrokAxiosInstance
-      .get("/dynamic/service")
+      .get("/service")
       .then((res) => {
         if (Array.isArray(res.data) && res.data.length > 0) {
           setServiceData(res.data[0]);

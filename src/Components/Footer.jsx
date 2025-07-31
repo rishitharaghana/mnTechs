@@ -16,7 +16,7 @@ const Footer = () => {
 
   useEffect(() => {
     ngrokAxiosInstance
-      .get("/dynamic/footer")
+      .get("/footer")
       .then((res) => setFooterData(res.data[0]))
       .catch((err) =>
         console.error(

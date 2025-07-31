@@ -9,7 +9,7 @@ const ServiceFooter = () => {
 
   useEffect(() => {
     ngrokAxiosInstance
-      .get("/dynamic/serviceFooter")
+      .get("/serviceFooter")
       .then((res) => setFooterData(res.data[0]))
       .catch((err) =>
         console.error(

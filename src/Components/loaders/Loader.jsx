@@ -1,6 +1,6 @@
 // src/Components/loaders/Loader.jsx
 import React from "react";
-import logo from "../../assets/images/mntech.png"; // ✅ adjust path if needed
+import logo from "../../assets/images/mntech.png"; 
 
 const Loader = () => {
   return (

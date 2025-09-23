@@ -99,7 +99,9 @@ const Navigation = () => {
   }, []);
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 20);
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20); // Update scrolled state based on scroll position
+    };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -127,18 +129,20 @@ const Navigation = () => {
 
   return (
     <nav
-      className={`fixed top-0 left-0 w-full bg-white shadow-lg z-50 transition-all duration-300 ${
-        scrolled || isWhiteBackgroundPage ? "bg-white shadow-md" : "bg-transparent"   
-      }`}
-      aria-label="Main navigation"
-    >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 h-18 flex items-center justify-between">
+  className={`fixed w-[95%] 2xl:max-w-full xl:max-w-[1536px] mx-auto rounded-lg bg-white shadow-lg z-50 transition-all duration-300 ${
+    scrolled || isWhiteBackgroundPage
+      ? "top-0 left-0 right-0 w-full bg-white rounded-none shadow-md"
+      : "top-5 left-8 right-8"
+  }`}
+  aria-label="Main navigation"
+>
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 h-17 flex items-center justify-between">
         <Link to="/" className="flex items-center" aria-label="Home">
           <img src={MntechImage} alt="MN Tech Logo" className="h-10 w-auto" />
         </Link>
 
-        <div className="hidden lg:flex flex-1 justify-center">
-          <div className="flex items-center gap-8">
+        <div className="hidden lg:flex flex-1 justify-end items-center">
+          <div className="flex items-center justify-end gap-8">
             {navItems.map((item) => (
               <DesktopNavItem
                 key={item._id}
@@ -164,7 +168,7 @@ const Navigation = () => {
       </div>
 
       <div
-        className={`fixed inset-0 bg-black bg-opacity-50 z-40 lg:hidden transition-opacity duration-300 ${
+        className={`fixed inset-0 bg-black/85 z-40 lg:hidden transition-opacity duration-300 ${
           mobileMenuOpen ? "opacity-100" : "opacity-0 pointer-events-none"
         }`}
         onClick={toggleMobileMenu}
@@ -172,7 +176,7 @@ const Navigation = () => {
       />
 
       <div
-        className={`fixed top-0 right-0 h-full w-80 bg-white shadow-2xl z-50 lg:hidden transform transition-transform duration-300 ease-in-out ${
+        className={`fixed top-0 right-0 h-full w-80 bg-white/85 rounded-lg shadow-2xl z-50 lg:hidden transform transition-transform duration-300 ease-in-out ${
           mobileMenuOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >

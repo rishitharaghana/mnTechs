@@ -174,7 +174,7 @@ const Footer = () => {
               <input
                 type="email"
                 id="default-search"
-                className="w-full sm:w-100 px-4 h-10 py-2 sm:mb-0 mb-4 text-gray-900 m-0 bg-white border border-gray-300 sm:rounded-l-lg rounded-lg focus:ring-2 focus:ring-amber-400 focus:border-transparent placeholder-gray-500 text-sm"
+                className="w-full sm:w-70 md:w-100 px-4 h-10 py-2 sm:mb-0 mb-4 text-gray-900 m-0 bg-white border border-gray-300 sm:rounded-l-lg rounded-lg focus:ring-2 focus:ring-amber-400 focus:border-transparent placeholder-gray-500 text-sm"
                 placeholder="Your email address"
                 required
               />

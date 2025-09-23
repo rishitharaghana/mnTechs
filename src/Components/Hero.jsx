@@ -231,7 +231,7 @@ const Hero = () => {
 
         <div className="relative top-9 z-10 container mx-auto px-4 sm:px-6 lg:px-8 py-18 sm:py-16 lg:py-20 max-w-7xl flex flex-col lg:flex-row items-center justify-between">
           {/* Content Container */}
-          <div className="w-full max-w-3xl mx-auto lg:mx-0 rounded-xl p-2 sm:p-8 lg:p-10 animate-fade-in">
+          <div className="w-full max-w-3xl mx-auto xl:max-w-3xl lg:w-[60%] lg:mx-0 rounded-xl p-2 sm:p-8 lg:p-10 lg:pl-0 xl:pl-5 animate-fade-in">
             <p className="text-white text-sm sm:text-xl font-semibold mb-4 sm:mb-6 tracking-tight">
               {heroData.intro_heading}{" "}
               <span className="text-[#fbaf43] font-bold">
@@ -245,14 +245,14 @@ const Hero = () => {
               <span className="block font-serif mb-2">
                 {heroData.title_lines}
               </span>
-              <span className="block text-white font-serif font-semibold mb-3">
+              <span className="block lg:text-5xl text-white font-serif font-semibold mb-3">
                 {heroData.subheading}
               </span>
               <span className="block text-lg sm:text-xl lg:text-2xl text-[#fbaf43] font-medium mt-2">
                 {heroData.description}
               </span>
             </h1>
-            <div className="flex flex-col sm:flex-row justify-start sm:items-center gap-4 sm:gap-6">
+            <div className="flex flex-col-reverse sm:flex-row justify-start sm:items-center gap-4 sm:gap-6">
               <Link to="/contact">
                 <button
                   className="w-max sm:px-6 px-4 py-1 sm:py-2 bg-gradient-to-r from-[#1d80bb] to-[#5a5a5c] border border-white text-white sm:text-base text-xs font-semibold rounded-full shadow-2xl hover:bg-[#fbaf43] transition-all duration-300 ring-1 ring-[#1d80bb] ring-offset-3"

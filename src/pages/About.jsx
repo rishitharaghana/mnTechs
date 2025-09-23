@@ -38,28 +38,28 @@ const About = () => {
   } = aboutData;
 
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen bg-gray-50">
       <Navigation />
       <BreadCrumb
-        title="About"
-        paragraph="Driven by Consistency, Commitment, and Customer Satisfaction –
-         we deliver beyond expectations, every time."
+        title="About Us"
+        paragraph="Driven by Consistency, Commitment, and Customer Satisfaction – we deliver beyond expectations, every time."
       />
-      <section id="about" className="py-20 bg-white">
+      <section id="about" className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div className="space-y-8">
-              <div className="space-y-4">
-                <div className="flex items-center space-x-2">
-                  <div className="w-2 h-2 bg-orange-500 rounded-full"></div>
-                  <span className="md:text-md text-sm text-orange-500 font-medium">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Left Content Section */}
+            <div className="space-y-8 animate-fade-in-up">
+              <div className="space-y-6">
+                <div className="flex items-center space-x-3">
+                  <div className="w-3 h-3 bg-[#1d80bb] rounded-full animate-pulse"></div>
+                  <span className="text-base font-semibold text-[#5a5a5c] tracking-wide uppercase">
                     {subtitle}
                   </span>
                 </div>
-                <h2 className="md:text-4xl text-2xl lg:text-5xl font-bold text-gray-900">
+                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-gray-900 leading-tight">
                   {title.split(" ").map((word, i) =>
                     word === highlight ? (
-                      <span key={i} className="text-orange-500">
+                      <span key={i} className="text-[#1d80bb]">
                         {word}{" "}
                       </span>
                     ) : (
@@ -69,34 +69,37 @@ const About = () => {
                 </h2>
               </div>
 
-              <div className="space-y-6">
-                <p className="md:text-lg text-sm text-gray-500 leading-relaxed">
+              <div className="space-y-5">
+                <p className="text-base sm:text-lg text-gray-600 leading-relaxed">
                   {paragraph1}
                 </p>
-                <p className="md:text-lg text-sm text-gray-500 leading-relaxed">
+                <p className="text-base sm:text-lg text-gray-600 leading-relaxed">
                   {paragraph2}
                 </p>
               </div>
 
               <button
                 onClick={() => navigate(buttonLink || "/")}
-                className="border-2 border-orange-500 cursor-pointer text-orange-500 md:px-8 px-6 md:py-3 py-2 rounded-full hover:bg-orange-500 hover:text-white transition-all duration-300"
+                className="px-6 py-3 bg-gradient-to-r from-[#1d80bb] to-[#5a5a5c] border border-white text-white text-base font-semibold rounded-full shadow-2xl hover:bg-[#fbaf43] transition-all duration-300 ring-1 ring-[#1d80bb] ring-offset-3"
               >
                 {buttonText}
               </button>
             </div>
 
-            <div className="relative">
-              <img
-                src={`${ngrokAxiosInstance.defaults.baseURL.replace(
-                  /\/$/,
-                  ""
-                )}/${image.replace(/^\/+/, "").replace(/\\/g, "/")}`}
-                alt="About Section"
-                className="rounded-2xl shadow-2xl w-full"
-              />
-              <div className="absolute -bottom-4 -right-4 w-32 h-32 bg-orange-500 rounded-full opacity-20"></div>
-              <div className="absolute -top-4 -left-4 w-20 h-20 bg-orange-300 rounded-full opacity-30"></div>
+            {/* Right Image Section */}
+            <div className="relative group animate-fade-in">
+              <div className="overflow-hidden rounded-2xl shadow-xl transform group-hover:scale-105 transition-transform duration-500">
+                <img
+                  src={`${ngrokAxiosInstance.defaults.baseURL.replace(
+                    /\/$/,
+                    ""
+                  )}/${image.replace(/^\/+/, "").replace(/\\/g, "/")}`}
+                  alt="About Section"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="absolute -bottom-6 -right-6 w-40 h-40 bg-[#1d80bb] rounded-full opacity-10 group-hover:opacity-20 transition-opacity duration-300"></div>
+              <div className="absolute -top-6 -left-6 w-24 h-24 bg-[#5a5a5c] rounded-full opacity-10 group-hover:opacity-20 transition-opacity duration-300"></div>
             </div>
           </div>
         </div>

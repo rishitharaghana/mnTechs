@@ -47,31 +47,31 @@ const TestimonialsSection = () => {
   };
 
   return (
-    <section className="md:py-13 py-10 md:px-10 px-4 bg-gray-50">
+    <section className="hidden md:py-13 py-10 md:px-10 px-4 bg-gray-50">
       <div>
         <div className="flex justify-between items-start mb-16">
           <div>
-            <p className="text-orange-500 font-medium mb-4">• Testimonial</p>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 leading-snug mt-6 mb-10">
-              What Our <span className="text-orange-500">Clients</span> Say
+            <p className="text-[#1d80bb] font-medium mb-4">• Testimonial</p>
+            <h2 className="text-3xl sm:text-3xl lg:text-4xl font-bold text-gray-900 leading-snug mt-6 mb-10">
+              What Our <span className="text-[#1d80bb]">Clients</span> Say
             </h2>
           </div>
 
-          <div className="flex items-center gap-4 hidden">
+          <div className="flex items-center gap-4">
             <button
               onClick={prevSlide}
-              className="flex items-center gap-2 md:px-4 px-2 py-2 bg-gray-100 border-2 border-gray-300 rounded-full text-gray-700 hover:bg-orange-500 hover:text-white hover:border-orange-500 transition-all duration-300 shadow-sm"
+              className="flex items-center gap-2 md:px-4 px-2 py-2 bg-gray-100 border-2 border-gray-300 rounded-full text-gray-700 hover:bg-[#1d80bb] hover:text-white hover:border-[#1d80bb] transition-all duration-300 shadow-sm"
             >
               <ArrowLeft className="h-4 w-4 sm:h-5 sm:w-5" />
-              <span className="text-xs sm:text-sm font-medium hidden sm:inline">
+              <span className="text-xs sm:text-sm font-medium sm:inline">
                 Previous
               </span>
             </button>
             <button
               onClick={nextSlide}
-              className="flex items-center gap-2 md:px-4 px-2 py-2 bg-gray-100 border-2 border-gray-300 rounded-full text-gray-700 hover:bg-orange-500 hover:text-white hover:border-orange-500 transition-all duration-300 shadow-sm"
+              className="flex items-center gap-2 md:px-4 px-2 py-2 bg-gray-100 border-2 border-gray-300 rounded-full text-gray-700 hover:bg-[#1d80bb] hover:text-white hover:border-[#1d80bb] transition-all duration-300 shadow-sm"
             >
-              <span className="text-xs sm:text-sm font-medium hidden sm:inline">
+              <span className="text-xs sm:text-sm font-medium sm:inline">
                 Next
               </span>
               <ArrowRight className="h-4 w-4 sm:h-5 sm:w-5" />

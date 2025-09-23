@@ -44,7 +44,7 @@ const Breadcrumb = ({ title = "Page Title", paragraph }) => {
         <div className="text-sm text-gray-600 mb-2 sm:mb-4 flex flex-wrap items-center">
           <Link
             to="/"
-            className={`${navTextStyles} text-[#121820] hover:text-orange-500`}
+            className={`${navTextStyles} text-[#121820] hover:text-[#1d80bb]`}
           >
             Home
           </Link>
@@ -53,15 +53,15 @@ const Breadcrumb = ({ title = "Page Title", paragraph }) => {
             const isLast = index === pathnames.length - 1;
             return (
               <span key={to} className="flex items-center">
-                <span className="mx-2 text-orange-500">●</span>
+                <span className="mx-2 text-[#1d80bb]">●</span>
                 {isLast ? (
-                  <span className={`${navTextStyles} text-orange-500`}>
+                  <span className={`${navTextStyles} text-[#1d80bb]`}>
                     {toTitleCase(value)}
                   </span>
                 ) : (
                   <Link
                     to={to}
-                    className={`${navTextStyles} text-[#121820] hover:text-orange-500`}
+                    className={`${navTextStyles} text-[#121820] hover:text-[#1d80bb]`}
                   >
                     {toTitleCase(value)}
                   </Link>
@@ -72,28 +72,23 @@ const Breadcrumb = ({ title = "Page Title", paragraph }) => {
         </div>
 
         <h1
-          className={`
-    text-3xl pt-5 px-4 pb-4 sm:text-4xl md:text-5xl  text-[#121820]
-    ${navTextStyles}
-  `}
-          style={{ fontFamily: "Verdana, Geneva, sans-serif", fontWeight: 500 }}
-        >
+          className={`text-3xl pt-5 pb-3 sm:text-4xl md:text-5xl  text-[#121820] font-bold
+            ${navTextStyles}
+            `}style={{ fontFamily: "Verdana, Geneva, sans-serif", fontWeight: 500 }}>
           {title}
         </h1>
 
         {/* Paragraph */}
         {paragraph && (
-  <p className="text-sm md:text-md text-gray-600 leading-relaxed max-w-3xl px-4 pb-4">
-    {paragraph.split('\n').map((line, idx) => (
-      <React.Fragment key={idx}>
-        {line.trim()}
-        <br />
-      </React.Fragment>
-    ))}
-  </p>
-)}
-
-        
+          <p className="text-sm md:text-md text-gray-600 leading-relaxed pb-4">
+            {paragraph.split("\n").map((line, idx) => (
+              <React.Fragment key={idx}>
+                {line.trim()}
+                {/* <br /> */}
+              </React.Fragment>
+            ))}
+          </p>
+        )}
       </div>
       <Navigation />
     </div>

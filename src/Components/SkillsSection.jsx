@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
-
 import ngrokAxiosInstance from "../Hooks/axiosInstance";
 
 const SkillsSection = () => {
@@ -24,24 +23,25 @@ const SkillsSection = () => {
 
   if (!data) return null;
 
-  const { title, highlight, description, skills, buttonLink, buttonText } =
+  const { title, highlight, skills, buttonLink, buttonText } =
     data;
 
   return (
-    <section className="md:py-13 py-10 md:px-10 px-4 bg-white">
+    <section className="md:py-8 py-7 md:px-10 px-4 bg-white">
+      <div className="max-w-[1536px] w-full mx-auto">
       <div>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-16 items-start mb-5">
+        <div className="grid grid-cols-1 lg:grid-cols-1 gap-6 lg:gap-16 items-start mb-5">
           <div>
             <div className="flex items-center gap-2 mb-6">
-              <div className="w-2 h-2 bg-orange-500 rounded-full"></div>
-              <p className="text-orange-500 font-semibold tracking-wide uppercase text-sm">
+              <div className="w-2 h-2 bg-[#1d80bb] rounded-full"></div>
+              <p className="text-[#1d80bb] font-semibold tracking-wide uppercase text-sm">
                 Our Skill
               </p>
             </div>
-            <h2 className="text-2xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl md:text-4xl font-bold text-gray-900 leading-snug">
               {title?.split(" ").map((word, idx) =>
                 word === highlight ? (
-                  <span key={idx} className="text-orange-500">
+                  <span key={idx} className="text-[#1d80bb]">
                     {word}{" "}
                   </span>
                 ) : (
@@ -50,39 +50,35 @@ const SkillsSection = () => {
               )}
             </h2>
           </div>
-          <div className="lg:pl-8">
+          {/* <div className="lg:pl-8">
             <p className="text-gray-600 leading-relaxed text-lg">
               {description}
             </p>
-          </div>
+          </div> */}
         </div>
 
         {/* Skills Grid */}
-        <div className="space-y-12 md:pt-10 pt-0">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 md:gap-8 gap-4 lg:gap-12">
-            {skills.slice(0, 4).map((skill) => (
+        <div className="space-y-12 md:pt-7 pt-0">
+          <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-4 md:gap-8 gap-6 lg:gap-12 sm:mb-4 mb-8">
+            {skills.slice(0, 8).map((skill) => (
               <SkillBar key={skill._id || skill.name} skill={skill} />
             ))}
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 md:gap-8 gap-6 lg:gap-12 items-end">
-            {skills.slice(4).map((skill) => (
-              <SkillBar key={skill._id || skill.name} skill={skill} />
-            ))}
-            <div className="flex justify-start lg:justify-center items-end pb-2">
-              <Link
-                to={buttonLink || "/about"}
-                className="group flex items-center gap-3"
-              >
-                <span className="font-semibold text-gray-900 text-lg">
-                  {buttonText || "More"}
-                </span>
-                <div className="w-8 h-8 bg-orange-500 rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-110 group-hover:bg-orange-600">
-                  <ArrowRight className="w-4 h-4 text-white transition-transform duration-300 group-hover:translate-x-0.5" />
-                </div>
-              </Link>
-            </div>
+          <div className="flex justify-end pb-2">
+            <Link
+              to={buttonLink || "/about"}
+              className="group flex items-center gap-3"
+            >
+              <span className="font-semibold text-gray-900 sm:text-lg text-md">
+                {buttonText && "More Skills"}
+              </span>
+              <div className="sm:w-8 sm:h-8 w-7 h-7 bg-gradient-to-r from-[#1d80bb] to-[#5a5a5c] rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-110 group-hover:bg-[orange-600] ring-1 ring-[#1d80bb] ring-offset-3">
+                <ArrowRight className="w-4 h-4 text-white transition-transform duration-300 group-hover:translate-x-0.5" />
+              </div>
+            </Link>
           </div>
         </div>
+      </div>
       </div>
     </section>
   );
@@ -94,15 +90,15 @@ const SkillBar = ({ skill }) => (
       {skill.name}
     </h3>
     <div className="relative">
-      <div className="w-full h-1 md:h-2 bg-gray-200 rounded-full overflow-hidden">
+      <div className="sm:w-full h-2 bg-gray-200 rounded-full overflow-hidden">
         <div
-          className="h-full bg-gradient-to-r from-orange-400 to-orange-600 rounded-full transition-all duration-1000 ease-out relative"
+          className="h-full bg-[#1d80bb] rounded-full transition-all duration-1000 ease-out relative"
           style={{ width: `${skill.percentage}%` }}
         >
-          <div className="absolute right-0 top-1/2 transform translate-x-1/2 -translate-y-1/2 w-4 h-4 bg-orange-500 rounded-full shadow-lg border-2 border-white"></div>
+          <div className="absolute right-0 top-1/2 transform translate-x-1/2 -translate-y-1/2 w-4 h-4 bg-[#1d80bb] rounded-full shadow-lg border-2 border-white"></div>
         </div>
       </div>
-      {/* <div className="flex justify-end mt-2">
+      {/* <div className="w-[20%] flex justify-end mt-2">
         <span className="text-gray-600 font-medium text-sm">
           {skill.percentage}%
         </span>

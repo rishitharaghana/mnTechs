@@ -46,7 +46,7 @@ const Team = () => {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-white flex items-center justify-center">
+      <div className="min-h-screen flex items-center justify-center">
         <p className="text-lg text-gray-600">Loading...</p>
       </div>
     );
@@ -54,7 +54,7 @@ const Team = () => {
 
   if (error) {
     return (
-      <div className="min-h-screen bg-white flex items-center justify-center">
+      <div className="min-h-screen flex items-center justify-center">
         <p className="text-lg text-red-600">{error}</p>
       </div>
     );
@@ -65,15 +65,14 @@ const Team = () => {
       <Navigation />
       <BreadCrumb
         title="Team"
-        paragraph={`Engineering success through teamwork and talent.
-Your vision, our unified execution.`}
+        paragraph={`Engineering success through teamwork and talent. Your vision, our unified execution.`}
       />
 
       <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              {teamInfo.title}
+            <h2 className="text-3xl font-bold text-[#1d80bb] mb-2">
+              ● {teamInfo.title}
             </h2>
             <p className="text-lg text-gray-600">
               {teamInfo.description.includes("reader will be distracted") ? (
@@ -104,7 +103,7 @@ Your vision, our unified execution.`}
                         ""
                       )}/${member.image
                         .replace(/\\/g, "/")
-                      
+
                         .replace(/^\/+/, "")}`}
                       alt={member.name}
                       className="w-full h-full object-cover transition-all duration-500 group-hover:scale-110 grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100"
@@ -135,21 +134,21 @@ Your vision, our unified execution.`}
                         {[...Array(9)].map((_, i) => (
                           <div
                             key={i}
-                            className="w-1.5 h-1.5 bg-orange-400 rounded-full animate-bounce"
+                            className="w-1.5 h-1.5 bg-[#1d80bb] rounded-full animate-bounce"
                             style={{ animationDelay: `${i * 150}ms` }}
                           />
                         ))}
                       </div>
                     </div>
                   </div>
-                  <div className="absolute -bottom-6 -right-6 w-12 h-12 bg-orange-500 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-500 transform group-hover:scale-110"></div>
+                  <div className="absolute -bottom-6 -right-6 w-12 h-12 bg-[#1d80bb] rounded-full opacity-0 group-hover:opacity-100 transition-all duration-500 transform group-hover:scale-110"></div>
                 </div>
 
                 <div className="mt-8">
-                  <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-orange-600 transition-colors duration-300">
+                  <h3 className="text-xl font-bold text-[#1d80bb] mb-2 group-hover:text-[#fbaf43] transition-colors duration-300">
                     {member.name}
                   </h3>
-                  <p className="text-gray-600 mb-6 group-hover:text-gray-700 transition-colors duration-300">
+                  <p className="text-[#5a5a5c] mb-6 group-hover:text-gray-700 transition-colors duration-300">
                     {member.designation}
                   </p>
 
@@ -166,7 +165,7 @@ Your vision, our unified execution.`}
                     {member.instagram_url && (
                       <a
                         href={member.instagram_url}
-                        className="text-gray-400 hover:text-pink-600"
+                        className="text-gray-400 hover:text-[#1d80bb]"
                         aria-label="Instagram"
                       >
                         <Instagram size={22} />

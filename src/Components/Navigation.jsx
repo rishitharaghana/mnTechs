@@ -1,69 +1,52 @@
 import React, { useEffect, useState, memo } from "react";
 import { Menu, X, ChevronDown, ChevronUp } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
-
 import MntechImage from "../assets/images/mntech.png";
 import useDropdown from "../Hooks/useDropdown";
 import ngrokAxiosInstance from "../Hooks/axiosInstance";
 
 const DesktopNavItem = memo(({ item, isScrolledOrWhitePage }) => {
   const { isOpen, setIsOpen, ref } = useDropdown();
-  const location = useLocation(); // Get current location
+  const location = useLocation();
 
-  // Check if the current item or its submenu is active
   const isActive =
     item.path === location.pathname ||
-    (item.submenu &&
-      item.submenu.some((subItem) => subItem.path === location.pathname));
-
-  if (!item.submenu || item.submenu.length === 0) {
-    return (
-      <Link
-        to={item.path}
-        className={`px-3 py-2 text-md font-medium transition-colors duration-300 ${
-          isActive
-            ? "text-orange-500"
-            : isScrolledOrWhitePage
-            ? "text-gray-800 hover:text-orange-500"
-            : "text-white hover:text-orange-400"
-        }`}
-      >
-        {item.name}
-      </Link>
-    );
-  }
+    (item.submenu && item.submenu.some((subItem) => subItem.path === location.pathname));
 
   return (
     <div
       ref={ref}
-      className="relative py-2 min-h-[50px]"
+      className="relative"
       onMouseEnter={() => setIsOpen(true)}
       onMouseLeave={() => setIsOpen(false)}
     >
       <Link
         to={item.path}
-        className={`flex items-center gap-1 px-3 py-2 text-md font-medium transition-colors duration-300 ${
+        className={`flex items-center gap-2 px-4 py-2 text-base font-medium transition-colors duration-300 ${
           isActive
-            ? "text-orange-500"
+            ? "text-[#1d80bb]"
             : isScrolledOrWhitePage
-            ? "text-gray-800 hover:text-orange-500"
-            : "text-white hover:text-orange-400"
+            ? "text-gray-900 hover:text-[#1d80bb]"
+            : "text-gray-800 hover:text-[#1d80bb]"
         }`}
+        aria-current={isActive ? "page" : undefined}
       >
         {item.name}
-        <span className="w-2 h-2 border-2 border-orange-500 rounded-full"></span>
+        {item.submenu && item.submenu.length > 0 && (
+          <span className="w-2 h-2 border-2 border-[#1d80bb] rounded-full" aria-hidden="true"></span>
+        )}
       </Link>
 
-      {isOpen && (
-        <div className="absolute left-0 mt-2 bg-white rounded-lg shadow-xl min-w-max z-50">
+      {item.submenu && item.submenu.length > 0 && isOpen && (
+        <div className="absolute left-0 mt-2 w-48 bg-white rounded-lg shadow-lg z-50">
           {item.submenu.map((subItem, idx) => (
             <Link
               key={idx}
               to={subItem.path}
-              className={`block px-5 py-2 text-md font-medium transition-colors duration-200 ${
+              className={`block px-4 py-2 text-sm font-medium transition-colors duration-200 ${
                 subItem.path === location.pathname
-                  ? "text-orange-500 bg-orange-50"
-                  : "text-gray-700 hover:bg-orange-50 hover:text-orange-600"
+                  ? "text-[#1d80bb] bg-orange[#1d80bb]/10"
+                  : "text-gray-700 hover:bg-orange-50 hover:text-[#1d80bb]"
               }`}
               onClick={() => setIsOpen(false)}
             >
@@ -116,8 +99,9 @@ const Navigation = () => {
   }, []);
 
   useEffect(() => {
-    window.addEventListener("scroll", () => setScrolled(window.scrollY > 10));
-    return () => window.removeEventListener("scroll", () => {});
+    const handleScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   useEffect(() => {
@@ -126,9 +110,9 @@ const Navigation = () => {
   }, [location.pathname]);
 
   useEffect(() => {
-    document.body.style.overflow = mobileMenuOpen ? "hidden" : "";
+    document.body.style.overflow = mobileMenuOpen ? "hidden" : "auto";
     return () => {
-      document.body.style.overflow = "";
+      document.body.style.overflow = "auto";
     };
   }, [mobileMenuOpen]);
 
@@ -141,53 +125,43 @@ const Navigation = () => {
     setActiveSubmenu((prev) => (prev === itemName ? null : itemName));
   };
 
-  const getSubmenuMaxHeight = () => {
-    const navbarHeight = 64;
-    const windowHeight = window.innerHeight;
-    const menuHeight = windowHeight - navbarHeight;
-    return `${menuHeight}px`;
-  };
-
   return (
-    <>
-      <nav
-        className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-          scrolled || isWhiteBackgroundPage
-            ? "bg-white shadow-md text-gray-800"
-            : "bg-transparent text-white"
-        }`}
-      >
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-10 h-16 sm:h-20 flex items-center justify-between">
-          <Link to="/" className="flex items-center">
-            <img src={MntechImage} alt="MN Tech Logo" className="h-8 sm:h-10 w-auto" />
-          </Link>
+    <nav
+      className={`fixed top-0 left-0 w-full bg-white shadow-lg z-50 transition-all duration-300 ${
+        scrolled || isWhiteBackgroundPage ? "bg-white shadow-md" : "bg-transparent"   
+      }`}
+      aria-label="Main navigation"
+    >
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 h-18 flex items-center justify-between">
+        <Link to="/" className="flex items-center" aria-label="Home">
+          <img src={MntechImage} alt="MN Tech Logo" className="h-10 w-auto" />
+        </Link>
 
-          <div className="hidden lg:flex flex-1 justify-center">
-            <div className="flex items-center space-x-4 sm:space-x-6 lg:space-x-8">
-              {navItems.map((item) => (
-                <DesktopNavItem
-                  key={item._id}
-                  item={item}
-                  isScrolledOrWhitePage={scrolled || isWhiteBackgroundPage}
-                />
-              ))}
-            </div>
-          </div>
-
-          <div className="lg:hidden">
-            <button
-              onClick={toggleMobileMenu}
-              className="p-1 bg-white rounded-md hover:bg-gray-100"
-            >
-              {mobileMenuOpen ? (
-                <X className="h-6 w-6 text-gray-800" />
-              ) : (
-                <Menu className="h-6 w-6 text-gray-800" />
-              )}
-            </button>
+        <div className="hidden lg:flex flex-1 justify-center">
+          <div className="flex items-center gap-8">
+            {navItems.map((item) => (
+              <DesktopNavItem
+                key={item._id}
+                item={item}
+                isScrolledOrWhitePage={scrolled || isWhiteBackgroundPage}
+              />
+            ))}
           </div>
         </div>
-      </nav>
+
+        <button
+          onClick={toggleMobileMenu}
+          className="lg:hidden p-2 rounded-md hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-[#1d80bb]"
+          aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
+          aria-expanded={mobileMenuOpen}
+        >
+          {mobileMenuOpen ? (
+            <X className="h-6 w-6 text-gray-800" />
+          ) : (
+            <Menu className="h-6 w-6 text-gray-800" />
+          )}
+        </button>
+      </div>
 
       <div
         className={`fixed inset-0 bg-black bg-opacity-50 z-40 lg:hidden transition-opacity duration-300 ${
@@ -198,15 +172,19 @@ const Navigation = () => {
       />
 
       <div
-        className={`fixed top-0 right-0 h-full w-64 sm:w-80 bg-white shadow-2xl z-50 lg:hidden transform transition-transform duration-300 ease-in-out ${
+        className={`fixed top-0 right-0 h-full w-80 bg-white shadow-2xl z-50 lg:hidden transform transition-transform duration-300 ease-in-out ${
           mobileMenuOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
         <div className="flex flex-col h-full">
           <div className="flex items-center justify-between p-4 border-b">
-            <img src={MntechImage} alt="MN Tech" className="h-8 sm:h-10" />
-            <button onClick={toggleMobileMenu} className="p-2 text-gray-600 hover:bg-gray-100">
-              <X className="h-6 w-6" />
+            <img src={MntechImage} alt="MN Tech Logo" className="h-10" />
+            <button
+              onClick={toggleMobileMenu}
+              className="p-2 rounded-md hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-orange-500"
+              aria-label="Close menu"
+            >
+              <X className="h-6 w-6 text-gray-800" />
             </button>
           </div>
 
@@ -217,36 +195,34 @@ const Navigation = () => {
                   <>
                     <button
                       onClick={() => toggleSubmenu(item.name)}
-                      className={`w-full flex justify-between items-center py-2 px-4 text-left font-medium rounded-lg ${
+                      className={`w-full flex justify-between items-center py-2 px-4 text-left text-base font-medium rounded-lg transition-colors duration-200 ${
                         item.path === location.pathname ||
                         item.submenu.some((subItem) => subItem.path === location.pathname)
-                          ? "text-orange-500 bg-orange-50"
-                          : "text-gray-800 hover:bg-gray-50 hover:text-orange-600"
+                          ? "text-[#1d80bb] bg-orange-50"
+                          : "text-gray-800 hover:bg-orange-50 hover:text-[#1d80bb]"
                       }`}
+                      aria-expanded={activeSubmenu === item.name}
                     >
                       <span>{item.name}</span>
                       {activeSubmenu === item.name ? (
-                        <ChevronUp className="h-5 w-5 text-gray-800 transition-transform duration-300" />
+                        <ChevronUp className="h-5 w-5 text-gray-800" />
                       ) : (
-                        <ChevronDown className="h-5 w-5 text-gray-800 transition-transform duration-300" />
+                        <ChevronDown className="h-5 w-5 text-gray-800" />
                       )}
                     </button>
                     <div
-                      className={`pl-4 overflow-y-auto transition-all duration-300 ${
-                        activeSubmenu === item.name
-                          ? "max-h-[calc(100vh-200px)] opacity-100"
-                          : "max-h-0 opacity-0"
+                      className={`pl-4 transition-all duration-300 overflow-hidden ${
+                        activeSubmenu === item.name ? "max-h-screen opacity-100" : "max-h-0 opacity-0"
                       }`}
-                      style={{ maxHeight: activeSubmenu === item.name ? getSubmenuMaxHeight() : "0px" }}
                     >
                       {item.submenu.map((subItem, i) => (
                         <Link
                           key={i}
                           to={subItem.path}
-                          className={`block py-1 px-4 text-sm rounded-md ${
+                          className={`block py-2 px-4 text-sm font-medium rounded-md transition-colors duration-200 ${
                             subItem.path === location.pathname
-                              ? "text-orange-500 bg-orange-50"
-                              : "text-gray-600 hover:text-orange-600 hover:bg-orange-50"
+                              ? "text-[#1d80bb] bg-orange-50"
+                              : "text-gray-700 hover:bg-orange-50 hover:text-[#1d80bb]"
                           }`}
                           onClick={toggleMobileMenu}
                         >
@@ -258,12 +234,13 @@ const Navigation = () => {
                 ) : (
                   <Link
                     to={item.path}
-                    className={`block py-2 px-4 rounded-lg font-medium ${
+                    className={`block py-2 px-4 text-base font-medium rounded-lg transition-colors duration-200 ${
                       item.path === location.pathname
-                        ? "text-orange-500 bg-orange-50"
-                        : "text-gray-800 hover:bg-gray-50 hover:text-orange-600"
+                        ? "text-[#1d80bb] bg-orange-50"
+                        : "text-gray-800 hover:bg-orange-50 hover:text-[#1d80bb]"
                     }`}
                     onClick={toggleMobileMenu}
+                    aria-current={item.path === location.pathname ? "page" : undefined}
                   >
                     {item.name}
                   </Link>
@@ -277,7 +254,7 @@ const Navigation = () => {
           </div>
         </div>
       </div>
-    </>
+    </nav>
   );
 };
 

@@ -20,9 +20,9 @@ const ScrollButton = () => {
   return (
     <button
       onClick={scrollToTop}
-      className={`fixed bottom-6 cursor-pointer right-6 z-50  bg-orange-500 text-white p-2 rounded-full shadow-lg transition-opacity duration-300 ${
+      className={`fixed bottom-6 cursor-pointer right-6 z-50 ring-1 ring-[#1d80bb] ring-offset-3 bg-gradient-to-r from-[#1d80bb] to-[#5a5a5c] text-white p-2 rounded-full shadow-lg transition-opacity duration-300 ${
         visible ? "opacity-100" : "opacity-0 pointer-events-none"
-      } hover:bg-orange-600`}
+      } hover:bg-[#fbaf43] hover:ring-[#1d80bb]`}
       aria-label="Scroll to top"
     >
       <ChevronUp className="w-5 h-5" />

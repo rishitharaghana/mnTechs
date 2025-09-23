@@ -58,38 +58,40 @@ const ServiceFooter = () => {
     joinHeading,
     joinDescription,
   } = footerData;
+  console.log("Footer Data:", footerData);
 
   return (
     <footer className="bg-gray-900 text-white">
-        <div className="w-full py-12 px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row flex-wrap items-center justify-between gap-10">
-          <div className="w-full md:w-1/2 lg:w-2/5 text-center md:text-left">
-            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4 text-white">
-              {joinHeading}
-            </h2>
-            <p className="text-gray-400 text-sm sm:text-base">
+      <div className="w-full py-12 px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row flex-wrap items-center justify-between gap-5">
+        <div className="w-full md:w-1/2 lg:w-2/5 text-center md:text-left">
+          <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4 text-white">
+            ● {joinHeading}
+          </h2>
+          {/* <p className="text-gray-400 text-sm sm:text-base">
               {joinDescription}
-            </p>
-          </div>
-
+            </p> */}
+        </div>
+        <div>
           <form
             onSubmit={handleSubscribe}
-            className="w-full md:w-1/2 lg:w-2/5 flex flex-col sm:flex-row items-center justify-center md:justify-end"
+            className="w-full flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-2"
           >
             <input
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="Your email address"
-              className="w-full sm:w-auto px-6 py-3 bg-white text-gray-900 text-base rounded-full focus:outline-none focus:ring-2 focus:ring-orange-500"
+              className="w-100 px-4 h-10 py-2 text-gray-900 m-0 bg-white border border-gray-300 rounded-l-lg focus:ring-2 focus:ring-amber-400 focus:border-transparent placeholder-gray-500 text-sm"
             />
             <button
               type="submit"
-              className="w-full sm:w-auto mt-3 sm:mt-0 sm:ml-3 px-6 py-3 bg-orange-500 text-black font-semibold text-sm sm:text-base rounded-full hover:bg-orange-400 transition-colors"
+              className="w-full sm:w-auto py-2 h-10 px-5 bg-gradient-to-r from-[#1d80bb] to-[#5a5a5c] hover:bg-[#5a5a5c] border-l-2 border-l-black rounded-r-lg text-gray-900 font-medium text-sm transition-colors"
             >
               Subscribe Now
             </button>
           </form>
         </div>
+      </div>
 
       <div className="w-full py-12 md:pt-10 pt-0 px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between md:gap-10 gap-6 md:text-left">
         <div className="w-full md:w-1/3 md:pl-10 md:p-0 p-5 border border-gray-500 rounded-md md:border-0 md:rounded-none md:border-transparent">
@@ -123,15 +125,15 @@ const ServiceFooter = () => {
           </div>
         </div>
 
-         {/* Page Links */}
+        {/* Page Links */}
         <div className="w-full md:text-center text-left md:w-1/3 md:pl-10 md:p-0 p-5 border border-gray-500 rounded-md md:border-0 md:rounded-none md:border-transparent">
-          <h3 className="text-orange-500 font-semibold mb-4">Links</h3>
+          <h3 className="text-[#1d80bb] font-semibold border-b border-gray-500 mx-auto w-min mb-4">Links</h3>
           <ul className="space-y-2">
             {links.map((link, i) => (
               <li key={i}>
                 <a
                   href={link.path}
-                  className="text-gray-400 hover:text-orange-500 transition-colors"
+                  className="text-gray-400 hover:text-amber-400 transition-colors"
                 >
                   {link.label}
                 </a>
@@ -142,14 +144,14 @@ const ServiceFooter = () => {
 
         {/* Social Links */}
         <div className="w-full md:w-1/3 md:pl-10 md:p-0 p-5 border border-gray-500 rounded-md md:border-0 md:rounded-none md:border-transparent">
-          <h3 className="text-orange-500 font-semibold mb-4">Social</h3>
+          <h3 className="text-[#1d80bb] font-semibold border-b border-gray-500 w-min mb-4">Social</h3>
           <ul className="space-y-2">
             {Object.entries(socialLinks).map(([key, value]) => (
               <li key={key}>
                 <a
                   href={value}
                   rel="noopener noreferrer"
-                  className="text-gray-400 hover:text-orange-500 transition-colors"
+                  className="text-gray-400 hover:text-amber-400 transition-colors"
                 >
                   {key.charAt(0).toUpperCase() + key.slice(1)}
                 </a>
@@ -157,12 +159,13 @@ const ServiceFooter = () => {
             ))}
           </ul>
         </div>
-
       </div>
 
       {/* Bottom Bar */}
       <div className="flex flex-col sm:flex-row justify-between items-center border-t border-gray-700 pt-6 pb-8 text-gray-400 text-sm px-4 sm:px-6 lg:px-8 gap-4 text-center">
-        <span>{copyright}, {reserved}</span>
+        <span>
+          {copyright}, {reserved}
+        </span>
       </div>
     </footer>
   );

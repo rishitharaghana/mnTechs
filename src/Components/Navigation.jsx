@@ -11,7 +11,8 @@ const DesktopNavItem = memo(({ item, isScrolledOrWhitePage }) => {
 
   const isActive =
     item.path === location.pathname ||
-    (item.submenu && item.submenu.some((subItem) => subItem.path === location.pathname));
+    (item.submenu &&
+      item.submenu.some((subItem) => subItem.path === location.pathname));
 
   return (
     <div
@@ -33,7 +34,10 @@ const DesktopNavItem = memo(({ item, isScrolledOrWhitePage }) => {
       >
         {item.name}
         {item.submenu && item.submenu.length > 0 && (
-          <span className="w-2 h-2 border-2 border-[#1d80bb] rounded-full" aria-hidden="true"></span>
+          <span
+            className="w-2 h-2 border-2 border-[#1d80bb] rounded-full"
+            aria-hidden="true"
+          ></span>
         )}
       </Link>
 
@@ -129,16 +133,16 @@ const Navigation = () => {
 
   return (
     <nav
-  className={`fixed w-[95%] 2xl:max-w-full xl:max-w-[1536px] mx-auto rounded-lg bg-white shadow-lg z-50 transition-all duration-300 ${
-    scrolled || isWhiteBackgroundPage
-      ? "top-0 left-0 right-0 w-full bg-white rounded-none shadow-md"
-      : "top-5 left-8 right-8"
-  }`}
-  aria-label="Main navigation"
->
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 h-17 flex items-center justify-between">
+      className={`fixed w-[95%] max-w-[1536px] mx-auto rounded-lg bg-white shadow-lg z-50 transition-all duration-300 ${
+        scrolled || isWhiteBackgroundPage
+          ? "top-0 left-0 right-0 w-full bg-white rounded-none shadow-md"
+          : "top-2 sm:top-4 left-0 right-0 w-[95%] max-w-[1536px] mx-auto bg-white shadow-md"
+      }`}
+      aria-label="Main navigation"
+    >
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 h-14 sm:h-17 flex items-center justify-between">
         <Link to="/" className="flex items-center" aria-label="Home">
-          <img src={MntechImage} alt="MN Tech Logo" className="h-10 w-auto" />
+          <img src={MntechImage} alt="MN Tech Logo" className="h-8 sm:h-10 w-[90%] sm:w-auto" />
         </Link>
 
         <div className="hidden lg:flex flex-1 justify-end items-center">
@@ -176,13 +180,13 @@ const Navigation = () => {
       />
 
       <div
-        className={`fixed top-0 right-0 h-full w-80 bg-white/85 rounded-lg shadow-2xl z-50 lg:hidden transform transition-transform duration-300 ease-in-out ${
+        className={`fixed top-0 right-0 h-full w-60 sm:w-80 bg-white/85 rounded-lg shadow-2xl z-50 lg:hidden transform transition-transform duration-300 ease-in-out ${
           mobileMenuOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
         <div className="flex flex-col h-full">
           <div className="flex items-center justify-between p-4 border-b">
-            <img src={MntechImage} alt="MN Tech Logo" className="h-10" />
+            <img src={MntechImage} alt="MN Tech Logo" className="h-10 w-[45%] sm:w-auto" />
             <button
               onClick={toggleMobileMenu}
               className="p-2 rounded-md hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-orange-500"
@@ -201,7 +205,9 @@ const Navigation = () => {
                       onClick={() => toggleSubmenu(item.name)}
                       className={`w-full flex justify-between items-center py-2 px-4 text-left text-base font-medium rounded-lg transition-colors duration-200 ${
                         item.path === location.pathname ||
-                        item.submenu.some((subItem) => subItem.path === location.pathname)
+                        item.submenu.some(
+                          (subItem) => subItem.path === location.pathname
+                        )
                           ? "text-[#1d80bb] bg-orange-50"
                           : "text-gray-800 hover:bg-orange-50 hover:text-[#1d80bb]"
                       }`}
@@ -216,7 +222,9 @@ const Navigation = () => {
                     </button>
                     <div
                       className={`pl-4 transition-all duration-300 overflow-hidden ${
-                        activeSubmenu === item.name ? "max-h-screen opacity-100" : "max-h-0 opacity-0"
+                        activeSubmenu === item.name
+                          ? "max-h-screen opacity-100"
+                          : "max-h-0 opacity-0"
                       }`}
                     >
                       {item.submenu.map((subItem, i) => (
@@ -244,7 +252,9 @@ const Navigation = () => {
                         : "text-gray-800 hover:bg-orange-50 hover:text-[#1d80bb]"
                     }`}
                     onClick={toggleMobileMenu}
-                    aria-current={item.path === location.pathname ? "page" : undefined}
+                    aria-current={
+                      item.path === location.pathname ? "page" : undefined
+                    }
                   >
                     {item.name}
                   </Link>

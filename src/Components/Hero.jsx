@@ -3,7 +3,17 @@ import { Link } from "react-router-dom";
 import YouTube from "react-youtube";
 import ngrokAxiosInstance from "../Hooks/axiosInstance";
 import BackgroundImage from "../assets/images/Hero_background.jpg";
-import { Play, Pause, RefreshCw, Repeat, VolumeX, Volume2, X, Minimize, Maximize } from "lucide-react";
+import {
+  Play,
+  Pause,
+  RefreshCw,
+  Repeat,
+  VolumeX,
+  Volume2,
+  X,
+  Minimize,
+  Maximize,
+} from "lucide-react";
 
 const Hero = () => {
   const [heroData, setHeroData] = useState(null);
@@ -220,14 +230,14 @@ const Hero = () => {
             heroData.background_image || BackgroundImage
           })`,
         }}
-        aria-labelledby="hero-heading" 
-        >
+        aria-labelledby="hero-heading"
+      >
         <div
           className="absolute inset-0"
           style={{
             backgroundImage: `linear-gradient(${gradientConfig.direction}, ${gradientConfig.startColor}, ${gradientConfig.endColor})`,
-        }}>
-        </div>
+          }}
+        ></div>
 
         <div className="relative top-9 z-10 container mx-auto px-4 sm:px-6 lg:px-8 py-18 sm:py-16 lg:py-20 max-w-7xl flex flex-col lg:flex-row items-center justify-between">
           {/* Content Container */}
@@ -314,13 +324,13 @@ const Hero = () => {
                 </div>
               </button>
             ) : (
-              <div className="relative w-full max-w-md animate-video-open glass-effect">
+              <div className="relative w-full max-w-md rounded-lg animate-video-open glass-effect">
                 <YouTube
                   videoId={videoId}
                   opts={videoOptions}
                   onReady={onReady}
                   onError={onError}
-                  className="w-full aspect-video rounded-md overflow-hidden"
+                  className="w-full aspect-video rounded-t-lg overflow-hidden"
                 />
                 <div className="w-full bg-black/10 rounded-b-lg bg-opacity-75 p-2">
                   <div className="w-full mb-2">
@@ -365,7 +375,9 @@ const Hero = () => {
                       className={`w-9 h-9 p-1 flex items-center justify-center rounded-full bg-white/10 bg-opacity-10 hover:bg-[#fbaf43] transition-all duration-300 ${
                         isAutoPlay ? "border border-[#fbaf43]" : ""
                       }`}
-                      aria-label={isAutoPlay ? "Disable autoplay" : "Enable autoplay"}
+                      aria-label={
+                        isAutoPlay ? "Disable autoplay" : "Enable autoplay"
+                      }
                     >
                       <Repeat className="w-5 h-5 text-white" />
                     </button>
@@ -394,7 +406,9 @@ const Hero = () => {
                       className={`w-9 h-9 p-1 flex items-center justify-center rounded-full bg-black/10 bg-opacity-10 hover:bg-[#fbaf43] transition-all duration-300 ${
                         isFullScreen ? "border border-[#fbaf43]" : ""
                       }`}
-                      aria-label={isFullScreen ? "Exit fullscreen" : "Enter fullscreen"}
+                      aria-label={
+                        isFullScreen ? "Exit fullscreen" : "Enter fullscreen"
+                      }
                     >
                       <Maximize className="w-5 h-5 text-white" />
                     </button>

@@ -62,30 +62,30 @@ const ServiceFooter = () => {
 
   return (
     <footer className="bg-gray-900 text-white">
-      <div className="w-full py-12 px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row flex-wrap items-center justify-between gap-5">
-        <div className="w-full md:w-1/2 lg:w-2/5 text-center md:text-left">
-          <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4 text-white">
+      <div className="w-full py-12 px-4 sm:px-6 lg:px-8 items-center grid grid-cols-1 sm:grid-cols-2">
+        <div className="w-full md:text-left">
+          <h2 className="text-xl md:text-2xl text-center sm:text-left mb-5 sm:mb-0 font-bold text-white">
             ● {joinHeading}
           </h2>
           {/* <p className="text-gray-400 text-sm sm:text-base">
               {joinDescription}
             </p> */}
         </div>
-        <div>
+        <div className="flex justify-end">
           <form
             onSubmit={handleSubscribe}
-            className="w-full flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-2"
+            className="lg:w-[80%] md:w-[100%] w-full sm:gap-0 gap-6 flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-2"
           >
             <input
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="Your email address"
-              className="w-100 px-4 h-10 py-2 text-gray-900 m-0 bg-white border border-gray-300 rounded-l-lg focus:ring-2 focus:ring-amber-400 focus:border-transparent placeholder-gray-500 text-sm"
+              className="w-full px-4 h-10 py-2 text-gray-900 m-0 bg-white border border-gray-300 sm:rounded-l-lg focus:ring-2 focus:ring-amber-400 focus:border-transparent placeholder-gray-500 text-sm"
             />
             <button
               type="submit"
-              className="w-full sm:w-auto py-2 h-10 px-5 bg-gradient-to-r from-[#1d80bb] to-[#5a5a5c] hover:bg-[#5a5a5c] border-l-2 border-l-black rounded-r-lg text-gray-900 font-medium text-sm transition-colors"
+              className="md:w-[200px] sm:w-[220px] w-full py-2 h-10 md:px-3 sm:px-1 px-5 bg-gradient-to-r from-[#1d80bb] to-[#5a5a5c] hover:bg-[#5a5a5c] sm:rounded-r-lg text-white font-medium text-sm transition-colors"
             >
               Subscribe Now
             </button>
@@ -94,7 +94,7 @@ const ServiceFooter = () => {
       </div>
 
       <div className="w-full py-12 md:pt-10 pt-0 px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between md:gap-10 gap-6 md:text-left">
-        <div className="w-full md:w-1/3 md:pl-10 md:p-0 p-5 border border-gray-500 rounded-md md:border-0 md:rounded-none md:border-transparent">
+        <div className="w-full md:w-1/3 md:pl-10">
           <div className="flex items-start justify-center md:justify-start mb-8">
             <a href="/" aria-label="Home">
               <img
@@ -126,8 +126,8 @@ const ServiceFooter = () => {
         </div>
 
         {/* Page Links */}
-        <div className="w-full md:text-center text-left md:w-1/3 md:pl-10 md:p-0 p-5 border border-gray-500 rounded-md md:border-0 md:rounded-none md:border-transparent">
-          <h3 className="text-[#1d80bb] font-semibold border-b border-gray-500 mx-auto w-min mb-4">Links</h3>
+        <div className="w-full md:text-center sm:text-left text-center md:w-1/3 md:pl-10 ">
+          <h3 className="text-[#1d80bb] mx-auto sm:mx-0 font-semibold border-b border-gray-500 w-min mb-4">Links</h3>
           <ul className="space-y-2">
             {links.map((link, i) => (
               <li key={i}>
@@ -143,9 +143,9 @@ const ServiceFooter = () => {
         </div>
 
         {/* Social Links */}
-        <div className="w-full md:w-1/3 md:pl-10 md:p-0 p-5 border border-gray-500 rounded-md md:border-0 md:rounded-none md:border-transparent">
-          <h3 className="text-[#1d80bb] font-semibold border-b border-gray-500 w-min mb-4">Social</h3>
-          <ul className="space-y-2">
+        <div className="w-full md:w-1/3 md:pl-10 md:p-0 text-center">
+          <h3 className="text-[#1d80bb] font-semibold border-b border-gray-500 w-min mx-auto sm:mx-0 mb-4">Social</h3>
+          <ul className="space-y-2 sm:text-left text-center">
             {Object.entries(socialLinks).map(([key, value]) => (
               <li key={key}>
                 <a

@@ -50,7 +50,7 @@ const SaasApplications = () => {
   }, []);
 
   return (
-    <section className="relative py-20 bg-black/90 overflow-hidden">
+    <section className="relative sm:py-20 py-10 bg-black/90 overflow-hidden">
       <div className="absolute top-0 left-0 w-[220px] h-[140px] opacity-20 hidden sm:block">
         <svg viewBox="0 0 200 200" className="w-full h-full">
           <g stroke="#1d80bb" strokeWidth="2" fill="none">
@@ -67,7 +67,7 @@ const SaasApplications = () => {
       <div className="absolute top-0 right-0 w-96 h-96 bg-[#1d80bb] rounded-full opacity-30 -translate-y-48 translate-x-48"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-        <div className="text-center mb-16">
+        <div className="text-center sm:mb-16 mb-12">
           <div className="flex items-center justify-center mb-5">
             <span className="text-[#1d80bb] text-xl font-medium">
               {data.sectionTitle}
@@ -89,7 +89,7 @@ const SaasApplications = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 sm:gap-10 gap-5 sm:mb-20 mb-10">
           {data.services.map((service, index) => {
             const Icon = ICON_MAP[service.icon] || Users;
             return (

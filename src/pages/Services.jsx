@@ -103,7 +103,7 @@ const Services = () => {
           ))}
         </div>
 
-        <div className="flex flex-col sm:flex-row items-center justify-between mt-8 sm:mt-12 px-2">
+        <div className="flex flex-col sm:flex-row items-center justify-end mt-6 sm:mt-10 px-2">
           <button
             onClick={() => navigate(callToAction?.buttonLink || "/contact")}
             className="border-2 border-[#1d80bb] text-black cursor-pointer font-medium py-2 px-6 sm:px-8 rounded-full hover:bg-[#1d80bb] hover:text-white transition-all duration-300"
@@ -113,20 +113,7 @@ const Services = () => {
         </div>
       </div>
 
-      <div className="flex items-center mt-6 sm:mt-12">
-        <div className="w-4 sm:w-8 h-1 bg-[#1d80bb]"></div>
-        <div className="flex-1 border-t border-gray-200 mx-2 sm:mx-4"></div>
-        <div className="w-4 sm:w-8 h-1 bg-[#1d80bb]"></div>
-      </div>
-
       <Safegaurd />
-      <div className="py-12 sm:py-16 bg-white text-center">
-        <div className="flex items-center mt-6 sm:mt-12 px-4 md:px-20">
-          <div className="w-4 sm:w-8 h-1 bg-[#1d80bb]"></div>
-          <div className="flex-1 border-t border-gray-200 mx-2 sm:mx-4"></div>
-          <div className="w-4 sm:w-8 h-1 bg-[#1d80bb]"></div>
-        </div>
-      </div>
       <SaasApplications />
       <ServiceFooter />
     </div>

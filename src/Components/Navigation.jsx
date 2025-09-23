@@ -133,10 +133,10 @@ const Navigation = () => {
 
   return (
     <nav
-      className={`fixed w-[95%] max-w-[1536px] mx-auto rounded-lg bg-white shadow-lg z-50 transition-all duration-300 ${
+      className={`fixed w-[95%] 2xl:max-w-screen xl:max-w-[1536px] mx-auto rounded-lg bg-white shadow-lg z-50 transition-all duration-300 ${
         scrolled || isWhiteBackgroundPage
           ? "top-0 left-0 right-0 w-full bg-white rounded-none shadow-md"
-          : "top-2 sm:top-4 left-0 right-0 w-[95%] max-w-[1536px] mx-auto bg-white shadow-md"
+          : "top-2 sm:top-4 left-0 right-0 w-[95%] 2xl:max-w-screen xl:max-w-[1536px] mx-auto bg-white shadow-md"
       }`}
       aria-label="Main navigation"
     >

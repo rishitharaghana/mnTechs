@@ -300,6 +300,7 @@ const Hero = () => {
           </div>
 
           {/* Video Button and Player */}
+          <div className="hidden">
           <div className="hidden relative w-full md:flex justify-center max-w-md mt-8 lg:mt-0">
             {!isVideoOpen ? (
               <button
@@ -423,6 +424,7 @@ const Hero = () => {
                 </div>
               </div>
             )}
+          </div>
           </div>
         </div>
 

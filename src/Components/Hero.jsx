@@ -244,7 +244,7 @@ const Hero = () => {
           <div className="w-full max-w-3xl mx-auto xl:max-w-3xl lg:w-[60%] lg:mx-0 rounded-xl p-2 sm:p-8 lg:p-10 lg:pl-0 xl:pl-5 animate-fade-in">
             <p className="text-white text-sm sm:text-xl font-semibold mb-4 sm:mb-6 tracking-tight">
               {heroData.intro_heading}{" "}
-              <span className="text-[#fbaf43] font-bold">
+              <span className="bg-clip-text bg-gradient-to-r from-[#1d80bb] to-[#5a5a5c] font-bold">
                 {heroData.intro_highlight}
               </span>
             </p>
@@ -258,7 +258,7 @@ const Hero = () => {
               <span className="block lg:text-5xl text-white font-serif font-semibold mb-3">
                 {heroData.subheading}
               </span>
-              <span className="block text-lg sm:text-xl lg:text-2xl text-[#fbaf43] font-medium mt-2">
+              <span className="inline-block text-transparent text-lg sm:text-2xl lg:text-3xl bg-clip-text bg-gradient-to-r from-[#1d80bb] to-[#ffffff] font-medium mt-2 ">
                 {heroData.description}
               </span>
             </h1>

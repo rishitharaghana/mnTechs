@@ -92,10 +92,10 @@ const SkillBar = ({ skill }) => (
     <div className="relative">
       <div className="sm:w-full h-2 bg-gray-200 rounded-full overflow-hidden">
         <div
-          className="h-full bg-[#1d80bb] rounded-full transition-all duration-1000 ease-out relative"
+          className="h-full bg-gradient-to-r from-[#1d80bb] to-[#5a5a5c] rounded-full border border-[#1d80bb] transition-all duration-1000 ease-out relative"
           style={{ width: `${skill.percentage}%` }}
         >
-          <div className="absolute right-0 top-1/2 transform translate-x-1/2 -translate-y-1/2 w-4 h-4 bg-[#1d80bb] rounded-full shadow-lg border-2 border-white"></div>
+          <div className="absolute right-0 top-1/2 transform translate-x-1/2 -translate-y-1/2 w-4 h-4 bg-gradient-to-r from-[#1d80bb] to-[#fff] rounded-full shadow-lg border-2 border-white"></div>
         </div>
       </div>
       {/* <div className="w-[20%] flex justify-end mt-2">

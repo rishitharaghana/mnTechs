@@ -127,7 +127,7 @@ const ServiceFooter = () => {
 
         {/* Page Links */}
         <div className="w-full md:text-center sm:text-left text-center md:w-1/3 md:pl-10 ">
-          <h3 className="text-[#1d80bb] mx-auto sm:mx-0 font-semibold border-b border-gray-500 w-min mb-4">Links</h3>
+          <h3 className="text-[#1d80bb] md:mx-auto sm:mx-0 mx-auto font-semibold border-b border-gray-500 w-min mb-4">Links</h3>
           <ul className="space-y-2">
             {links.map((link, i) => (
               <li key={i}>

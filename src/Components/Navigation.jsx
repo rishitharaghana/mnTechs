@@ -1,29 +1,43 @@
-import React, { useEffect, useState, memo } from "react";
+import React, { useEffect, useState, memo, useRef } from "react";
 import { Menu, X, ChevronDown, ChevronUp } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import MntechImage from "../assets/images/mntech.png";
-import useDropdown from "../Hooks/useDropdown";
 import ngrokAxiosInstance from "../Hooks/axiosInstance";
 
 const DesktopNavItem = memo(({ item, isScrolledOrWhitePage }) => {
-  const { isOpen, setIsOpen, ref } = useDropdown();
   const location = useLocation();
+  const [isOpen, setIsOpen] = useState(false);
+  const timeoutRef = useRef(null);
 
   const isActive =
     item.path === location.pathname ||
     (item.submenu &&
       item.submenu.some((subItem) => subItem.path === location.pathname));
 
+  const handleMouseEnter = () => {
+    clearTimeout(timeoutRef.current);
+    setIsOpen(true);
+  };
+
+  const handleMouseLeave = () => {
+    timeoutRef.current = setTimeout(() => {
+      setIsOpen(false);
+    }, 200); // delay before closing
+  };
+
+  useEffect(() => {
+    return () => clearTimeout(timeoutRef.current);
+  }, []);
+
   return (
     <div
-      ref={ref}
       className="relative"
-      onMouseEnter={() => setIsOpen(true)}
-      onMouseLeave={() => setIsOpen(false)}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
     >
       <Link
         to={item.path}
-        className={`flex items-center gap-2 px-4 py-2 text-base font-medium transition-colors duration-300 ${
+        className={`flex items-center gap-2 px-4 py-2 text-md font-semibold transition-colors duration-300 ${
           isActive
             ? "text-[#1d80bb]"
             : isScrolledOrWhitePage
@@ -49,7 +63,7 @@ const DesktopNavItem = memo(({ item, isScrolledOrWhitePage }) => {
               to={subItem.path}
               className={`block px-4 py-2 text-sm font-medium transition-colors duration-200 ${
                 subItem.path === location.pathname
-                  ? "text-[#1d80bb] bg-orange[#1d80bb]/10"
+                  ? "text-[#1d80bb] bg-orange-50"
                   : "text-gray-700 hover:bg-orange-50 hover:text-[#1d80bb]"
               }`}
               onClick={() => setIsOpen(false)}
@@ -106,7 +120,7 @@ const Navigation = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 20); // Update scrolled state based on scroll position
+      setScrolled(window.scrollY > 20);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
@@ -144,9 +158,14 @@ const Navigation = () => {
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 h-14 sm:h-17 flex items-center justify-between">
         <Link to="/" className="flex items-center" aria-label="Home">
-          <img src={MntechImage} alt="MN Tech Logo" className="h-8 sm:h-10 w-[90%] sm:w-auto" />
+          <img
+            src={MntechImage}
+            alt="MN Tech Logo"
+            className="h-8 sm:h-10 w-[90%] sm:w-auto"
+          />
         </Link>
 
+        {/* Desktop Menu */}
         <div className="hidden lg:flex flex-1 justify-end items-center">
           <div className="flex items-center justify-end gap-8">
             {navItems.map((item) => (
@@ -159,6 +178,7 @@ const Navigation = () => {
           </div>
         </div>
 
+        {/* Mobile Toggle Button */}
         <button
           onClick={toggleMobileMenu}
           className="lg:hidden p-2 rounded-md hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-[#1d80bb]"
@@ -173,6 +193,7 @@ const Navigation = () => {
         </button>
       </div>
 
+      {/* Mobile Menu Overlay */}
       <div
         className={`fixed inset-0 bg-black/85 z-40 lg:hidden transition-opacity duration-300 ${
           mobileMenuOpen ? "opacity-100" : "opacity-0 pointer-events-none"
@@ -181,6 +202,7 @@ const Navigation = () => {
         aria-hidden="true"
       />
 
+      {/* Mobile Sidebar */}
       <div
         className={`fixed top-0 right-0 h-full w-60 sm:w-80 bg-white/85 rounded-lg shadow-2xl z-50 lg:hidden transform transition-transform duration-300 ease-in-out ${
           mobileMenuOpen ? "translate-x-0" : "translate-x-full"
@@ -188,7 +210,11 @@ const Navigation = () => {
       >
         <div className="flex flex-col h-full">
           <div className="flex items-center justify-between p-4 border-b">
-            <img src={MntechImage} alt="MN Tech Logo" className="h-10 w-[45%] sm:w-auto" />
+            <img
+              src={MntechImage}
+              alt="MN Tech Logo"
+              className="h-10 w-[45%] sm:w-auto"
+            />
             <button
               onClick={toggleMobileMenu}
               className="p-2 rounded-md hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-orange-500"

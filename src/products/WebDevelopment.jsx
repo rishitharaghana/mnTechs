@@ -5,17 +5,17 @@ import SaasApplications from '../Services/SaasApplications';
 import ServiceFooter from '../Services/ServiceFooter';
 import MetaPage from '../pages/MetaPage';
 
-const Products = () => {
+const WebDevelopment = () => {
   return (
     <div>
       <Navigation />
       <BreadCrumb 
-        title="Our Products"   
-        paragraph={`Explore Smart Solutions for Every Need. Power-packed products tailored to transform.`} 
+        title="Web Development" 
+        paragraph={`Add Paragraph`} 
       />
       <MetaPage 
-        title="MN Techs | Innovative Software Products in Hyderabad"
-        description="Discover MN Techs software products in Hyderabad: AI agents, CRM, billing systems, HRMS, payroll, education & hospital management solutions"
+        title="Best Web & Software Development Company Hyderabad | MN Techs"
+        description="MN Techs professional web development services in Hyd. delivering responsive websites, web apps, and custom online solutions for businesses"
       />
       <SaasApplications />
       <ServiceFooter />
@@ -23,4 +23,4 @@ const Products = () => {
   );
 };
 
-export default Products;
+export default WebDevelopment;

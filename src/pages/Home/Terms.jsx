@@ -82,7 +82,8 @@ const Terms = () => {
 
           <p className="mb-6 text-base sm:text-lg   text-gray-500">
             In terms of the Service Provider's responsibility for your use of the Services, it is important to note that while they strive to ensure that they are updated and accurate at all times, they do rely on third parties to provide information to them so that they can make it available to you. The Service Provider accepts no liability for any loss, direct or indirect, that you experience as a result of relying entirely on this functionality of the Services.
-          </p>
+          </p>import CustomizedSoftware from './../../products/CustomizedSoftware';
+
 
           <p className="mb-6 text-base sm:text-lg  text-gray-500">
             The Service Provider may wish to update the Services at some point. The Services are currently available as per the requirements for supported browsers and devices, which may change, and you will need to ensure your device and browser meet these requirements to continue using the Services. The Service Provider does not guarantee that it will always update the Services so that they are relevant to you and/or compatible with the particular browser or device you are using. However, you agree to always accept updates to the Services when offered to you. The Service Provider may also wish to cease providing the Services and may terminate their use at any time without providing termination notice to you. Unless they inform you otherwise, upon any termination, (a) the rights and licenses granted to you in these terms will end; (b) you must cease using the Services.
@@ -106,6 +107,8 @@ const Terms = () => {
             <li><strong>Payroll Management System</strong>: Tools to manage employee salaries, deductions, taxes, and compliance with labor laws.</li>
             <li><strong>Customer Relationship Management (CRM)</strong>: Software to manage customer interactions, sales pipelines, and marketing campaigns.</li>
             <li><strong>Human Resource Management System (HRMS)</strong>: Comprehensive tools for employee management, recruitment, performance tracking, and HR compliance.</li>
+            <li><strong>Web Development</strong>: Solutions for building and maintaining websites and web applications.</li>
+            <li><strong>Customized Software</strong>: Customized software solutions to meet specific business needs.</li>
           </ul>
 
           <h2 className="text-xl sm:text-2xl font-bold mb-4 ">3. User Responsibilities</h2>

@@ -14,6 +14,8 @@ import EducationManagement from "./products/EducationManagement";
 import HospitalManagement from "./products/HospitalManagement";
 import HRMS from "./products/HRMS";
 import PayrollManagement from "./products/PayrollManagement";
+import WebDevelopment from "./products/WebDevelopment";
+import CustomizedSoftware from "./products/CustomizedSoftware";
 import AIAgent from "./products/AIAgent";
 import About from "./pages/About";
 import Team from "./pages/Team";
@@ -33,16 +35,17 @@ const App = () => (
       <Route path = '/portfolio' element = {<Portfolio/>}/>
       <Route path="/services" element={<Services />} />
       <Route path="/products" element={<Products />} />
-
-        <Route path="/products/ai-agent" element={<AIAgent />} />
-        <Route path="/products/app-development" element={<AppDevelopment />} />
-        <Route path="/products/billing-system" element={<BillingSystems />} />
-        <Route path="/products/crm" element={<CRM />} />
-        <Route path="/products/e-commerce" element={<ECommerce />} />
-        <Route path="/products/education-management" element={<EducationManagement />} />
-        <Route path="/products/hospital-management" element={<HospitalManagement />} />
-        <Route path="/products/hrms" element={<HRMS />} />
-        <Route path="/products/payroll-management" element={<PayrollManagement />} />
+        <Route path="/products/best-ai-agent-development-company-in-hyderabad" element={<AIAgent />} />
+        <Route path="/products/best-mobile-app-development-company-in-hyderabad" element={<AppDevelopment />} />
+        <Route path="/products/best-web-and-software-development-company-hyderabad" element={<WebDevelopment />} />
+        <Route path="/products/best-custom-software-development-company-in-hyderabad" element={<CustomizedSoftware/>} />
+        <Route path="/products/best-billing-system-development-company-in-hyderabad" element={<BillingSystems />} />
+        <Route path="/products/best-custom-crm-software-development-company-in-hyderabad" element={<CRM />} />
+        <Route path="/products/best-ecommerce-website-app-development-company-in-hyderabad" element={<ECommerce />} />
+        <Route path="/products/best-education-management-system-development-company-in-hyderabad" element={<EducationManagement />} />
+        <Route path="/products/best-hospital-management-system-development-company-in-hyderabad" element={<HospitalManagement />} />
+        <Route path="/products/hr-management-software-development-company-in-hyderabad" element={<HRMS />} />
+        <Route path="/products/best-payroll-management-software-development-company-in-hyderabad" element={<PayrollManagement />} />
       <Route path="/terms" element={<Terms/>}/>
       <Route path="/privacy" element={<Privacy/>}/>
       <Route path="/about" element={<About/>} />

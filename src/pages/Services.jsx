@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { CiCloud } from "react-icons/ci";
-import { useNavigate } from "react-router-dom";
+import { Meta, useNavigate } from "react-router-dom";
 import Navigation from "../Components/Navigation";
 import Safegaurd from "../Services/Safegaurd";
 import SaasApplications from "../Services/SaasApplications";
 import ServiceFooter from "../Services/ServiceFooter";
 import BreadCrumb from "./BreadCrumb";
 import ngrokAxiosInstance from "../Hooks/axiosInstance";
+import MetaPage from "../pages/MetaPage";
 
 const Services = () => {
   const navigate = useNavigate();
@@ -37,7 +38,11 @@ const Services = () => {
     <div>
       <BreadCrumb
         title="Services"
-        paragraph="Driven by Consistency, Commitment, and Customer Satisfaction – we deliver beyond expectations, every time."
+        paragraph="Driven by Consistency, Commitment, and Customer Satisfaction - we deliver beyond expectations, every time."
+      />
+      <MetaPage
+        title="MN Techs | Custom Software Services in Hyderabad | India"
+        description="Explore MN Tech's services in Hyderabad, including web development, mobile apps, AI solutions, and enterprise software tailored for businesses"
       />
       <Navigation />
 

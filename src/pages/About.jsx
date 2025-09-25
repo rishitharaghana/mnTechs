@@ -6,6 +6,7 @@ import ServiceFooter from "../Services/ServiceFooter";
 import ngrokAxiosInstance from "../Hooks/axiosInstance";
 import { useNavigate } from "react-router-dom";
 import ValuesSection from "../Components/ValueSection";
+import MetaPage from "./MetaPage";
 
 const About = () => {
   const [aboutData, setAboutData] = useState(null);
@@ -43,6 +44,10 @@ const About = () => {
       <BreadCrumb
         title="About Us"
         paragraph="Driven by Consistency, Commitment, and Customer Satisfaction – we deliver beyond expectations, every time."
+      />
+      <MetaPage
+        title="About MN Techs | Leading Software Solutions Company Hyderabad"
+        description="Know about MN Techs, a leading software solutions company in Hyderabad offering custom web, mobile, AI, and enterprise software development"
       />
       <section id="about" className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

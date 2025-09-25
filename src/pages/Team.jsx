@@ -5,6 +5,8 @@ import Navigation from "../Components/Navigation";
 import SaasApplications from "../Services/SaasApplications";
 import ServiceFooter from "../Services/ServiceFooter";
 import ngrokAxiosInstance from "../Hooks/axiosInstance";
+import { Link } from "react-router-dom";
+import MetaPage from "../pages/MetaPage";
 
 const Team = () => {
   const [teamInfo, setTeamInfo] = useState({
@@ -66,6 +68,10 @@ const Team = () => {
       <BreadCrumb
         title="Team"
         paragraph={`Engineering success through teamwork and talent. Your vision, our unified execution.`}
+      />
+      <MetaPage 
+        title="MN Techs Team | Expert Software Developers Hyderabad" 
+        description="Meet the expert team at MN Techs, Hyderabad, specializing in web, mobile, AI, and enterprise software development for businesses of all sizes" 
       />
 
       <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">

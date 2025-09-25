@@ -5,6 +5,7 @@ import Footer from "../Components/Footer";
 import map from "../assets/images/map.png";
 import Form from "../Components/contact/Form";
 import BreadCrumb from "./BreadCrumb";
+import MetaPage from "./MetaPage";
 
 const Contact = () => {
   return (
@@ -12,8 +13,11 @@ const Contact = () => {
       <Navigation className="bg-gray-50" />
       <BreadCrumb
         title="Reach US"
-        paragraph={`Your journey with MNTechs begins here.
-Reach out — the future is just a message away.`}
+        paragraph={`Your journey with MNTechs begins here. Reach out — the future is just a message away.`}
+      />
+      <MetaPage
+        title="Contact MN Techs | Custom Software Solutions Hyderabad"
+        description="Get in touch with MN Techs, Hyderabad. Discuss your custom software development needs including web apps, mobile apps, AI, and enterprise solutions"
       />
 
       <div className="relative py-10 px-4 md:px-20 bg-white">

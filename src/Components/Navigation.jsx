@@ -84,6 +84,8 @@ const Navigation = () => {
     "/products/hospital-management",
     "/products/payroll-management",
     "/products/e-commerce",
+    "/products/best-web-and-software-development-company-hyderabad",
+    "/products/best-custom-software-development-company-in-hyderabad",
     "/terms",
     "/privacy",
     "/careers",

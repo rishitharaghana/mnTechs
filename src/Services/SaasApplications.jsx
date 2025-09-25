@@ -8,6 +8,9 @@ import {
   University,
   Hospital,
   Users,
+  Signal,
+  TrendingUpDown,
+  LifeBuoy,
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import ngrokAxiosInstance from "../Hooks/axiosInstance";
@@ -21,6 +24,7 @@ const ICON_MAP = {
   University,
   Hospital,
   Users,
+  LifeBuoy,
 };
 
 const SaasApplications = () => {

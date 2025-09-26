@@ -63,8 +63,8 @@ const DesktopNavItem = memo(({ item, isScrolledOrWhitePage }) => {
               to={subItem.path}
               className={`block px-4 py-2 text-sm font-medium transition-colors duration-200 ${
                 subItem.path === location.pathname
-                  ? "text-[#1d80bb] bg-orange-50"
-                  : "text-gray-700 hover:bg-orange-50 hover:text-[#1d80bb]"
+                  ? "text-[#1d80bb] bg-gray-200"
+                  : "text-gray-700 hover:bg-gray-200 hover:text-[#1d80bb]"
               }`}
               onClick={() => setIsOpen(false)}
             >
@@ -217,7 +217,7 @@ const Navigation = () => {
             />
             <button
               onClick={toggleMobileMenu}
-              className="p-2 rounded-md hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-orange-500"
+              className="p-2 rounded-md hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-[#1d80bb]"
               aria-label="Close menu"
             >
               <X className="h-6 w-6 text-gray-800" />
@@ -236,8 +236,8 @@ const Navigation = () => {
                         item.submenu.some(
                           (subItem) => subItem.path === location.pathname
                         )
-                          ? "text-[#1d80bb] bg-orange-50"
-                          : "text-gray-800 hover:bg-orange-50 hover:text-[#1d80bb]"
+                          ? "text-[#1d80bb] bg-gray-200"
+                          : "text-gray-800 hover:bg-gray-200 hover:text-[#1d80bb]"
                       }`}
                       aria-expanded={activeSubmenu === item.name}
                     >
@@ -276,8 +276,8 @@ const Navigation = () => {
                     to={item.path}
                     className={`block py-2 px-4 text-base font-medium rounded-lg transition-colors duration-200 ${
                       item.path === location.pathname
-                        ? "text-[#1d80bb] bg-orange-50"
-                        : "text-gray-800 hover:bg-orange-50 hover:text-[#1d80bb]"
+                        ? "text-[#1d80bb] bg-gray-200"
+                        : "text-gray-800 hover:bg-gray-200 hover:text-[#1d80bb]"
                     }`}
                     onClick={toggleMobileMenu}
                     aria-current={
